@@ -5,6 +5,7 @@ import Router from 'vue-router'
 // 首页数量  11
 // 首页搜索
 const Index = r => require.ensure([], () => r(require('../components/index/Index.vue')), "Index");
+
 const Search = r => require.ensure([], () => r(require('../components/index/search/Search.vue')), "Search");
 // 首页登录
 const WxLogin = r => require.ensure([], () => r(require('../components/index/login/WxLogin.vue')), "WxLogin");
