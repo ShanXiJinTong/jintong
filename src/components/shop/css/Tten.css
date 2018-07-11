@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+html , body{
+    width: 100%;
+    height: 100%;
+}
+header{
+    width: 100%;
+    height: 0.88rem;
+    background-color: #f8fcff;
+    padding: 0 0.24rem;
+    margin: 0 auto;
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+}
+header .title .iconfont{
+    font-size: 0.22rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+header .title span{
+    font-size: 0.36rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+
+
+nav{
+    width: 100%;
+    height: 0.97rem;
+    padding: 0.25rem 0.24rem 0.2rem;
+    background-color: #f8fcff;
+    box-shadow: 0 0.2rem 0.43rem rgba(59,172,254,0.1);
+    margin: 0 auto;
+}
+nav .main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+nav .main p{
+    width: 1.33rem;
+    height: 0.52rem;
+    font-size: 0.18rem;
+    color: #41b2fc;
+    text-align: center;
+    line-height: 0.52rem;
+}
+nav .main p.hot{
+    background: #41b2fc;
+    color: #fff;
+    border-radius: 0.26rem;
+    box-shadow: 0 0.05rem 0.12rem rgba(59,172,254,0.4);
+}
+
+.cate{
+    width: 100%;
+    height: 0.9rem;
+    padding: 0 0.24rem;
+    margin: 0 auto;
+}
+.cate .main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.cate .main .cateBox{
+    width: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cate .main .cateBox p{
+    font-size: 0.26rem;;
+    color: #41b2fc;
+    margin-right: 0.1rem;
+}
+.cate .main .cateBox i{
+    font-size: 0.26rem;;
+    color: #41b2fc;
+}
+
+.bag-scroll{
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+}
+.sk-bag-scroll{
+    width: 100%;
+    height: auto;
+}
+.bag-item{
+    width: 100%;
+    padding: 0.16rem 0.24rem;
+    box-sizing: border-box;
+    display: flex;
+}
+.bag-item .sk-bag-photo{
+    width: 1.97rem;
+    height: 1.97rem;
+    border-radius: 0.1rem;
+    margin-right: 0.29rem;
+    box-shadow: 0 0.01rem 0.21rem rgba(223,223,223,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bag-item .sk-bag-photo img{
+    width: 1.2rem;
+    height: 1.45rem;
+}
+.bag-item .sk-bag-content{
+    margin-top: 0.1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.bag-item .sk-bag-content .sk-service-type h3{
+    font-size: 0.3rem;
+    color: #4f5b64;
+    font-weight: normal;
+}
+.bag-item .sk-bag-content .sk-service-desc{
+    margin-top: 0.1rem;
+    width: 100%;
+    height: 0.42rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 0.01rem solid #efefef;
+    box-sizing: border-box;
+}
+.bag-item .sk-bag-content .sk-service-desc p{
+    width: 4.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.2rem;
+    color: #c9cbcc;
+
+}
+.bag-item .sk-estimate_sale_price{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.18rem;
+    margin-top: 0.1rem;
+}
+.bag-item .sk-estimate_sale_price .sk-item{
+    display: flex;
+    align-items: center;
+}
+.sk-item .dot{
+    display: block;
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    background: #41b2fc;
+    box-shadow: 0 0.02rem 0.05rem rgba(68,181,255,0.4);
+    margin-right: 0.07rem;
+}
+.sk-sale .dot{
+    background: #31d094;
+    box-shadow: 0 0.02rem 0.05rem rgba(54,214,129,0.4);
+}
+.sk-item .text{
+    color: #c9cbcc;
+    margin-right: 0.11rem;
+}
+.sk-item .number{
+    color: #41b2fc;
+    font-size: 0.2rem;
+}
+.sk-item .number span{
+    color: #b9e1ff;
+}
+.bag-item .sk-estimate_sale_price .sk-price{
+    color: #fbb548;
+    font-size: 0.26rem;
+}
+.bag-item .sk-service-operator{
+    margin-top: 0.1rem;
+    display: flex;
+}
+.bag-item .sk-service-operator img{
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-right: 0.08rem;
+}
+.bag-item .sk-service-operator span{
+    font-size: 0.2rem;
+}

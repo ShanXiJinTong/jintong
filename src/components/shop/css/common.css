@@ -1,0 +1,17 @@
+*{
+    padding:0;
+    margin: 0;
+    list-style: none;
+    color:#000;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
+input ,textarea ,buttom{
+    boder:none;
+    outline:none;
+}
+body{
+
+}
