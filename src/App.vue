@@ -14,4 +14,10 @@
   #app{
     font-size: 14px;
   }
+  a{
+    text-decoration: none;
+  }
+  *{
+    -webkit-tap-highlight-color: transparent;
+  }
 </style>

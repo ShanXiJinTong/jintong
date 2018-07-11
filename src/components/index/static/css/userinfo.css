@@ -1,0 +1,191 @@
+ul{
+    width:5.18rem;
+    height:auto;
+    margin: 0 auto;
+    margin-top: 2.03rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+li{
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    font-size: 0.3rem;
+}
+.login{
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+}
+.login >p{
+    width: 100%;
+    font-size: 0.32rem;
+    color: rgba(0,0,0,0.6);
+    font-weight: bold;
+}
+.login >.blue{
+    width: 0.91rem;
+    height: 0.06rem;
+    background: rgba(59,172,254,0.8);
+    position: absolute;
+    bottom:-0.05rem;
+    left: 0.8rem;
+}
+
+.three{
+    height: 0.71rem;
+    margin-top: 0.38rem;
+    line-height: 0.71rem;
+    display: flex;
+    align-items: center;
+    border-bottom:  0.02rem solid rgba(0,0,0,0.03);
+}
+.three >img{
+    display: block;
+    width: 0.18rem;
+    height: 0.25rem;
+    box-shadow:0 0 0.16rem 0.01rem #35acff;
+    margin-left: 0.1rem;
+}
+.three >b{
+    font-weight: bold;
+    font-size: 0.22rem;
+    color: #40b1ff;
+    margin:0 0.3rem ;
+}
+.three >input{
+    border: 0;
+    outline: none;
+    background: none;
+    font-size: 0.22rem;
+}
+.four{
+    height: 0.71rem;
+    margin-top: 0.38rem;
+    line-height: 0.71rem;
+    display: flex;
+    align-items: center;
+    border-bottom:  0.02rem solid rgba(0,0,0,0.03);
+}
+.four >.dot{
+     width:0.4rem;
+     height: 0.4rem;
+     background-image: url("../img/icon1.png");
+     background-size: cover;
+     z-index: 100;
+     position: relative;
+ }
+.four >.dot >.dots{
+    width:0.2rem;
+    height: 0.2rem;
+    border-radius: 0.04rem;
+    background:rgba(93,183,255,0.18) ;
+    position: absolute;
+    left:0.15rem;
+    top:0.1rem;
+}
+.four >input{
+    border: 0;
+    outline: none;
+    background: none;
+    font-size: 0.22rem;
+    margin:0 0.2rem ;
+}
+.one{
+    height: 0.71rem;
+    margin-top: 0.38rem;
+    line-height: 0.71rem;
+    display: flex;
+    align-items: center;
+    border-bottom:  0.02rem solid rgba(0,0,0,0.03);
+}
+.one >.icon{
+    width: 0.4rem;
+    height: 0.4rem;
+    background-image: url("../img/my.png");
+    background-size: cover;
+}
+.one >input{
+    border: 0;
+    outline: none;
+    background: none;
+    font-size: 0.22rem;
+    margin:0 0.2rem ;
+}
+.two{
+    height: 0.71rem;
+    margin-top: 0.38rem;
+    line-height: 0.71rem;
+    display: flex;
+    align-items: center;
+    border-bottom:  0.02rem solid rgba(0,0,0,0.03);
+}
+.two >.icon{
+    width: 0.4rem;
+    height: 0.4rem;
+    /*box-shadow:0 0 0.09rem 0.02rem #35acff;*/
+    background-image: url("../img/pos.png");
+    background-size: cover;
+    position: relative;
+}
+.two >.icon >.icons{
+    width: 0.06rem;
+    height: 0.06rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+    position: absolute;
+    top:30%;
+    left: 40%;
+}
+.two >input{
+    border: 0;
+    outline: none;
+    background: none;
+    font-size: 0.22rem;
+    margin:0 0.2rem ;
+}
+
+.bigbox{
+    height: 0.52rem;
+    width: 3.86rem;
+    background:#3bacfe;
+    margin: 0.4rem auto;
+    border-radius: 0.26rem;
+    text-align: center;
+    font-size: 0.22rem;
+    line-height: 0.52rem;
+    color: #FFFFFF;
+    box-shadow:0 0 0.15rem 0.02rem #3bacfe;
+}
+.txt{
+    height: 0.3rem;
+    width: 100%;
+    color: rgba(0,0,0,0.3);
+    position: relative;
+}
+.txt >span{
+    font-size: 0.22rem;
+    position: absolute;
+    top:0;
+    left:0.3rem;
+}
+.round{
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background: #e7f6ff;
+    position: relative;
+}
+.round >.small{
+    width: 0.13rem;
+    height: 0.13rem;
+    border-radius: 50%;
+    background: #7ac2fe;
+    position: absolute;
+    left: 25%;
+    top:25%;
+}
+
+
