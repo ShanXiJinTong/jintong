@@ -260,6 +260,11 @@ export default new Router({
       component: My,
     },
     {
+      path:'/PersonalMessage',
+      name:'PersonalMessage',
+      component: PersonalMessage
+    },
+    {
       path: '/Car',
       name: 'Car',
       component: Car,

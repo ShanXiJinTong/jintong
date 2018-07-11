@@ -1,0 +1,94 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: #f8fcff;
+}
+
+section.cyx-contain{
+    width: 100%;
+    height: auto;
+}
+
+div.cyx-picture{
+    width: 6.81rem;
+    height: 2.24rem;
+    background-image: url("../img/cyx-jinbi/bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto .48rem;
+}
+
+div.cyx-container{
+    width: 6.44rem;
+    height: 3.56rem;
+    padding-top: .85rem;
+    position: relative;
+}
+
+div.cyx-container > .cyx-bg{
+    display: block;
+    position: absolute;
+    top: -.14rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+div.cyx-container > .cyx-jinbi{
+    font-size: 0.26rem;
+    font-weight: bold;
+    line-height: .25rem;
+    letter-spacing: 0.01rem;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 1.73rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.cyx-jinbi > pre{
+    display: flex;
+    align-items: center;
+}
+
+.cyx-jinbi > pre > .cyx-num{
+    height: .33rem;
+    font-size: .46rem;
+    font-weight: bolder;
+    line-height: .33rem;
+    letter-spacing: .02rem;
+    color: #525f67;
+}
+
+section.cyx-contain > .cyx-blank{
+    width: 6.44rem;
+    margin: 0 auto;
+    border-bottom: .02rem solid rgba(0, 0, 0, .04);
+}
+
+section.cyx-contain > .cyx-desc{
+    width: 6.44rem;
+    height: .79rem;
+    margin: 0 auto;
+    border-bottom: 0.02rem solid rgba(0, 0, 0, .04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cyx-desc > .cyx-xiaofei{
+    height: .23rem;
+    font-size: .24rem;
+    font-weight: bolder;
+    line-height: .24rem;
+    letter-spacing: .01rem;
+    color: rgba(0, 0, 0, .5);
+}
+
+.cyx-desc > .cyx-xiaofei:last-child{
+    margin-left: .1rem;
+}

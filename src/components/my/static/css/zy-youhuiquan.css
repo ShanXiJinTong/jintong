@@ -1,0 +1,204 @@
+body,html{
+    width: 100%;
+    height: 100%;
+}
+html{
+    background-color: #f8fcff;
+}
+.container{
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    /*margin-top: .88rem;*/
+}
+header{
+    width: 7.5rem;
+    height: 1.32rem;
+    background-color: #fbfeff;
+    box-shadow: 0 0.03rem 0.43rem 0
+    rgba(41, 167, 255, 0.13);
+}
+section{
+    width: 100%;
+    height: 12rem;
+}
+section .top{
+    width: 100%;
+    height: 1.32rem;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+.top ul{
+    height: 0.52rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.44rem 1.55rem 0.36rem 1.46rem;
+}
+.top ul li{
+    width: 1.33rem;
+    height: 0.52rem;
+    margin-right: 0.25rem;
+    border-radius: 0.26rem;
+    background-color:rgba(59,172,254,0.1);
+    font-size: 0.22rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.008rem;
+    color: #41b2fc;
+    text-align: center;
+    line-height: 0.52rem;
+}
+.top ul li:nth-last-child(1){
+    margin-right: 0rem;
+}
+.top ul li.top-hot{
+    background-color: rgba(59,172,254,1);
+    color: #ffffff;
+    box-shadow: 0rem 0.05rem 0.12rem 0rem
+    rgba(59, 172, 254, 0.43);
+}
+.list{
+   padding-top: 1.4rem;
+    width: 100%;
+}
+.list ul.youhuiquan{
+    width: 100%;
+    height: 100%;
+    padding: 0 0.08rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.list ul.youhuiquan li{
+    width: 6.86rem;
+    height: 1.83rem;
+    background-color: #d7e0e3;
+    border-radius: 0.1rem;
+    padding: 0 0.22rem;
+    box-sizing: border-box;
+    margin-bottom: 0.32rem;
+    color: #c7d7de;
+    font-size: 0.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.008rem;
+}
+.list ul.youhuiquan li.green{
+    background: linear-gradient(90deg,
+    #27d29c 0%,
+    #33e171 100%);
+    box-shadow: 0rem 0.1rem 0.22rem 0rem
+    rgba(46, 219, 129, 0.43);
+    color: #31d094;
+}
+.list ul.youhuiquan li.blue{
+    background: linear-gradient(90deg,
+    #34a2f8 0%,
+    #3fdef1 100%);
+    box-shadow: 0rem 0.1rem 0.22rem 0rem
+    rgba(57, 192, 245, 0.43);
+    color: #41b2fc;
+}
+.list ul.youhuiquan li.yellow{
+    background-image: linear-gradient(90deg,
+    #ffb637 0%,
+    #ffdf47 100%);
+    box-shadow: 0rem 0.1rem 0.22rem 0rem
+    rgba(255, 219, 53, 0.43);
+    color: #fbb548;
+}
+.list ul.youhuiquan li .litop{
+    width: 100%;
+    height: 1.21rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list ul.youhuiquan li .litop .litop-left{
+    width: 3.65rem;
+    height:1.21rem;
+    margin-left: 0.03rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.list ul.youhuiquan li .litop .litop-left .title{
+    margin-bottom: 0.07rem;
+    font-size: 0.3rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.01rem;
+    color: #ffffff;
+}
+.list ul.youhuiquan li .litop .litop-left .tiaojian{
+    font-size: 0.22rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.008rem;
+    color: rgba(251, 254, 255, 0.6);
+}
+.list ul.youhuiquan li .litop .litop-right{
+    height:1.21rem;
+    display: flex;
+    align-items: center;
+}
+.list ul.youhuiquan li .litop .litop-right .price{
+    font-size: 0.94rem;
+    font-weight: bold;
+    font-stretch: normal;
+    color: #fbfeff;
+}
+.list ul.youhuiquan li .litop .litop-right .yuan{
+    font-size: 0.22rem;
+    font-weight: bold;
+    font-stretch: normal;
+    letter-spacing: 0.009rem;
+    color: #fbfeff;
+    margin-bottom: -0.5rem;
+}
+.list ul.youhuiquan li .limid{
+    width: 100%;
+    height: 0.04rem;
+    background-image:url("../img/zy/dian.png") ;
+    background-repeat: no-repeat;
+}
+.list ul.youhuiquan li .libottom{
+    width: 100%;
+    height: 0.58rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*background: red;*/
+}
+.list ul.youhuiquan li .libottom .dot{
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    background-color: #fbfeff;
+    margin-top: 0.05rem;
+}
+.list ul.youhuiquan li .libottom .youxiaoqi{
+    width:4.94rem;
+    height: 0.19rem;
+    font-size: 0.22rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.008rem;
+    color: rgba(251, 254, 255, 0.61);
+    margin-left: 0.07rem;
+}
+.list ul.youhuiquan li .libottom .lijishiyong{
+    width: 1.36rem;
+    height: 0.38rem;
+    background-color: #fefffe;
+    box-shadow: 0rem 0.01rem 0.21rem 0rem
+    rgba(186, 186, 186, 0.2);
+    border-radius: 0.19rem;
+    line-height: 0.38rem;
+    text-align: center;
+}

@@ -1,0 +1,73 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.chongzhiGroup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: .93rem;
+}
+.chongzhiGroup .moneyContent{
+    width: 2.6rem;
+}
+.chongzhiGroup .moneyContent .nxrYuan{
+    background-image: url("../img/nxr-img/nxrYuanjiao2.jpg");
+}
+.chongzhiGroup .moneyContent .moneyText{
+    font-size: .26rem;
+    font-family: MicrosoftYaHei Bold ;
+    color:#4F5B64;
+    width: 1.8rem;
+}
+.chongzhiGroup .moneyText .moneyShu{
+    font-family:  SanFranciscoDisplay Heavy ;
+    color: #32D796 ;
+    font-size: .38rem;
+}
+.nxrWeixin{
+    width: 100%;
+    height: 1.06rem;
+    margin-top: .64rem;
+    padding: 0 .24rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nxrWeixin .nxrLeft{
+    width: 2.48rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nxrWeixin .nxrLeft img{
+    width: 1.06rem;
+    height: 100%;
+}
+.nxrWeixin .nxrLeft span{
+    font-size: .28rem;
+    color:  #47505F ;
+}
+.nxrWeixin .nxrRight {
+    width: .25rem;
+    height: .25rem;
+}
+.nxrWeixin .nxrRight img{
+    display: block;
+    width: .25rem;
+    height: .25rem;
+}
+.weiConfirm{
+    width: 4.54rem;
+    height: .6rem;
+    border-radius: .3rem;
+    background: -webkit-linear-gradient(left,#37DF71 ,#32D698);
+    margin: 4.16rem auto 0 auto;
+    font-size: .2rem;
+    color: #fff;
+    text-align: center;
+    line-height: .6rem;
+    box-shadow: 0rem 0.04rem 0.2rem 0rem rgba(55, 223, 116, 0.75);
+}
