@@ -5,7 +5,7 @@ html, body{
 }
 
 section.cyx-contain{
-    margin-top: 1.2rem;
+    /*margin-top: 1.2rem;*/
     width: 100%;
     height: calc(100% - 3.52rem);
 }
