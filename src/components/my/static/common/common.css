@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: PingFangSC Semibold  ;
+}
+a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+    background: none;
+    text-decoration: none;
+}
+i{
+    font-style: normal;
+}
+input,textarea,button{
+    border: none;
+    outline: none;
+}
+::-webkit-input-placeholder{
+    font-size: .18rem;
+    color:#a19c9c;
+    background:#eee;
+}

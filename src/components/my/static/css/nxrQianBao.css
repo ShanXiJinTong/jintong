@@ -1,0 +1,115 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    background: #fbfeff;
+}
+header{
+    width: 100%;
+    height: 0.88rem;
+    padding: 0 .24rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0.03rem 0.43rem 0 rgba(41, 167, 255, 0.13);
+}
+header .nxrBack{
+    display: flex;
+    align-items: center;
+    width: .25rem;
+    height: 100%;
+}
+header .nxrBack img{
+    display: block;
+    width: .25rem;
+    height: .41rem;
+}
+header .nxrText{
+    height: 100%;
+    font-family:PingFangSC Semibold;
+    letter-spacing: 0.015rem;
+    font-size: .38rem;
+    color: #41b2fc;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+header .kong{
+    width: .25rem;
+    height: .41rem;
+}
+.nxrQianbao{
+    width: 100%;
+    height: 2.4rem;
+    margin-top: .84rem;
+    padding: 0 .24rem;
+    box-sizing: border-box;;
+    background-image: url("../img/nxr-img/nxrBeijin.jpg");
+    background-size: 6.8rem 2.4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.nxrQianbao .nxrPic{
+    width: 1.34rem;
+    height: 1.3rem;
+    margin: 0 auto;
+    background-image: url("../img/nxr-img/nxrQianbao.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.nxrQianbao .moneyGroup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: .62rem;
+}
+.moneyContent {
+    width: 2.6rem;
+    height: auto;
+    display: flex;;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.moneyContent .nxrYuan{
+    width: .18rem;
+    height: .13rem;
+    background-image: url("../img/nxr-img/nxrYuanjiao.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.moneyContent .moneyText{
+    font-size: .3rem;
+    color: #666;
+    width: 1.96rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.moneyContent .moneyShu{
+    font-size: .46rem;
+    color: #525F67;
+    font-family:SanFranciscoDisplay Heavy ;
+    line-height: .4rem;
+    font-weight: bold;
+}
+.hengXian{
+    width: 6.44rem;
+    height: 0.02rem;
+    background: rgba(0,0,0,0.04);
+    margin: .64rem auto 0 auto;
+}
+.nxrConfirm{
+    width: 3.96rem;
+    height: .6rem;
+    border-radius: .3rem;
+    background: -webkit-linear-gradient(left,#37DF71 ,#32D698);
+    margin: .73rem auto 0 auto;
+    font-size: .2rem;
+    color: #fff;
+    text-align: center;
+    line-height: .6rem;
+    box-shadow: 0 0.04rem 0.2rem 0 rgba(55, 223, 116, 0.75);
+}

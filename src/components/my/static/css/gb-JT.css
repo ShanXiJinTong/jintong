@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+header{
+    width: 100%;
+    height: 0.88rem;
+    /*background-color: #f8fcff;*/
+    padding: 0 0.24rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0 0.15rem 0.43rem  0 rgba(41,167,255,0.1);
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .title .gb-back{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .title .iconfont{
+    font-size: 0.4rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+    font-weight: bold;
+}
+header .title span{
+    font-size: 0.36rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+.content{
+    width: 100%;
+    height: 0.78rem;
+    margin-top: 0.15rem;
+    text-align: left;
+    line-height: 0.78rem;
+    color: #41b2fc;
+    padding-left: 0.24rem;
+    font-size: 0.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+.content>img{
+    width: 0.22rem;
+    height: 0.16rem;
+    margin-top: 0.08rem;
+}
+.content span{
+    margin-left: 0.04rem;
+}
+.content b{
+    color: #333;
+}
+.xian{
+    width: auto;
+    height: 0.02rem;
+    margin: 0 0.24rem;
+    background: #eef1f2;
+}
+.middle{
+    width: 100%;
+    height: 2.5rem;
+}
+.middle> .box{
+    width: 1.8rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.middle> .box1{
+    width: 1.8rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.middle> .box2{
+    width: 1.8rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+.middle>.box>a{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle>.box>a>img{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle>.box1>a{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle>.box1>a>img{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle>.box2>a{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle>.box2>a>img{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle> .box>p{
+    font-size: 0.22rem;
+    color: #999;
+}
+.middle>.box1>img{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle> .box1>p{
+    font-size: 0.22rem;
+    color: #999;
+}
+.middle>.box2>img{
+    width:1.38rem;
+    height:1.38rem;
+}
+.middle> .box2>p{
+    font-size: 0.22rem;
+    color: #999;
+}

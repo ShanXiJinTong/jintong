@@ -1,0 +1,123 @@
+.nxrAbout{
+    width: 100%;
+    height: 2.4rem;
+    margin-top: .84rem;
+    padding: 0 .24rem;
+    box-sizing: border-box;;
+    background-image: url("../img/nxr-img/nxrBeijin.jpg");
+    background-size: 6.8rem 2.4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.hengXian{
+    margin: .44rem auto 0 auto;
+}
+.nxrAbout .nxrPic{
+    width: 1.1rem;
+    height: 1.45rem;
+    margin: 0 auto;
+    background-image: url("../img/nxr-img/nxrShuiDI.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.nxrAbout .aboutGroup{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: .44rem;
+}
+.aboutContent {
+    width: 2.6rem;
+    height: auto;
+    display: flex;;
+    justify-content: space-between;
+    align-items: center;
+
+}
+ .nxrYuan{
+    width: .18rem;
+    height: .13rem;
+    background-image: url("../img/nxr-img/nxrYuanjiao.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.aboutContent .aboutText{
+    font-size: .3rem;
+    color: #666;
+    width: 1.96rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nxrContent{
+    width: 100%;
+    max-height: 4rem;
+    margin: .78rem auto 0 auto ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .52rem;
+    box-sizing: border-box;
+}
+.nxrContent p{
+    letter-spacing: 0.01rem;
+    font-size: .26rem;
+    color: #999;
+    line-height: .4rem;
+    margin-bottom: .4rem;
+}
+.hengXian1{
+    width: 6.44rem;
+    height: 0.02rem;
+    background: rgba(0,0,0,0.04);
+    margin: .64rem auto 0 auto;
+}
+.nxrTalWeiXin{
+    width: 6.42rem;
+    margin: .44rem auto 0 auto ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nxrTalWeiXin .left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.nxrTalWeiXin .left .nxrName{
+    font-size: .28rem;
+    letter-spacing: 0.017rem;
+    line-height: .4rem;
+    color: #999;
+    margin-left: .13rem;
+}
+.nxrTalWeiXin .right .rightName{
+    display: flex;
+    font-size: .28rem;
+    letter-spacing: 0.017rem;
+    line-height: .4rem;
+    color: #41b2fc;
+}
+.hengXian2{
+    width: 6.44rem;
+    height: 0.02rem;
+    background: rgba(0,0,0,0.02);
+    margin: .3rem auto 0 auto;
+}
+.nxrTalHeZuo{
+    width: 6.42rem;
+    margin: .3rem auto 0 auto ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nxrTalWeiXin .right .rightNumber{
+    font-size: .3rem;
+    font-family: SanFranciscoDisplay;
+    font-weight: bold;
+    color: #68CE8A;
+}
