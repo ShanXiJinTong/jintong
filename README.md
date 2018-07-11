@@ -2,20 +2,18 @@
 
 > A Vue.js project
 
-## Build Setup
+### 石晓蕾
+> order
 
-``` bash
-# install dependencies
-npm install
+### 高静
+>  shop
 
-# serve with hot reload at localhost:8080
-npm run dev
+### 李星
+>  my
 
-# build for production with minification
-npm run build
+### 马松
+> index
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 代理地址
+> http://fecshop.appserver.fancyecommerce.com
