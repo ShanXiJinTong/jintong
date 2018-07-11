@@ -1,0 +1,365 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color:#f8fcff;
+}
+
+section.cyx-contain{
+    margin-top: 1.2rem;
+    width: 100%;
+    height: calc(100% - 3.52rem);
+}
+
+section.cyx-contain > .cyx-container{
+    height: 100%;
+}
+
+ul.cyx-items{
+    width: 100%;
+    height: auto;
+    padding-top: .16rem;
+    padding-bottom: .11rem;
+    border-bottom: .02rem solid rgba(0, 0, 0, .05);
+}
+
+ul.cyx-items > li.cyx-top{
+    width: 100%;
+    height: .7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.cyx-items > li.cyx-shop{
+    width: 100%;
+}
+
+ul.cyx-items > li.cyx-bottom{
+    width: 100%;
+    height: .72rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.cyx-top > .cyx-left{
+    display: flex;
+    align-items: center;
+    margin-left: -.1rem;
+}
+
+.cyx-left > .cyx-choose{
+
+    width: .6rem;
+    height: .5rem;
+    background-image: url("../img/cyx-gouwuche/items.png");
+    background-position: -.54rem center;
+    background-repeat: no-repeat;
+    margin-top: .1rem;
+}
+
+.cyx-left > .cyx-title{
+    height: .24rem;
+    font-size: .24rem;
+    font-weight: bold;
+    line-height: .24rem;
+    letter-spacing: .01rem;
+    color: #3bacfe;
+}
+
+.cyx-left > .cyx-next{
+    width: .1rem;
+    height: .17rem;
+    margin-left: .13rem;
+}
+
+li.cyx-top > .cyx-delete{
+    width: .3rem;
+    height: .33rem;
+    margin-right: 0.01rem;
+    float: right;
+}
+
+li.cyx-bottom > .cyx-left{
+    width: auto;
+    height: 100%;
+    margin-left: .55rem;
+    display: flex;
+    align-items: center;
+}
+
+.cyx-left > .cyx-totalPrice{
+    height: .23rem;
+    font-size: .24rem;
+    font-weight: bold;
+    line-height: .23rem;
+    letter-spacing: .13rem;
+    color: rgba(59, 172, 254, 0.6);
+}
+
+.cyx-left > .cyx-mao{
+    width: .05rem;
+    height: .13rem;
+    font-size: .24rem;
+    font-weight: bold;
+    line-height: .1rem;
+    color: rgba(54, 168, 254, 0.6);
+    margin-left: -.1rem;
+}
+
+.cyx-left > .cyx-num{
+    width: .69rem;
+    height: .22rem;
+    font-size: .3rem;
+    font-weight: bold;
+    line-height: .22rem;
+    color: #36a8fe;
+}
+
+li.cyx-bottom > .cyx-btn{
+    display: block;
+    border: none;
+    outline: none;
+
+    width: 1.44rem;
+    height: .44rem;
+    background-color: #3bacfe;
+    box-shadow: 0 .05rem .12rem 0 rgba(59, 172, 254, .43);
+    border-radius: .22rem;
+
+    font-size: .2rem;
+    font-weight: bold;
+    line-height: .19rem;
+    color: #ffffff;
+}
+
+ul.cyx-items > li.cyx-shop{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.cyx-shop > .cyx-left{
+    height: 1.74rem;
+    display: flex;
+    align-items: center;
+    margin-left: -.1rem;
+}
+
+.cyx-left > .cyx-choose.hot{
+    background-position: -.06rem center;
+}
+
+.cyx-left > .cyx-picture{
+    width: 1.74rem;
+    height: 1.74rem;
+    background-color: #ffffff;
+    box-shadow: 0 .01rem .21rem 0 rgba(223, 223, 223, .43);
+    border-radius: .1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cyx-left > .cyx-desc{
+    width: auto;
+    height: .76rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: .24rem;
+}
+
+.cyx-desc > .cyx-name{
+    height: .28rem;
+    font-size: .3rem;
+    font-weight: bold;
+    line-height: .28rem;
+    letter-spacing: .01rem;
+    color: rgba(0, 0, 0, .6);
+}
+
+.cyx-desc > .cyx-price{
+    width: .51rem;
+    height: .18rem;
+    font-size: .26rem;
+    font-weight: bold;
+    line-height: .18rem;
+    color: rgba(142, 147, 151, .8);
+}
+
+li.cyx-shop > .cyx-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cyx-right > .cyx-sub{
+    margin-top: -.05rem;
+}
+
+.cyx-right > .cyx-number{
+    width: .23rem;
+    height: .18rem;
+    font-size: .26rem;
+    font-weight: bold;
+    line-height: .18rem;
+    color: #36a8fe;
+    margin: -.05rem .19rem 0;
+}
+
+footer.cyx-footer{
+    width: 100%;
+    height: 2.32rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.cyx-container > .cyx-top{
+    width: 100%;
+    height: 1.24rem;
+    display: flex;
+    align-items: center;
+    background-color:#f8fcff;
+}
+
+.cyx-top > .cyx-choose{
+    display: inline-block;
+    width: .5rem;
+    height: .5rem;
+    background-image: url("../img/cyx-gouwuche/items.png");
+    background-position: -.64rem 0;
+    background-repeat: no-repeat;
+}
+
+.cyx-top > .cyx-choose.hot{
+    background-position: -.16rem 0;
+}
+
+.cyx-top > .cyx-title{
+    height: .23rem;
+    font-size: .24rem;
+    font-weight: bold;
+    line-height: .23rem;
+    letter-spacing: 0.01rem;
+    color: #3bacfe;
+}
+
+.cyx-container > .cyx-bottom{
+    width: 100%;
+    height: 1.08rem;
+    background-color: #f1faff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cyx-bottom > .cyx-leftBox{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    padding: .23rem 0 .22rem;
+    box-sizing: border-box;
+}
+
+.cyx-leftBox > .cyx-allPrice{
+    display: flex;
+    align-items: center;
+}
+
+.cyx-allPrice > .cyx-ap{
+    width: .1rem;
+    height: .1rem;
+    margin-right: .1rem;
+}
+
+.cyx-allPrice > .cyx-heji{
+    height: .23rem;
+    font-size: .24rem;
+    font-weight: bold;
+    line-height: .23rem;
+    letter-spacing: .13rem;
+    color: rgba(59, 172, 254, .6);
+}
+
+.cyx-allPrice > .cyx-mao{
+    height: .13rem;
+    font-size: .24rem;
+    font-weight: normal;
+    line-height: .2rem;
+    color: rgba(54, 168, 254, .6);
+    margin-left: -.1rem;
+}
+
+.cyx-allPrice > .cyx-num{
+    height: .26rem;
+    font-size: .36rem;
+    font-weight: normal;
+    line-height: .26rem;
+    color: #36a8fe;
+}
+
+.cyx-leftBox > .cyx-extraPrice{
+    display: flex;
+    align-items: center;
+}
+
+.cyx-extraPrice > .cyx-ep{
+    width: .1rem;
+    height: .1rem;
+    margin-right: .1rem;
+}
+
+.cyx-extraPrice > .cyx-yunfei{
+    height: .19rem;
+    font-size: .2rem;
+    font-weight: bold;
+    line-height: .19rem;
+    letter-spacing: .01rem;
+    color: rgba(59, 172, 254, .6);
+}
+
+.cyx-extraPrice > .cyx-youhui{
+    height: .19rem;
+    font-size: .2rem;
+    font-weight: bold;
+    line-height: .19rem;
+    letter-spacing: .01rem;
+    color: rgba(59, 172, 254, .6);
+    margin-left: .25rem;
+}
+
+.cyx-bottom > .cyx-pay{
+    display: block;
+    border: none;
+    outline: none;
+
+    width: 3.8rem;
+    height: .6rem;
+    background-image: linear-gradient(90deg,
+    #37e06f 0%,
+    #32d69a 100%),
+    linear-gradient(
+            #3bacfe,
+            #3bacfe);
+    box-shadow: 0 .04rem .2rem 0 rgba(55, 223, 116, .75);
+    border-radius: 0.3rem;
+
+    font-size: 0.24rem;
+    font-weight: bold;
+    line-height: .6rem;
+    letter-spacing: .01rem;
+    color: #ffffff;
+    margin-bottom: -.02rem;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

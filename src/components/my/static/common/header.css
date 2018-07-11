@@ -1,0 +1,57 @@
+.cyx-head{
+    width: 100%;
+    height: .88rem;
+    background-color: #fbfeff;
+    box-shadow: 0 .03rem .43rem 0 rgba(41, 167, 255, .13);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.cyx-container{
+    width: 7.02rem;
+    height: auto;
+    padding: 0 0.24rem;
+}
+
+.cyx-container .cyx-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cyx-container .cyx-main .cyx-left{
+    width: .25rem;
+    height: .88rem;
+    display: flex;
+    align-items: center;
+}
+
+.cyx-container .cyx-main .cyx-center{
+    width: 1.6rem;
+    height: .88rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cyx-center > .cyx-title{
+    height: .36rem;
+    font-size: .38rem;
+    line-height: .36rem;
+    color: #4ebbfe;
+    letter-spacing: .02rem;
+    text-align: center;
+}
+
+.cyx-container .cyx-main .cyx-right{
+    width: .25rem;
+    height: .88rem;
+    display: flex;
+    align-items: center;
+}
+
+.cyx-right > .cyx-more{
+    display: none;
+}

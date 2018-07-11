@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 100%;
+    height: 0.88rem;
+    /*background-color: #f8fcff;*/
+    padding: 0 0.24rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0 0.3rem 0.43rem  0 rgba(41,167,255,0.1);
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header a{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header .title a .iconfont{
+    font-size: 0.4rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+    font-weight: 900;
+}
+header .title span{
+    font-size: 0.36rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+.gerengxingxi{
+    width: 6.14rem;
+    height: 1.85rem;
+    background:#ffffff;
+    box-shadow: 0 0.15rem 0.43rem 0.1rem rgba(244,247,248,1);
+    border-radius: 0.1rem;
+    margin: 0.38rem auto;
+    display: flex;
+    align-items: center;
+}
+.gerengxingxi .yuan{
+    width: 1.14rem;
+    height: 1.14rem;
+    box-shadow: 0 0 0.27rem  0 rgba(204,204,204,0.75);
+    background: url("../img/jzl-img/touxiang.png");
+    background-size: cover;
+    border-radius: 0.58rem;
+    margin-left: 0.29rem;
+}
+.gerengxingxi .yuan img{
+    background-size: cover;
+}
+.gerengxingxi .zi{
+    width: auto;
+    height:100%;
+    margin-left: 0.26rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.gerengxingxi .zi h6{
+    font-size: 0.3rem;
+    color:#333;
+
+}
+.gerengxingxi .zi span{
+    font-size: 0.22rem;
+    color: #000000;
+    opacity: 0.4;
+    margin-right: 0.2rem;
+}
+.gerengxingxi .zi .nei{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.1rem;
+}
+.gerengxingxi .zi .nei img{
+    background-position: center;
+    margin-top: 0.04rem;
+}
+.gerengxingxi a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1.6rem;
+    height: 0.8rem;
+}
+.gerengxingxi a p{
+    font-size: 0.2rem;
+    color: #3bacfe;
+    margin-right: 0.1rem;
+}
+.gerengxingxi a .dian{
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius:50%;
+    background: #3bacfe;
+    margin-right: 0.08rem;
+}
+.xingxi{
+    width: 6.14rem;
+    height: 1rem;
+    margin: 0.6rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.xingxi .yh{
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.xingxi .yh .shuzi{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.xingxi .yh .shuzi span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.xingxi .yh .shuzi h5{
+    font-size: 0.46rem;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    background: -webkit-linear-gradient(left,rgb(45,221,103),rgb(47,212,183));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.xingxi .yh .shuzi h6{
+    font-size: 0.46rem;
+    color: rgb(45,221,103);
+    display: block;
+    text-align: center;
+    float: left;
+    /*text-shadow: 0 0.01rem 0.1rem;*/
+}
+.xingxi .yh .shuzi h4{
+    font-size: 0.46rem;
+    color: rgb(255,223,52);
+    display: block;
+    text-align: center;
+    float: left;
+}
+.xingxi .yh .shuzi p{
+    font-size: 0.24rem;
+    color: rgb(142,147,151);
+    text-align: center;
+
+}
+.bottom{
+    width: 6.14rem;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+}
+.bottom .wai .ne{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.bottom .wai{
+    width: 6.14rem;
+    height: 0.94rem;
+    border-bottom: 0.02rem solid #f2f3f4;
+    display: flex;
+    align-items: center;
+}
+.bottom .wai .ne span{
+    display: block;
+    font-size: 0.28rem;
+    color: #333333;
+}
+.bottom .wai .ne h6{
+    font-size: 0.36rem;
+    color: rgb(254,98,78);
+    position: absolute;
+    right: 0;
+
+}
+.bottom .kuai{
+    width: 0.18rem;
+    height: 0.12rem;
+    background-image: url("../img/nxr-img/nxrYuanjiao.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    margin-right: 0.12rem;
+}
+
+footer{
+    width: 100%;
+    height: 1rem;
+    background: #f8fcff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.13rem 0.24rem 0.08rem;
+    /*padding: 0 0.24rem;*/
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+footer .sk-tabItem{
+    width: 0.5rem;
+    height: 0.79rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .sk-tabItem img{
+    display: block;
+    height: 0.40rem;
+    opacity: 0.6;
+}
+footer .sk-tabItem.hot img{
+    opacity: 1;
+}
+footer .sk-tabItem h3{
+    font-size: 0.22rem;
+    line-height: 0.4rem;
+    font-weight: normal;
+    color: rgb(162,222,255);
+}
+footer .sk-tabItem h3.hot{
+    font-size: 0.22rem;
+    line-height: 0.4rem;
+    font-weight: normal;
+    color: rgb(89,195,254);
+}
