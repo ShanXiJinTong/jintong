@@ -1,0 +1,474 @@
+section{
+    /*height: 8.72rem;*/
+    width: 100%;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+}
+section .img{
+    height: 6.94rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .img img{
+    width: 3.01rem;
+    height: 3.62rem;
+}
+section .title{
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0;
+}
+section .title span{
+    font-size: 0.3rem;
+    color: #646666;
+    padding: 0.06rem 0;
+}
+section .desc{
+    /*padding: 0.1rem 0;*/
+}
+section .desc p{
+    font-size: 0.22rem;
+    color: #afb1b2;
+    line-height:0.38rem ;
+    /*height: 0.28rem;*/
+    width: 100%;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+section .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    /*padding: 0.1rem 0;*/
+}
+section .content .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 0.88rem;
+    border-bottom: 1px solid #f0f5f7;
+}
+section .content .top .left{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 3.76rem;
+}
+section .content .top .left span:nth-of-type(1){
+    font-size: 0.26rem;
+    color: #fbc36a;
+}
+section .content .top .left span:nth-of-type(2){
+    font-size: 0.20rem;
+    color: #41b2fc;
+    display: block;
+    width: 0.87rem;
+    height: 0.36rem;
+    background-color: #e7faf2;
+    text-align: center;
+    line-height: 0.36rem;
+    border-radius: 0.18rem;
+ }
+section .content .top .left span:nth-of-type(3){
+    font-size: 0.20rem;
+    color: #36d681;
+    display: block;
+    width: 1.33rem;
+    height: 0.36rem;
+    background-color: #e7faf2;
+    text-align: center;
+    line-height: 0.36rem;
+    border-radius: 0.18rem;
+}
+section .content .top .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.circle{
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 50%;
+    background: #36d681;
+    margin: 0 0.12rem;
+}
+.rect{
+    width: 0.12rem;
+    height: 0.06rem;
+    border-radius: 0.1rem;
+    background: #36d681;
+    margin: 0 0.12rem;
+}
+.rect.blue{
+    background: #36a8fe;
+}
+section .content .top .right span:nth-of-type(1){
+    font-size: 0.2rem;
+    color: #000000;
+
+}
+section .content .top .right span:nth-of-type(2){
+    font-size: 0.24rem;
+    color: #36a8fe;
+    padding-left: 0.13rem;
+}
+section .content .center{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 0.88rem;
+    border-bottom: 1px solid #f0f5f7;
+    /*padding: 0.22rem 0;*/
+}
+section .content .center img{
+    height:0.41rem;
+    width:0.57rem;
+}
+section .content .center span{
+    font-size: 0.24rem;
+    color: #ff844e;
+}
+section .content .center .manjian{
+    font-size: 0.24rem;
+    color: #fbfeff;
+    font-weight:bold;
+    background: url("../img/rect.png");
+    background-size: cover;
+    background-position: center;
+    width: 1.84rem;
+    height: 0.39rem;
+    text-align: center;
+    line-height: 0.39rem;
+    margin-left: 0.16rem;
+}
+section .content .bottom{
+    width: 100%;
+    height: 0.88rem;
+    border-bottom: 1px solid #f0f5f7;
+}
+section .content .bottom ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section .content .bottom ul li{
+    font-size: 0.24rem;
+    color: #41b2fc;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    width: 33%;
+    /*float: left;*/
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+}
+.shopdetail{
+    padding: 0 0.24rem;
+    border-bottom: 1px solid #f0f5f7;
+}
+.usercomment{
+    overflow: hidden;
+    padding: 0 0.24rem;
+}
+.usercomment .userleft{
+    justify-content: space-between;
+}
+.usercomment .container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.searchAll{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userleft .searchAll span{
+    font-size: 0.22rem;
+    padding-right: 0.1rem;
+}
+
+.searchAll i.iconfont{
+    width: 0.1rem;
+    font-size: 0.22rem;
+}
+.searchAll i.iconfont:nth-of-type(1){
+    color: #3bacfe;
+}
+.searchAll i.iconfont:nth-of-type(2){
+    color: #98d3fe;
+}
+.userleft{
+    /*float: left;*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+.userleft span{
+    font-size: 0.32rem;
+    color: #3bacfe;
+    float: left;
+}
+.userleft .green{
+    font-size: 0.32rem;
+    color: #35db82;
+    float: left;
+}
+.userleft span:nth-of-type(2){
+    color: #4f5b64 ;
+    float: left;
+}
+.usercomment .userright{
+    float: right;
+
+}
+.usercomment .userright span{
+    font-size: 0.22rem;
+    color: #3bacfe;
+}
+
+.usercomment ul li{
+    display: flex;
+    margin: 0.4rem 0;
+    border-bottom: 1px solid #f0f5f7;
+}
+.usercomment ul li .shopleft{
+    width: 0.78rem;
+    height: 0.78rem;
+    border-radius: 50%;
+    margin-right: 0.24rem;
+}
+.usercomment ul li .shopleft img{
+    width: 100%;
+    height: 100%;
+}
+.usercomment ul li .shopright{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.usercomment ul li .shopright .name{
+    display: flex;
+    justify-content: space-between;
+    height: 0.4rem;
+    align-items: center;
+}
+.usercomment ul li .shopright .name .xing{
+    /*width: 70%;*/
+    display: flex;
+    justify-content: space-between;
+    height: 0.4rem;
+    align-items: center;
+}
+.usercomment ul li .shopright .name .xing span{
+    font-size: 0.2rem;
+    color: #cfcfcf;
+    margin-right: 0.46rem;
+}
+.usercomment ul li .shopright .name .xing img{
+    height: 0.2rem;
+}
+.usercomment ul li .shopright .name .xing .haoping{
+    height: 0.2rem;
+    display: flex;
+}
+.usercomment ul li .shopright .name .xing .haoping .hao{
+    background: url("../img/haopinggreen.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0.2rem;
+    width: 0.2rem;
+    margin: 0 0.05rem;
+}
+.usercomment ul li .shopright .name .xing .haoping .hao.active{
+    background: url("../img/haopinghui.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0.2rem;
+    width: 0.2rem;
+    margin: 0 0.05rem;
+}
+.usercomment ul li .shopright .name span{
+    font-size: 0.22rem;
+    color: #9ed5ff;
+}
+.usercomment ul li .shopright .desc{
+    display: flex;
+    align-items: center;
+    height: 0.4rem;
+}
+.usercomment ul li .shopright .desc span{
+    width: 5rem;
+    font-size: 0.26rem;
+    color: rgba(0,0,0,0.6);
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.usercomment ul li .shopright .dingwei{
+    display: flex;
+    align-items: center;
+    height: 0.4rem;
+}
+ .dingwei span{
+    color: rgba(0,0,0,0.3);
+     font-size: 0.22rem;
+ }
+.usercomment ul li .shopright .picture{
+    display: flex;
+    align-items: center;
+    height: auto;
+    /*width: 100%;*/
+    padding: 0.2rem 0;
+}
+.usercomment ul li .shopright .picture img{
+    width: 1.8rem;
+    height: 100%;
+
+}
+.similarrecommendation{
+    padding: 0 0.24rem;
+}
+h2{
+    font-weight: normal;
+    font-size: 0.32rem;
+    /*padding: 0.4rem 0;*/
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.similarrecommendation ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between ;
+}
+.similarrecommendation ul li{
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+    width: 30%;
+    margin-bottom:0.4rem ;
+}
+.similarrecommendation ul li img{
+    width: 80%;
+    margin: 0 auto 0.24rem;
+}
+.similarrecommendation ul li span{
+    padding: 0.2rem 0;
+}
+.similarrecommendation ul li span:nth-of-type(1){
+    font-size: 0.26rem;
+    color: rgba(0,0,0,0.6);
+}
+ .similarrecommendation ul li span:nth-of-type(2){
+     font-size: 0.28rem;
+     color: #fbb548;
+ }
+
+.root{
+    width: 100%;
+    height: 1.08rem;
+    background: #f1faff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    display:flex;
+    justify-content: space-between;
+}
+.root .rl{
+    width: 2.32rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.root .rl .rl1{
+    width: 0.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.21rem;
+    align-items: center;
+}
+
+.rl .rl1 span{
+    font-size: 0.2rem;
+    color:  rgba(59, 172, 254, 0.6);
+}
+.rl .rl1 img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.root .rl .rl2{
+    width: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.rl .rl2 span{
+    font-size: 0.2rem;
+    color:  rgba(59, 172, 254, 0.6);
+}
+.rl .rl2 img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.root .rr{
+    width: 4.3rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*margin-right: 0.2rem;*/
+}
+.root .rr .rr1{
+    width: 1.96rem;
+    height: 0.6rem;
+    border-radius: 0.3rem;
+    background: -webkit-linear-gradient(left,#37e06f, #32d69a);
+    background: -o-linear-gradient(right,#37e06f, #32d69a);
+    background: -moz-linear-gradient(right,#37e06f,#32d69a);
+    background: linear-gradient(to right,#37e06f, #32d69a);
+    box-shadow: 0rem 0.04rem 0.2rem 0rem
+    rgba(55, 223, 116, 0.75);
+    font-size: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.6rem;
+}
+.root .rr .rr2{
+    width: 1.96rem;
+    height: 0.6rem;
+    background: #3bacfe;
+    border-radius: 0.3rem;
+    font-size: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.6rem;
+    box-shadow: 0rem 0.05rem 0.12rem 0rem
+    rgba(59, 172, 254, 0.43);
+}
+

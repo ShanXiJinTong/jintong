@@ -1,0 +1,203 @@
+
+
+.sunContent{
+    width: 100%;
+    height: auto;
+
+    margin-top: 1.32rem;
+
+
+
+}
+.sunContent>.sunShopbox{
+    width: 100%;
+    height: auto;
+
+    position: relative;
+
+}
+.sunTop{
+    width: 100%;
+    height: 0.32rem;
+    font-size: 0.32rem;
+    padding-left: 0.24rem;
+    box-sizing: border-box;
+    line-height: 0.32rem;
+    color: #41b2fc;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI";
+    margin-top: 0.44rem;
+
+}
+.sunTop>span{
+    color: #4f5b64;
+}
+.sunLogo{
+     width: 0.12rem;
+     height: 0.06rem;
+     border-radius: 0.1rem;
+    background: #41b2fc;
+    float: left;
+    margin-top: 0.125rem;
+    margin-right: 0.07rem;
+    box-shadow: 0  0.01rem 0.05rem 0.01rem rgba(68,181,255,0.8 );
+
+}
+
+.sunBottom{
+    width: 100%;
+    height: 2.32rem;
+
+    display: flex;
+    padding: 0.36rem  0.24rem 0  0.24rem;
+    box-sizing: border-box;
+
+}
+.sunShopbox>.sunBottom>.sunLeft{
+    width: 1.86rem;
+    height: 2rem;
+    background: #ffffff;
+}
+.sunShopbox>.sunBottom>.sunLeft>img{
+    width: 1.86rem;
+    height: 1.86rem;
+}
+.sunShopbox>.sunBottom>.sunRight{
+
+padding-left: 0.1rem;
+    box-sizing: border-box;
+  width: 100%;
+    height: 100%;
+
+
+}
+.sunShopbox>.sunBottom>.sunRight>li:nth-child(1){
+    padding-top: 0.1rem;
+    box-sizing: border-box;
+}
+.sunShopbox>.sunBottom>.sunRight>li{
+    width: 100%;
+    height: 0.5rem;
+
+
+    font-size: 0.3rem;
+    color: #646666;
+    font-weight: 600;
+
+
+}
+.sunShopbox>.sunBottom>.sunRight>.last{
+
+    position: relative;
+
+}
+.sunShopbox>.sunBottom .sunBox span{
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+    padding: 0.15rem 0 0 0;
+    box-sizing: border-box;
+}
+.sunShopbox>.sunBottom>.sunRight>li>.sunBox>span{
+    font-size: 0.22rem;
+}
+.sunShopbox>.sunBottom>.sunRight>li>.sunBox{
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+  display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sunPbox{
+    width: 1.21rem;
+    height: 0.35rem;
+    float: left;
+    background-color: rgba(59,171,255,0.1);
+    margin-right: 0.09rem;
+    text-align: center;
+    line-height: 0.35rem;
+    border-radius: 0.17rem;
+    font-size: 0.22rem;
+    color: #41b2fc;
+
+
+
+}
+
+.yuyue{
+    background: url("../img/5.png") center/cover;
+    position: absolute;
+    top: -0.1rem;
+    right: 0;
+}
+.last{
+    display: flex;
+
+    justify-content: space-between;
+}
+.sunW>span{
+    font-size: 0.18rem;
+    color: rgba(0,0,0,0.2);
+
+}
+.sunW{
+    display: flex;
+
+}
+.sunYuan{
+    width: 0.06rem;
+    height: 0.06rem;
+    border-radius: 100%;
+    float: left;
+    background: #41b2fc;
+    margin-right: 0.05rem;
+
+
+    box-shadow: 0  0.01rem 0.02rem 0.01rem rgba(68,181,255,0.8 );
+
+
+}
+.sunYuan1{
+    width: 0.06rem;
+    height: 0.06rem;
+    border-radius: 100%;
+    float: left;
+    background: #36d681;
+    margin-right: 0.05rem;
+    margin-top: 0.1rem;
+
+    box-shadow: 0  0.01rem 0.02rem 0.01rem rgba(68,181,255,0.8 );
+
+
+}
+.sunContent1{
+    width: 100%;
+    height:auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 0 0.24rem;
+
+}
+.sunContent1>.sunShopbox{
+    width: 100%;
+    height: 2.5rem;
+    padding:0.24rem 0 0.12rem 0;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   border-top: 0.01rem solid rgba(0,0,0,0.05);
+
+}
+.sunscroll{
+    width: 100%;
+    height: calc(100% - 1.68rem);
+    overflow: hidden;
+
+}

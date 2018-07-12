@@ -1,0 +1,228 @@
+html,body{
+    background-color: #fbfeff;
+    height: 100%;
+}
+.top{
+    width: 100%;
+    height: auto;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    background-color: #fbfeff;
+    box-shadow: 0 0.03rem 0.43rem  0  rgba(41,167,255,0.13);
+}
+.top .xuanze{
+    width: 100%;
+    height: 0.86rem;
+}
+.xuanze li{
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 0.43rem;
+}
+.top .xuanze li span{
+    font-size: 0.3rem;
+    color: #41b2fc;
+}
+.top .xuanze li i{
+    font-size: 0.35rem;
+    color: #41b2fc;
+}
+.list{
+    width: 100%;
+    height: auto;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+}
+.list li{
+    width: 100%;
+    height: 1.74rem;
+    margin-top: 0.7rem;
+}
+.list li .left{
+    width: 1.74rem;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    box-shadow: 0 0.01rem 0.21rem 0  rgb(223,223,223);
+}
+.list li .left img{
+    width: 1.19rem;
+    height: 1.18rem;
+    background-size: cover;
+}
+.list li .right{
+    width: 5rem;
+    padding:0.03rem 0 0 0.28rem;
+    float: left;
+
+}
+.list .right .one{
+    font-size: 0.3rem;
+    color:#8a8c8d ;
+}
+.list .right .two{
+    width: 100%;
+    height:0.2rem;
+    margin-top: 0.18rem;
+}
+.list .right .two .pingfen{
+    /*width:1.2rem ;*/
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+}
+.list .right .two .pingfen img{
+    width:0.13rem ;
+    height: 0.13rem;
+    background-size: cover;
+    margin-right: 0.08rem;
+    margin-top: 0.09rem;
+
+}
+.list .right .two .pingfen .zi{
+    font-size: 0.22rem;
+    color: #afb1b2;
+    margin-right: 0.15rem;
+}
+.list .right .two .pingfen .num{
+    font-size:0.26rem ;
+    color: #36a8fe;
+}
+.list .right .two .jiedan{
+    /*width:1.57rem ;*/
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+    margin-left: 0.55rem;
+}
+.list .right .two .jiedan img{
+    width:0.13rem ;
+    height: 0.13rem;
+    background-size: cover;
+    margin-right: 0.08rem;
+    margin-top: 0.09rem;
+
+}
+.list .right .two .jiedan .zi{
+    font-size: 0.22rem;
+    color: #afb1b2;
+    margin-right: 0.15rem;
+}
+.list .right .two .jiedan .num{
+    font-size:0.26rem ;
+    color: #36a8fe;
+    margin-right: 0.06rem;
+}
+.list .right .two .jiedan .pencen{
+    font-size:0.26rem ;
+    color: #b9e1ff;
+}
+.list .right .three{
+    width: 100%;
+    height: 0.35rem;
+    margin-top: 0.18rem;
+    margin-bottom: 0.18rem;
+}
+.list .right .three p{
+    width: 1.21rem;
+    height: 100%;
+    background-image: url("../img/listlanju.png");
+    background-size: cover;
+    float: left;
+    margin-right: 0.09rem;
+    font-size: 0.2rem;
+    line-height: 0.35rem;
+    color: #36a8fe;
+    text-align: center;
+}
+.list .right .four{
+    width: 100%;
+    height: 0.17rem;
+}
+.list .right .four .sale{
+    /*width: 0.81rem;*/
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    /*justify-content:space-around;*/
+    align-items: center;
+    float: left;
+}
+.list .right .four .sale img{
+    width:0.13rem ;
+    height: 0.13rem;
+    background-size: cover;
+    float: left;
+    margin-right: 0.1rem;
+    margin-top: 0.09rem;
+}
+.list .right .four .sale .yishou{
+    float: left;
+    font-size: 0.18rem;
+    margin-right: 0.1rem;
+    color: #afb1b2;
+}
+.list .right .four .sale .shuzi{
+    float: left;
+    font-size: 0.22rem;
+    color: #dadcdd;
+}
+.list .right .four .price{
+    width: 2rem;
+    height: 100%;
+    float: right;
+}
+.list .right .four .price span{
+    font-size: 0.26rem;
+    color: #fbb548;
+    float: right;
+    margin-right: 0.11rem;
+    line-height: 0.13rem;
+}
+.expand{
+    width: 100%;
+    /*height: 2.2rem;*/
+    padding: 0 0.5rem 0 0.8rem ;
+    box-sizing: border-box;
+    display: none;
+    background: #ffffff;
+    /*transition: 0.01s;*/
+    z-index: 9999;
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+}
+.expand li{
+    width: 100%;
+    height: 0.8rem;
+    font-size: 0.24rem;
+    border-bottom: 0.01rem solid #f1f4f5;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    color: #646666;
+}
+.zhezhao{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58,59,65,0.7);
+    display: none;
+    position: absolute;
+    left: 0;
+}
+.top .xuanze li span.hot{
+    color: #94e9bd;
+}
+.top .xuanze li i.hot{
+    color: #94e9bd;
+}
