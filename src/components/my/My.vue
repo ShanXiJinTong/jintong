@@ -57,10 +57,11 @@
       </a>
     </div>
     <div class="wai">
-      <a href="cyx-gouwuche.html" class="ne">
+      <router-link class="ne" :to="{name:'Car'}">
         <div class="kuai"></div>
         <span>购物车</span>
-      </a>
+      </router-link>
+
     </div>
     <div class="wai">
       <a class="ne">
