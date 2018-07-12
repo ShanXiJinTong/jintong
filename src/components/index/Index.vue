@@ -1,53 +1,125 @@
 <template>
-        <button @click="fun">按钮</button>
+  <div id="index">
+    <section class="search">
+      <span>太原 </span><i class="iconfont icon-down"></i>
+      <router-link :to="{name:'Search'}" class="input">
+        <input type="text" disabled placeholder="搜索您需要的服务 商品">
+        <img src="./static/img/sousuo.png" alt="">
+      </router-link>
+    </section>
+    <section class="lunbo">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <!-- slides -->
+        <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
+          <img :src="item.imgUrl" alt="">
+        </swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </section>
+    <ul class="class">
+      <li>
+        <a href="./water1.html">
+          <div class="img"><img src="./static/img/l1.png" alt=""></div>
+          <p>水路综合</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l2.png" alt=""></div>
+          <p>水管维修</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l3.png" alt=""></div>
+          <p>管道维修</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l4.png" alt=""></div>
+          <p>龙头维修</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l5.png" alt=""></div>
+          <p>地漏疏通</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l6.png" alt=""></div>
+          <p>阀门维修</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l7.png" alt=""></div>
+          <p>下水道疏通</p>
+        </a>
+
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l8.png" alt=""></div>
+          <p>其他</p>
+        </a>
+      </li>
+      <li></li>
+    </ul>
+    <Tab></Tab>
+  </div>
 </template>
 <script>
-  import wx from "weixin-js-sdk"
-  wx.config({
-     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-     appId: 'wx6365026f119bdb02', // 必填，公众号的唯一标识
-     timestamp:1414587457, // 必填，生成签名的时间戳
-     nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
-     signature: '87b424819f1f4445d3ba81bd08a3a3013139e0ab',// 必填，签名
-     jsApiList: ['chooseImage']         // 必填，需要使用的JS接口列表
- });
+  //  import wx from "weixin-js-sdk"
+  //  wx.config({
+  //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+  //     appId: 'wx6365026f119bdb02', // 必填，公众号的唯一标识
+  //     timestamp:1414587457, // 必填，生成签名的时间戳
+  //     nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
+  //     signature: '87b424819f1f4445d3ba81bd08a3a3013139e0ab',// 必填，签名
+  //     jsApiList: ['chooseImage']         // 必填，需要使用的JS接口列表
+  // });
+  //
+  //  wx.error(function(res){//通过error接口处理失败验证
+  //    console.log(res);
+  //    // config信息验证失败会执行error函数
+  //  });
 
-  wx.error(function(res){//通过error接口处理失败验证
-    console.log(res);
-    // config信息验证失败会执行error函数
-  });
+
+  import Tab from "../common/tab"
   export default {
     name: 'Index',
     data() {
       return {
-
+        advList: [],
+        swiperOption: {
+          pagination: {
+            el: '.swiper-pagination',
+          }
+        }
       }
     },
-    methods:{
-       fun(){
-         wx.ready(function(){
-           wx.chooseImage({
-             count: 1, // 默认9
-             sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-             success: function (res) {
-               var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-               console.log('asdf');
-             }
-           });
-         });
-       }
+    methods: {},
+    created() {
+      this.$http.get('/cms/home/index').then((res) => {
+        this.advList = res.data.data.advertiseImg.bigImgList;
+      })
     },
-    mounted(){
-
+    components:{
+      Tab
     }
   }
 
 
-
-
-
-
 </script>
 <style scoped>
+  @import url('./static/css/index.css');
 </style>

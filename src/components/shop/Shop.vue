@@ -1,14 +1,5 @@
 <template>
 <div id="shop">
-    <!--header开始-->
-    <!--<header>
-        <div class="title">
-            <i class="iconfont icon-fanhui"></i>
-            <span>晋彤</span>
-            <i class="iconfont icon-gengduo"></i>
-        </div>
-    </header>-->
-    <!--header结束-->
 
     <!--banner开始-->
     <section class="wsq-banner">
@@ -24,25 +15,25 @@
     <ul class="xrIcon">
         <li class="xrIconbox">
             <div class="xrIcon1">
-                <img src="img/Tnine/Tnine1.png" alt="">
+                <img src="./img/Tnine/Tnine1.png" alt="">
             </div>
             <span>洗衣</span>
         </li>
         <li class="xrIconbox">
             <div class="xrIcon2">
-                <img src="img/Tnine/Tnine2.png" alt="">
+                <img src="./img/Tnine/Tnine2.png" alt="">
             </div>
             <span>洗鞋</span>
         </li>
         <li class="xrIconbox">
             <div class="xrIcon3">
-                <img src="img/Tnine/Tnine3.png" alt="">
+                <img src="./img/Tnine/Tnine3.png" alt="">
             </div>
             <span>洗家纺</span>
         </li>
         <li class="xrIconbox">
             <div class="xrIcon4">
-                <img src="img/Tnine/Tnine4.png" alt="">
+                <img src="./img/Tnine/Tnine4.png" alt="">
             </div>
             <span>洗窗帘</span>
         </li>
@@ -63,7 +54,7 @@
         <div class="sk-bag-scroll">
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="././img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -88,14 +79,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -120,14 +111,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -152,14 +143,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -184,14 +175,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -216,14 +207,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -248,14 +239,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -280,14 +271,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -312,14 +303,14 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
             </ul>
             <ul class="bag-item">
                 <li class="sk-bag-photo">
-                    <img src="img/Tnine/pb.png" alt="">
+                    <img src="./img/Tnine/pb.png" alt="">
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
@@ -344,7 +335,7 @@
                         </ul>
                     </div>
                     <div class="sk-service-operator">
-                        <img src="img/Tnine/bds.png" alt="">
+                        <img src="./img/Tnine/bds.png" alt="">
                         <span>包大师</span>
                     </div>
                 </li>
@@ -356,23 +347,23 @@
     <!--footer开始-->
     <footer>
         <div class="sk-tabItem hot">
-            <img src="img/Tnine/footer/sy.png" alt="">
+            <img src="./img/Tnine/footer/sy.png" alt="">
             <h3>首页</h3>
         </div>
         <div class="sk-tabItem">
-            <img src="img/Tnine/footer/store.png" alt="">
+            <img src="./img/Tnine/footer/store.png" alt="">
             <h3>商城</h3>
         </div>
         <div class="sk-tabItem">
-            <img src="img/Tnine/footer/rz.png" alt="">
+            <img src="./img/Tnine/footer/rz.png" alt="">
             <h3>入驻</h3>
         </div>
         <div class="sk-tabItem">
-            <img src="img/Tnine/footer/order.png" alt="">
+            <img src="./img/Tnine/footer/order.png" alt="">
             <h3>订单</h3>
         </div>
         <div class="sk-tabItem">
-            <img src="img/Tnine/footer/personal.png" alt="">
+            <img src="./img/Tnine/footer/personal.png" alt="">
             <h3>我的</h3>
         </div>
     </footer>
@@ -389,8 +380,8 @@
 </script>
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
-    @import url("css/common.css");
-    @import url("css/weiyu.css");
-    @import url("css/Tnine.css");
+    @import url("./css/common.css");
+    @import url("./css/weiyu.css");
+    @import url("./css/Tnine.css");
 
 </style>
