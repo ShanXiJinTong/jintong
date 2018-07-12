@@ -98,7 +98,7 @@ const VipImprove = r => require.ensure([], () => r(require('../components/my/vip
 const Order = r => require.ensure([], () => r(require('../components/order/Order.vue')), "Order");
 // 待服务详情
 const WaitService = r => require.ensure([], () => r(require('../components/order/WaitService.vue')), "WaitService");
-// 等待服务支付尾款
+// 填写订单
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
 // 待服务订单追踪
 const WaitZz = r => require.ensure([], () => r(require('../components/order/WaitZz.vue')), "WaitZz");
@@ -112,7 +112,8 @@ const RefundDetail = r => require.ensure([], () => r(require('../components/orde
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
 // 退款 提交成功
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), " RefundTo");
-
+//修改申请
+const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 
 
 
@@ -384,5 +385,10 @@ export default new Router({
       name: 'RefundTo',
       component: RefundTo
     },
+      {
+          path: '/AmendApplication',
+          name: 'AmendApplication',
+          component: AmendApplication
+      }
   ]
 })
