@@ -1,0 +1,153 @@
+header{
+    width: 100%;
+    height: 0.88rem;
+    /*background-color: #f8fcff;*/
+    padding: 0 0.24rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0 0.15rem 0.43rem  0 rgba(41,167,255,0.13);
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+}
+header .title .iconfont{
+    font-size: 0.22rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+header .title span{
+    font-size: 0.38rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+    /*font-weight: bold;*/
+}
+.content{
+    height: 12.06rem;
+    width: 100%;
+    background: #ffffff;
+    padding:0 0.24rem;
+    box-sizing: border-box;
+}
+.content .mwq-model{
+    height: 2.5rem;
+    width: 100%;
+}
+.content .mwq-model .mwq-adressText{
+    height: 1.62rem;
+    width: 7.0rem;
+    background: #e7f6ff;
+    border-radius: 0.08rem;
+    margin: 0.39rem auto 0;
+    padding-left: 0.36rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content .mwq-model .mwq-adressText .mwq-info{
+    height: 0.5rem;
+    width: 50%;
+    /*background: red;*/
+    display: flex;
+    /*justify-content: space-between;*/
+    padding-right: 0.1rem;
+    box-sizing: border-box;
+    margin-top:0.38rem;
+
+}
+.content .mwq-model .mwq-adressText .mwq-info .mwq-name{
+    height: 100%;
+    width: 1.13rem;
+    font-size: 0.3rem;
+    line-height: 0.5rem;
+    color:#41b2fc;
+}
+.content .mwq-model .mwq-adressText .mwq-info .mwq-phoneNumber{
+    height: 100%;
+    width: auto;
+    font-size: 0.3rem;
+    font-weight: bold;
+    line-height: 0.5rem;
+    color:#41b2fc;
+}
+.content .mwq-model .mwq-adressText .mwq-adress{
+    height: auto;
+    width: 100%;
+    padding-left: 1.13rem;
+    box-sizing: border-box;
+    font-size: 0.22rem;
+    color: #c9cbcc;
+    /*background: green;*/
+    margin-top: 0.06rem;
+}
+.content .mwq-model .mwq-label{
+    height: 0.88rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .mwq-model .mwq-label .mwq-left{
+    height: 100%;
+    width: 1.32rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .mwq-model .mwq-label .mwq-left .mwq-icon{
+    height: 0.3rem;
+    width: 0.3rem;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e7f6ff;
+    /*box-shadow: 0 0 0.2rem  0.04rem rgba(55,223,116,0.75);*/
+}
+.content .mwq-model .mwq-label .mwq-left .mwq-icon img{
+    height: 0.3rem;
+    width: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.content .mwq-model .mwq-label .mwq-defaultAdress{
+    font-size: 0.22rem;
+    color:#41b2fc;
+
+}
+.content .mwq-model .mwq-label .mwq-right{
+    height: 100%;
+    width: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .mwq-model .mwq-label .mwq-right>img.mwq-img1{
+    height: 0.33rem;
+    width:0.3rem;
+}
+.content .mwq-model .mwq-label .mwq-right>img.mwq-img2{
+    height: 0.27rem;
+    width:0.32rem;
+}
+.content .mwq-newAddadress{
+    width: 4.54rem;
+    height: 0.6rem;
+    background: -webkit-linear-gradient(left,#37e06f,#32d69a);
+    box-shadow: 0 0 0.2rem 0.04rem rgba(55,223,116,0.75);
+    border-radius: 0.3rem;
+    position:absolute;
+    bottom:0.44rem;
+    left:0;
+    right:0;
+    margin:0 auto;
+    font-size: 0.22rem;
+    text-align: center;
+    line-height: 0.6rem;
+    color:#ffffff;
+}

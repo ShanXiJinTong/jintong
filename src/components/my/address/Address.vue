@@ -1,5 +1,49 @@
 <template>
-
+  <div class="content">
+    <div class="mwq-model">
+      <div class="mwq-adressText">
+        <div class="mwq-info">
+          <div class="mwq-name">张三丰</div>
+          <div class="mwq-phoneNumber">182****9902</div>
+        </div>
+        <div class="mwq-adress">太原市小店区学府街滨河东路34号</div>
+      </div>
+      <div class="mwq-label">
+        <div class="mwq-left">
+          <div class="mwq-icon">
+            <img src="../static/img/gouxuan.png" alt="">
+          </div>
+          <div class="mwq-defaultAdress">默认地址</div>
+        </div>
+        <div class="mwq-right">
+          <img src="../static/img/delete.png" alt="" class="mwq-img1">
+          <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+        </div>
+      </div>
+    </div>
+    <div class="mwq-model">
+      <div class="mwq-adressText">
+        <div class="mwq-info">
+          <div class="mwq-name">张三丰</div>
+          <div class="mwq-phoneNumber">182****9902</div>
+        </div>
+        <div class="mwq-adress">太原市小店区学府街滨河东路34号</div>
+      </div>
+      <div class="mwq-label">
+        <div class="mwq-left">
+          <div class="mwq-icon">
+            <img src="" alt="">
+          </div>
+          <div class="mwq-defaultAdress">默认地址</div>
+        </div>
+        <div class="mwq-right">
+          <img src="../static/img/delete.png" alt="" class="mwq-img1">
+          <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+        </div>
+      </div>
+    </div>
+    <div class="mwq-newAddadress">新增地址</div>
+  </div>
 </template>
 <script>
     export default {
@@ -10,4 +54,5 @@
     }
 </script>
 <style scoped>
+  @import url(../static/css/Ttwo.css);
 </style>

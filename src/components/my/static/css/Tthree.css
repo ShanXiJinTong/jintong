@@ -1,0 +1,100 @@
+header{
+    width: 100%;
+    height: 0.88rem;
+    /*background-color: #f8fcff;*/
+    padding: 0 0.24rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0 0.15rem 0.43rem  0 rgba(41,167,255,0.13);
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+}
+header .title .iconfont{
+    font-size: 0.22rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+header .title span{
+    font-size: 0.36rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+.content{
+    height: 12.06rem;
+    width: 100%;
+    background: #ffffff;
+    padding:0 0.24rem;
+    box-sizing: border-box;
+}
+.content .mwq-box{
+    width: 100%;
+    height: 1.47rem;
+    margin:0.42rem auto 0;
+
+}
+.content .mwq-box .mwq-title{
+    width: 100%;
+    height: 0.26rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.content .mwq-box .mwq-title .mwq-juxing{
+    height: 0.05rem;
+    width: 0.1rem;
+    background: #44b5ff;
+    border-radius: 0.025rem;
+    box-shadow: 0 0.02rem 0.05rem rgba(68,181,255,0.43);
+}
+.content .mwq-box .mwq-title .mwq-wenzi{
+    height: 0.26rem;
+    min-width: 0.81rem;
+    font-size: 0.26rem;
+    line-height: 0.26rem;
+    font-weight: bold;
+    color:#41b2fc;
+    margin-left: 0.1rem;
+}
+.content .mwq-box .mwq-title .mwq-enter{
+    height: 0.24rem;
+    width: 0.15rem;
+    display: flex;
+    margin-right: 0;
+    position: absolute;
+    right:0;
+}
+.content .mwq-box .mwq-title .mwq-enter img{
+    height: 0.24rem;
+    width: 0.15rem;
+}
+.content .mwq-box .mwq-textarea{
+    width: 100%;
+    height: 1.02rem;
+    margin:0 auto;
+    background: rgba(231,246,255,0.5);
+    border-radius: 0.08rem;
+    padding-left: 0.37rem;
+    box-sizing: border-box;
+    font-size: 0.24rem;
+    line-height: 1.02rem;
+    color:#b9c9d2;
+    margin-top: 0.19rem;
+}
+.content .mwq-reserve{
+    width: 4.54rem;
+    height: 0.6rem;
+    border-radius: 0.3rem;
+    background: -webkit-linear-gradient(left,#37e06f,#32d69a);
+    box-shadow: 0 0.04rem 0.2rem 0 rgba(55,223,116,0.75);
+    font-size: 0.2rem;
+    color:#ffffff;
+    text-align: center;
+    line-height: 0.6rem;
+    margin:0.68rem auto 0;
+}
+
