@@ -256,7 +256,7 @@ export default new Router({
     },
     {
       path: '/My',
-      name: 'my',
+      name: 'My',
       component: My,
     },
     {
