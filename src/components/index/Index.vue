@@ -1,80 +1,81 @@
 <template>
-     <div id="index">
-       <section class="search">
-         <span>太原 </span><i class="iconfont icon-down"></i>
-         <div class="input">
-           <input type="text" placeholder="搜索您需要的服务 商品">
-           <img src="./static/img/sousuo.png" alt="">
-         </div>
-       </section>
-       <section class="lunbo">
-         <swiper :options="swiperOption" ref="mySwiper">
-           <!-- slides -->
-           <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
-             <img :src="item.imgUrl" alt="">
-           </swiper-slide>
-           <!-- Optional controls -->
-           <div class="swiper-pagination"  slot="pagination"></div>
-         </swiper>
-       </section>
-       <ul class="class">
-         <li>
-           <a href="./water1.html">
-             <div class="img"><img src="./static/img/l1.png" alt=""></div>
-             <p>水路综合</p>
-           </a>
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l2.png" alt=""></div>
-             <p>水管维修</p>
-           </a>
+  <div id="index">
+    <section class="search">
+      <span>太原 </span><i class="iconfont icon-down"></i>
+      <router-link :to="{name:'Search'}" class="input">
+        <input type="text" disabled placeholder="搜索您需要的服务 商品">
+        <img src="./static/img/sousuo.png" alt="">
+      </router-link>
+    </section>
+    <section class="lunbo">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <!-- slides -->
+        <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
+          <img :src="item.imgUrl" alt="">
+        </swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </section>
+    <ul class="class">
+      <li>
+        <a href="./water1.html">
+          <div class="img"><img src="./static/img/l1.png" alt=""></div>
+          <p>水路综合</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l2.png" alt=""></div>
+          <p>水管维修</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l3.png" alt=""></div>
-             <p>管道维修</p>
-           </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l3.png" alt=""></div>
+          <p>管道维修</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l4.png" alt=""></div>
-             <p>龙头维修</p>
-           </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l4.png" alt=""></div>
+          <p>龙头维修</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l5.png" alt=""></div>
-             <p>地漏疏通</p>
-           </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l5.png" alt=""></div>
+          <p>地漏疏通</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l6.png" alt=""></div>
-             <p>阀门维修</p>
-           </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l6.png" alt=""></div>
+          <p>阀门维修</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l7.png" alt=""></div>
-             <p>下水道疏通</p>
-           </a>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l7.png" alt=""></div>
+          <p>下水道疏通</p>
+        </a>
 
-         </li>
-         <li>
-           <a href="">
-             <div class="img"><img src="./static/img/l8.png" alt=""></div>
-             <p>其他</p>
-           </a>
-         </li>
-         <li></li>
-       </ul>
-     </div>
+      </li>
+      <li>
+        <a href="">
+          <div class="img"><img src="./static/img/l8.png" alt=""></div>
+          <p>其他</p>
+        </a>
+      </li>
+      <li></li>
+    </ul>
+    <Tab></Tab>
+  </div>
 </template>
 <script>
   //  import wx from "weixin-js-sdk"
@@ -93,11 +94,12 @@
   //  });
 
 
+  import Tab from "../common/tab"
   export default {
     name: 'Index',
     data() {
       return {
-        advList:[],
+        advList: [],
         swiperOption: {
           pagination: {
             el: '.swiper-pagination',
@@ -108,8 +110,11 @@
     methods: {},
     created() {
       this.$http.get('/cms/home/index').then((res) => {
-        this.advList= res.data.data.advertiseImg.bigImgList;
+        this.advList = res.data.data.advertiseImg.bigImgList;
       })
+    },
+    components:{
+      Tab
     }
   }
 
