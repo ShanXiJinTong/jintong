@@ -8,14 +8,14 @@
          </div>
        </section>
        <section class="lunbo">
-         <div class="img"><img src="./static/img/a.png" alt=""></div>
-         <div class="img"><img src="./static/img/a.png" alt=""></div>
-         <div class="img"><img src="./static/img/a.png" alt=""></div>
-         <ul class="btn">
-           <li class="hot"></li>
-           <li></li>
-           <li></li>
-         </ul>
+         <swiper :options="swiperOption" ref="mySwiper">
+           <!-- slides -->
+           <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
+             <img :src="item.imgUrl" alt="">
+           </swiper-slide>
+           <!-- Optional controls -->
+           <div class="swiper-pagination"  slot="pagination"></div>
+         </swiper>
        </section>
        <ul class="class">
          <li>
@@ -96,12 +96,19 @@
   export default {
     name: 'Index',
     data() {
-      return {}
+      return {
+        advList:[],
+        swiperOption: {
+          pagination: {
+            el: '.swiper-pagination',
+          }
+        }
+      }
     },
     methods: {},
-    mounted() {
-      this.$http.get('/general/base/menu').then((res) => {
-        console.log(res);
+    created() {
+      this.$http.get('/cms/home/index').then((res) => {
+        this.advList= res.data.data.advertiseImg.bigImgList;
       })
     }
   }
