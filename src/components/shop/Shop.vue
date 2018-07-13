@@ -4,6 +4,7 @@
     <!--banner开始-->
     <section class="wsq-banner">
         <div class="wsq-title">
+
             <div class="wsq-cateaty hot">洗护</div>
             <div class="wsq-cateaty" style="margin: 0 0.25rem">售水</div>
             <div class="wsq-cateaty">卫浴</div>
@@ -13,12 +14,14 @@
 
     <!--Icon开始-->
     <ul class="xrIcon">
-        <li class="xrIconbox">
+        <router-link :to="{name:'XhList'}" tag="li"  class="xrIconbox">
+        <!--<li class="xrIconbox">-->
             <div class="xrIcon1">
                 <img src="./img/Tnine/Tnine1.png" alt="">
             </div>
             <span>洗衣</span>
-        </li>
+        <!--</li>-->
+        </router-link>
         <li class="xrIconbox">
             <div class="xrIcon2">
                 <img src="./img/Tnine/Tnine2.png" alt="">
@@ -343,45 +346,24 @@
         </div>
     </div>
     <!--bag结束-->
+    <Tab></Tab>
 
-    <!--footer开始-->
-    <footer>
-        <div class="sk-tabItem hot">
-            <img src="./img/Tnine/footer/sy.png" alt="">
-            <h3>首页</h3>
-        </div>
-        <div class="sk-tabItem">
-            <img src="./img/Tnine/footer/store.png" alt="">
-            <h3>商城</h3>
-        </div>
-        <div class="sk-tabItem">
-            <img src="./img/Tnine/footer/rz.png" alt="">
-            <h3>入驻</h3>
-        </div>
-        <div class="sk-tabItem">
-            <img src="./img/Tnine/footer/order.png" alt="">
-            <h3>订单</h3>
-        </div>
-        <div class="sk-tabItem">
-            <img src="./img/Tnine/footer/personal.png" alt="">
-            <h3>我的</h3>
-        </div>
-    </footer>
-    <!--footer结束-->
 </div>
 </template>
 <script>
+    import Tab from "../common/tab";
     export default {
         name: 'Shop',
         data() {
             return {}
+        },
+        components:{
+            Tab
         }
     }
 </script>
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
-    @import url("./css/common.css");
-    @import url("./css/weiyu.css");
     @import url("./css/Tnine.css");
 
 </style>

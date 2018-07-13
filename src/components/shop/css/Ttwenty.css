@@ -1,0 +1,251 @@
+header{
+    width: 100%;
+    height: 1.78rem;
+    background-color: #ffffff;
+    margin: 0 auto;
+    box-shadow: 0 0.03rem 0.43rem rgba(41,167,255,0.13);
+}
+header .title{
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+}
+header .title .iconfont{
+    font-size: 0.22rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+header .title span{
+    font-size: 0.36rem;
+    color: #41b2fc;
+    line-height: 0.88rem;
+}
+
+
+nav{
+    width: 100%;
+    height: 0.9rem;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+}
+nav .main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+nav .main .navBox{
+    width: calc(100% / 3);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav .main .navBox p{
+    font-size: 0.26rem;;
+    color: #41b2fc;
+    margin-right: 0.1rem;
+}
+nav .main .navBox i{
+    font-size: 0.26rem;;
+    color: #41b2fc;
+}
+
+
+.conIScroll{
+    width: 100%;
+    height: 11rem;
+    margin-top: 0.1rem;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.conIScroll .yjyBox{
+    width: 100%;
+    height: auto;
+}
+.conIScroll .yjyBox .yjySec{
+    width: 100%;
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.54rem;
+    box-sizing: border-box;
+}
+.conIScroll .yjyBox .yjySec .yjyPic{
+    width: 1.86rem;
+    height: 1.86rem;
+    border-radius: 0.1rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.conIScroll .yjyBox .yjySec .yjyPic img{
+    width: 1.68rem;
+    height: 1.68rem;
+}
+
+.conIScroll .yjyBox .yjySec .yjyRight{
+    width: calc(100% - 1.86rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.24rem;
+    box-sizing: border-box;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyTitle{
+    width: 100%;
+    height: calc(100% / 4);
+    display: flex;
+    justify-content: flex-start;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h3{
+    width: auto;
+    height: 100%;
+    font-size: 0.3rem;
+    color: rgba(0,0,0,0.6);
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h4{
+    width: auto;
+    height: 100%;
+    font-size: 0.28rem;
+    color: rgba(0,0,0,0.4);
+    margin-left: 0.1rem;
+}
+
+.conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate{
+    width: 100%;
+    height: calc(100% / 4);
+    display: flex;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate ul{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 0.49rem;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate ul .yjyDian{
+    width: 0.08rem;
+    height: 0.08rem;
+    border-radius: 50%;
+    background-color: #41b2fc;
+    margin-right: 0.04rem;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate ul .yjyText{
+    font-size: 0.22rem;
+    color: rgba(0,0,0,0.3);
+    margin-right: 0.1rem;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate ul .yjyBranch{
+    font-size: 0.22rem;
+    color: #41b2fc;
+}
+
+.conIScroll .yjyBox .yjySec .yjyRight .yjyDesc{
+    width: 100%;
+    height: calc(100% / 4);
+    display: flex;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjyDesc p{
+    width: 1.21rem;
+    height: 0.35rem;
+    font-size: 0.22rem;
+    border-radius: 0.17rem;
+    margin-right: 0.1rem;
+    text-align: center;
+    line-height: 0.35rem;
+    background-color: rgba(59,171,254,0.1);
+    color: #41b2fc;
+}
+
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale{
+    width: 100%;
+    height: calc(100% / 4);
+    display: flex;
+    justify-content: space-between;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .yjySold{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .yjySold .yjyDian{
+    width: 0.08rem;
+    height: 0.08rem;
+    border-radius: 50%;
+    background-color: #41b2fc;
+    margin-right: 0.04rem;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .yjySold .yjyText{
+    font-size: 0.18rem;
+    color: rgba(0,0,0,0.3);
+    margin-right: 0.1rem;
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .yjySold .yjyNum{
+    font-size: 0.22rem;
+    color: rgba(0,0,0,0.2);
+}
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .price{
+    font-size: 0.26rem;
+    color: rgb(251,181,72);
+}
+
+
+
+
+
+
+
+footer{
+    width: 100%;
+    height: 1rem;
+    background: #f8fcff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0.13rem 0.24rem 0.08rem;
+    /*padding: 0 0.24rem;*/
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+footer .sk-tabItem{
+    width: 0.5rem;
+    height: 0.79rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .sk-tabItem img{
+    display: block;
+    height: 0.40rem;
+}
+footer .sk-tabItem h3{
+    font-size: 0.22rem;
+    line-height: 0.4rem;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
