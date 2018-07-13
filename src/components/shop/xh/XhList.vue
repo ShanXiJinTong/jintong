@@ -35,9 +35,9 @@
     <div class="bag-scroll">
         <div class="sk-bag-scroll">
             <ul class="bag-item">
-                <li class="sk-bag-photo">
+                <router-link :to="{name:'XhDetail'}" tag="li" class="sk-bag-photo">
                     <img src="../img/Tnine/pb.png" alt="">
-                </li>
+                </router-link>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
                         <h3>皮毛服饰清洗保养</h3>

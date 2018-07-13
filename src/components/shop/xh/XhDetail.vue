@@ -50,12 +50,12 @@
     </div>
     <div class="root">
         <div class="rl">
-            <a href="">
+            <router-link :to="{name:'XhStore'}" tag="a" >
                 <div class="rl1">
                     <img src="../img/dianpu.png" alt="">
                     <span>店铺</span>
                 </div>
-            </a>
+            </router-link>
             <a href="">
                 <div class="rl2">
                     <img src="../img/lianxi.png" alt="">
@@ -84,6 +84,4 @@
 </script>
 <style scoped>
     @import url("../css/Televen.css");
-    @import url("../css/common.css");
-    @import url("../css/weiyu.css");
 </style>

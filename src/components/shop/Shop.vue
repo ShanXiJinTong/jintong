@@ -15,12 +15,10 @@
     <!--Icon开始-->
     <ul class="xrIcon">
         <router-link :to="{name:'XhList'}" tag="li"  class="xrIconbox">
-        <!--<li class="xrIconbox">-->
             <div class="xrIcon1">
                 <img src="./img/Tnine/Tnine1.png" alt="">
             </div>
             <span>洗衣</span>
-        <!--</li>-->
         </router-link>
         <li class="xrIconbox">
             <div class="xrIcon2">

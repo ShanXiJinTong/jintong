@@ -33,6 +33,9 @@ nav{
     box-shadow: 0 0.2rem 0.43rem rgba(59,172,254,0.1);
     margin: 0 auto;
     box-sizing: border-box;
+    position: fixed;
+    top:0;
+    left:0;
 }
 nav .main{
     width: 100%;
@@ -62,10 +65,10 @@ nav .main .navBox i{
 
 
 
-.com-scroll{
+.com-scroll {
     width: 100%;
-    height: 12.34rem;
     overflow: hidden;
+    margin-top:1.02rem;
 }
 .sk-scroll{
     width: 100%;
