@@ -127,11 +127,11 @@ header .title span{
     justify-content: space-between;
     align-items: center;
 }
-.content .mwq-model .mwq-label .mwq-right>img.mwq-img1{
+.content .mwq-model .mwq-label .mwq-right img.mwq-img1{
     height: 0.33rem;
     width:0.3rem;
 }
-.content .mwq-model .mwq-label .mwq-right>img.mwq-img2{
+.content .mwq-model .mwq-label .mwq-right img.mwq-img2{
     height: 0.27rem;
     width:0.32rem;
 }

@@ -1,81 +1,23 @@
 <template>
 <div>
   <ul class="shdpriceList">
-    <li class="price">
+    <li  v-for="item in list" :class="[item.price_origin=== selectPrice ?'select' :'' , 'price']" @click="changePrice(item.price_origin)">
       <div class="priceTop">
-        <span class="text1">50</span>
+        <span class="text1">{{item.price_origin}}</span>
         <span class="text2">元</span>
       </div>
       <div class="priceBottom">
             <span class="text3">售价
-                <span class="text4">49.8</span>元
+                <span class="text4">{{item.price_new}}</span>元
             </span>
       </div>
-    </li>
-    <li class="price select">
-      <div class="priceTop">
-        <span class="text1 hot1">100</span>
-        <span class="text2 hot2">元</span>
-      </div>
-      <div class="priceBottom">
-            <span class="text3 hot3">售价
-                <span class="text4 hot4">99.8</span>元
-            </span>
-      </div>
-    </li>
-    <li class="price">
-      <div class="priceTop">
-        <span class="text1">200</span>
-        <span class="text2">元</span>
-      </div>
-      <div class="priceBottom">
-            <span class="text3">售价
-                <span class="text4">198.8</span>元
-            </span>
-      </div>
-    </li>
-    <li class="price">
-      <div class="priceTop">
-        <span class="text1">300</span>
-        <span class="text2">元</span>
-      </div>
-      <div class="priceBottom">
-            <span class="text3">售价
-                <span class="text4">49.8</span>元
-            </span>
-      </div>
-      <div class="memeber">白银会员</div>
-    </li>
-    <li class="price">
-      <div class="priceTop">
-        <span class="text1">500</span>
-        <span class="text2">元</span>
-      </div>
-      <div class="priceBottom">
-            <span class="text3">售价
-                <span class="text4">99.8</span>元
-            </span>
-      </div>
-      <div class="memeber">黄金会员</div>
-    </li>
-    <li class="price">
-      <div class="priceTop">
-        <span class="text1">1000</span>
-        <span class="text2">元</span>
-      </div>
-      <div class="priceBottom">
-            <span class="text3">售价
-                <span class="text4">198.8</span>元
-            </span>
-      </div>
-      <div class="memeber">白金会员</div>
+      <div class="memeber" v-if="item.rank"> {{item.rank}}</div>
     </li>
   </ul>
   <div class="shdchongzhi">
-    <input type="text" class="defined" placeholder="自定义金额">
-    <a href="nxrQueRenChongZhi.html">
-      <button class="confirm" type="submit">确认充值</button>
-    </a>
+    <input type="text" class="defined" placeholder="自定义金额" v-model="selectPrice">
+    <button class="confirm" type="button" @click="submitPrice">确认充值</button>
+
   </div>
 </div>
 </template>
@@ -83,7 +25,53 @@
     export default {
         name: 'Recharge',
         data() {
-            return {}
+            return {
+               list:[
+                 {
+                   price_new:49.8,
+                   price_origin:50,
+                 },
+                 {
+                   price_new:99.9,
+                   price_origin:100,
+                 },
+                 {
+                   price_new:199.8,
+                   price_origin:200,
+                 },
+                 {
+                   price_new:299.8,
+                   price_origin:300,
+                   rank:'白银会员'
+                 },{
+                   price_new:499.8,
+                   price_origin:500,
+                   rank:'黄金会员'
+                 },{
+                   price_new:999.8,
+                   price_origin:1000,
+                   rank:'白金会员'
+                 }
+               ],
+               selectPrice:50
+            }
+        },
+        methods:{
+           changePrice(value){
+             this.selectPrice = value
+           },
+           submitPrice(){
+             /* this.$http.get('/aaa?price'+this.selectPrice,function(res){
+
+              })*/
+              if(this.selectPrice <=0){
+                 alert('请输入正确的金额');
+                 return ;
+              }
+              this.$router.push({
+                name:'SelectWay'
+              })
+           }
         }
     }
 </script>

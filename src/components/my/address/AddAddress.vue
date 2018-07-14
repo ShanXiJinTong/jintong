@@ -32,9 +32,9 @@
         </div>
         <input class="mwq-textarea">
       </div>
-      <a href="addressContent.html">
-        <input type="submit" class="mwq-reserve"  value="保存">
-      </a>
+      <router-link :to="{name:'My'}" class="mwq-reserve">
+        保存
+      </router-link>
     </form>
   </div>
 </template>

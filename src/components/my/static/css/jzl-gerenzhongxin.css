@@ -128,33 +128,29 @@ header .title span{
     justify-content: center;
 }
 .xingxi .yh .shuzi span{
+    padding: 0.05rem 0.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.xingxi .yh .shuzi h5{
+    background: -webkit-linear-gradient(left, #30a3fe , #6fd5fe);     /* 背景色渐变 */
+    -webkit-background-clip: text;         /* 规定背景的划分区域 */
+    -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
     font-size: 0.46rem;
-    text-align: center;
-    float: left;
-    display: inline-block;
-    background: -webkit-linear-gradient(left,rgb(45,221,103),rgb(47,212,183));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0.04rem  0.08rem rgba(41,167,255,0.4);
 }
-.xingxi .yh .shuzi h6{
-    font-size: 0.46rem;
-    color: rgb(45,221,103);
-    display: block;
-    text-align: center;
-    float: left;
-    /*text-shadow: 0 0.01rem 0.1rem;*/
+.xingxi .yh:nth-child(2) .shuzi span{
+  background: -webkit-linear-gradient(left, #2dde59 , #2fd4ba);
+  -webkit-background-clip: text;         /* 规定背景的划分区域 */
+  -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
+  text-shadow: 0 0.04rem  0.08rem rgba(46,213,147,0.4);
 }
-.xingxi .yh .shuzi h4{
-    font-size: 0.46rem;
-    color: rgb(255,223,52);
-    display: block;
-    text-align: center;
-    float: left;
+.xingxi .yh:nth-child(3) .shuzi span{
+  background: -webkit-linear-gradient(left, #ffb83a , #ffe333);
+  -webkit-background-clip: text;         /* 规定背景的划分区域 */
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0.04rem  0.08rem rgba(255,213,53,0.4);
+
 }
 .xingxi .yh .shuzi p{
     font-size: 0.24rem;

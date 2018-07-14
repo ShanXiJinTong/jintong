@@ -14,9 +14,10 @@
     </div>
   </section>
   <div class="hengXian"></div>
-  <a href="shd-wallet.html">
-    <div class="nxrConfirm">去充值</div>
-  </a>
+    <router-link :to="{name:'Recharge'}">
+      <div class="nxrConfirm">去充值</div>
+    </router-link>
+
 </div>
 </template>
 <script>
