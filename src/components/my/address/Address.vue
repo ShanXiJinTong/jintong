@@ -16,8 +16,11 @@
           <div class="mwq-defaultAdress">默认地址</div>
         </div>
         <div class="mwq-right">
-          <img src="../static/img/delete.png" alt="" class="mwq-img1">
-          <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+
+          <img src="../static/img/delete.png" alt="" class="mwq-img1" >
+          <router-link :to="{name:'EditAddress',query:{aid:1}}">
+            <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+          </router-link>
         </div>
       </div>
     </div>
@@ -38,11 +41,15 @@
         </div>
         <div class="mwq-right">
           <img src="../static/img/delete.png" alt="" class="mwq-img1">
-          <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+          <router-link :to="{name:'EditAddress',params:{aid:2}}">
+            <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
+          </router-link>
         </div>
       </div>
     </div>
-    <div class="mwq-newAddadress">新增地址</div>
+    <router-link :to="{name:'AddAddress'}" tag="div" class="mwq-newAddadress">
+      新增地址
+    </router-link>
   </div>
 </template>
 <script>

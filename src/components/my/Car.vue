@@ -119,7 +119,9 @@
         name: 'Car',
         data() {
             return {
-              carInfo:false
+              carInfo:[
+                
+              ]
             }
         },
         methods:{

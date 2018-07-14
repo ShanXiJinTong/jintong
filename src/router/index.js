@@ -286,6 +286,11 @@ export default new Router({
       component: Wallet,
     },
     {
+      path:'/Kf',
+      name:'Kf',
+      component:Kf
+    },
+    {
       path: '/Recharge',
       name: 'Recharge',
       component: Recharge

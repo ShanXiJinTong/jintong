@@ -32,9 +32,10 @@
         </div>
         <input class="mwq-textarea">
       </div>
-      <a href="addressContent.html">
-        <input type="submit" class="mwq-reserve"  value="保存">
-      </a>
+        <router-link :to="{name:'My'}" class="mwq-reserve">
+            保存
+        </router-link>
+        <!--<input type="submit" class="mwq-reserve"  value="保存">-->
     </form>
   </div>
 </template>
@@ -43,6 +44,10 @@
     name: 'EditAddress',
     data() {
       return {}
+    },
+    mounted:function(){
+      console.log(this.$route.params);
+      console.log(this.$route.query);
     }
   }
 </script>

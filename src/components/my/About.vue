@@ -48,10 +48,7 @@
         methods:{
           getContent(){
              this.$http.get('/cms/article/index?url_key=about-us').then(res=>{
-               console.log(res.data.data);
                this.content = res.data.data.content;
-
-
              })
           }
         },
