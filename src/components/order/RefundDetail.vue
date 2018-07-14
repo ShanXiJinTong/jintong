@@ -41,7 +41,7 @@
             <span class="sex"></span>
             <p>退款<span>原因</span></p>
         </div>
-        <div class="sec_right">
+        <div class="sec_right" @click="mask1()">
             <p>买错了</p>
             <i class="iconfont error">&#xe650;</i>
         </div>
@@ -66,17 +66,20 @@
         </div>
         <img src="./img/photo.png" alt="">
     </div>
+    <router-link :to="{name:'RefundTo'}">
     <div class="button_y">
         提交
     </div>
+    </router-link>
+
 
     <!--遮罩-->
-    <div class="glpark"></div>
+    <div class="glpark" :class="{hot:isOk}"></div>
     <!---->
-    <div class="tuikuan" >
+    <div class="tuikuan" :class="{hot:isOk}">
         <div class="tktitle">
             <span class="tkcolor">退款</span>原因
-            <div class="tkclose">
+            <div class="tkclose" @click="mask1()">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
@@ -125,7 +128,7 @@
                 <img src="./img/tuikuan.png" alt="" class="right">
             </li>
         </ul>
-        <div class="tkbutton">完成</div>
+        <div class="tkbutton" @click="mask1()">完成</div>
     </div>
 </div>
 </template>
@@ -133,7 +136,20 @@
     export default {
         name: 'RefundDetail',
         data() {
-            return {}
+            return {
+                isOk:false
+            }
+        },
+        methods:{
+            mask1(){
+                if(this.isOk==false){
+                    this.isOk=true;
+                }
+                else{
+                    this.isOk=false;
+                }
+            }
+
         }
     }
 </script>

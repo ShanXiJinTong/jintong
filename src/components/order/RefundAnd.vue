@@ -1,6 +1,7 @@
 <template>
 <div id="RefundAnd">
     <!--内容部分开始-->
+    <div id="main">
     <div class="x-commodity">
         <img src="./img/tou.png" alt="" id="x-c-left">
         <div class="x-c-right">
@@ -20,7 +21,7 @@
             <h1>退货</h1>
             <h2>状态</h2>
         </div>
-        <div class="you">
+        <div class="you" @click="mask2()">
             <i class="iconfont icon-yduiqianjin"></i>
             <h3>请选择</h3>
         </div>
@@ -31,7 +32,7 @@
             <h1>退款</h1>
             <h2>原因</h2>
         </div>
-        <div class="you">
+        <div class="you" @click="mask1()">
             <i class="iconfont icon-yduiqianjin"></i>
             <h3>买错了</h3>
         </div>
@@ -59,15 +60,18 @@
             <img src="./img/photo.png" alt="">
         </div>
     </div>
+    <router-link :to="{name:'RefundTo'}">
     <div class="dialog-B">提交</div>
-
+    </router-link>
+    </div>
     <!--遮罩-->
-    <div class="glpark"></div>
+    <div class="glpark" :class="{hot:isOk}"></div>
+    <div class="glpark" :class="{hot:isOk1}"></div>
     <!---->
-    <div class="tuikuan" >
+    <div class="tuikuan" :class="{hot:isOk}">
         <div class="tktitle">
             <span class="tkcolor">退款</span>原因
-            <div class="tkclose">
+            <div class="tkclose" @click="mask1()">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
@@ -116,14 +120,14 @@
                 <img src="./img/tuikuan.png" alt="" class="right">
             </li>
         </ul>
-        <div class="tkbutton">完成</div>
+        <div class="tkbutton" @click="mask1()">完成</div>
     </div>
 
     <!--goods-->
-    <div class="goods" >
+    <div class="goods" :class="{hot:isOk1}">
         <div class="gtitle">
             <span class="gcolor">货物</span>状态
-            <div class="gclose">
+            <div class="gclose" @click="mask2()">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
@@ -144,19 +148,42 @@
                 <img src="./img/tuikuan.png" alt="" class="right">
             </li>
         </ul>
-        <div class="gbutton">完成</div>
-    </div>
+        <div class="gbutton" @click="mask2()">完成</div>
+    </div >
 </div>
 </template>
 <script>
     export default {
         name: 'RefundAnd',
         data() {
-            return {}
+            return {
+                isOk:false,
+                isOk1:false
+            }
+        },
+        methods:{
+            mask1(){
+                if(this.isOk==false){
+                    this.isOk=true;
+                }
+                else{
+                    this.isOk=false;
+                }
+            },
+            mask2(){
+                if(this.isOk1==false){
+                    this.isOk1=true;
+                }
+                else{
+                    this.isOk1=false;
+                }
+            }
+
         }
     }
 </script>
 <style scoped>
+
     .box{
         width: calc(100% - 0.48rem);
         height: 1.01rem;
@@ -321,7 +348,7 @@
     .dialog-B{
         width:4.54rem;
         height: 0.6rem;
-        margin: 0.65rem auto;
+        margin: 0.65rem auto 0;
         border-radius:3rem;
         background: linear-gradient(to right,#27d29c,#33e171);
         box-shadow: 0 0.07rem 0.35rem 0.01rem #37df74ba;
@@ -440,8 +467,12 @@
         position: absolute;
         left: 0;
         bottom: -9rem;
+        transition: all ease .5s;
+        display: none;
+        /*transform: translate3d(0,3rem,0);*/
     }
     .tuikuan.hot{
+        display: block;
         transform: translate3d(0,-9rem,0);
     }
     .tuikuan .tktitle{
@@ -520,8 +551,11 @@
         position: absolute;
         left: 0;
         bottom: -5.2rem;
+        display: none;
+        /*transition: all ease .5s;*/
     }
     .goods.hot{
+        display: block;
         transform: translate3d(0,-5.2rem,0);
     }
     .goods .gtitle{
