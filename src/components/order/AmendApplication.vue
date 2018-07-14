@@ -1,5 +1,5 @@
 <template>
-<div id="RefundAnd">
+<div id="AmendApplication">
     <!--内容部分开始-->
     <div class="x-commodity">
         <img src="./img/tou.png" alt="" id="x-c-left">
@@ -17,12 +17,12 @@
     <div class="box box1">
         <div class="zuo">
             <div class="fang"></div>
-            <h1>退货</h1>
-            <h2>状态</h2>
+            <h1>服务</h1>
+            <h2>类型</h2>
         </div>
         <div class="you">
             <i class="iconfont icon-yduiqianjin"></i>
-            <h3>请选择</h3>
+            <h3>退货退款</h3>
         </div>
     </div>
     <div class="box box2">
@@ -120,37 +120,37 @@
     </div>
 
     <!--goods-->
-    <div class="goods" >
-        <div class="gtitle">
-            <span class="gcolor">货物</span>状态
-            <div class="gclose">
+    <div class="serve" >
+        <div class="stitle">
+            <span class="scolor">服务</span>类型
+            <div class="sclose">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
 
-        <ul class="gbox">
-            <li class="glist ">
+        <ul class="sbox">
+            <li class="slist ">
                 <div class="left">
-                    <div class="gyuan"></div>
-                    <span class="gtext">已收到货</span>
+                    <div class="syuan"></div>
+                    <span class="stext">仅退款</span>
                 </div>
                 <img src="./img/tuikuan.png" alt="" class="right hot">
             </li>
-            <li class="glist ">
+            <li class="slist ">
                 <div class="left">
-                    <div class="gyuan"></div>
-                    <span class="gtext">未收到货</span>
+                    <div class="syuan"></div>
+                    <span class="stext">退货退款</span>
                 </div>
                 <img src="./img/tuikuan.png" alt="" class="right">
             </li>
         </ul>
-        <div class="gbutton">完成</div>
+        <div class="sbutton">关闭</div>
     </div>
 </div>
 </template>
 <script>
     export default {
-        name: 'RefundAnd',
+        name: 'AmendApplication',
         data() {
             return {}
         }
@@ -390,11 +390,9 @@
         text-align: left;
         position: absolute;
         /*left: calc(100% - 0.7rem);*/
-        /*left: 2rem;*/
-        bottom: 0.7rem;
         display: flex;
         justify-content: flex-end;
-        margin-right: 0.7rem;
+        bottom: 0.7rem;
     }
     #x-jfive{
         width: 100%;
@@ -402,9 +400,9 @@
         color: #fbb548;
         text-align: left;
         position: absolute;
+        /*left: calc(100% - 2.5rem);*/
         display: flex;
         justify-content: flex-end;
-        margin-right: 0.7rem;
         bottom: 0rem;
     }
     .x-blue:before{
@@ -495,6 +493,7 @@
     .tkbox .tklist .right.hot{
         display: block;
     }
+
     .tkbutton{
         width: 4.9rem;
         height: 0.98rem;
@@ -511,7 +510,8 @@
         line-height: 0.98rem;
         margin: 0.7rem  auto 0 auto;
     }
-    .goods{
+    /**/
+    .serve{
         width: 100%;
         height: 5.2rem;
         padding: 0.24rem 0.24rem;
@@ -521,23 +521,23 @@
         left: 0;
         bottom: -5.2rem;
     }
-    .goods.hot{
+    .serve.hot{
         transform: translate3d(0,-5.2rem,0);
     }
-    .goods .gtitle{
+    .serve .stitle{
         width: 100%;
         height: 0.88rem;
         font-size: 0.22rem;
         font-weight: bold;
         text-align: center;
     }
-    .goods .gtitle .gcolor{
+    .serve .stitle .scolor{
         color: #41B2FC;
     }
-    .goods .gtitle .gclose{
+    .serve .stitle .sclose{
         float: right;
     }
-    .gbox .glist{
+    .sbox .slist{
         width: 100%;
         height: 0.88rem;
         display: flex;
@@ -545,13 +545,13 @@
         align-items: center;
         border-bottom: 0.02rem solid #fafafa;
     }
-    .gbox .glist .left{
+    .sbox .slist .left{
         width:auto ;
         height: 0.88rem;
         display: flex;
         justify-content: space-between;
     }
-    .gbox .glist .left .gyuan{
+    .sbox .slist .left .syuan{
         width: 0.06rem;
         height: 0.06rem;
         background: #44b5ff;
@@ -560,22 +560,23 @@
         box-shadow: 0  0.02rem 0.05rem 0 rgba(68,181,255,0.43) ;
 
     }
-    .gbox .glist .left .gtext{
+    .sbox .slist .left .stext{
         width: auto;
         height: 100%;
         font-size: 0.24rem;
         line-height: 0.88rem;
         margin-left: 0.1rem;
     }
-    .gbox .glist .right{
+    .sbox .slist .right{
         width: 0.3rem;
         height: 0.3rem;
         display: none;
     }
-    .gbox .glist .right.hot{
+    .sbox .slist .right.hot{
         display: block;
     }
-    .gbutton{
+
+    .sbutton{
         width: 4.9rem;
         height: 0.98rem;
         border-radius: 0.5rem;
