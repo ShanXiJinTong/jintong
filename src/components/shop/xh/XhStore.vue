@@ -11,9 +11,9 @@
     <!--单品详情-->
     <div class="LZJ-singleDetail">
         <div class="LZJ-main">
-            <div class="LZJ-Thumb">
+            <router-link :to="{name:'WaterStoreIntro'}" tag="div" class="LZJ-Thumb">
                 <img src="../img/thumb.png" alt="">
-            </div>
+            </router-link>
             <div class="LZJ-infos">
                 <div class="LZJ-title">皮悦皮具护理</div>
                 <div class="LZJ-bargain">

@@ -40,6 +40,8 @@ const Xh = r => require.ensure([], () => r(require('../components/shop/xh/Xh.vue
 const SellWater = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWater.vue')), "SellWater");
 // 卫浴
 const Bathroom = r => require.ensure([], () => r(require('../components/shop/bathroom/Bathroom.vue')), "Bathroom");
+// 卫浴列表
+const BathroomList = r => require.ensure([], () => r(require('../components/shop/bathroom/BathroomList.vue')), "BathroomList");
 // 洗护列表
 const XhList = r => require.ensure([], () => r(require('../components/shop/xh/XhList.vue')), "XhList");
 // 洗护详情
@@ -48,6 +50,10 @@ const XhDetail = r => require.ensure([], () => r(require('../components/shop/xh/
 const XhEvaluate = r => require.ensure([], () => r(require('../components/shop/xh/XhEvaluate.vue')), "XhEvaluate");
 // 洗护商店
 const XhStore = r => require.ensure([], () => r(require('../components/shop/xh/XhStore.vue')), "XhStore");
+// 洗护商品服务详情
+const XhServer = r => require.ensure([], () => r(require('../components/shop/xh/XhServer.vue')), "XhServer");
+// 洗护商品订单
+const XhOrder = r => require.ensure([], () => r(require('../components/shop/xh/XhOrder.vue')), "XhOrder");
 // 售水列表
 const SellWaterList = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWaterList.vue')), "SellWaterList");
 // 售水详情
@@ -56,6 +62,8 @@ const SellWaterDetail = r => require.ensure([], () => r(require('../components/s
 const SellWaterOrder = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWaterOrder.vue')), "SellWaterOrder");
 //  售水商店
 const WaterStore = r => require.ensure([], () => r(require('../components/shop/sellwater/WaterStore.vue')), "WaterStore");
+//  售水商店介绍
+const WaterStoreIntro = r => require.ensure([], () => r(require('../components/shop/sellwater/WaterStoreIntro.vue')), "WaterStoreIntro");
 // 商店详情
 const WaterStoreDetail = r => require.ensure([], () => r(require('../components/shop/sellwater/WaterStoreDetail.vue')), "WaterStoreDetail");
 // 个人中心
@@ -203,12 +211,22 @@ export default new Router({
           name: 'SellWater',
           component: SellWater,
         },
-        {
-          path: 'Bathroom',
-          name: 'Bathroom',
-          component: Bathroom,
-        }
+        // {
+        //   path: 'Bathroom',
+        //   name: 'Bathroom',
+        //   component: Bathroom,
+        // }
       ]
+    },
+    {
+       path: '/Bathroom',
+       name: 'Bathroom',
+       component: Bathroom,
+    },
+    {
+       path: '/BathroomList',
+       name: 'BathroomList',
+       component: BathroomList,
     },
     {
       path: '/XhList',
@@ -231,6 +249,16 @@ export default new Router({
       component: XhStore,
     },
     {
+       path: '/XhOrder',
+       name: 'XhOrder',
+       component: XhOrder,
+     },
+     {
+       path: '/XhServer',
+       name: 'XhServer',
+       component: XhServer,
+      },
+    {
       path: '/SellWaterList',
       name: 'SellWaterList',
       component: SellWaterList,
@@ -250,6 +278,11 @@ export default new Router({
       name: 'WaterStore',
       component: WaterStore,
     },
+    {
+       path: '/WaterStoreIntro',
+       name: 'WaterStoreIntro',
+       component: WaterStoreIntro,
+      },
     {
       path: '/WaterStoreDetail',
       name: 'WaterStoreDetail',

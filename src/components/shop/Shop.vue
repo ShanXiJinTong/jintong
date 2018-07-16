@@ -6,8 +6,8 @@
         <div class="wsq-title">
 
             <div class="wsq-cateaty hot">洗护</div>
-            <div class="wsq-cateaty" style="margin: 0 0.25rem">售水</div>
-            <div class="wsq-cateaty">卫浴</div>
+            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">售水</router-link>
+            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">卫浴</router-link>
         </div>
     </section>
     <!--banner结束-->
@@ -53,13 +53,17 @@
     <!--bag开始-->
     <div class="bag-scroll">
         <div class="sk-bag-scroll">
-            <ul class="bag-item">
+
+
+            <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
-                    <img src="././img/Tnine/pb.png" alt="">
+                    <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
+                    <img :src="item.image" alt="">
+                    </router-link>
                 </li>
                 <li class="sk-bag-content">
                     <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
+                        <h3>{{item.name}}</h3>
                     </div>
                     <div class="sk-service-desc">
                         <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
@@ -76,7 +80,7 @@
                             <li class="number">278</li>
                         </ul>
                         <ul class="sk-price">
-                            <li>60元/件</li>
+                            <li>{{item.price.value}}元/件</li>
                         </ul>
                     </div>
                     <div class="sk-service-operator">
@@ -85,262 +89,7 @@
                     </div>
                 </li>
             </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
-            <ul class="bag-item">
-                <li class="sk-bag-photo">
-                    <img src="./img/Tnine/pb.png" alt="">
-                </li>
-                <li class="sk-bag-content">
-                    <div class="sk-service-type">
-                        <h3>皮毛服饰清洗保养</h3>
-                    </div>
-                    <div class="sk-service-desc">
-                        <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-                    </div>
-                    <div class="sk-estimate_sale_price">
-                        <ul class="sk-estimate sk-item">
-                            <li class="dot"></li>
-                            <li class="text">好评</li>
-                            <li class="number">90<span>%</span></li>
-                        </ul>
-                        <ul class="sk-sale sk-item">
-                            <li class="dot"></li>
-                            <li class="text">月售</li>
-                            <li class="number">278</li>
-                        </ul>
-                        <ul class="sk-price">
-                            <li>60元/件</li>
-                        </ul>
-                    </div>
-                    <div class="sk-service-operator">
-                        <img src="./img/Tnine/bds.png" alt="">
-                        <span>包大师</span>
-                    </div>
-                </li>
-            </ul>
+
         </div>
     </div>
     <!--bag结束-->
@@ -353,7 +102,22 @@
     export default {
         name: 'Shop',
         data() {
-            return {}
+            return {
+                list:[]
+            }
+        },
+        methods:{
+            getData(){
+                this.$http.get('/cms/home/index').then(res=>{
+                    res.data.data.productList.forEach(elemlent=>{
+
+                        this.list.push(...[elemlent.one,elemlent.two]);
+                    })
+                })
+            }
+        },
+        mounted:function () {
+             this.getData();
         },
         components:{
             Tab

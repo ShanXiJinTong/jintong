@@ -1,15 +1,15 @@
 <template>
 <div>
     <div class="photo">
-        <img src="../img/beibao.png" alt="">
+        <img :src="shopDetail.image_detail[1]" alt="">
     </div>
     <div class="introduction">
-        <div class="one">皮毛服饰清洗保养</div>
-        <div class="two"><p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤服饰内外污渍清洗去 霉杀菌，不包含补色补伤</p></div>
+        <div class="one">{{shopDetail.name}}</div>
+        <div class="two"><p>{{shopDetail.description}}</p></div>
         <div class="three">
             <div class="tl">
-                <span>现价 60元／件</span>
-                <del>原价 60元／件</del>
+                <span>现价 {{shopDetail.price_info.price.value}}元／件</span>
+                <del>原价 {{shopDetail.price_info.special_price.value}}元／件</del>
             </div>
             <div class="tr">
                 <span class="tr1"></span>
@@ -64,12 +64,12 @@
             </a>
         </div>
         <div class="rr">
-            <a href="">
+            <router-link :to="{name:'XhServer'}" tag="a">
                 <div class="rr1">加入购物车</div>
-            </a>
-            <a href="">
+            </router-link>
+            <router-link :to="{name:'XhOrder'}" tag="a">
                 <div class="rr2">立即下单</div>
-            </a>
+            </router-link>
         </div>
     </div>
 </div>
@@ -78,7 +78,23 @@
     export default {
         name: 'XhDetail',
         data() {
-            return {}
+            return {
+                uid:'',
+                shopDetail:{}
+            }
+        },
+        methods:{
+            getData(){
+                this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
+                    this.shopDetail = res.data.data.product;
+                    console.log(this.shopDetail)
+                })
+            }
+        },
+        mounted:function(){
+            this.uid = this.$route.query.uid;
+            this.getData();
+
         }
     }
 </script>

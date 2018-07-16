@@ -35,7 +35,7 @@
     </div>
     <!--底部-->
     <div class="wb-di">
-        <div class="wb-p p1">加入购物车</div>
+        <router-link :to="{name:'WaterStoreIntro'}" tag="div" class="wb-p p1">加入购物车</router-link>
         <div class="wb-p p2">立即下单</div>
     </div>
 </div>
@@ -44,9 +44,25 @@
     export default {
         name: 'SellWaterDetail',
         data() {
-            return {}
+            return {
+                uid:'',
+                shopDetail:{}
+            }
+        },
+        methods:{
+            getData(){
+                this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
+                     this.shopDetail = res.data.data.product;
+                })
+            }
+        },
+        mounted:function(){
+           this.uid = this.$route.query.uid;
+           this.getData();
+
         }
     }
+
 </script>
 <style scoped>
     @import url("../css/Tseventeen.css");
