@@ -19,7 +19,9 @@
             <p class="x-content">如商家超时未处理</p>
             <div id="x-dis">
                 <button class="x-but x-buta">撤销</button>
+                <router-link :to="{name:'AmendApplication'}">
                 <button class="x-but  x-but1">修改</button>
+                </router-link>
                 <button class="x-but x-but2">客服</button>
             </div>
         </div>
@@ -135,6 +137,7 @@
         border-radius: 3rem;
         border: none;
         color: #FFFFFF;
+        outline: none;
     }
     .x-buta{
         background: #e7f6ff;

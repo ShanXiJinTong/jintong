@@ -130,50 +130,34 @@
                 <!--按键结束-->
             </div>
             <div class="x-box">
+                <router-link :to="{name:'WaitService'}">
                 <div class="x-DR">
                     <div class="x-commodity">
                         <img src="./img/SG.png" alt="" id="x-c-left">
                         <div class="x-c-right">
-                            <div id="x-name"><b>厨房下水清洁疏通</b></div>
+                            <div id="x-name">
+                                <b>厨房下水清洁疏通</b>
+                                <span>待接单</span>
+                            </div>
                             <ul id="x-li">
-                                <li class="x-blue x-jone"><b>ECC01-001Lw</b></li>
-                                <li class="x-blue x-jtwo">商品规格潜水艇高端龙头</li>
+                                <!--<li class="x-blue x-jone"></li>-->
+                                <li class="x-blue x-jtwo"><span>预约日期</span>&nbsp;&nbsp;<b>2018.05.28</b> <b>14:00</b></li>
                                 <li class="x-blue x-jthree">¥60.00</li>
                                 <li class="x-green x-jfour">×1</li>
-                                <li class="x-green x-jfive">实付款：¥60.00</li>
+                                <li class="x-green x-jfive">已付款：¥60.00</li>
+                                <li class="x-rest">剩余款项由维修人员上门视具体情况报价</li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                </router-link>
                 <!--订单结束-->
                 <!--按键开始-->
                 <div class="x-an">
                     <button class="x-anone x-antwo">取消预约</button>
+                    <router-link :to="{name:'WaitServicePay'}">
                     <button class="x-anone" id="x-an-zf">去支付服务费</button>
-                </div>
-                <!--按键结束-->
-            </div>
-            <div class="x-box">
-                <div class="x-DR">
-                    <div class="x-commodity">
-                        <img src="./img/SLT.png" alt="" id="x-c-left">
-                        <div class="x-c-right">
-                            <div id="x-name"><b>潜水艇高端龙头</b></div>
-                            <ul id="x-li">
-                                <li class="x-blue x-jone"><b>ECC01-001Lw</b></li>
-                                <li class="x-blue x-jtwo">商品规格潜水艇高端龙头</li>
-                                <li class="x-blue x-jthree">¥60.00</li>
-                                <li class="x-green x-jfour">×1</li>
-                                <li class="x-green x-jfive">实付款：¥60.00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--订单结束-->
-                <!--按键开始-->
-                <div class="x-an">
-                    <button class="x-anone x-antwo">去退款</button>
-                    <button class="x-anone" id="x-an-3">去评价</button>
+                    </router-link>
                 </div>
                 <!--按键结束-->
             </div>
@@ -201,6 +185,35 @@
                 </div>
                 <!--按键结束-->
             </div>
+            <div class="x-box">
+                <div class="x-DR">
+                    <div class="x-commodity">
+                        <img src="./img/SLT.png" alt="" id="x-c-left">
+                        <div class="x-c-right">
+                            <div id="x-name"><b>潜水艇高端龙头</b></div>
+                            <ul id="x-li">
+                                <li class="x-blue x-jone"><b>ECC01-001Lw</b></li>
+                                <li class="x-blue x-jtwo">商品规格潜水艇高端龙头</li>
+                                <li class="x-blue x-jthree">¥60.00</li>
+                                <li class="x-green x-jfour">×1</li>
+                                <li class="x-green x-jfive">实付款：¥60.00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--订单结束-->
+                <!--按键开始-->
+                <div class="x-an">
+                    <router-link :to="{name:'Refund'}">
+                    <button class="x-anone x-antwo">去退款</button>
+                    </router-link>
+                    <router-link :to="{name:'OrderEvaluate'}">
+                    <button class="x-anone" id="x-an-3">去评价</button>
+                    </router-link>
+                </div>
+                <!--按键结束-->
+            </div>
+
         </div>
     </div>
     <!--footer开始-->
@@ -337,7 +350,13 @@
     margin-bottom: 0.24rem;
     font-size: 0.3rem;
     color: #4f5b64;
-    text-align: left;
+    /*text-align: left;*/
+    display: flex;
+    justify-content: space-between;
+}
+#x-name span{
+    font-size: 0.3rem;
+    color: #43c93e;
 }
 #x-li{
     width: 100%;
@@ -359,6 +378,10 @@
     font-size: 0.22rem;
     color: #c9cbcc;
     text-align: left;
+}
+.x-jtwo b{
+    color: #36a8fe;
+    font-weight: bold;
 }
 .x-jthree{
     width: 100%;
@@ -401,6 +424,7 @@
     height: 0.7rem;
     display: flex;
     justify-content: flex-end;
+    margin-top: 0.3rem;
 }
 .x-anone{
     width: auto;
@@ -413,7 +437,7 @@
     font-size: 0.22rem;
     color: #FFFFFF;
     text-align: center;
-
+    outline: none;
 }
 .x-antwo{
     background: #e7f6ff;
@@ -455,10 +479,12 @@ footer .sk-tabItem h3{
     font-weight: normal;
 }
 /*底部样式结束*/
-.disB{
-    display: block;
-}
-.disN{
-    display: none;
+
+.x-rest{
+   font-size: 0.24rem;
+    color: #afb1b2;
+    position: absolute;
+    bottom:-1.1rem;
+    right: 0;
 }
 </style>

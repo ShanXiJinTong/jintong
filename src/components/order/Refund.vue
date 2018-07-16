@@ -15,6 +15,7 @@
         </div>
     </div>
     <div class="tui">
+        <router-link :to="{name:'RefundDetail'}">
         <div class="kuan">
             <div class="top">
                 <div class="fang"></div>
@@ -24,7 +25,8 @@
                 <h2>未收到货（包括未签收），或与卖家协商同意前提下</h2>
             </div>
         </div>
-
+        </router-link>
+        <router-link :to="{name:'RefundAnd'}">
         <div class="huo">
             <div class="top">
                 <div class="fang"></div>
@@ -34,6 +36,7 @@
                 <h2>已收到货，需要退换已收到的货物</h2>
             </div>
         </div>
+        </router-link>
     </div>
 </div>
 </template>

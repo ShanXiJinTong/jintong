@@ -21,4 +21,7 @@
   *{
     -webkit-tap-highlight-color: transparent;
   }
+  button{
+    border: none;
+  }
 </style>

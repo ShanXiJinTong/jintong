@@ -112,13 +112,13 @@ const WaitServicePay = r => require.ensure([], () => r(require('../components/or
 const WaitZz = r => require.ensure([], () => r(require('../components/order/WaitZz.vue')), "WaitZz");
 // 订单评价
 const OrderEvaluate = r => require.ensure([], () => r(require('../components/order/OrderEvaluate.vue')), "OrderEvaluate");
-// 退款
+// 申请退款
 const Refund = r => require.ensure([], () => r(require('../components/order/Refund.vue')), "Refund");
 // 退款确认页面
 const RefundDetail = r => require.ensure([], () => r(require('../components/order/RefundDetail.vue')), "RefundDetail");
 //退款退货
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
-// 退款 提交成功
+// 退款详情 提交成功
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), " RefundTo");
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
@@ -317,6 +317,11 @@ export default new Router({
       path: '/Wallet',
       name: 'Wallet',
       component: Wallet,
+    },
+    {
+      path:'/Kf',
+      name:'Kf',
+      component:Kf
     },
     {
       path: '/Recharge',

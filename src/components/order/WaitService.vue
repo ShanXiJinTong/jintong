@@ -5,10 +5,12 @@
             <img src="./img/juxing.png" alt="">
             <span>待接单</span>
         </div>
+        <router-link :to="{name:'WaitZz'}">
         <div class="right" id="x-r-img">
             <span>订单跟踪</span>
             <img src="./img/Backcopy.png" alt="" >
         </div>
+        </router-link>
     </div>
     <div class="content">
         <img src="./img/sltou.png" alt="" id="water">
@@ -103,6 +105,7 @@
         background: #41b2fc;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
     }
     .mid .left{
         width: 50%;
@@ -126,6 +129,7 @@
         justify-content: flex-end;
         padding-right: 0.24rem;
         box-sizing: border-box;
+        margin-top: 0.14rem;
     }
     .mid .right img{
         display: block;
@@ -360,5 +364,6 @@
         bottom: 0.1rem;
         right: 0;
         margin-right: 0.24rem;
+        color: #ffffff;
     }
 </style>
