@@ -5,7 +5,7 @@
       <!--内容-->
       <section class="cyx-contain">
         <div class="cyx-container">
-          <ul class="cyx-items">
+          <ul class="cyx-items" v-for="item in carInfo">
             <li class="cyx-top">
               <div class="cyx-left">
                 <div class="cyx-choose hot"></div>
@@ -18,62 +18,20 @@
               <div class="cyx-left">
                 <div class="cyx-choose"></div>
                 <div class="cyx-picture">
-                  <img class="cyx-product" src="./static/img/cyx-gouwuche/product.png" alt="">
+                  <img class="cyx-product" :src="item['img_url']" alt="">
                 </div>
                 <div class="cyx-desc">
-                  <span class="cyx-name">潜水艇高端龙头</span>
-                  <span class="cyx-price">￥60</span>
+                  <span class="cyx-name">{{item.name}}</span>
+                  <span class="cyx-price">¥{{item['product_price']}}</span>
                 </div>
               </div>
               <div class="cyx-right">
                 <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub">
-                <span class="cyx-number">01</span>
+                <span class="cyx-number">{{item.qty}}</span>
                 <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add">
               </div>
             </li>
-            <li class="cyx-bottom">
-              <div class="cyx-left">
-                <span class="cyx-totalPrice">合计</span>
-                <span class="cyx-mao">:</span>
-                <span class="cyx-num">￥162</span>
-              </div>
-              <button class="cyx-btn" type="submit">去下单</button>
-            </li>
-          </ul>
-          <ul class="cyx-items">
-            <li class="cyx-top">
-              <div class="cyx-left">
-                <div class="cyx-choose hot"></div>
-                <span class="cyx-title">宅快修</span>
-                <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
-              </div>
-              <img  class="cyx-delete" src="./static/img/cyx-gouwuche/delete.png" alt="">
-            </li>
-            <li class="cyx-shop">
-              <div class="cyx-left">
-                <div class="cyx-choose"></div>
-                <div class="cyx-picture">
-                  <img class="cyx-product" src="./static/img/cyx-gouwuche/product.png" alt="">
-                </div>
-                <div class="cyx-desc">
-                  <span class="cyx-name">潜水艇高端龙头</span>
-                  <span class="cyx-price">￥60</span>
-                </div>
-              </div>
-              <div class="cyx-right">
-                <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub">
-                <span class="cyx-number">01</span>
-                <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add">
-              </div>
-            </li>
-            <li class="cyx-bottom">
-              <div class="cyx-left">
-                <span class="cyx-totalPrice">合计</span>
-                <span class="cyx-mao">:</span>
-                <span class="cyx-num">￥162</span>
-              </div>
-              <button class="cyx-btn" type="submit">去下单</button>
-            </li>
+
           </ul>
         </div>
       </section>
@@ -120,21 +78,32 @@
         data() {
             return {
               carInfo:[
-                
-              ]
+
+              ],
+              car:[]
             }
         },
         methods:{
            getData(){
-              this.$http.get('/checkout/cart/index').then(res=>{
-                console.log(res);
-                this.carInfo = res.data.data.cart_info;
+              this.$http.get('/checkout/cart/index',{
+                headers:{
+                  'access-token': 'rPhUB9WzaipLIVUwrIjAgbBtqJdM4Daj',
+                  'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
+                }
+              }).then(res=>{
+                this.carInfo = res.data.data['cart_info'].products;
+                console.log(this.carInfo)
               })
+           },
+           calcCar(){
+              //  product_id  product_price  qty  total
+               this.calcCar = this.carInfo;
            }
         },
         mounted:function(){
           this.getData();
         }
+
     }
 </script>
 <style scoped>
