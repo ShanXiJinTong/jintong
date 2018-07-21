@@ -4,7 +4,7 @@
       <span>太原 </span><i class="iconfont icon-down"></i>
       <router-link :to="{name:'Search'}" class="input">
         <input type="text" disabled placeholder="搜索您需要的服务 商品">
-        <img src="./static/img/sousuo.png" alt="">
+        <img src="../common/static/img/sousuo.png" alt="">
       </router-link>
     </section>
     <section class="lunbo">
