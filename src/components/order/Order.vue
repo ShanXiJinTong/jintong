@@ -221,10 +221,10 @@
                         'fecshop-uuid': '6098784a-8719-11e8-81ee-00163e021360'
                     },
 
-                        order_id: 3
+
 
                 }).then(res=>{
-                    console.log(res);
+
                     /*res.data.order.products.forEach(element=>{
                         this.list.push(element);
                     })*/
