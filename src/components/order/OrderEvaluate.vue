@@ -28,7 +28,9 @@
                 </div>
                 <span>非常差</span>
             </li>
-            <li class="li2"></li>
+            <li class="li2">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </li>
             <li class="li3">
                 <img src="./img/xiangji.png" alt="">
             </li>
@@ -334,5 +336,14 @@
         color: #ffffff;
         background: linear-gradient(90deg,#37e06f,#32d69a);
         box-shadow: 0 0.04rem 0.2rem rgba(55,223,116,0.75);
+    }
+    textarea{
+       width: 100%;
+        height: 100%;
+        border-radius: 0.1rem;
+        padding:0.2rem;
+        box-sizing: border-box;
+        resize: none;
+        outline: none;
     }
 </style>

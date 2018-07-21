@@ -87,7 +87,8 @@
         </li>
     </div>
     <button class="lclick">取消预约</button>
-    <button class="rclick">去支付服务费</button>
+
+    <router-link :to="{name:'ServicePay'}"><button class="rclick">去支付服务费</button></router-link>
 </div>
 </template>
 <script>

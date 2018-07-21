@@ -110,9 +110,9 @@
             getData(){
                 this.$http.get('/cms/home/index').then(res=>{
                     res.data.data.productList.forEach(elemlent=>{
-
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
+
                 })
             }
         },
