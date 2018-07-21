@@ -3,11 +3,8 @@
 
     <!--banner开始-->
     <section class="wsq-banner">
-        <div class="wsq-title">
-
-            <div class="wsq-cateaty hot">洗护</div>
-            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty" >售水</router-link>
-            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">卫浴</router-link>
+        <div class="wsq-title" >
+                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu">{{item.name}}</router-link>
         </div>
     </section>
     <!--banner结束-->
@@ -103,21 +100,36 @@
         name: 'Shop',
         data() {
             return {
-                list:[]
+                list:[],
+                menu:[],
+                path:['Shop','Bathroom','Bathroom'],
+                child:[]
             }
         },
         methods:{
             getData(){
                 this.$http.get('/cms/home/index').then(res=>{
                     res.data.data.productList.forEach(elemlent=>{
-
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
-            }
+            },
+            getMenu(){
+                this.$http.get('/general/base/menu').then(res=>{
+                    for(let i in res.data){
+                        if(res.data[i].name && res.data[i].child) {
+                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
+                        }
+                   }
+                   this.menu = this.menu.slice(0,3);
+
+                })
+            },
+
         },
         mounted:function () {
              this.getData();
+             this.getMenu();
         },
         components:{
             Tab

@@ -32,7 +32,7 @@ html , body{
     font-size: 0.2rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty{
-    width: 1.33rem;
+    /*width: 1.33rem;*/
     height: 0.52rem;
     border-radius: 0.26rem;
     background: rgba(59,172,254,0.1);
