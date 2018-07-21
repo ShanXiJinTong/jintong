@@ -9,10 +9,8 @@
     <!--搜索结束-->
     <!--banner开始-->
     <section class="wsq-banner">
-        <div class="wsq-title">
-            <div class="wsq-cateaty">洗护</div>
-            <div class="wsq-cateaty" style="margin: 0 0.25rem">售水</div>
-            <div class="wsq-cateaty hot">卫浴</div>
+        <div class="wsq-title" >
+            <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu">{{item.name}}</router-link>
         </div>
         <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
     </section>
@@ -208,7 +206,26 @@
     export default {
         name: 'Bathroom',
         data() {
-            return {}
+            return {
+                menu:[],
+                path:['Shop','Bathroom','Bathroom'],
+            }
+        },
+        methods:{
+            getMenu(){
+                this.$http.get('/general/base/menu').then(res=>{
+                    for(let i in res.data){
+                        if(res.data[i].name && res.data[i].child) {
+                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
+                        }
+                    }
+                    this.menu = this.menu.slice(0,3);
+
+                })
+            }
+        },
+        mounted:function () {
+            this.getMenu();
         }
     }
 </script>

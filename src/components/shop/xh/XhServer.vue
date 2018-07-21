@@ -9,7 +9,7 @@
             <div class="wb-tu">
                 <img src="../img/Tseventeen2.png" alt="">
             </div>
-            <div class="wb-money"><p>￥162</p></div>
+            <div class="wb-money">￥162</div>
             <ul class="wb-guige">
                 <li class="guige">
                     <div class="wb-yuan1"></div>

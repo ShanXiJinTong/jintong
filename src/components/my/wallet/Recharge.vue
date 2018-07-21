@@ -17,7 +17,6 @@
   <div class="shdchongzhi">
     <input type="text" class="defined" placeholder="自定义金额" v-model="selectPrice">
     <button class="confirm" type="button" @click="submitPrice">确认充值</button>
-
   </div>
 </div>
 </template>

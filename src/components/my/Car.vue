@@ -3,44 +3,43 @@
 
     <div v-if="carInfo">
       <!--内容-->
-      <section class="cyx-contain">
-        <div class="cyx-container">
-          <ul class="cyx-items" v-for="item in carInfo">
-            <li class="cyx-top">
-              <div class="cyx-left">
-                <div class="cyx-choose hot"></div>
-                <span class="cyx-title">宅快修</span>
-                <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
+      <div class="cyx-container">
+        <ul class="cyx-items" v-for="item in carInfo">
+          <li class="cyx-top">
+            <div class="cyx-left">
+              <div :class="['cyx-choose',item.active?'hot':'']" @click="toggleSelect(item)"></div>
+              <span class="cyx-title">宅快修</span>
+              <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
+            </div>
+            <img class="cyx-delete" src="./static/img/cyx-gouwuche/delete.png" alt="">
+          </li>
+          <li class="cyx-shop">
+            <div class="cyx-left">
+              <div class="cyx-choose"></div>
+              <div class="cyx-picture">
+                <img class="cyx-product" :src="item['img_url']" alt="">
               </div>
-              <img  class="cyx-delete" src="./static/img/cyx-gouwuche/delete.png" alt="">
-            </li>
-            <li class="cyx-shop">
-              <div class="cyx-left">
-                <div class="cyx-choose"></div>
-                <div class="cyx-picture">
-                  <img class="cyx-product" :src="item['img_url']" alt="">
-                </div>
-                <div class="cyx-desc">
-                  <span class="cyx-name">{{item.name}}</span>
-                  <span class="cyx-price">¥{{item['product_price']}}</span>
-                </div>
+              <div class="cyx-desc">
+                <span class="cyx-name">{{item.name}}</span>
+                <span class="cyx-price">¥{{item['product_price']}}</span>
               </div>
-              <div class="cyx-right">
-                <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub">
-                <span class="cyx-number">{{item.qty}}</span>
-                <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add">
-              </div>
-            </li>
+            </div>
+            <div class="cyx-right">
+              <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub"
+                   @click="subNumber(item)">
+              <span class="cyx-number">{{item.qty}}</span>
+              <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add"
+                   @click="addNumber(item)">
+            </div>
+          </li>
 
-          </ul>
-        </div>
-      </section>
-
+        </ul>
+      </div>
       <!--底部-->
       <footer class="cyx-footer">
         <div class="cyx-container">
           <section class="cyx-top">
-            <div class="cyx-choose"></div>
+            <div class="cyx-choose" @click="selectAll"></div>
             <span class="cyx-title">全选</span>
           </section>
           <section class="cyx-bottom">
@@ -49,7 +48,7 @@
                 <img src="./static/img/cyx-gouwuche/allprice.png" alt="" class="cyx-ap">
                 <span class="cyx-heji">合计</span>
                 <span class="cyx-mao">:</span>
-                <span class="cyx-num">￥162</span>
+                <span class="cyx-num"> {{totalMoney}} </span>
               </div>
               <div class="cyx-extraPrice">
                 <img src="./static/img/cyx-gouwuche/extraprice.png" alt="" class="cyx-ep">
@@ -63,48 +62,106 @@
       </footer>
     </div>
     <div v-else>
-
       <div class="content">
         <img src="./static/img/jingtong01-1.png" alt="">
         <div class="mwq-text">购物车空空如也</div>
         <router-link :to="{name:'AddAddress'}" tag="div" class="mwq-circle">去逛逛</router-link>
       </div>
     </div>
- </div>
+  </div>
 </template>
 <script>
-    export default {
-        name: 'Car',
-        data() {
-            return {
-              carInfo:[
-
-              ],
-              car:[]
-            }
-        },
-        methods:{
-           getData(){
-              this.$http.get('/checkout/cart/index',{
-                headers:{
-                  'access-token': 'rPhUB9WzaipLIVUwrIjAgbBtqJdM4Daj',
-                  'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
+  import Scroll from './scroll';
+  const  headers =  {
+    'access-token': 'jK43YnHBzeKnpDFRslZtOmAYWTwHkJTt',
+      'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
+  };
+  export default {
+    name: 'Car',
+    data() {
+      return {
+        carInfo: [],
+        totalMoney: 0,
+        flag:true
+      }
+    },
+    methods: {
+      getData() {
+        this.$http.get('/checkout/cart/index', {
+          headers
+        }).then(res => {
+          let data = res.data.data['cart_info'];
+          if (data) {
+            this.carInfo = res.data.data['cart_info'].products;
+          } else {
+            this.carInfo = false;
+          }
+        })
+      },
+      changeSelect(itemid , active){
+             this.$http.get('/checkout/cart/selectone',{
+                headers,
+                params:{
+                  checked: active,
+                  item_id: itemid
                 }
-              }).then(res=>{
-                this.carInfo = res.data.data['cart_info'].products;
-                console.log(this.carInfo)
-              })
-           },
-           calcCar(){
-              //  product_id  product_price  qty  total
-               this.calcCar = this.carInfo;
-           }
-        },
-        mounted:function(){
-          this.getData();
+             }).then(res=>{
+                this.flag = true;
+             })
+      },
+      addNumber(item) {
+        if(!item.active){return }
+        let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
+        ++items.qty;
+      },
+      subNumber(item) {
+        if(!item.active){return }
+        let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
+        if(items.qty === 1){
+          return ;
         }
+        items.qty--;
 
+      },
+      toggleSelect(item){
+         if(!this.flag){return }
+         this.flag = false;
+         item.active =  Number( !Boolean(item.active));
+         this.changeSelect(item['item_id'],this.active);
+      },
+      calcTotalMoney() {
+        let _this = this;
+        this.totalMoney = 0;
+        let  arr = this.carInfo.filter(element=>element.active === 1);
+        this.carInfo.filter(element=>element.active === 1).forEach(element => {
+          this.totalMoney += element.qty * element['product_price'];
+        });
+        this.totalMoney = this.totalMoney.toFixed(2);
+
+      },
+      selectAll(){
+         this.carInfo.forEach(element=>{
+            element.active = 1;
+         })
+      }
+
+    },
+    mounted: function () {
+      this.getData();
+    },
+    components: {
+      Scroll
+    },
+    watch: {
+      carInfo: {
+        handler() {
+          if (!this.carInfo) return;
+          this.calcTotalMoney();
+        },
+        deep: true
+      }
     }
+  }
 </script>
 <style scoped>
   @import url(./static/common/header.css);

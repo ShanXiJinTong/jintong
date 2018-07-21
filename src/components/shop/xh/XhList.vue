@@ -17,13 +17,13 @@
         <div class="main">
             <div class="cateBox">
                 <p>综合</p>
-                <i class="iconfont icon-xiangxiajiantou"></i>
+                <i class="iconfont icon-xiangxiajiantou" @click="getData"></i>
             </div>
-            <div class="cateBox">
+            <div class="cateBox" @click="getData('hot')">
                 <p>销量</p>
                 <i class="iconfont icon-xiangxiajiantou"></i>
             </div>
-            <div class="cateBox">
+            <div class="cateBox" @click="getData('high-to-low')">
                 <p>价格降序</p>
                 <i class="iconfont icon-xiangxiajiantou"></i>
             </div>
@@ -77,21 +77,31 @@
         name: 'XhList',
         data() {
             return {
-                list:[]
+                list:[],
+                cid:'',
+
             }
         },
         methods:{
-            getData(){
-                this.$http.get('/cms/home/index').then(res=>{
-                    res.data.data.productList.forEach(elemlent=>{
-
+            getData(sort=''){
+                let _this=this;
+                this.list = [];
+                this.$http.get('/catalog/category/index', {
+                  params: {
+                     categoryId:_this.cid,
+                     sortColumn:sort
+                  }
+                }).then(res=>{
+                    res.data.data.products.forEach(elemlent=>{
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
+
             }
         },
         mounted:function () {
-            this.getData();
+          this.cid = this.$route.query.categoryId;
+          this.getData();
         },
     }
 </script>

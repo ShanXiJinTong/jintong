@@ -47,8 +47,6 @@ header .title span{
     height: 1.64rem;
     border-radius: 0.1rem;
     background: #FFFFFF;
-    position: absolute;
-    top:-0.61rem;
     display: flex;
     align-items: center;
     justify-content: center;
