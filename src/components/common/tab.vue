@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <router-link to="" tag="div" class="sk-tabItem">
+    <router-link to="/" exact tag="div" class="sk-tabItem">
       <img src="./static/img/sy.png" alt="">
       <h3>首页</h3>
     </router-link>
