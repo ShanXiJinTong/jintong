@@ -14,7 +14,7 @@
 
     <!--Icon开始-->
     <ul class="xrIcon">
-        <router-link :to="{name:'XhList'}" tag="li"  class="xrIconbox">
+        <router-link :to="{name:'XhList',query:{categoryId:'57bea0e3f656f275313bf56e'}}" tag="li"  class="xrIconbox">
             <div class="xrIcon1">
                 <img src="./img/Tnine/Tnine1.png" alt="">
             </div>
