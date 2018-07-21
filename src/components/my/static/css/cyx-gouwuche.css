@@ -225,7 +225,11 @@ footer.cyx-footer{
     left: 0;
     bottom: 0;
 }
-
+.cyx-contain{
+  position: absolute;
+  top: 0;
+  bottom: 2.32rem;
+}
 .cyx-container > .cyx-top{
     width: 100%;
     height: 1.24rem;

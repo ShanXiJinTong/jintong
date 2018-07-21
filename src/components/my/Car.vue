@@ -3,12 +3,11 @@
 
     <div v-if="carInfo">
       <!--内容-->
-      <section class="cyx-contain">
-        <div class="cyx-container">
+       <div class="cyx-container">
           <ul class="cyx-items" v-for="item in carInfo">
             <li class="cyx-top">
               <div class="cyx-left">
-                <div class="cyx-choose hot"></div>
+                <div :class="['cyx-choose',item.active?'hot':'']" ></div>
                 <span class="cyx-title">宅快修</span>
                 <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
               </div>
@@ -28,14 +27,12 @@
               <div class="cyx-right">
                 <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub">
                 <span class="cyx-number">{{item.qty}}</span>
-                <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add">
+                <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add" @click="addNumber(item['product_id'])">
               </div>
             </li>
 
           </ul>
         </div>
-      </section>
-
       <!--底部-->
       <footer class="cyx-footer">
         <div class="cyx-container">
@@ -49,7 +46,7 @@
                 <img src="./static/img/cyx-gouwuche/allprice.png" alt="" class="cyx-ap">
                 <span class="cyx-heji">合计</span>
                 <span class="cyx-mao">:</span>
-                <span class="cyx-num">￥162</span>
+                <span class="cyx-num"> {{totalMoney}} </span>
               </div>
               <div class="cyx-extraPrice">
                 <img src="./static/img/cyx-gouwuche/extraprice.png" alt="" class="cyx-ep">
@@ -73,6 +70,7 @@
  </div>
 </template>
 <script>
+    import Scroll from './scroll';
     export default {
         name: 'Car',
         data() {
@@ -80,28 +78,62 @@
               carInfo:[
 
               ],
-              car:[]
+              car:[],
+              totalMoney:0,
+
             }
         },
         methods:{
            getData(){
               this.$http.get('/checkout/cart/index',{
                 headers:{
-                  'access-token': 'rPhUB9WzaipLIVUwrIjAgbBtqJdM4Daj',
+                  'access-token': '-6KoiYurpo-eh-rpLJIEkiwwAkmsNyyK',
                   'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
                 }
               }).then(res=>{
-                this.carInfo = res.data.data['cart_info'].products;
-                console.log(this.carInfo)
+                let data = res.data.data['cart_info'];
+                if(data){
+                  this.carInfo = res.data.data['cart_info'].products;
+                }else{
+                   this.carInfo = false;
+                }
+                console.log(this.carInfo);
               })
            },
-           calcCar(){
-              //  product_id  product_price  qty  total
-               this.calcCar = this.carInfo;
+           addNumber(productId){
+               let item =  this.carInfo.filter(element=>element['product_id'] == productId)[0];
+               ++item.qty;
+           },
+           subNumber(productId){
+            let item =  this.carInfo.filter(element=>element['product_id'] == productId)[0];
+
+          },
+           reduceNumber(){
+
+           },
+           calcTotalMoney(){
+              let _this = this;
+              this.totalMoney = 0;
+              this.carInfo.forEach(element=>{
+                this.totalMoney +=  element.qty *  element['product_price'];
+              });
+             this.totalMoney = this.totalMoney.toFixed(2);
            }
         },
         mounted:function(){
           this.getData();
+        },
+        components:{
+          Scroll
+        },
+        watch:{
+          carInfo:{
+             handler(){
+               if(!this.carInfo) return ;
+                 this.calcTotalMoney();
+             },
+             deep:true
+          }
         }
 
     }
