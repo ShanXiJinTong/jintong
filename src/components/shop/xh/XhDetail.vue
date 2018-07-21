@@ -87,14 +87,12 @@
             getData(){
                 this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
                     this.shopDetail = res.data.data.product;
-                    console.log(this.shopDetail)
                 })
             }
         },
         mounted:function(){
             this.uid = this.$route.query.uid;
             this.getData();
-
         }
     }
 </script>

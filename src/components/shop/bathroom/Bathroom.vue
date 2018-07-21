@@ -11,8 +11,8 @@
     <section class="wsq-banner">
         <div class="wsq-title">
             <div class="wsq-cateaty">洗护</div>
-            <div class="wsq-cateaty" style="margin: 0 0.25rem">售水</div>
-            <div class="wsq-cateaty hot">卫浴</div>
+            <div class="wsq-cateaty hot" style="margin: 0 0.25rem">售水</div>
+            <div class="wsq-cateaty">卫浴</div>
         </div>
         <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
     </section>

@@ -6,7 +6,7 @@
         <div class="wsq-title">
 
             <div class="wsq-cateaty hot">洗护</div>
-            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">售水</router-link>
+            <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty" >售水</router-link>
             <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">卫浴</router-link>
         </div>
     </section>
