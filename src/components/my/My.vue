@@ -9,82 +9,77 @@
         <span>黄金会员</span>
       </div>
     </div>
-    <a href="yhq-myVip.html">
+    <router-link :to="{name:'VipImprove'}">
+
       <p style="font-weight: bold">去升级</p>
       <div class="dian" style="border-radius: 50%;"></div>
       <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;" ></div>
       <div class="dian" style="background: #3bacfe;opacity: 0.3;border-radius: 50%;"></div>
-    </a>
+    </router-link>
   </div>
   <div class="xingxi">
     <div class="yh">
-      <a href="" class="shuzi">
-            <span>
-                <h6 style="color: rgb(57,170,254)">2</h6>
-                <h5 style="background: -webkit-linear-gradient(left,rgb(57,170,254),rgb(109,212,254)); -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;">6</h5>
-                <h4 style="color: rgb(109,212,254)">0</h4>
-            </span>
+      <router-link :to="{name:'Wallet'}" class="shuzi">
+          <span>
+             260
+          </span>
         <p>余额</p>
-      </a>
+      </router-link>
     </div>
     <div class="yh">
-      <a href="zy-youhuiquan.html" class="shuzi">
-            <span>
-                <h6>0</h6>
-                <h5>6</h5>
+      <router-link :to="{name:'Discount'}" class="shuzi">
+         <span>
+               06
             </span>
         <p>优惠劵</p>
-      </a>
+      </router-link>
     </div>
     <div class="yh">
-      <a href="cyx-jinbi.html" class="shuzi">
-            <span>
-                <h6 style="color: rgb(255,191,57);">4</h6>
-                <h5 style="background: -webkit-linear-gradient(left,rgb(255,191,57),rgb(255,223,52)); -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;">8</h5>
-                <h4>9</h4>
+      <router-link :to="{name:'Gold'}" class="shuzi">
+          <span>
+              489
             </span>
         <p>金币</p>
-      </a>
+      </router-link>
     </div>
   </div>
   <div class="bottom">
     <div class="wai">
-      <a href="nxrQianBao.html" class="ne">
+      <router-link :to="{name:'Wallet'}" class="ne">
         <div class="kuai"></div>
         <span>钱包</span>
-      </a>
+      </router-link>
     </div>
     <div class="wai">
-      <a href="cyx-gouwuche.html" class="ne">
+      <router-link class="ne" :to="{name:'Car'}">
         <div class="kuai"></div>
         <span>购物车</span>
-      </a>
+      </router-link>
     </div>
     <div class="wai">
-      <a class="ne">
+      <router-link class="ne" :to="{name:'Address'}">
         <div class="kuai"></div>
         <span>常用地址</span>
-      </a>
+      </router-link>
     </div>
     <div class="wai">
-      <a class="ne">
+      <router-link class="ne" :to="{name:'Kf'}">
         <div class="kuai"></div>
         <span>客服中心</span>
-      </a>
+      </router-link>
     </div>
     <div class="wai">
-      <a href="shd-help.html" class="ne">
+      <router-link class="ne" :to="{name:'Help'}">
         <div class="kuai"></div>
         <span>帮助</span>
-      </a>
+      </router-link>
+
     </div>
     <div class="wai">
-      <a href="nxrAbout.html" class="ne">
+      <router-link class="ne" :to="{name:'About'}">
         <div class="kuai"></div>
         <span>关于我们</span>
-      </a>
+      </router-link>
     </div>
     <div class="wai">
       <a class="ne">
@@ -94,14 +89,18 @@
       </a>
     </div>
   </div>
-
+  <Tab></Tab>
 </div>
 </template>
 <script>
+    import Tab from '../common/tab';
     export default {
         name: 'My',
         data() {
-            return {}
+          return {}
+        },
+        components:{
+          Tab
         }
     }
 </script>

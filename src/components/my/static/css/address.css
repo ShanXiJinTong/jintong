@@ -1,0 +1,36 @@
+
+.content{
+    height: 12.06rem;
+    width: 100%;
+    background: #ffffff;
+    padding:0 0.24rem;
+    box-sizing: border-box;
+}
+.content img{
+    display: block;
+    height: 3.47rem;
+    width: 3.68rem;
+    margin:2.68rem auto 0;
+}
+
+.content .mwq-text{
+    height: auto;
+    width: 100%;
+    font-size: 0.26rem;
+    color:rgba(0,0,0,0.4);
+    margin:0 auto;
+    text-align: center;
+}
+.content .mwq-circle{
+    height: 0.6rem;
+    width: 1.96rem;
+    border-radius: 0.3rem;
+    background: -webkit-linear-gradient(right,#27d29c,#33e171);
+    font-size: 0.20rem;
+    text-align: center;
+    line-height: 0.6rem;
+    margin:0.53rem auto 0;
+    color: #ffffff;
+    box-shadow: 0 0.04rem 0.2rem 0 rgba(55,223,116,0.75);
+
+}

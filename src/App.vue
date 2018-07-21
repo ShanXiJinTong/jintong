@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <router-view/>
   </div>
 </template>
@@ -19,5 +20,8 @@
   }
   *{
     -webkit-tap-highlight-color: transparent;
+  }
+  button{
+    border: none;
   }
 </style>

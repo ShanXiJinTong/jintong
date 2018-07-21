@@ -69,5 +69,11 @@ html,body{
     color: #fff;
     text-align: center;
     line-height: .6rem;
-    box-shadow: 0rem 0.04rem 0.2rem 0rem rgba(55, 223, 116, 0.75);
+    box-shadow: 0 0.04rem 0.2rem 0 rgba(55, 223, 116, 0.75);
+}
+.hengXian{
+  width: 6.44rem;
+  height: 0.02rem;
+  background: rgba(0,0,0,0.04);
+  margin: .64rem auto 0 auto;
 }

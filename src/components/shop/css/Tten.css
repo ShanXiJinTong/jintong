@@ -8,37 +8,10 @@ a{
     text-decoration: none;
 }
 
-
-
 html , body{
     width: 100%;
     height: 100%;
 }
-header{
-    width: 100%;
-    height: 0.88rem;
-    background-color: #f8fcff;
-    padding: 0 0.24rem;
-    margin: 0 auto;
-}
-header .title{
-    width: 100%;
-    height: 0.88rem;
-    display: flex;
-    justify-content: space-between;
-}
-header .title .iconfont{
-    font-size: 0.22rem;
-    color: #41b2fc;
-    line-height: 0.88rem;
-}
-header .title span{
-    font-size: 0.36rem;
-    color: #41b2fc;
-    line-height: 0.88rem;
-}
-
-
 nav{
     width: 100%;
     height: 0.97rem;
@@ -73,6 +46,7 @@ nav .main p.hot{
     height: 0.9rem;
     padding: 0 0.24rem;
     margin: 0 auto;
+    line-height: 0.9rem;
 }
 .cate .main{
     width: 100%;
@@ -88,19 +62,18 @@ nav .main p.hot{
     align-items: center;
 }
 .cate .main .cateBox p{
-    font-size: 0.26rem;;
+    font-size: 0.26rem;
     color: #41b2fc;
     margin-right: 0.1rem;
 }
 .cate .main .cateBox i{
-    font-size: 0.26rem;;
+    font-size: 0.26rem;
     color: #41b2fc;
 }
-
-.bag-scroll{
+.bag-scroll {
     width: 100%;
-    height: 10rem;
-    overflow: hidden;
+    height:11.5rem;
+    overflow-y: scroll;
 }
 .sk-bag-scroll{
     width: 100%;

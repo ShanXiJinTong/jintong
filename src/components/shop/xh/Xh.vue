@@ -379,7 +379,5 @@
 </script>
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
-    @import url("../css/common.css");
-    @import url("../css/weiyu.css");
     @import url("../css/Tnine.css");
 </style>
