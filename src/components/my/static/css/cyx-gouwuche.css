@@ -350,7 +350,7 @@ footer.cyx-footer{
     display: block;
     border: none;
     outline: none;
-
+    text-align: center;
     width: 3.8rem;
     height: .6rem;
     background-image: linear-gradient(90deg,

@@ -56,7 +56,7 @@
                 <span class="cyx-youhui">已优惠￥20</span>
               </div>
             </div>
-            <button class="cyx-pay" type="submit">结算</button>
+            <router-link :to="{name:'WaitServicePay'}" class="cyx-pay">结算</router-link>
           </section>
         </div>
       </footer>
@@ -73,7 +73,7 @@
 <script>
   import Scroll from './scroll';
   const  headers =  {
-      'access-token': 'j6KVio16UBUZxSfYZeqVfLW_brpXB6fI',
+      'access-token': '02GBDiCQ8v3xWHdv6uUrErqePG5kRr5m',
       'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
   export default {
@@ -130,13 +130,11 @@
            })
       },
       addNumber(item) {
-        if(!item.active){return }
         let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
         ++items.qty;
         this.updateInfo(item['item_id'],'add_one');
       },
       subNumber(item) {
-        if(!item.active){return }
         let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
         if(items.qty === 1){
           return ;

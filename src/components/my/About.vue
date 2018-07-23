@@ -11,7 +11,7 @@
     </div>
   </section>
   <div class="hengXian"></div>
-  <section class="nxrContent" v-html="content">
+  <section class="nxrContent">
 
   </section>
   <div class="hengXian1"></div>
@@ -46,14 +46,6 @@
             }
         },
         methods:{
-          getContent(){
-             this.$http.get('/cms/article/index?url_key=about-us').then(res=>{
-               this.content = res.data.data.content;
-             })
-          }
-        },
-        mounted:function(){
-           this.getContent();
         }
     }
 </script>
