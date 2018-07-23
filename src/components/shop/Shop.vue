@@ -112,6 +112,7 @@
                     res.data.data.productList.forEach(elemlent=>{
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
+
                 })
             },
             getMenu(){
