@@ -99,8 +99,28 @@ ul.class {
   height: 1.13rem;
   margin: 0 auto;
   border-radius: 50%;
-  background: #00aaee;
   box-shadow: 0 0.1rem 0.4rem 0 rgba(83, 191, 254, 0.5);
+}
+.class li:nth-child(1) div.img{
+  background:#00aaee url("../img/l1.png") no-repeat center/cover;
+}
+.class li:nth-child(2) div.img{
+  background:#00aaee url("../img/l2.png") no-repeat center/cover;
+}
+.class li:nth-child(3) div.img{
+  background:#00aaee url("../img/l3.png") no-repeat center/cover;
+}
+.class li:nth-child(4) div.img{
+  background:#00aaee url("../img/l4.png") no-repeat center/cover;
+}
+.class li:nth-child(5) div.img{
+  background:#00aaee url("../img/l5.png") no-repeat center/cover;
+}
+.class li:nth-child(6) div.img{
+  background:#00aaee url("../img/l6.png") no-repeat center/cover;
+}
+.class li:nth-child(7) div.img{
+  background:#00aaee url("../img/l7.png") no-repeat center/cover;
 }
 
 .class li a .img img {

@@ -18,61 +18,13 @@
       </swiper>
     </section>
     <ul class="class">
-      <li>
+      <li v-for="(item,index) in menu">
         <a href="./water1.html">
-          <div class="img"><img src="./static/img/l1.png" alt=""></div>
-          <p>水路综合</p>
+          <div class="img"></div>
+          <p>{{item.name}}</p>
         </a>
       </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l2.png" alt=""></div>
-          <p>水管维修</p>
-        </a>
 
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l3.png" alt=""></div>
-          <p>管道维修</p>
-        </a>
-
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l4.png" alt=""></div>
-          <p>龙头维修</p>
-        </a>
-
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l5.png" alt=""></div>
-          <p>地漏疏通</p>
-        </a>
-
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l6.png" alt=""></div>
-          <p>阀门维修</p>
-        </a>
-
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l7.png" alt=""></div>
-          <p>下水道疏通</p>
-        </a>
-
-      </li>
-      <li>
-        <a href="">
-          <div class="img"><img src="./static/img/l8.png" alt=""></div>
-          <p>其他</p>
-        </a>
-      </li>
-      <li></li>
     </ul>
     <Tab></Tab>
   </div>
@@ -104,15 +56,30 @@
           pagination: {
             el: '.swiper-pagination',
           }
-        }
+        },
+        menu:[]
       }
     },
-    methods: {},
+    methods: {
+        getMenu(){
+            this.$http.get('/general/base/menu').then(res=>{
+                for(let i in res.data){
+                    if(res.data[i].name ) {
+                        this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
+                    }
+                }
+                this.menu = this.menu.slice(0,7);
+            })
+        },
+    },
     created() {
       this.$http.get('/cms/home/index').then((res) => {
         this.advList = res.data.data.advertiseImg.bigImgList;
       })
     },
+      mounted:function () {
+          this.getMenu();
+      },
     components:{
       Tab
     }
