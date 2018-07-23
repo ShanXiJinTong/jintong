@@ -4,7 +4,7 @@
     <!--banner开始-->
     <section class="wsq-banner">
         <div class="wsq-title" >
-                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu">{{item.name}}</router-link>
+                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
         </div>
     </section>
     <!--banner结束-->

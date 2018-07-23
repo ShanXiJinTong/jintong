@@ -10,7 +10,7 @@
     <!--banner开始-->
     <section class="wsq-banner">
         <div class="wsq-title" >
-            <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu">{{item.name}}</router-link>
+            <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
         </div>
         <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
     </section>
@@ -231,5 +231,5 @@
 </script>
 <style scoped>
     @import url("../css/Tnineteen.css");
-   
+
 </style>
