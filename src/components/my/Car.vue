@@ -39,7 +39,7 @@
       <footer class="cyx-footer">
         <div class="cyx-container">
           <section class="cyx-top">
-            <div class="cyx-choose" @click="selectAll"></div>
+            <div :class="['cyx-choose',selectAllAttr?'':'hot']"  @click="selectAll"></div>
             <span class="cyx-title">全选</span>
           </section>
           <section class="cyx-bottom">
@@ -73,7 +73,7 @@
 <script>
   import Scroll from './scroll';
   const  headers =  {
-    'access-token': 'jK43YnHBzeKnpDFRslZtOmAYWTwHkJTt',
+      'access-token': 'j6KVio16UBUZxSfYZeqVfLW_brpXB6fI',
       'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
   export default {
@@ -82,8 +82,15 @@
       return {
         carInfo: [],
         totalMoney: 0,
-        flag:true
+        flag:true,
       }
+    },
+    computed:{
+       selectAllAttr(){
+          let arr =  this.carInfo.filter(element=>element.active);
+
+          return arr.length < this.carInfo.length;
+       }
     },
     methods: {
       getData() {
@@ -98,7 +105,7 @@
           }
         })
       },
-      changeSelect(itemid , active){
+      changeSelect(itemid , active) {
              this.$http.get('/checkout/cart/selectone',{
                 headers,
                 params:{
@@ -109,10 +116,24 @@
                 this.flag = true;
              })
       },
+      updateInfo(itemid,type){
+           this.$http({
+             headers,
+             method: 'post',
+             url: '/checkout/cart/updateinfo',
+             data: {
+               up_type: type,
+               item_id: itemid,
+             }
+           }).then(res=>{
+             console.log(res);
+           })
+      },
       addNumber(item) {
         if(!item.active){return }
         let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
         ++items.qty;
+        this.updateInfo(item['item_id'],'add_one');
       },
       subNumber(item) {
         if(!item.active){return }
@@ -121,7 +142,7 @@
           return ;
         }
         items.qty--;
-
+        this.updateInfo(item['item_id'],'less_one');
       },
       toggleSelect(item){
          if(!this.flag){return }
@@ -157,6 +178,7 @@
         handler() {
           if (!this.carInfo) return;
           this.calcTotalMoney();
+
         },
         deep: true
       }
