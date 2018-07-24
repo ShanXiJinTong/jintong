@@ -157,7 +157,7 @@ li.cyx-shop > .cyx-left{
     height: 1.74rem;
     background-color: #ffffff;
     box-shadow: 0 .01rem .21rem 0 rgba(223, 223, 223, .43);
-    border-radius: .1rem;
+    border-radius: 0.1rem;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,13 +1,24 @@
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .dizhi{
     width: 100%;
-    height: 1.32rem;
-    padding: 0.46rem 0.24rem 0.61rem;
+    height: auto;;
+    /*padding: 0.46rem 0.24rem 0.61rem;*/
     display: flex;
     justify-content: space-between;
     font-size: 0.26rem;
     color: #000000;
 }
-
+.dizhi a{
+  width: 100%;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .dizhi img{
     width:0.14rem;
     height: 0.24rem;
@@ -16,7 +27,7 @@
     width: 100%;
     height: 1.74rem;
     display: flex;
-    margin-bottom: 0.31rem;
+    margin: 0.31rem 0;
     padding: 0 0.24rem;
 }
 .cloth img{
@@ -37,6 +48,9 @@
     color: #000000;
     line-height: 0.3rem;
     margin-bottom: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
 }
 .cloth .cright .righttwo{
     width: 100%;
@@ -107,8 +121,8 @@
     line-height: 0.22rem;
 }
 .cloth .cright .rightfour .er{
-    width: 0.43rem;
-    height: 0.18rem;
+    width: 3rem;
+    height:0.52rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -157,8 +171,6 @@
     width: 0.05rem;
     height: 0.05rem;
     background-color: #44b5ff;
-    box-shadow: 0 0.02rem 0.05rem 0;
-    rgba(68, 181, 255, 0.43);
     border-radius: 0.03rem;
     margin-right: 0.1rem;
 }
@@ -172,8 +184,8 @@
     align-items: center;
     justify-content: space-between;
 }
-.aa .aright img{
-  width: 0.14rem;
+.aright img{
+  width:0.14rem;
   height: 0.24rem;
 }
 .bb{
@@ -224,12 +236,10 @@
     bottom: 0;
 }
 .root .rleft{
-    width: 2.1rem;
+    width: 2.5rem;
     height: 100%;
     display: flex;
     align-items: center;
-
-
 }
 .root .rleft .yuanjiao111{
     width: 0.05rem;
@@ -244,7 +254,6 @@
     font-size: 0.24rem;
     color: #3bacfe;
     line-height: 1.08rem;
-    letter-spacing: 0.13rem;
 }
 .root .rleft .jiage{
     font-size: 0.36rem;
@@ -264,3 +273,134 @@
     text-align: center;
     line-height: 0.6rem;
 }
+
+ .mwq-model{
+   height: 1.5rem;
+   width: 100%;
+   position: relative;
+}
+ .mwq-model .mwq-adressText{
+  height: 1.62rem;
+  width: 7.0rem;
+  border-radius: 0.08rem;
+  padding-left: 0.36rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+ .mwq-model .mwq-adressText .mwq-info{
+  height: 0.5rem;
+  width: 50%;
+  /*background: red;*/
+  display: flex;
+  /*justify-content: space-between;*/
+  padding-right: 0.1rem;
+  box-sizing: border-box;
+  margin-top:0.38rem;
+
+}
+ .mwq-model .mwq-adressText .mwq-info .mwq-name{
+  height: 100%;
+  width: 1.13rem;
+  font-size: 0.3rem;
+  line-height: 0.5rem;
+  color:#8a8c8d;
+}
+ .mwq-model .mwq-adressText .mwq-info .mwq-phoneNumber{
+  height: 100%;
+  width: auto;
+  font-size: 0.3rem;
+  line-height: 0.5rem;
+  color:#8a8c8d;
+}
+ .mwq-model .mwq-adressText .mwq-adress{
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.22rem;
+  color: #8a8c8d;
+  margin-top: 0.06rem;
+}
+
+.mwq-model  img{
+   position: absolute;
+   right: 0.24rem;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.wb-shuliang {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.wb-shuliang li{
+  font-size: 0.18rem;
+  font-weight: bold;
+  color: #3DADFE;
+}
+.wb-yuan1{
+  width: 0.05rem;
+  height: 0.05rem;
+  border-radius: 50%;
+  background: #44b5ff;
+  box-shadow: 0 0.02rem 0.5rem  rgba(68,181,255,0.43);
+  margin-right: 0.1rem;
+}
+.wb-shuliang li.guige{
+  display: flex;
+  align-items: center;
+}
+.wb-yuan2{
+  width: 0.05rem;
+  height: 0.05rem;
+  border-radius:50%;
+  background: #36d681;
+  box-shadow: 0 0.02rem 0.05rem  rgba(54,214,129,0.43);
+  margin-right: 0.1rem;
+}
+.wb-shuliang li.shuliang{
+  display: flex;
+  align-items: center;
+}
+ .wb-cate{
+  width: 2.13rem;
+  height: 1.08rem;
+  background:rgba(231,246,255,0.5);
+  border-radius: 0.1rem;
+  margin-top: 0.2rem;
+  text-align: center;
+  line-height: 1.08rem;
+}
+ .wb-tianjia{
+  width: 3rem;
+  height: 0.52rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ .wb-tianjia .wb{
+  width: 1.18rem;
+  height: 100%;
+  background:  rgba(59,172,254,0.1);
+  border-radius: 0.26rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .wb-tianjia .wb-jian{
+  background:  rgba(59,172,254,0.1);
+}
+.cloth .cright .wb-tianjia .wb-jian img {
+   width: 0.18rem;
+   height: 0.04rem;
+}
+ .wb-tianjia .wb-jia{
+  background: #3bacfe;
+  box-shadow: 0 0.05rem 0.12rem  rgba(59,172,254,0.43);
+}
+.cloth .cright .wb-tianjia .wb-jia img{
+  width: 0.18rem;
+  height: 0.18rem;
+}
+

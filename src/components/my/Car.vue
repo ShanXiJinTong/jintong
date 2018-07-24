@@ -73,7 +73,7 @@
 <script>
   import Scroll from './scroll';
   const  headers =  {
-      'access-token': '02GBDiCQ8v3xWHdv6uUrErqePG5kRr5m',
+      'access-token': '3tV0YD1A9UaAJxF8-dgeLtSuqJhI-d1Q',
       'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
   export default {
