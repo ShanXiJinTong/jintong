@@ -5,11 +5,14 @@ import App from './App'
 import router from './router'
 import rem from "./assets/js/rem"
 import axios from "axios"
+import store from './store/index'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import "reset-css"
 // require styles
 import 'swiper/dist/css/swiper.css'
+
+
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
@@ -18,6 +21,7 @@ Vue.prototype.$http = axios
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  store,
+  components: {App},
   template: '<App/>'
-})
+});

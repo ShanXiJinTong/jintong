@@ -34,10 +34,11 @@
         <div class="wsq-wrapper">
             <div class="wsq-scroller">
                 <ul>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
+                    <li v-for="item in list">
+                        <img :src="item.image" height="94" width="90"/>
                         <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
+                        <div class="wsq-name">{{item.name}}</div>
+                        <div class="right"><span>{{item.price.value}}</span></div>
                         <h6>ECC01-001Lw</h6>
                         <div class="wsq-sale">
                             <div class="wsq-saleLeft">
@@ -54,146 +55,7 @@
                             <h5>价格合理</h5>
                         </div>
                     </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="../img/shuilongtou.png" height="94" width="90"/>
-                        <div class="wsq-sore">5.0</div>
-                        <div class="wsq-name">潜水艇高端龙头<span>60元</span></div>
-                        <h6>ECC01-001Lw</h6>
-                        <div class="wsq-sale">
-                            <div class="wsq-saleLeft">
-                                <div class="wsq-dot"></div>
-                                <p>已售<span>52</span></p>
-                            </div>
-                            <div class="wsq-saleRight">
-                                <div class="wsq-dot"></div>
-                                <p>接单率<span>100%</span></p>
-                            </div>
-                        </div>
-                        <div class="wsq-desc">
-                            <h5>非常专业</h5>
-                            <h5>价格合理</h5>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -207,11 +69,20 @@
         name: 'Bathroom',
         data() {
             return {
+                list:[],
                 menu:[],
-                path:['Shop','Bathroom','Bathroom'],
+                path:['Shop','Bathroom','SellWater'],
             }
         },
         methods:{
+            getData(){
+                this.$http.get('/cms/home/index').then(res=>{
+                    res.data.data.productList.forEach(elemlent=>{
+                        this.list.push(...[elemlent.one,elemlent.two]);
+                    })
+
+                })
+            },
             getMenu(){
                 this.$http.get('/general/base/menu').then(res=>{
                     for(let i in res.data){
@@ -225,8 +96,10 @@
             }
         },
         mounted:function () {
+            this.cid = this.$route.query.categoryId;
+            this.getData();
             this.getMenu();
-        }
+        },
     }
 </script>
 <style scoped>

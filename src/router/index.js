@@ -258,6 +258,11 @@ export default new Router({
        name: 'XhServer',
        component: XhServer,
       },
+      {
+          path: '/SellWater',
+          name: 'SellWater',
+          component: SellWater,
+      },
     {
       path: '/SellWaterList',
       name: 'SellWaterList',

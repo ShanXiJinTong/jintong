@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="photo">
-        <img :src="shopDetail.image_detail[1]" alt="">
+        <img :src="shopDetail.image_detail[0]" alt="">
     </div>
     <div class="introduction">
         <div class="one">{{shopDetail.name}}</div>
@@ -80,13 +80,14 @@
         data() {
             return {
                 uid:'',
-                shopDetail:{}
+                shopDetail:[]
             }
         },
         methods:{
             getData(){
                 this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
                     this.shopDetail = res.data.data.product;
+                    console.log(this.shopDetail.image_detail[0]);
                 })
             }
         },

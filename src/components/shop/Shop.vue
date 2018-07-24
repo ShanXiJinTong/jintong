@@ -102,7 +102,7 @@
             return {
                 list:[],
                 menu:[],
-                path:['Shop','Bathroom','Bathroom'],
+                path:['Shop','Bathroom','SellWater'],
                 child:[]
             }
         },
@@ -123,7 +123,6 @@
                         }
                    }
                    this.menu = this.menu.slice(0,3);
-
                 })
             },
 
