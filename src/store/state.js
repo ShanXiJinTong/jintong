@@ -1,5 +1,7 @@
 const state ={
-    carAddress:{}
+    carAddress:{},
+    car:[],
+    carList:[]
 };
 
 

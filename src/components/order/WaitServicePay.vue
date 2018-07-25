@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="dizhi">
-        <router-link :to="{name:'Address'}">
+        <router-link :to="{name:'WaitAddress'}">
         <div class="mwq-model">
           <div class="mwq-adressText">
             <div class="mwq-info">
-              <div class="mwq-name">张三丰</div>
-              <div class="mwq-phoneNumber">182****9902</div>
+              <div class="mwq-name">{{carAddress['first_name']+carAddress['last_name']}}</div>
+              <div class="mwq-phoneNumber">{{carAddress['telephone']}}</div>
             </div>
-            <div class="mwq-adress">太原市小店区学府街滨河东路34号</div>
+            <div class="mwq-adress">{{carAddress['street1'] + carAddress['street2']}}</div>
           </div>
           <img src="./static/img/xiayibu.png" alt="">
         </div>
@@ -19,7 +19,7 @@
     </div>
 
     <div v-if="carInfo">
-      <div class="cloth" v-for="item in carInfo">
+      <div class="cloth" v-for="item in car">
         <div class="cleft">
           <a href="">
             <img :src="item['img_url']" alt="">
@@ -39,19 +39,6 @@
             <div class="yi">
               <div class="yuanjiao2"></div>
               <div class="price">¥{{item['product_price']}}</div>
-            </div>
-            <div class="er">
-              <ul class="wb-shuliang">
-                <li class="wb-tianjia">
-                  <div class="wb wb-jian" @click="subNumber(item)">
-                    <img src="./static/img/Tseventeen3.png" alt="">
-                  </div>
-                  <span>{{item.qty}}</span>
-                  <div class="wb wb-jia" @click="addNumber(item)">
-                    <img src="./static/img/Tseventeen4.png" alt="">
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -148,8 +135,9 @@
   </div>
 </template>
 <script>
+  import { mapGetters, mapMutations} from 'vuex'
   const  headers =  {
-    'access-token': '4Pe3fkfV-UZxrs6WWohPYlpUQrMVSxK9',
+    'access-token': 'o1tH4OsuAVOiHcKfke5N1YquqCjZZwa5',
     'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
     export default {
@@ -159,6 +147,12 @@
               carInfo:[],
               totalMoney: 0,
             }
+        },
+        computed:{
+          ...mapGetters([
+            'car',
+            'carAddress'
+          ])
         },
         methods:{
           getData() {
@@ -171,7 +165,16 @@
               } else {
                 this.carInfo = false;
               }
-              console.log(this.carInfo);
+            })
+          },
+          getAddress(){
+            this.$http.get('/customer/address/index', {
+              headers
+            }).then(res => {
+               let addresslist = res.data.data.addressList;
+               let defaultaddress = addresslist.filter(element=>element.is_default == 1)[0];
+               this.setcarlist(addresslist);
+               this.setcaraddress(defaultaddress)
             })
           },
           updateInfo(itemid,type){
@@ -187,19 +190,6 @@
               console.log(res);
             })
           },
-          addNumber(item) {
-            let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
-            ++items.qty;
-            this.updateInfo(item['item_id'],'add_one');
-          },
-          subNumber(item) {
-            let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
-            if(items.qty === 1){
-              return ;
-            }
-            items.qty--;
-            this.updateInfo(item['item_id'],'less_one');
-          },
           calcTotalMoney() {
             let _this = this;
             this.totalMoney = 0;
@@ -210,19 +200,26 @@
             this.totalMoney = this.totalMoney.toFixed(2);
 
           },
+          ...mapMutations({
+            'setcaraddress':'caraddress',
+            'setcarlist': 'carList',
+          })
         },
         mounted:function(){
-          this.getData();
+          console.log(this.carAddress);
+          if(!this.carAddress['address_id']){
+             this.getAddress();
+          }
         },
-      watch: {
-        carInfo: {
-          handler() {
-            if (!this.carInfo) return;
-            this.calcTotalMoney();
+        watch: {
+          car: {
+            handler() {
+              if (!this.carInfo) return;
+              this.calcTotalMoney();
 
-          },
-          deep: true
-        }
+            },
+            deep: true
+          }
       }
     }
 </script>

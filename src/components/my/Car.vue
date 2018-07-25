@@ -72,8 +72,9 @@
 </template>
 <script>
   import Scroll from './scroll';
+  import { mapGetters, mapMutations} from 'vuex'
   const  headers =  {
-      'access-token': '3tV0YD1A9UaAJxF8-dgeLtSuqJhI-d1Q',
+      'access-token': 'o1tH4OsuAVOiHcKfke5N1YquqCjZZwa5',
       'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
   export default {
@@ -90,7 +91,10 @@
           let arr =  this.carInfo.filter(element=>element.active);
 
           return arr.length < this.carInfo.length;
-       }
+       },
+      ...mapGetters([
+         'car'
+      ])
     },
     methods: {
       getData() {
@@ -99,7 +103,9 @@
         }).then(res => {
           let data = res.data.data['cart_info'];
           if (data) {
+            let data = res.data.data['cart_info'].products;
             this.carInfo = res.data.data['cart_info'].products;
+            this.set_car(data);
           } else {
             this.carInfo = false;
           }
@@ -162,8 +168,10 @@
          this.carInfo.forEach(element=>{
             element.active = 1;
          })
-      }
-
+      },
+      ...mapMutations({
+         'set_car':'car'
+      })
     },
     mounted: function () {
       this.getData();

@@ -108,6 +108,8 @@ const Order = r => require.ensure([], () => r(require('../components/order/Order
 const WaitService = r => require.ensure([], () => r(require('../components/order/WaitService.vue')), "WaitService");
 // 填写订单
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
+// 订单地址
+const WaitAddress = r=> require.ensure([], () => r(require('../components/order/address/Address')), "WaitAddress");
 // 待服务订单追踪
 const WaitZz = r => require.ensure([], () => r(require('../components/order/WaitZz.vue')), "WaitZz");
 // 订单评价
@@ -397,6 +399,11 @@ export default new Router({
       path: '/WaitServicePay',
       name: 'WaitServicePay',
       component: WaitServicePay
+    },
+    {
+      path: '/WaitAddress',
+      name: 'WaitAddress',
+      component: WaitAddress
     },
     {
       path: '/WaitZz',
