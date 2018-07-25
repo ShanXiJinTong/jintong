@@ -9,70 +9,73 @@
       </div>
     </div>
     <div class="list">
-      <ul class="left">
-        <li class="title">A</li>
-        <li class="hot">
-          <div class="dian"></div>
-          <p>鞍山市</p>
-        </li>
-        <li class="title">B</li>
-        <li class="hot">
-          <div class="dian"></div>
-          <p>保定市</p>
-        </li>
-        <li class="hot">
-          <div class="dian"></div>
-          <p>宝鸡市</p>
-        </li>
-        <li class="hot">
-          <div class="dian"></div>
-          <p>保定市</p>
-        </li>
-      </ul>
+      <dl class="left">
+        <dt class="title" v-for="item in getLetter">{{item}}</dt>
+        <dd class="hot" v-for="city in getCity">
+          <div class="dian" ></div>
+          <p v-for="cityItem in city">{{cityItem.city_name}}</p>
+        </dd>
+
+
+      </dl>
       <ul class="right">
-        <li class="hot">A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
-        <li>E</li>
-        <li>F</li>
-        <li>G</li>
-        <li>H</li>
-        <li>I</li>
-        <li>J</li>
-        <li>K</li>
-        <li>L</li>
-        <li>M</li>
-        <li>N</li>
-        <li>O</li>
-        <li>P</li>
-        <li>Q</li>
-        <li>R</li>
-        <li>S</li>
-        <li>T</li>
-        <li>U</li>
-        <li>V</li>
-        <li>W</li>
-        <li>X</li>
-        <li>Y</li>
-        <li>Z</li>
-        <li>#</li>
+        <li class="hot" v-for="item in getLetter">{{item}}</li>
+
       </ul>
     </div>
   </div>
 </template>
 <script>
-  import Searchbox from "../../common/Searchbox"
+  import Searchbox from "../../common/Searchbox";
+
   export default {
     name: 'SelectCity',
     data() {
       return {
-
+         city:[],
+          letter:[]
       }
     },
+      methods:{
+         getData() {
+             this.$http.get("http://appserver.uekuek.com/general/base/syscityall").then(res=>{
+                 this.city=res.data;
+                 console.log(this.city);
+             })
+
+         }
+      },
     components:{
       Searchbox
-    }
+    },
+      mounted:function () {
+          this.getData();
+      },
+      computed:{
+        getLetter(){
+            let letterArr=this.city.map(element=>element.sindex.toUpperCase());
+            let set = new Set(letterArr);
+            return Array.from(set).sort();
+        },
+          getCity(){
+              let arr={};
+              this.city.forEach(element=>{
+                  let char = element.sindex.toUpperCase();
+                  if(!arr[char]){
+                      arr[char] = [];
+                  }
+                  arr[char].push(element);
+              });
+              for(let i in this.getLetter){
+                  let char = this.getLetter[i];
+                  arr[char.toUpperCase()]
+              }
+              console.log(arr);
+              return arr;
+
+          }
+      }
+
   }
 </script>
 <style scoped>

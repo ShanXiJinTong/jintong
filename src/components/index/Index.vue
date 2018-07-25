@@ -1,8 +1,10 @@
 <template>
   <div id="index">
     <section class="search">
-      <span>太原 </span><i class="iconfont icon-down"></i>
-      <router-link :to="{name:'Search'}" class="input">
+        <router-link :to="{name:'SelectCity'}">
+        <span>太原 </span><i class="iconfont icon-down"></i>
+        </router-link>
+        <router-link :to="{name:'Search'}" class="input">
         <input type="text" disabled placeholder="搜索您需要的服务 商品">
         <img src="../common/static/img/sousuo.png" alt="">
       </router-link>
