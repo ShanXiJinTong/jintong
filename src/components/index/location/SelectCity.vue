@@ -1,8 +1,8 @@
 <template>
   <div id="SelectCity">
-      <section class="search" >
+      <section class="search" @keydown.enter="searchCity(searchName)">
           <div class="input">
-              <input type="text" placeholder="搜索您需要的服务 商品">
+              <input type="text" placeholder="搜索您需要的服务 商品" v-model="searchName">
               <img src="../static/img/sousuo.jpg" alt="">
           </div>
       </section>
@@ -20,7 +20,7 @@
            <div class="title" :id="item">{{item}}</div>
            <div class="hot" v-for="city in getCity[item]">
                <div class="dian" ></div>
-               <p @click="search(city.city_name)">{{city.city_name}}</p>
+               <p @click="showCity(city.city_name)">{{city.city_name}}</p>
            </div>
         </li>
 
@@ -38,8 +38,9 @@
     name: 'SelectCity',
     data() {
       return {
-         city:[],
-          letter:[]
+          city:[],
+          letter:[],
+          searchName:""
       }
     },
       methods:{
@@ -52,9 +53,33 @@
           returnTop(item){
               document.querySelector(`#${item}`).scrollIntoView(true);
           },
-          search(cityName){
+          showCity(cityName){
              localStorage.city=cityName;
              this.$router.back();
+          },
+          searchCity(cityName){
+             for(let i in this.getCity){
+                 // console.log(this.getCity[i]);
+                 let result=this.getCity[i].filter(element=>{
+                     element.city_name==cityName;
+                 })
+                 console.log(result);
+
+
+                 /*this.getCity[i].forEach((element,index)=>{
+                     if(cityName==element.city_name){
+                         localStorage.city=cityName;
+                         this.$router.back();
+                     }
+                     else{
+                         alert("输入有误");
+                         return;
+                     }
+                     // console.log(element);
+                 })
+*/
+             }
+              console.log(this.getCity);
           }
       },
     components:{
