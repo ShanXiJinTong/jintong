@@ -1,9 +1,44 @@
-
+.search{
+    width: 100%;
+    height:0.78rem;
+    position: fixed;
+    top:0;
+}
+.search .input{
+    width: 100%;
+    height: 0.6rem;
+    position: relative;
+}
+.search img{
+    width: 0.38rem;
+    height: 0.38rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: 0.18rem;
+}
+.search input{
+    width: 100%;
+    height: 0.6rem;
+    padding-left: 0.8rem;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    background: rgba(235,247,255,0.58);
+    border: solid 0.03rem rgba(55, 169, 254, 0.1);
+    float: right;
+}
+input::-webkit-input-placeholder{
+    color: #c8d9e6;
+    line-height: 0.6rem;
+    font-size: 0.24rem;
+}
 .current{
     width: 100%;
     height: 1.33rem;
     padding:0 0.24rem;
     box-sizing: border-box;
+    margin-top: 0.78rem;
 }
 .current .min{
     width: 100%;
@@ -48,7 +83,7 @@
     width: 50%;
     height: auto;
 }
-.list .left li.title{
+.list .left .title{
     font-size: 0.28rem;
     color: #fff;
     width: 0.43rem;
@@ -58,12 +93,12 @@
     border-radius: 50%;
     background: #44b5ff;
 }
-.list .left li.hot{
+.list .left .hot{
     height: 0.8rem;
     display: flex;
     align-items: center;
 }
-.list .left li.hot .dian{
+.list .left .hot .dian{
     width: 0.08rem;
     height: 0.08rem;
     background: #37ce9a;
@@ -71,17 +106,23 @@
     margin-right: 0.13rem;
     box-shadow: 0 0.02rem 0.05rem rgba(55,206,154,0.43) ;
 }
-.list .left li.hot p{
+.list .left .hot p{
     line-height: 0.8rem;
     font-size: 0.26rem;
     color:#979899;
 }
 .list .right{
-    height: auto;
-    width: 0.72rem;
+    height: 70%;
+    text-align: center;
+    position: fixed;
+    top:0;
+    bottom:0;
+    margin-top: auto;
+    margin-bottom: auto;
+    right: 0.2rem;
 }
 .list .right > li{
-    width: 0.72rem;
+    /*width: 0.72rem;*/
     height: 0.35rem;
     line-height: 0.35rem;
     text-align: right;

@@ -1,6 +1,12 @@
 <template>
   <div id="SelectCity">
-    <Searchbox placeholder="请输入您搜索的城市" url="Search"></Searchbox>
+      <section class="search" >
+          <div class="input">
+              <input type="text" placeholder="搜索您需要的服务 商品">
+              <img src="../static/img/sousuo.jpg" alt="">
+          </div>
+      </section>
+    <!--<Searchbox placeholder="请输入您搜索的城市" url="Search"></Searchbox>-->
     <div class="current">
       <div class="min">
         <div class="icon"></div>
@@ -9,24 +15,24 @@
       </div>
     </div>
     <div class="list">
-      <dl class="left">
-        <dt class="title" v-for="item in getLetter">{{item}}</dt>
-        <dd class="hot" v-for="city in getCity">
-          <div class="dian" ></div>
-          <p v-for="cityItem in city">{{cityItem.city_name}}</p>
-        </dd>
+      <ul class="left">
+        <li v-for="item in getLetter">
+           <div class="title" :id="item">{{item}}</div>
+           <div class="hot" v-for="city in getCity[item]">
+               <div class="dian" ></div>
+               <p @click="search(city.city_name)">{{city.city_name}}</p>
+           </div>
+        </li>
 
-
-      </dl>
+      </ul>
       <ul class="right">
-        <li class="hot" v-for="item in getLetter">{{item}}</li>
-
+        <li class="hot" v-for="item in getLetter" @click="returnTop(item)">{{item}}</li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-  import Searchbox from "../../common/Searchbox";
+  // import Searchbox from "../../common/Searchbox";
 
   export default {
     name: 'SelectCity',
@@ -40,13 +46,19 @@
          getData() {
              this.$http.get("http://appserver.uekuek.com/general/base/syscityall").then(res=>{
                  this.city=res.data;
-                 console.log(this.city);
              })
 
-         }
+         },
+          returnTop(item){
+              document.querySelector(`#${item}`).scrollIntoView(true);
+          },
+          search(cityName){
+             localStorage.city=cityName;
+             this.$router.back();
+          }
       },
     components:{
-      Searchbox
+      // Searchbox
     },
       mounted:function () {
           this.getData();
@@ -72,7 +84,6 @@
               }
               console.log(arr);
               return arr;
-
           }
       }
 
