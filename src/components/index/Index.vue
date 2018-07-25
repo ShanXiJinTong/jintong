@@ -20,11 +20,11 @@
       </swiper>
     </section>
     <ul class="class">
-      <li v-for="(item,index) in menu">
-        <a href="./water1.html">
-          <div class="img"></div>
-          <p>{{item.name}}</p>
-        </a>
+      <li v-for="(item,index) in menu"  :key="item.id">
+          <router-link :to="{name:'XhList',query:{categoryId:item.id}}">
+             <div class="img"></div>
+             <p>{{item.name}}</p>
+          </router-link>
       </li>
 
     </ul>
@@ -66,10 +66,18 @@
         getMenu(){
             this.$http.get('/general/base/menu').then(res=>{
                 for(let i in res.data){
-                    if(res.data[i].name ) {
-                        this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
+//                    if(res.data[i].name ) {
+//                        this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
+//                    }
+
+                    for(let j in res.data[i]){
+                        if(res.data[i].child){
+                            console.log(res.data[i].child);
+                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
+                        }
                     }
                 }
+                console.log(this.menu);
                 this.menu = this.menu.slice(0,7);
             })
         },
@@ -80,6 +88,9 @@
       })
     },
       mounted:function () {
+//        if(!localStorage.city){;
+//            this.$router.push({name:'SelectCity'})
+//        }
           this.getMenu();
       },
     components:{
