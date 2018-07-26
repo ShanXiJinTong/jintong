@@ -11,30 +11,13 @@
 
     <!--Icon开始-->
     <ul class="xrIcon">
-        <router-link :to="{name:'XhList',query:{categoryId:'57bea0e3f656f275313bf56e'}}" tag="li"  class="xrIconbox">
+        <router-link :to="{name:'XhList',query:{categoryId:item._id}}" tag="li"  class="xrIconbox" v-for="item in menu[0].child" :key="item._id">
             <div class="xrIcon1">
                 <img src="./img/Tnine/Tnine1.png" alt="">
             </div>
-            <span>洗衣</span>
+            <span>{{item.name}}</span>
         </router-link>
-        <li class="xrIconbox">
-            <div class="xrIcon2">
-                <img src="./img/Tnine/Tnine2.png" alt="">
-            </div>
-            <span>洗鞋</span>
-        </li>
-        <li class="xrIconbox">
-            <div class="xrIcon3">
-                <img src="./img/Tnine/Tnine3.png" alt="">
-            </div>
-            <span>洗家纺</span>
-        </li>
-        <li class="xrIconbox">
-            <div class="xrIcon4">
-                <img src="./img/Tnine/Tnine4.png" alt="">
-            </div>
-            <span>洗窗帘</span>
-        </li>
+
     </ul>
     <!--Icon结束-->
 
@@ -119,7 +102,7 @@
                 this.$http.get('/general/base/menu').then(res=>{
                     for(let i in res.data){
                         if(res.data[i].name && res.data[i].child) {
-                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
+                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
                         }
                    }
                    this.menu = this.menu.slice(0,3);

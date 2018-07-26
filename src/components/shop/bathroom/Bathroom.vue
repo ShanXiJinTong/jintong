@@ -35,7 +35,9 @@
             <div class="wsq-scroller">
                 <ul>
                     <li v-for="item in list">
+                        <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
                         <img :src="item.image" height="94" width="90"/>
+                        </router-link>
                         <div class="wsq-sore">5.0</div>
                         <div class="wsq-name">{{item.name}}</div>
                         <div class="right"><span>{{item.price.value}}</span></div>

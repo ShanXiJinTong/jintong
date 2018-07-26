@@ -87,7 +87,6 @@
             getData(){
                 this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
                     this.shopDetail = res.data.data.product;
-                    console.log(this.shopDetail.image_detail[0]);
                 })
             }
         },
