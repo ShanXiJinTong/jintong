@@ -121,11 +121,11 @@
     line-height: 0.22rem;
 }
 .cloth .cright .rightfour .er{
-    width: 3rem;
     height:0.52rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: .1rem;
 }
 .cloth .cright .rightfour .er .yuanjiao3{
     width: 0.05rem;
@@ -134,6 +134,7 @@
     box-shadow: 0rem 0.02rem 0.05rem 0rem
     rgba(54, 214, 129, 0.43);
     border-radius: 0.03rem;
+    margin-right: 0.1rem;
 }
 .cloth .cright .rightfour .er img{
     width: 0.28rem;

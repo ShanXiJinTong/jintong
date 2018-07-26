@@ -41,7 +41,7 @@
 </template>
 <script>
   const  headers =  {
-    'access-token': 'UTX3rfDGNDZzt4weOe7URZigywmYRjwt',
+    'access-token': '1mnBTALDk93upvAhJg62dJ8UjMzBFzIW',
     'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
   };
   export default {

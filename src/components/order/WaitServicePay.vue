@@ -1,35 +1,44 @@
 <template>
   <div>
     <div class="dizhi">
-        <router-link :to="{name:'WaitAddress'}">
-        <div class="mwq-model">
+      <router-link :to="{name:'WaitAddress'}">
+        <div class="mwq-model" v-if="carAddress">
           <div class="mwq-adressText">
             <div class="mwq-info">
               <div class="mwq-name">{{carAddress['first_name']+carAddress['last_name']}}</div>
               <div class="mwq-phoneNumber">{{carAddress['telephone']}}</div>
             </div>
-            <div class="mwq-adress">{{carAddress['street1'] + carAddress['street2']}}</div>
+            <div class="mwq-adress">{{carAddress['street1'] + carAddress['street2'] + carAddress['city']}}</div>
           </div>
           <img src="./static/img/xiayibu.png" alt="">
-        </div>
-        </router-link>
+         </div>
+         <div class="mwq-model" v-else="carAddress">
+           <div class="mwq-adressText">
+             <div class="mwq-info">
+               <div class="mwq-phoneNumber">请填写订单地址</div>
+             </div>
+             <div class="mwq-adress"></div>
+           </div>
+           <img src="./static/img/xiayibu.png" alt="">
+         </div>
+      </router-link>
     </div>
     <div class="line">
       <div class="line1"></div>
     </div>
 
     <div v-if="carInfo">
-      <div class="cloth" v-for="item in car">
+      <div class="cloth" v-for="item in carInfo.products">
         <div class="cleft">
           <a href="">
-            <img :src="item['img_url']" alt="">
+            <img :src="item['imgUrl']" alt="">
           </a>
         </div>
         <div class="cright">
-          <div class="rightone"> {{item.name}} </div>
+          <div class="rightone"> {{item.name}}</div>
           <div class="righttwo">
             <div class="yuanjiao"></div>
-            <div class="zimu"> {{item['product_id']}} </div>
+            <div class="zimu"> {{item['product_id']}}</div>
           </div>
           <div class="rightthree">
             <div class="yuanjiao1"></div>
@@ -39,6 +48,10 @@
             <div class="yi">
               <div class="yuanjiao2"></div>
               <div class="price">¥{{item['product_price']}}</div>
+            </div>
+            <div class="er">
+              <div class="yuanjiao3"></div>
+              {{item.qty}}
             </div>
           </div>
         </div>
@@ -106,17 +119,6 @@
     <div class="line">
       <div class="line1"></div>
     </div>
-    <div class="aa">
-      <div class="alfet">
-        <div class="yuanjiao11"></div>
-        <span>时间</span>
-      </div>
-      <div class="aright god">
-        <span>推荐</span>
-        <div class="lanse">05.03   14:00-15:30</div>
-        <img src="./static/img/xiayibu.png" alt="">
-      </div>
-    </div>
     <div class="line">
       <div class="line1"></div>
     </div>
@@ -124,104 +126,96 @@
       <div class="rleft">
         <div class="yuanjiao111"></div>
         <span>合计:</span>
-        <div class="jiage"> ¥{{totalMoney}} </div>
+        <div class="jiage" v-if="carInfo"> ¥{{carInfo['product_total'] }}</div>
       </div>
-      <a href="">
-        <div class="rright">
+      <div class="rright" @click="handleSubmit">
           提交订单
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </template>
 <script>
-  import { mapGetters, mapMutations} from 'vuex'
-  const  headers =  {
-    'access-token': 'o1tH4OsuAVOiHcKfke5N1YquqCjZZwa5',
-    'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
-  };
-    export default {
-        name: 'WaitServicePay',
-        data() {
-            return {
-              carInfo:[],
-              totalMoney: 0,
-            }
-        },
-        computed:{
-          ...mapGetters([
-            'car',
-            'carAddress'
-          ])
-        },
-        methods:{
-          getData() {
-            this.$http.get('/checkout/cart/index', {
-              headers
-            }).then(res => {
-              let data = res.data.data['cart_info'];
-              if (data) {
-                this.carInfo = res.data.data['cart_info'].products;
-              } else {
-                this.carInfo = false;
-              }
-            })
-          },
-          getAddress(){
-            this.$http.get('/customer/address/index', {
-              headers
-            }).then(res => {
-               let addresslist = res.data.data.addressList;
-               let defaultaddress = addresslist.filter(element=>element.is_default == 1)[0];
-               this.setcarlist(addresslist);
-               this.setcaraddress(defaultaddress)
-            })
-          },
-          updateInfo(itemid,type){
-            this.$http({
-              headers,
-              method: 'post',
-              url: '/checkout/cart/updateinfo',
-              data: {
-                up_type: type,
-                item_id: itemid,
-              }
-            }).then(res=>{
-              console.log(res);
-            })
-          },
-          calcTotalMoney() {
-            let _this = this;
-            this.totalMoney = 0;
-            let  arr = this.carInfo.filter(element=>element.active === 1);
-            this.carInfo.filter(element=>element.active === 1).forEach(element => {
-              this.totalMoney += element.qty * element['product_price'];
-            });
-            this.totalMoney = this.totalMoney.toFixed(2);
-
-          },
-          ...mapMutations({
-            'setcaraddress':'caraddress',
-            'setcarlist': 'carList',
-          })
-        },
-        mounted:function(){
-          console.log(this.carAddress);
-          if(!this.carAddress['address_id']){
-             this.getAddress();
-          }
-        },
-        watch: {
-          car: {
-            handler() {
-              if (!this.carInfo) return;
-              this.calcTotalMoney();
-
-            },
-            deep: true
-          }
+  import headers from '../config'
+  export default {
+    name: 'WaitServicePay',
+    data() {
+      return {
+        total:0,
+        carAddress:null,
+        carInfo:null,
+        cart_address_id:0,
+        formdata:{ }
       }
+    },
+    methods: {
+      getData() {
+        this.$http({
+          headers,
+          url: '/checkout/onepage/index',
+          method: 'get'
+        }).then(res => {
+          if(res.status == 200) {
+            let data = res.data.data;
+            this.carAddress = data['cart_address'];
+            this.carInfo = data['cart_info'];
+            this.cart_address_id = data['cart_address_id'];
+          }
+        })
+      },
+      handleSubmit(){
+          let _this = this;
+          this.formdata = {
+            address_id: _this.cart_address_id,
+            'billing[first_name]': _this.carAddress.first_name,
+            'billing[last_name]': _this.carAddress.last_name,
+            'billing[email]': _this.carAddress.email,
+            'billing[telephone]': _this.carAddress.telephone,
+            'billing[street1]': _this.carAddress.street1,
+            'billing[street2]': _this.carAddress.street2,
+            'billing[country]': _this.carAddress.country,
+            'billing[state]': _this.carAddress.state,
+            'billing[city]': _this.carAddress.city,
+            'billing[zip]': _this.carAddress.zip,
+            "shipping_method": "free_shipping",
+            "payment_method": "check_money"
+          };
+
+
+        this.$http({
+           headers,
+           method:'post',
+           url:'/checkout/onepage/submitorder',
+           data: _this.$qs.stringify(_this.formdata)
+        }).then(res=>{
+          console.log(res);
+          if(res.data.code == 200){
+             this.$http({
+                 headers,
+                 method:'post',
+                 url: '/payment/checkmoney/start',
+              }).then(res=>{
+               console.log(res.data);
+               if(res.data.code === 200){
+                  this.$http({
+                     headers,
+                     methods:'post',
+                     url:'/payment/success'
+                  }).then(res=>{
+                    console.log(res);
+                    if(res.data.code == 200){
+                       console.log(res.data.increment_id);
+                     }
+                  })
+               }
+              })
+           }
+        })
+      }
+    },
+    created: function () {
+      this.getData();
     }
+  }
 </script>
 <style scoped>
   @import url('./static/css/Teighteen.css');

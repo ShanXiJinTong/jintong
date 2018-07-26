@@ -73,10 +73,7 @@
 <script>
   import Scroll from './scroll';
   import { mapGetters, mapMutations} from 'vuex'
-  const  headers =  {
-      'access-token': 'o1tH4OsuAVOiHcKfke5N1YquqCjZZwa5',
-      'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
-  };
+  import headers from '../config'
   export default {
     name: 'Car',
     data() {

@@ -6,6 +6,7 @@ import router from './router'
 import rem from "./assets/js/rem"
 import axios from "axios"
 import store from './store/index'
+import qs from 'qs'
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import "reset-css"
@@ -16,7 +17,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-
+Vue.prototype.$qs = qs
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
