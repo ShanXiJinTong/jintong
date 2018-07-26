@@ -40,10 +40,7 @@
   </div>
 </template>
 <script>
-  const  headers =  {
-    'access-token': '1mnBTALDk93upvAhJg62dJ8UjMzBFzIW',
-    'fecshop-uuid': '8f682f66-88eb-11e8-bed6-00163e021360'
-  };
+  import {getheaders , postheaders} from '../../config'
   export default {
     name: 'EditAddress',
     data() {
@@ -67,7 +64,7 @@
     methods:{
       getAddress(addressid){
          this.$http.get('/customer/address/edit',{
-            headers,
+            getheaders,
             params:{
                address_id:addressid
             }
@@ -80,7 +77,7 @@
         this.$http({
            method: 'post',
            url: '/customer/address/save',
-           headers,
+           postheaders,
            data: form
          }).then(res=>{
             console.log(res);

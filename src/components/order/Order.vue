@@ -41,7 +41,7 @@
 </template>
 <script>
   import Tab from "../common/tab";
-  import headers from '../config'
+  import {getheaders , postheaders} from "../config";
 
   export default {
     name: 'Order',
@@ -76,7 +76,7 @@
       getData() {
         this.$http({
           method: 'get',
-          headers,
+          getheaders,
           url: '/customer/order/index'
         }).then(res => {
           if (res.status == 200 && res.data.data.orderList) {

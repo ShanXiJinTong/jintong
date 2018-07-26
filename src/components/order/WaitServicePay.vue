@@ -135,7 +135,8 @@
   </div>
 </template>
 <script>
-  import headers from '../config'
+  import {getheaders , postheaders} from '../config'
+
   export default {
     name: 'WaitServicePay',
     data() {
@@ -150,7 +151,7 @@
     methods: {
       getData() {
         this.$http({
-          headers,
+          headers:getheaders,
           url: '/checkout/onepage/index',
           method: 'get'
         }).then(res => {
@@ -182,33 +183,23 @@
 
 
         this.$http({
-           headers,
+           headers:postheaders,
            method:'post',
            url:'/checkout/onepage/submitorder',
            data: _this.$qs.stringify(_this.formdata)
         }).then(res=>{
-          console.log(res);
-          if(res.data.code == 200){
-             this.$http({
-                 headers,
-                 method:'post',
-                 url: '/payment/checkmoney/start',
-              }).then(res=>{
-               console.log(res.data);
-               if(res.data.code === 200){
-                  this.$http({
-                     headers,
-                     methods:'post',
-                     url:'/payment/success'
-                  }).then(res=>{
-                    console.log(res);
-                    if(res.data.code == 200){
-                       console.log(res.data.increment_id);
-                     }
-                  })
-               }
-              })
-           }
+          if(res.data.code === 200){
+                 this.$http({
+                    headers:postheaders,
+                    methods:'post',
+                    url:'/payment/success'
+                 }).then(res=>{
+                   console.log(res);
+                   if(res.data.code == 200){
+                      console.log(res.data.increment_id);
+                    }
+                 })
+              }
         })
       }
     },

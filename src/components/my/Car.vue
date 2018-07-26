@@ -65,15 +65,14 @@
       <div class="content">
         <img src="./static/img/jingtong01-1.png" alt="">
         <div class="mwq-text">购物车空空如也</div>
-        <router-link :to="{name:'AddAddress'}" tag="div" class="mwq-circle">去逛逛</router-link>
+        <router-link :to="{name:'Index'}" tag="div" class="mwq-circle">去逛逛</router-link>
       </div>
     </div>
   </div>
 </template>
 <script>
   import Scroll from './scroll';
-  import { mapGetters, mapMutations} from 'vuex'
-  import headers from '../config'
+  import {getheaders , postheaders} from '../config'
   export default {
     name: 'Car',
     data() {
@@ -89,20 +88,18 @@
 
           return arr.length < this.carInfo.length;
        },
-      ...mapGetters([
-         'car'
-      ])
     },
     methods: {
       getData() {
-        this.$http.get('/checkout/cart/index', {
-          headers
+        this.$http({
+           method:'get',
+           headers:getheaders,
+           url:'/checkout/cart/index'
         }).then(res => {
           let data = res.data.data['cart_info'];
           if (data) {
             let data = res.data.data['cart_info'].products;
             this.carInfo = res.data.data['cart_info'].products;
-            this.set_car(data);
           } else {
             this.carInfo = false;
           }
@@ -110,7 +107,7 @@
       },
       changeSelect(itemid , active) {
              this.$http.get('/checkout/cart/selectone',{
-                headers,
+                headers:getheaders,
                 params:{
                   checked: active,
                   item_id: itemid
@@ -121,13 +118,13 @@
       },
       updateInfo(itemid,type){
            this.$http({
-             headers,
+             headers:postheaders,
              method: 'post',
              url: '/checkout/cart/updateinfo',
-             data: {
+             data:this.$qs.stringify({
                up_type: type,
                item_id: itemid,
-             }
+             })
            }).then(res=>{
              console.log(res);
            })
@@ -149,7 +146,8 @@
          if(!this.flag){return }
          this.flag = false;
          item.active =  Number( !Boolean(item.active));
-         this.changeSelect(item['item_id'],this.active);
+
+         this.changeSelect(item['item_id'],item.active);
       },
       calcTotalMoney() {
         let _this = this;
@@ -165,10 +163,7 @@
          this.carInfo.forEach(element=>{
             element.active = 1;
          })
-      },
-      ...mapMutations({
-         'set_car':'car'
-      })
+      }
     },
     mounted: function () {
       this.getData();

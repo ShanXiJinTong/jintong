@@ -30,9 +30,9 @@
   </div>
 </template>
 <script>
-  import headers from '../../config'
+ import {getheaders , postheaders} from "../../config";
 
-  export default {
+ export default {
     name: 'Address',
     data() {
       return {
@@ -61,7 +61,7 @@
       },
       getAddress() {
         this.$http.get('/customer/address/index', {
-          headers
+          getheaders
         }).then(res => {
           this.addressList = res.data.data.addressList;
           let address = this.addressList.filter(element => element['is_default'] == 1)[0];
