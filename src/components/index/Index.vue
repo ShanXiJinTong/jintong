@@ -66,18 +66,10 @@
         getMenu(){
             this.$http.get('/general/base/menu').then(res=>{
                 for(let i in res.data){
-//                    if(res.data[i].name ) {
-//                        this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
-//                    }
-
-                    for(let j in res.data[i]){
-                        if(res.data[i].child){
-                            console.log(res.data[i].child);
-                            this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
-                        }
+                    if(res.data[i].name ) {
+                        this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
                     }
                 }
-                console.log(this.menu);
                 this.menu = this.menu.slice(0,7);
             })
         },
