@@ -8,12 +8,15 @@ import axios from "axios"
 import store from './store/index'
 import qs from 'qs'
 
+import ElementUI from 'element-ui';
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import "reset-css"
 // require styles
 import 'swiper/dist/css/swiper.css'
+import 'element-ui/lib/theme-chalk/index.css';
 
-
+Vue.use(ElementUI);
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios

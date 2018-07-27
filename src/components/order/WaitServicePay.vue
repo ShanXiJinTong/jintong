@@ -113,7 +113,7 @@
       <div class="yuanjiao11"></div>
       <span>备注</span>
       <div class="xuantian">
-        <input type="text" placeholder="请输入备注(25字以内)">
+        <input type="text" placeholder="请输入备注(25字以内)" v-model="form.order_remark">
       </div>
     </div>
     <div class="line">
@@ -145,7 +145,11 @@
         carAddress:null,
         carInfo:null,
         cart_address_id:0,
-        formdata:{ }
+        // formdata:{ }
+        form:{
+          order_remark:'备注',
+          payment_method: 'alipay_standard'
+        }
       }
     },
     methods: {
@@ -180,7 +184,7 @@
             "shipping_method": "free_shipping",
             "payment_method": "check_money"
           };
-
+          this.formdata = Object.assign(this.formdata,this.form);
 
         this.$http({
            headers:postheaders,
@@ -196,7 +200,7 @@
                  }).then(res=>{
                    console.log(res);
                    if(res.data.code == 200){
-                      console.log(res.data.increment_id);
+                      console.log(res.data.data.increment_id);
                     }
                  })
               }

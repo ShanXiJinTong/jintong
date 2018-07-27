@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.12.1",
+    "element-ui": "^2.4.5",
     "pinyin": "^2.8.3",
     "qs": "^6.5.2",
     "reset-css": "^4.0.1",
