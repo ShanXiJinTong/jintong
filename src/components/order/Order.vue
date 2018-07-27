@@ -76,7 +76,7 @@
       getData() {
         this.$http({
           method: 'get',
-          getheaders,
+          headers:getheaders,
           url: '/customer/order/index'
         }).then(res => {
           if (res.status == 200 && res.data.data.orderList) {
@@ -227,12 +227,11 @@
   }
 
   .x-jfour {
-    width: 100%;
     font-size: 0.22rem;
     color: #646666;
     text-align: left;
     position: absolute;
-    left: calc(100% - 0.7rem);
+    right: 0;
     bottom: 0;
   }
 

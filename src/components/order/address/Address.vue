@@ -18,7 +18,7 @@
         <div class="mwq-right">
 
           <img src="../static/img/delete.png" alt="" class="mwq-img1">
-          <router-link :to="{name:'EditAddress',query:{aid:item['address_id']}}">
+            <router-link :to="{name:'EditAddress',query:{aid:item['address_id']}}">
             <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
           </router-link>
         </div>
@@ -61,13 +61,13 @@
       },
       getAddress() {
         this.$http.get('/customer/address/index', {
-          getheaders
+          headers:getheaders
         }).then(res => {
           this.addressList = res.data.data.addressList;
           let address = this.addressList.filter(element => element['is_default'] == 1)[0];
-          for (let i in this.defaultAddress) {
+          /*for (let i in this.defaultAddress) {
             this.defaultAddress[i] = addressList[i]
-          }
+          }*/
         })
       },
     },

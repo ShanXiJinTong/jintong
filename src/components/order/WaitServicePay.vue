@@ -147,7 +147,7 @@
         cart_address_id:0,
         // formdata:{ }
         form:{
-          order_remark:'备注',
+          order_remark:'',
           payment_method: 'alipay_standard'
         }
       }

@@ -1,14 +1,16 @@
 <template>
 <div>
   <div class="gerengxingxi">
-    <div class="yuan"></div>
-    <div class="zi">
-      <h6>韩梅梅同学</h6>
-      <div class="nei">
-        <img src="./static/img/jzl-img/huangguan1.png" alt="" style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
-        <span>黄金会员</span>
+    <router-link :to="{name:'Vip'}" style="margin-left: 0">
+      <div class="yuan"></div>
+      <div class="zi">
+          <h6>{{myInfo['firstname']+myInfo['lastname']}}</h6>
+          <div class="nei">
+            <img src="./static/img/jzl-img/huangguan1.png" alt="" style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
+            <span>黄金会员</span>
+          </div>
       </div>
-    </div>
+    </router-link>
     <router-link :to="{name:'VipImprove'}">
 
       <p style="font-weight: bold">去升级</p>
@@ -94,10 +96,28 @@
 </template>
 <script>
     import Tab from '../common/tab';
+    import {getheaders} from "../config";
+
     export default {
         name: 'My',
         data() {
-          return {}
+          return {
+            myInfo:{},
+          }
+        },
+        methods:{
+          getData(){
+             this.$http({
+               method:'get',
+               headers:getheaders,
+               url:'/customer/editaccount/index'
+             }).then(res=>{
+                this.myInfo = res.data.data;
+             })
+          }
+        },
+        mounted(){
+           this.getData();
         },
         components:{
           Tab

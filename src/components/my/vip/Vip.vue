@@ -4,20 +4,20 @@
     <div class=" person">
       <div class="left"></div>
       <div class="middle">
-        <span style="font-size: 0.3rem;color: #333;font-weight:bold;" >韩梅梅同学</span><br>
+        <span style="font-size: 0.3rem;color: #333;font-weight:bold;" >{{myInfo['firstname']+myInfo['lastname']}}</span><br>
         <span style="font-size: 0.22rem;color: #33cc9f;font-weight: bold;">·&nbsp;</span>
         <span style="font-size: 0.22rem;color: #666;font-weight:bold;">累计充值</span>
         <span style="font-size: 0.24rem;color: #41b2fc;font-weight: bold">&nbsp;&nbsp;1689</span>
         <span style="font-size: 0.24rem;color: #999;font-weight: bold">&nbsp;.&nbsp;2000</span>
       </div>
-      <a href="gb-JT2.html" class="right">
+      <router-link :to="{name:'VipImprove'}" class="right">
         <div class="gb-title" style="font-size: 0.2rem">
           <span style="color: #41b2fc;font-weight: bold;margin-right: 0.1rem;">升级攻略</span>
           <div class="dian" style="border-radius: 50%;"></div>
           <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;" ></div>
           <div class="dian" style="background: #3bacfe;opacity: 0.3;border-radius: 50%;"></div>
         </div>
-      </a>
+      </router-link>
       <div class="bottom">
         <div class="left">
           <img src="../static/img/yhq-pic/yellow.png" alt="" style="width: 0.3rem;height: 0.3rem;margin-right: 0.14rem;margin-top: 0.06rem">
@@ -55,7 +55,7 @@
       <span>下一级<p>特权</p></span>
     </div>
     <div class="right">
-      <a href="gb-JT.html" class="right">
+      <a href="" class="right">
         <pre style="font-size: 0.28rem;margin-right: 0.1rem">完整特权</pre>
         <div class="dian" style="border-radius: 50%;"></div>
         <div class="dian" style="color: #999;opacity: 0.5;border-radius: 50%;" ></div>
@@ -81,11 +81,29 @@
 </div>
 </template>
 <script>
+    import {getheaders} from "../../config";
+
     export default {
         name: 'Vip',
-        data() {
-            return {}
+      data() {
+        return {
+          myInfo:{},
         }
+      },
+      methods:{
+        getData(){
+          this.$http({
+            method:'get',
+            headers:getheaders,
+            url:'/customer/editaccount/index'
+          }).then(res=>{
+            this.myInfo = res.data.data;
+          })
+        }
+      },
+      mounted(){
+        this.getData();
+      }
     }
 </script>
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <div class="mwq-model" v-for="item in carList">
-      <div class="mwq-adressText" @click="setAddress(item)">
+    <div class="mwq-model" v-for="item in addressList">
+      <div class="mwq-adressText" @click="setDefault(item)">
         <div class="mwq-info">
           <div class="mwq-name">{{item['first_name']+item['last_name']}}</div>
           <div class="mwq-phoneNumber">{{item['telephone']}}</div>
@@ -16,8 +16,8 @@
         </div>
         <div class="mwq-right">
 
-          <img src="../static/img/delete.png" alt="" class="mwq-img1" >
-          <router-link :to="{name:'EditAddress',query:{aid:1}}">
+          <img src="../static/img/delete.png" alt="" class="mwq-img1" @click="removeAdddress(item.address_id)">
+          <router-link :to="{name:'EditAddress',query:{aid:item['address_id']}}">
             <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
           </router-link>
         </div>
@@ -29,38 +29,80 @@
   </div>
 </template>
 <script>
-    import { mapGetters, mapMutations} from 'vuex'
-    export default {
-      name: 'Address',
-      data() {
-        return {}
+  import {getheaders, postheaders} from "../../config";
+
+  export default {
+    name: 'Address',
+    data() {
+      return {
+        addressList: [],
+        form: {
+          address_id: '',
+          first_name: '',
+          telephone: '',
+          addressCountry: '',
+          addressState: '',
+          city: '',
+          street1: '',
+          last_name: 'fecshop',
+          email: 'fecshop@qq.com',
+          is_default: 1,
+          street2: 'fecshop',
+          zip: 'fecshop',
+          isDefaultActive: false
+        }
+      }
+    },
+    methods: {
+      setDefault(item) {
+        this.addressList.forEach(element => element.is_default = 2);
+        item.is_default = 1;
+
+        for (let i in this.form) {
+          this.form[i] = item[i] === undefined ? '中国' : item[i];
+        }
+        this.form.isDefaultActive = 1;
+        this.$http({
+          method: 'post',
+          url: '/customer/address/save',
+          headers: postheaders,
+          data: this.$qs.stringify(this.form)
+        }).then(res => {
+          if (res.data.code === 200) {
+            this.$router.push({name: 'My'});
+          }
+        })
+
+
       },
-      computed:{
-        ...mapGetters([
-          'carAddress',
-          'carList'
-        ])
-      },
-      methods:{
-        setDefault(item){
-          let addresslist = JSON.parse( JSON.stringify( this.carList));
-          addresslist.forEach(element=>{
-            element['is_default'] = 2;
-          });
-          let currentaddress = addresslist.filter(element=>element.address_id === item.address_id)[0];
-          currentaddress['is_default'] = 1;
-          this.setcarList(addresslist);
-        },
-        ...mapMutations({
-          'setcarList':'carList',
-          'setcarAddress':'caraddress'
+      getAddress() {
+        this.$http({
+          method: 'get',
+          url: '/customer/address/index',
+          headers: getheaders
+        }).then(res => {
+          this.addressList = res.data.data.addressList;
         })
       },
-      mounted(){
-        console.log(this.carAddress);
-      }
+      removeAdddress(address_id) {
+        this.$http({
+          method: 'post',
+          headers: postheaders,
+          url: '/customer/address/remove',
+          data: this.$qs.stringify({address_id: address_id})
+        }).then(res => {
 
+          if (res.data.code == 200) {
+            this.addressList = this.addressList.filter(element => element.address_id != address_id);
+          }
+        })
+      }
+    },
+    mounted() {
+      this.getAddress();
     }
+
+  }
 </script>
 <style scoped>
   @import url(../static/css/Ttwo.css);

@@ -106,6 +106,9 @@ header .title span{
     background: #e7f6ff;
     /*box-shadow: 0 0 0.2rem  0.04rem rgba(55,223,116,0.75);*/
 }
+.content .mwq-model .mwq-label .mwq-left .mwq-icon.hot{
+  background: #36de79;
+}
 .content .mwq-model .mwq-label .mwq-left .mwq-icon img{
     height: 0.3rem;
     width: 0.3rem;
@@ -141,11 +144,8 @@ header .title span{
     background: -webkit-linear-gradient(left,#37e06f,#32d69a);
     box-shadow: 0 0 0.2rem 0.04rem rgba(55,223,116,0.75);
     border-radius: 0.3rem;
-    position:absolute;
-    bottom:0.44rem;
-    left:0;
-    right:0;
-    margin:0 auto;
+
+    margin:0.39rem auto;
     font-size: 0.22rem;
     text-align: center;
     line-height: 0.6rem;
