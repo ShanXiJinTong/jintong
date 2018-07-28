@@ -1,4 +1,4 @@
-ul{
+#Sign ul{
     width:5.5rem;
     height:auto;
     margin: 0 auto;
@@ -8,24 +8,24 @@ ul{
     justify-content: center;
     align-items: center;
 }
-li{
+#Sign li{
     width: 100%;
     list-style: none;
     text-align: center;
     font-size: 0.3rem;
 }
-.login{
+#Sign .login{
     width: 100%;
     height: 0.9rem;
     line-height: 0.9rem;
 }
-.login >p{
+#Sign .login >p{
     width: 100%;
     font-size: 0.32rem;
     color: rgba(0,0,0,0.6);
     font-weight: bold;
 }
-.login >.blue{
+#Sign .login >.blue{
     width: 0.91rem;
     height: 0.06rem;
     background: rgba(59,172,254,0.8);
@@ -34,7 +34,7 @@ li{
     left: 0.8rem;
 }
 
-.one{
+#Sign .one{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -42,26 +42,26 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.one >img{
+#Sign .one >img{
     display: block;
     width: 0.18rem;
     height: 0.25rem;
     box-shadow:0 0 0.16rem 0.01rem #35acff;
     margin-left: 0.15rem;
 }
-.one >b{
+#Sign .one >b{
     font-weight: bold;
     font-size: 0.22rem;
     color: #40b1ff;
     margin:0 0.3rem ;
 }
-.one >input{
+#Sign .one >input{
     border: 0;
     outline: none;
     background: none;
     font-size: 0.22rem;
 }
-.two{
+#Sign .two{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -69,7 +69,7 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.two >.dot{
+#Sign .two >.dot{
     width:0.08rem;
     height: 0.08rem;
     border-radius: 50%;
@@ -77,14 +77,14 @@ li{
     box-shadow:0 0 0.16rem 0.02rem #35acff;
     margin-left: 0.15rem;
 }
-.two >input{
+#Sign .two >input{
     border: 0;
     outline: none;
     background: none;
     font-size: 0.22rem;
     margin:0 0.4rem ;
 }
-.two >p{
+#Sign .two >p{
     width: 1.56rem;
     height: 0.46rem;
     background:linear-gradient(to right,rgb(55,224,111),rgb(50,214,154));
@@ -94,7 +94,7 @@ li{
     border-radius:0.23rem ;
     box-shadow:0 0 0.2rem 0.02rem #37df74;
 }
-.three{
+#Sign .three{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -102,20 +102,20 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.three >.icon{
+#Sign .three >.icon{
     width: 0.4rem;
     height: 0.4rem;
     background-image: url("../img/Icon.png");
     background-size: 120%;
 }
-.three >input{
+#Sign .three >input{
     border: 0;
     outline: none;
     background: none;
     font-size: 0.22rem;
     margin:0 0.2rem ;
 }
-.four{
+#Sign .four{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -123,13 +123,13 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.four >.icon{
+#Sign .four >.icon{
     width: 0.4rem;
     height: 0.4rem;
     background-image: url("../img/Icon.png");
     background-size: 120%;
 }
-.four >input{
+#Sign .four >input{
     border: 0;
     outline: none;
     background: none;
@@ -137,7 +137,7 @@ li{
     margin:0 0.2rem ;
 }
 
-.bigbox{
+#Sign .bigbox{
     height: 0.52rem;
     width: 3.86rem;
     background:rgba(59,172,254,0.1);
@@ -148,26 +148,26 @@ li{
     line-height: 0.52rem;
     color: #3bacfe;
 }
-.txt{
+#Sign .txt{
     height: 0.3rem;
     width: 100%;
     color: rgba(0,0,0,0.3);
     position: relative;
 }
-.txt >span{
+#Sign .txt >span{
     font-size: 0.22rem;
     position: absolute;
     top:0;
     left:0.3rem;
 }
-.round{
+#Sign .round{
     width: 0.25rem;
     height: 0.25rem;
     border-radius: 50%;
     background: #e7f6ff;
     position: relative;
 }
-.round >.small{
+#Sign .round >.small{
     width: 0.13rem;
     height: 0.13rem;
     border-radius: 50%;
@@ -175,6 +175,19 @@ li{
     position: absolute;
     left: 25%;
     top:25%;
+}
+#Sign .el-form-item__content{
+    width: 110%;
+    margin-left: 10px!important;
+}
+#Sign .el-form-item__content input{
+    border: none;
+    outline: none;
+    padding:0 7px;
+    font-size: 0.22rem;
+}
+#Sign .el-form-item{
+    margin-bottom: 0px;
 }
 
 
