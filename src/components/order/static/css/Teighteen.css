@@ -306,6 +306,9 @@
   font-size: 0.3rem;
   line-height: 0.5rem;
   color:#8a8c8d;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
  .mwq-model .mwq-adressText .mwq-info .mwq-phoneNumber{
   height: 100%;
