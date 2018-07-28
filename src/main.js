@@ -15,9 +15,15 @@ import "reset-css"
 // require styles
 import 'swiper/dist/css/swiper.css'
 import 'element-ui/lib/theme-chalk/index.css';
+import VueScroller from 'vue-scroller'
+import VueLazyload from 'vue-lazyload'
 
+Vue.use(VueScroller)
 Vue.use(ElementUI);
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueLazyload, {
+  loading: require('./components/common/static/img/logo.png'),
+});
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
