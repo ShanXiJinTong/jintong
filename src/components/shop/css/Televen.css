@@ -9,6 +9,8 @@
 .photo img{
     width: 3.01rem;
     height: 3.62rem;
+    margin: 120px auto 0;
+    display: block;
 }
 .introduction{
     width: 100%;

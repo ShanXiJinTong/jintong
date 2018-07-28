@@ -1,120 +1,170 @@
 <template>
-  <div>
-    <!--nav开始-->
-    <nav>
-      <div class="main">
-        <p class="hot">洗衣</p>
-        <p>洗鞋</p>
-        <p>洗家纺</p>
-        <p>洗窗帘</p>
-        <p>袋洗</p>
-      </div>
-    </nav>
-    <!--nav结束-->
+    <div>
+        <!--nav开始-->
+        <nav>
+            <div class="main">
+                <p :class="{hot:type===item.name}" v-for="item,key in typedata" @click="getList(item,key)">{{item.name}}</p>
+            </div>
+        </nav>
+        <!--nav结束-->
 
-    <!--cate开始-->
-    <div class="cate">
-      <div class="main">
-        <div class="cateBox">
-          <p>综合</p>
-          <i class="iconfont icon-xiangxiajiantou" @click="getData"></i>
+        <!--cate开始-->
+        <div class="cate">
+            <div class="main">
+                <div class="cateBox">
+                    <p>综合</p>
+                    <i class="iconfont icon-xiangxiajiantou" @click="getData"></i>
+                </div>
+                <div class="cateBox" @click="getData('hot')">
+                    <p>销量</p>
+                    <i class="iconfont icon-xiangxiajiantou"></i>
+                </div>
+                <div class="cateBox" @click="getData('high-to-low')">
+                    <p>价格降序</p>
+                    <i class="iconfont icon-xiangxiajiantou"></i>
+                </div>
+            </div>
         </div>
-        <div class="cateBox" @click="getData('hot')">
-          <p>销量</p>
-          <i class="iconfont icon-xiangxiajiantou"></i>
-        </div>
-        <div class="cateBox" @click="getData('high-to-low')">
-          <p>价格降序</p>
-          <i class="iconfont icon-xiangxiajiantou"></i>
-        </div>
-      </div>
-    </div>
-    <!--nav结束-->
+        <!--nav结束-->
+        <!--bag开始-->
+        <div class="bag-scroll">
+            <scroller
+                    :on-infinite="infinite"
+                    ref="my_scroller"
+                    class="myScroll"
+            >
+                <ul class="bag-item" v-for="item in list">
+                    <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
+                        <img v-lazy="item.image" alt="">
+                    </router-link>
+                    <li class="sk-bag-content">
+                        <div class="sk-service-type">
+                            <h3>{{item.name}}</h3>
+                        </div>
+                        <div class="sk-service-desc">
+                            <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
+                        </div>
+                        <div class="sk-estimate_sale_price">
+                            <ul class="sk-estimate sk-item">
+                                <li class="dot"></li>
+                                <li class="text">好评</li>
+                                <li class="number">90<span>%</span></li>
+                            </ul>
+                            <ul class="sk-sale sk-item">
+                                <li class="dot"></li>
+                                <li class="text">月售</li>
+                                <li class="number">278</li>
+                            </ul>
+                            <ul class="sk-price">
+                                <li>{{item.price.value}}元/件</li>
+                            </ul>
+                        </div>
+                        <div class="sk-service-operator">
+                            <img src="../img/Tnine/bds.png" alt="">
+                            <span>包大师</span>
+                        </div>
+                    </li>
+                </ul>
 
-    <!--bag开始-->
-    <div class="bag-scroll">
-        <scroller
-          :on-infinite="infinite"
-          ref="my_scroller"
-          class="myScroll"
-        >
-          <ul class="bag-item" v-for="item in list">
-            <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
-              <img v-lazy="item.image" alt="">
-            </router-link>
-            <li class="sk-bag-content">
-              <div class="sk-service-type">
-                <h3>{{item.name}}</h3>
-              </div>
-              <div class="sk-service-desc">
-                <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
-              </div>
-              <div class="sk-estimate_sale_price">
-                <ul class="sk-estimate sk-item">
-                  <li class="dot"></li>
-                  <li class="text">好评</li>
-                  <li class="number">90<span>%</span></li>
-                </ul>
-                <ul class="sk-sale sk-item">
-                  <li class="dot"></li>
-                  <li class="text">月售</li>
-                  <li class="number">278</li>
-                </ul>
-                <ul class="sk-price">
-                  <li>{{item.price.value}}元/件</li>
-                </ul>
-              </div>
-              <div class="sk-service-operator">
-                <img src="../img/Tnine/bds.png" alt="">
-                <span>包大师</span>
-              </div>
-            </li>
-          </ul>
-        </scroller>
+            </scroller>
+
+        </div>
+        <!--bag结束-->
     </div>
-    <!--bag结束-->
-  </div>
 </template>
 <script>
     export default {
         name: 'XhList',
         data() {
             return {
-                list:[],
-                cid:'',
+                type:"",
+                list: [],
+                cid: '',
+                page: 1,
+                totalPage: null,
+                typedata:{}
             }
         },
-        methods:{
-            getData(sort=''){
-                let _this=this;
+        watch:{
+            type:function(){
+                this.refresh();
+            }
+        },
+        methods: {
+            getData(sort = ''){
+                let _this = this;
                 this.list = [];
                 this.$http.get('/catalog/category/index', {
-                  params: {
-                     categoryId:_this.cid,
-                     sortColumn:sort
-                  }
+                    params: {
+                        categoryId: _this.cid,
+                        sortColumn: sort,
+                    }
+                }).then(res => {
+                    res.data.data.products.forEach(elemlent => {
+                        this.list.push(...[elemlent.one, elemlent.two]);
+                    })
+                    this.typedata=res.data.data.filter_category;
+                    for(let i in this.typedata){
+                        this.type=this.typedata[i].name;
+                        break;
+                    }
+                    this.totalPage = res.data.data.page_count;
+                })
+            },
+            getList(obj,key){
+                this.cid=key;
+                this.$nextTick(()=>{
+                    this.type=obj.name;
+                })
+
+            },
+            refresh(){
+                let _this = this;
+                this.list = [];
+                this.$http.get('/catalog/category/index', {
+                    params: {
+                        categoryId: _this.cid,
+                        sortColumn:"",
+                      //  filterAttrs:this.type
+                    }
+                }).then(res => {
+                    res.data.data.products.forEach(elemlent => {
+                        this.list=[...[elemlent.one, elemlent.two]];
+                    })
+                    this.totalPage = res.data.data.page_count;
+                })
+            },
+            infinite(done) {
+                this.page += 1;
+                if (this.page > this.totalPage) {
+                    this.page -= 1;
+                    return;
+                }
+                this.$http.get('/catalog/category/product', {
+                    params: {
+                        p: this.page,
+                        categoryId: this.cid,
+                        sortColumn: ""
+                    }
                 }).then(res=>{
-                    res.data.data.products.forEach(elemlent=>{
-                        this.list.push(...[elemlent.one,elemlent.two]);
+                    res.data.data.products.forEach(elemlent => {
+                        this.list.push(...[elemlent.one, elemlent.two]);
                     })
                 })
             },
-          infinite(done) {
-            console.log('infinite called..')
-          },
         },
-        mounted:function () {
-          this.cid = this.$route.query.categoryId;
-          this.getData();
+        mounted: function () {
+            this.cid = this.$route.query.categoryId;
+            this.getData();
         },
     }
 </script>
 <style scoped>
-  @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
-  @import url("../css/Tten.css");
+    @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
+    @import url("../css/Tten.css");
 
-  .myScroll {
-    width: 100%;
-    height: 100%;
-  }
+    .myScroll {
+        width: 100%;
+        height: 100%;
+    }
 </style>

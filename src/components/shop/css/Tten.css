@@ -29,7 +29,8 @@ nav {
 }
 
 nav .main {
-  width: 100%;
+  overflow-x: scroll;
+  width:100%;
   height: 100%;
   display: flex;
   justify-content: space-around;
@@ -41,6 +42,9 @@ nav .main p {
   font-size: 0.18rem;
   color: #41b2fc;
   text-align: center;
+  background: #E7F6FF;
+  color: #3BACFE;
+  border-radius: 0.26rem;
   line-height: 0.52rem;
 }
 
