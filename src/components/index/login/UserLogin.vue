@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="UserLogin">
           <ul id="ul">
               <li class="login" @click="changeOk()">
                   <p :class="{hot:isOk}">快捷登录</p><p :class="{hot:!isOk}">账号登录</p>
@@ -18,7 +18,7 @@
                       <p>获取验证码</p>
                   </li>
                   <li class="bigbox">
-                      <button @click="check">快速登录</button>
+                      <button @click="check()">快速登录</button>
 
                       <!--<el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>-->
                   </li>
@@ -27,16 +27,16 @@
               <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
               <div class="dis" :class="{block:!isOk}">
                   <li class="one">
-                      <!--<div class="dot"></div>-->
+                      <div class="dot"></div>
                       <!--<span>用户名：</span>-->
 
-                      <el-form-item label="用户名：" prop="name">
-                          <el-input type="text" v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
+                      <el-form-item label="手机号：" prop="name">
+                          <el-input type="text" v-model="ruleForm.name" placeholder="请输入手机号"></el-input>
                       </el-form-item>
                       <!--<input type="text" v-model="ruleForm.name" placeholder="请输入用户名">-->
                   </li>
                   <li class="two">
-                      <!--<div class="dot"></div>-->
+                      <div class="dot"></div>
                       <el-form-item label="密 码：" prop="name">
                           <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
                       </el-form-item>
@@ -45,7 +45,7 @@
                   </li>
                   <li class="bigbox">
                       <!--<button @click="handleSubmit">登录</button>-->
-                      <el-button type="primary" @click="handleSubmit">登录</el-button>
+                      <el-button type="primary" @click="handleSubmit()">登录</el-button>
                   </li>
               </div>
               </el-form>
@@ -101,6 +101,10 @@
                         {required: true, message: '请输入用户名', trigger: 'blur'},
                         {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
                     ],
+                    password: [
+                        {required: true, message: '请输入密码', trigger: 'blur'},
+                        {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+                    ]
                 }
             }
         },
@@ -114,7 +118,8 @@
                url:'/customer/login/account',
                data: this.$qs.stringify(this.form)
             }).then(res=>{
-               if(res.data.code ==200){
+                console.log(res);
+                if(res.status ==200){
                   localStorage['access-token'] = res.headers['access-token'];
                   localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
                   this.$router.push({name:'Index'});
@@ -130,7 +135,7 @@
                     url:'/customer/login/account',
                     data: this.$qs.stringify(this.ruleForm)
                 }).then(res=>{
-                    if(res.data.code ==200){
+                    if(res.status ==200){
                         localStorage['access-token'] = res.headers['access-token'];
                         localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
                         this.$router.push({name:'Index'});
@@ -159,6 +164,6 @@
         }
     }
 </script>
-<style scoped>
+<style>
     @import url('../static/css/phoneLogin.css');
 </style>

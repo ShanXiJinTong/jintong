@@ -1,4 +1,4 @@
-ul{
+#UserLogin ul{
     width:5.5rem;
     height:auto;
     margin: 0 auto;
@@ -8,13 +8,13 @@ ul{
     justify-content: center;
     align-items: center;
 }
-li{
+#UserLogin li{
     width: 100%;
     list-style: none;
     text-align: center;
     font-size: 0.3rem;
 }
-.login{
+#UserLogin .login{
     width: 100%;
     height: 0.9rem;
     line-height: 0.9rem;
@@ -22,13 +22,13 @@ li{
     /*position: relative;*/
     display: flex;
 }
-.login >p{
+#UserLogin .login >p{
     width: 50%;
     font-size: 0.32rem;
     color: rgba(0,0,0,0.2);
     font-weight: bold;
 }
-.login p.hot::before{
+#UserLogin .login p.hot::before{
     content: " ";
     width: 0.91rem;
     height: 0.06rem;
@@ -39,11 +39,11 @@ li{
     right: 0;
     margin: 0 auto;
 }
-.login >.hot {
+#UserLogin .login >.hot {
     color: rgba(0, 0, 0, 0.6);
     position: relative;
 }
-.one{
+#UserLogin .one{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -51,26 +51,26 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.one >img{
+#UserLogin .one >img{
     display: block;
     width: 0.18rem;
     height: 0.25rem;
     box-shadow:0 0 0.16rem 0.01rem #35acff;
     margin-left: 0.15rem;
 }
-.one >b{
+#UserLogin .one >b{
     width: 0.38rem;
     font-size: 0.22rem;
     color: #40b1ff;
     margin:0 0.3rem ;
 }
-.one >input{
+#UserLogin .one >input{
     border: 0;
     outline: none;
     background: none;
     font-size: 0.22rem;
 }
-.two{
+#UserLogin .two{
     height: 0.71rem;
     margin-top: 0.38rem;
     line-height: 0.71rem;
@@ -78,7 +78,7 @@ li{
     align-items: center;
     border-bottom:  0.02rem solid rgba(0,0,0,0.03);
 }
-.two >.dot,.one >.dot{
+#UserLogin .two >.dot,.one >.dot{
     width:0.08rem;
     height: 0.08rem;
     border-radius: 50%;
@@ -86,14 +86,14 @@ li{
     box-shadow:0 0 0.16rem 0.02rem #35acff;
     margin-left: 0.15rem;
 }
-.two >input{
+#UserLogin .two >input{
     border: 0;
     outline: none;
     background: none;
     font-size: 0.22rem;
     margin:0 0.4rem ;
 }
-.two >p{
+#UserLogin .two >p{
     width: 1.56rem;
     height: 0.46rem;
     background:linear-gradient(to right,rgb(55,224,111),rgb(50,214,154));
@@ -103,7 +103,7 @@ li{
     border-radius:0.23rem ;
     box-shadow:0 0 0.2rem 0.02rem #37df74;
 }
-.bigbox{
+#UserLogin .bigbox{
     height: 0.52rem;
     width: 3.86rem;
     background:rgba(59,172,254,0.1);
@@ -114,7 +114,7 @@ li{
     line-height: 0.52rem;
     color: #3bacfe;
 }
-.bigbox button{
+#UserLogin .bigbox button{
     width: 100%;
     height: 100%;
     border:none;
@@ -123,45 +123,63 @@ li{
     border-radius: 0.26rem;
     color: #3bacfe;
 }
-.txt{
+#UserLogin .txt{
     height: 0.3rem;
     width: 100%;
     color: rgba(0,0,0,0.3);
     position: relative;
 }
-.txt >span{
+#UserLogin .txt >span{
     font-size: 0.22rem;
     position: absolute;
     top:0;
     left:0.3rem;
 }
-.round{
+#UserLogin .round{
     width: 0.25rem;
     height: 0.25rem;
     border-radius: 50%;
     background: #e7f6ff;
 }
-.dis{
+#UserLogin .dis{
     width: 100%;
     display: none;
 }
-.dis span{
+#UserLogin .dis span{
     font-size: 0.12rem;
     color: #54B9FF;
     margin-left: 0.2rem;
 }
-.dis:nth-of-type(2) .two input{
+#UserLogin .dis:nth-of-type(2) .two input{
     margin: 0 0 0 0.14rem;
 }
-.block{
+#UserLogin .block{
     display: block;
 }
-#ul .el-form-item__label{
-    color: red;
+#UserLogin #ul .el-form-item__label{
+    width: auto!important;
+    padding-right: 0;
 }
+#UserLogin #ul .el-form-item__label:before{
+    content: "";
+}
+#UserLogin .el-form-item__content{
+    margin-left: 60px!important;
+    width: 80%;
+}
+#UserLogin .el-form-item{
+    margin-bottom: 0px;
+    margin-left: 15px;
+}
+#UserLogin .el-form-item__content input{
+    border: none;
+    outline: none;
+    padding:0 7px;
+    font-size: 0.22rem;
 
-#ul .el-form-item__label:before{
-    content: "mm";
+}
+#UserLogin .el-form{
+    width: 100%;
 }
 
 

@@ -47,10 +47,12 @@
     </div>
     <!--banner-->
     <section class="wsq-banner">
+
         <div class="wsq-title">
             <div :class="['wsq-cateaty', isOk==1?'hot':'']" @click="checkOk(1)">全部项目</div>
             <div :class="['wsq-cateaty', isOk==2?'hot':'']" @click="checkOk(2)" style="margin: 0 0.25rem">促销项目</div>
             <div :class="['wsq-cateaty', isOk==3?'hot':'']" @click="checkOk(3 )">用户评价</div>
+
         </div>
     </section>
     <!--更多详情分类-->

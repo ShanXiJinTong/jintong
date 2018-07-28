@@ -115,14 +115,14 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
                     url:'/customer/register/account',
-                    // data: this.$qs.stringify(this.form)
+                    data: this.$qs.stringify(this.ruleForm2)
                 }).then(res=>{
                     console.log(res);
                     if(res.status==200){
 
                         localStorage['access-token'] = res.headers['access-token'];
                         localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
-                        this.$router.push({name:'Index'});
+                        this.$router.push({name:'MessageFill'});
                     }
 
                 })
