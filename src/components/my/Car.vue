@@ -85,7 +85,6 @@
     computed:{
        selectAllAttr(){
           let arr =  this.carInfo.filter(element=>element.active);
-
           return arr.length < this.carInfo.length;
        },
     },

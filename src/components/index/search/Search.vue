@@ -2,7 +2,7 @@
   <div id="search">
     <header class="tab">
       <form class="wsq-searchBox">
-        <img src="../static/img/sousuoicon.png" @click='sendkey'/>
+        <img src="../static/img/sousuoicon.png" @click='sendkey(searchkey)' style="z-index: 999"/>
         <input type="text" v-model="searchkey" placeholder="搜素您需要搜索的内容">
       </form>
     </header>
@@ -34,7 +34,6 @@
           <p>很遗憾 没有为您找到合适的内容 <br> 换个关键词试试吧</p>
         </div>
       </template>
-
     </div>
   </div>
 </template>
@@ -46,34 +45,48 @@
         flag: true,
         searchkey: '',
         products:[],
-        history: ['水管', '龙头', '弹跳面板', '水管', '龙头', '弹跳面板', '水管', '龙头', '弹跳面板'],
+        history: [],
         MoutPeople: ['水管', '龙头', '弹跳面板', '龙头', '水管', '龙头', '龙头',]
       }
     },
     methods: {
       sendkey(key) {
 
-        if (typeof key === 'object') {
-          key = this.searchkey;
-        }
         // 在这里进行ajax请求
         if (key === '') {
           return;
         }
-        this.flag = false;
+
         this.$http.get("/catalogsearch/index/index", {
           params: {
             q: key,
             filterAttrs: {},
             price: "",
-          }
+          },
+            headers:{
+                'access-token':'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
+                'fecshop-currency':'EUR',
+                'fecshop-lang':'zh',
+                'fecshop-uuid':'e15c77d4-921c-11e8-a965-00163e021360',
+            }
         }).then(res => {
-          let count = Number(res.data.data.searchCount);
-          this.products=res.data.data.products;
-          // console.log(this.products);
+            console.log(res);
+            let count = Number(res.data.data.searchCount);
+            this.products=res.data.data.products;
+            this.history.push(key);
+            this.flag = false;
+            // let arr = uniq(this.history);
+            console.log(this.history);
+            localStorage.history=JSON.stringify(this.history);
+            console.log(this.history);
+            console.log(this.products);
         })
       }
-    }
+    },
+      mounted(){
+         this.history=JSON.parse(localStorage.history);
+      }
+
   }
 </script>
 <style scoped>
@@ -81,7 +94,6 @@
   .boxms{
     width: 4rem;
     height: 3.4rem;
-    /*background: yellow;*/
     margin: 0 auto;
     margin-top: 2.6rem;
   }
@@ -101,5 +113,4 @@
     color: rgba(0,0,0,0.4);
     font-weight: bold;
   }
-
 </style>
