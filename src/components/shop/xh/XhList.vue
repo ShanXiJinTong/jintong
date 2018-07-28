@@ -79,7 +79,6 @@
             return {
                 list:[],
                 cid:'',
-
             }
         },
         methods:{
@@ -96,7 +95,6 @@
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
-
             }
         },
         mounted:function () {
