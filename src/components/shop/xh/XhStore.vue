@@ -47,17 +47,12 @@
     </div>
     <!--banner-->
     <section class="wsq-banner">
-<<<<<<< HEAD
-        <div class="wsq-title" @click="checkOk">
-            <div class="wsq-cateaty" :class="{hot:isOk}">全部项目</div>
-            <div class="wsq-cateaty"   style="margin: 0 0.25rem">促销项目</div>
-            <div class="wsq-cateaty " >用户评价</div>
-=======
+
         <div class="wsq-title">
             <div :class="['wsq-cateaty', isOk==1?'hot':'']" @click="checkOk(1)">全部项目</div>
             <div :class="['wsq-cateaty', isOk==2?'hot':'']" @click="checkOk(2)" style="margin: 0 0.25rem">促销项目</div>
             <div :class="['wsq-cateaty', isOk==3?'hot':'']" @click="checkOk(3 )">用户评价</div>
->>>>>>> 7574003a9afe74140d28bf087a21fcc98bbfa7fc
+
         </div>
     </section>
     <!--更多详情分类-->

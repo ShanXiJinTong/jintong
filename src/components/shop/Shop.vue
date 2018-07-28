@@ -13,7 +13,8 @@
   <ul class="xrIcon" v-if="menu.length">
         <router-link :to="{name:'XhList',query:{categoryId:item._id}}" tag="li"  class="xrIconbox" v-for="item in menu[0].child" :key="item._id">
             <div class="xrIcon1">
-                <img src="./img/Tnine/Tnine1.png" alt="">
+                <div class="bg"></div>
+                <!--<img src="./img/Tnine/Tnine1.png" alt="">-->
             </div>
             <span>{{item.name}}</span>
         </router-link>

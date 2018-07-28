@@ -63,7 +63,7 @@ html , body{
 }
 .xrIconbox{
     width: 1.13rem;
-    height: 1.6rem;
+    height: 2rem;
     font-size: 0.24rem;
     font-weight: bold;
     color: #7f7f7f;
@@ -76,15 +76,34 @@ html , body{
     width: 100%;
     height: 1.8rem;
 }
-.xrIcon1{
+.xrIconbox .xrIcon1{
     width: 100%;
     height: 1.13rem;
     border-radius: 50%;
-    background: linear-gradient(#30a3fe,#6ed5fe);
+    background: linear-gradient(#30a3fe,#6ed5fe) ;
     box-shadow: 0 0.1rem 0.3rem #b4e8ff;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.xrIcon .xrIconbox:nth-child(2) .xrIcon1{
+    background:  linear-gradient(#FF6C6F,#FF8773) ;
+    box-shadow:0 0.1rem 0.3rem #FF6C6F ;
+}
+.xrIcon .xrIconbox:nth-child(3) .xrIcon1{
+    background:  linear-gradient(#FFBF58,#FFE059) ;
+    box-shadow:0 0.1rem 0.3rem #FFBF58;
+}
+.xrIconbox .xrIcon1 .bg{
+    width:100%;
+    height:100%;
+    background: url('../img/Tnine/Tnine1.png') no-repeat center/cover;
+}
+.xrIconbox:nth-child(2) .xrIcon1 .bg{
+    background: url('../img/Tnine/Tnine2.png') no-repeat center/cover;
+}
+.xrIconbox:nth-child(3) .xrIcon1 .bg{
+    background: url('../img/Tnine/Tnine3.png') no-repeat center/cover;
 }
 .xrIcon2{
     width: 100%;
