@@ -1,9 +1,9 @@
 <template>
   <div id="SelectCity">
-      <section class="search" @keydown.enter="searchCity(searchName)">
+      <section class="search">
           <div class="input">
               <input type="text" placeholder="搜索您需要的服务 商品" v-model="searchName">
-              <img src="../static/img/sousuo.jpg" alt="">
+              <img src="../static/img/sousuo.jpg" alt=""  @click="searchCity(searchName)">
           </div>
       </section>
     <!--<Searchbox placeholder="请输入您搜索的城市" url="Search"></Searchbox>-->
@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-  // import Searchbox from "../../common/Searchbox";
+
 
   export default {
     name: 'SelectCity',
@@ -58,32 +58,18 @@
              this.$router.back();
           },
           searchCity(cityName){
-             for(let i in this.getCity){
-                 // console.log(this.getCity[i]);
-                 let result=this.getCity[i].filter(element=>{
-                     element.city_name==cityName;
-                 })
-                 console.log(result);
+              let result=this.city.filter(element=> element.city_name==cityName)
+              if(result.length){
+                     localStorage.city=cityName;
+                     this.$router.back();
+                 }
+                 else{
+                     alert("输入有误");
+                 }
 
-
-                 /*this.getCity[i].forEach((element,index)=>{
-                     if(cityName==element.city_name){
-                         localStorage.city=cityName;
-                         this.$router.back();
-                     }
-                     else{
-                         alert("输入有误");
-                         return;
-                     }
-                     // console.log(element);
-                 })
-*/
-             }
-              console.log(this.getCity);
           }
       },
     components:{
-      // Searchbox
     },
       mounted:function () {
           this.getData();
@@ -107,7 +93,6 @@
                   let char = this.getLetter[i];
                   arr[char.toUpperCase()]
               }
-              console.log(arr);
               return arr;
           }
       }

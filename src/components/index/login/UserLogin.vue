@@ -1,6 +1,5 @@
 <template>
   <div>
-
           <ul>
               <li class="login">
                   <p class="hot">快捷登录</p><p class="">账号登录</p>
