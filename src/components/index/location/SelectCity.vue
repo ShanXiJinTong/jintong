@@ -48,7 +48,6 @@
              this.$http.get("http://appserver.uekuek.com/general/base/syscityall").then(res=>{
                  this.city=res.data;
              })
-
          },
           returnTop(item){
               document.querySelector(`#${item}`).scrollIntoView(true);
