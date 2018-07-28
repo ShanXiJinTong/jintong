@@ -43,7 +43,7 @@
               <img v-lazy="item.image" alt="">
             </router-link>
             <li class="sk-bag-content">
-              <div class="sk-service-type">
+             git <div class="sk-service-type">
                 <h3>{{item.name}}</h3>
               </div>
               <div class="sk-service-desc">
@@ -76,51 +76,35 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'XhList',
-    data() {
-      return {
-        list: [],
-        cid: '',
-      }
-    },
-    methods: {
-      getData(sort = '') {
-        let _this = this;
-        this.list = [];
-        this.$http.get('/catalog/category/index', {
-          params: {
-            categoryId: _this.cid,
-            sortColumn: sort
-          }
-        }).then(res => {
-          res.data.data.products.forEach(elemlent => {
-            this.list.push(...[elemlent.one, elemlent.two]);
-          })
-        })
-
-      },
-      infinite(done) {
-        console.log('infinite called..')
-
-        setTimeout(() => {
-          let start = this.bottom + 1
-          for (let i = start; i < start + 10; i++) {
-            this.items.push(i + ' - keep walking, be 2 with you.')
-          }
-          this.bottom = this.bottom + 10
-          done()
-        }, 1500)
-      },
-      onItemClick(index, item) {
-        console.log(index)
-      }
-    },
-    mounted: function () {
-      this.cid = this.$route.query.categoryId;
-      this.getData();
-    },
-  }
+    export default {
+        name: 'XhList',
+        data() {
+            return {
+                list:[],
+                cid:'',
+            }
+        },
+        methods:{
+            getData(sort=''){
+                let _this=this;
+                this.list = [];
+                this.$http.get('/catalog/category/index', {
+                  params: {
+                     categoryId:_this.cid,
+                     sortColumn:sort
+                  }
+                }).then(res=>{
+                    res.data.data.products.forEach(elemlent=>{
+                        this.list.push(...[elemlent.one,elemlent.two]);
+                    })
+                })
+            }
+        },
+        mounted:function () {
+          this.cid = this.$route.query.categoryId;
+          this.getData();
+        },
+    }
 </script>
 <style scoped>
   @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");

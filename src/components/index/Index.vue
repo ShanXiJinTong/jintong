@@ -2,7 +2,7 @@
   <div id="index">
     <section class="search">
         <router-link :to="{name:'SelectCity'}">
-        <span>太原 </span><i class="iconfont icon-down"></i>
+        <span>{{city}} </span><i class="iconfont icon-down"></i>
         </router-link>
         <router-link :to="{name:'Search'}" class="input">
         <input type="text" disabled placeholder="搜索您需要的服务 商品">
@@ -54,6 +54,7 @@
     data() {
       return {
         advList: [],
+        city:"",
         swiperOption: {
           pagination: {
             el: '.swiper-pagination',
@@ -80,9 +81,10 @@
       })
     },
       mounted:function () {
-//        if(!localStorage.city){;
-//            this.$router.push({name:'SelectCity'})
-//        }
+        if(!localStorage.city){;
+            this.$router.push({name:'SelectCity'})
+        }
+          this.city=localStorage.city;
           this.getMenu();
       },
     components:{
