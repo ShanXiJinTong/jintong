@@ -82,6 +82,7 @@
             return {
                 list:[],
                 cid:'',
+                p:1,
             }
         },
         methods:{
@@ -100,7 +101,8 @@
                 })
             },
           infinite(done) {
-            console.log('infinite called..')
+             this.p++;
+             this.getData()
           },
         },
         mounted:function () {

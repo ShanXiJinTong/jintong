@@ -69,7 +69,7 @@
           data: this.$qs.stringify(this.form)
         }).then(res => {
           if (res.data.code === 200) {
-            this.$router.push({name: 'My'});
+            this.$router.back();
           }
         })
 

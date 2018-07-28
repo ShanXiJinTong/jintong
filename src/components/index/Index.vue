@@ -81,10 +81,10 @@
       })
     },
       mounted:function () {
-        if(!localStorage.city){;
+       /* if(!localStorage.city){;
             this.$router.push({name:'SelectCity'})
         }
-          this.city=localStorage.city;
+          this.city=localStorage.city;*/
           this.getMenu();
       },
     components:{

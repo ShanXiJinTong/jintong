@@ -3,8 +3,9 @@
     <!--横向滚动栏开始-->
     <div id="wrapper">
       <ul class="x-ulone">
-        <li class="x-fl" v-for="(tabName,index) in tabsName" v-bind:class="{x_li:tabName.isActive}"
+        <li class="x-fl" v-for="(tabName,index) in tabsName" :class="{x_li:tabName.isActive}"
             @click="tabsSwitch(index)">
+           <div></div>
           {{tabName.name}}
         </li>
       </ul>
@@ -16,7 +17,9 @@
         <div class="x-box" v-for="item in orderlist">
           <div class="x-DR">
             <div class="x-commodity">
-              <img src="./img/SLT.png" alt="" id="x-c-left">
+              <router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}"><img
+                src="../common/static/img/logo.png" alt="" id="x-c-left">
+              </router-link>
               <div class="x-c-right">
                 <div id="x-name"><b>{{item['increment_id']}} </b></div>
                 <ul id="x-li">
@@ -24,7 +27,6 @@
                   <li class="x-blue x-jtwo">商品规格潜水艇高端龙头</li>
                   <li class="x-blue x-jthree">¥60</li>
                   <li class="x-green x-jfour">×1</li>
-                  <li class="x-green x-jfive">实付款：¥60</li>
                 </ul>
               </div>
             </div>
@@ -41,33 +43,33 @@
 </template>
 <script>
   import Tab from "../common/tab";
-  import {getheaders , postheaders} from "../config";
+  import {getheaders, postheaders} from "../config";
 
   export default {
     name: 'Order',
     data() {
       return {
-        tabsName: [{
-          name: "全部",
-          isActive: true
-        }, {
-          name: "待支付",
-          isActive: false
-        }, {
-          name: "待服务",
-          isActive: false
-        }, {
-          name: "待收货",
-          isActive: false
-        }, {
-          name: "待评价",
-          isActive: false
-        }
-        ],
+
+        tabsName: [
+          {
+            name: '全部',
+            status:'all'
+          },
+          {
+            name: "代付款",
+            status:'payment_pending'
+          }, {
+            name: "待收货",
+            status:'dispatched'
+          }, {
+            name: "已完成",
+            status:'completed'
+          }],
         active: false,
         orderlist: [],
-        order_id: null
-
+        order_id: null,
+        display:null,
+        status:'all'
       }
     },
     methods: {
@@ -76,7 +78,7 @@
       getData() {
         this.$http({
           method: 'get',
-          headers:getheaders,
+          headers: getheaders,
           url: '/customer/order/index'
         }).then(res => {
           if (res.status == 200 && res.data.data.orderList) {
@@ -84,6 +86,9 @@
             console.log(res.data.data);
           }
         })
+      },
+      setStatus(){
+
       }
     },
     mounted: function () {
@@ -101,36 +106,41 @@
     border-bottom: 0.01rem solid #a2deff;
     width: 100%;
     height: 0.82rem;
-    overflow: hidden;
     box-sizing: border-box;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 999;
-    background: #f8fcff;
 
   }
 
   #wrapper .x-ulone {
     list-style: none;
     height: 100%;
+    background: #f8fcff;
+    border-bottom: 0.01rem solid #a2deff;
   }
 
   .x-fl {
     display: block;
-    width: 1.5rem;
+    width: 25%;
     height: 100%;
     float: left;
     font-size: 0.22rem;
     color: #c9cbcc;
     text-align: center;
     line-height: 0.82rem;
+    position: relative;
   }
 
-  .x_li {
-    color: #646666;
-    border-bottom: 0.02rem solid #36a8fe;
-    box-sizing: border-box;
+  .x-fl.hot div{
+    width: 80%;
+    height: 0.04rem;
+    background: #36a8fe;
+    position: absolute;
+    left: 10%;
+    bottom: -0.02rem;
+    z-index: 999;
   }
 
   /*横向滚动结束*/
@@ -152,7 +162,7 @@
 
   .middle .x-box .x-DR .x-commodity {
     width: 100%;
-    height: 2.93rem;
+    height: auto;
     display: flex;
     justify-content: flex-start;
   }
@@ -161,6 +171,9 @@
     width: 1.74rem;
     height: 1.74rem;
     margin-right: 0.27rem;
+    box-shadow: 0 0.03rem 0.21rem 0.01rem #dfdfdf;
+    border-radius: 0.1rem;
+
   }
 
   .x-c-right {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="dizhi">
-      <router-link :to="{name:'WaitAddress'}">
+      <router-link :to="{name:'Address'}">
         <div class="mwq-model" v-if="carAddress">
           <div class="mwq-adressText">
             <div class="mwq-info">
