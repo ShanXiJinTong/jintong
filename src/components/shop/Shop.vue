@@ -33,7 +33,13 @@
 
     <!--bag开始-->
     <div class="bag-scroll">
+
         <div class="sk-bag-scroll">
+            <scroller
+                    :on-infinite="infinite"
+                    ref="my_scroller"
+                    class="myScroll"
+            >
             <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
                     <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
@@ -68,8 +74,9 @@
                     </div>
                 </li>
             </ul>
-
+            </scroller>
         </div>
+
     </div>
     <!--bag结束-->
     <Tab></Tab>
@@ -85,6 +92,13 @@
                 list:[],
                 menu:[],
                 path:['Shop','Bathroom','SellWater'],
+                page: 1,
+                totalPage: null,
+            }
+        },
+        watch:{
+            type:function(){
+                this.refresh();
             }
         },
         methods:{
@@ -106,6 +120,40 @@
                    this.menu = this.menu.slice(0,3);
                 })
             },
+            refresh(){
+                let _this = this;
+                this.list = [];
+                this.$http.get('/catalog/category/index', {
+                    params: {
+                        categoryId: _this.cid,
+                        sortColumn:"",
+                        //  filterAttrs:this.type
+                    }
+                }).then(res => {
+                    res.data.data.products.forEach(elemlent => {
+                        this.list=[...[elemlent.one, elemlent.two]];
+                    })
+                    this.totalPage = res.data.data.page_count;
+                })
+            },
+            infinite(done) {
+                this.page += 1;
+                if (this.page > this.totalPage) {
+                    this.page -= 1;
+                    return;
+                }
+                this.$http.get('/catalog/category/product', {
+                    params: {
+                        p: this.page,
+                        categoryId: this.cid,
+                        sortColumn: ""
+                    }
+                }).then(res=>{
+                    res.data.data.products.forEach(elemlent => {
+                        this.list.push(...[elemlent.one, elemlent.two]);
+                    })
+                })
+            },
 
         },
         mounted:function () {
@@ -120,4 +168,8 @@
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("./css/Tnine.css");
+    .myScroll {
+        width: 100%;
+        height: 100%;
+    }
 </style>

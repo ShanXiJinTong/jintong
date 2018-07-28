@@ -1,8 +1,15 @@
 <template>
 <div>
-    <div class="photo">
-        <img :src="shopDetail.image_detail[0]" alt="">
-    </div>
+    <!--<div class="photo">-->
+        <swiper :options="swiperOption" ref="mySwiper" class="photo">
+            <!-- slides -->
+            <swiper-slide v-for="(item,index) in shopDetail.image_detail" v-bind:key="index">
+                <img :src="item" alt="">
+            </swiper-slide>
+            <!-- Optional controls -->
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+    <!--</div>-->
     <div class="introduction">
         <div class="one">{{shopDetail.name}}</div>
         <div class="two"><p v-html="shopDetail.description"></p></div>
@@ -64,10 +71,10 @@
             </a>
         </div>
         <div class="rr">
-            <router-link :to="{name:'XhServer'}" tag="a">
+            <a @click="handleClick">
                 <div class="rr1">加入购物车</div>
-            </router-link>
-            <router-link :to="{name:'XhOrder'}" tag="a">
+            </a>
+            <router-link :to="{name:'WaitServicePay'}" tag="a">
                 <div class="rr2">立即下单</div>
             </router-link>
         </div>
@@ -84,7 +91,12 @@
                   image_detail:[],
                   name:'',
                   description:'',
-                }
+                },
+                swiperOption: {
+                    pagination: {
+                        el: '.swiper-pagination',
+                    }
+                },
             }
         },
         methods:{
@@ -93,6 +105,14 @@
 
                     this.shopDetail = res.data.data.product;
                 })
+            },
+            handleClick(){
+                if(!(localStorage.access-token&&localStorage.fecshop-uuid)){
+                    this.$router.push({name:'WxLogin'})
+                }
+                this.$router.push({name:'Car'});
+
+
             }
         },
         mounted:function(){

@@ -13,7 +13,6 @@ html , body{
 }
 
 
-
 .wsq-banner{
     width: 100%;
     height: auto;
@@ -192,7 +191,7 @@ html , body{
 }
 .sk-bag-scroll{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 .bag-item{
     width: 100%;
