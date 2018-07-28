@@ -3,14 +3,14 @@
 
     <!--banner开始-->
     <section class="wsq-banner">
-        <div class="wsq-title" >
+        <div class="wsq-title" v-if="menu.length">
                 <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
         </div>
     </section>
     <!--banner结束-->
 
     <!--Icon开始-->
-    <ul class="xrIcon">
+  <ul class="xrIcon" v-if="menu.length">
         <router-link :to="{name:'XhList',query:{categoryId:item._id}}" tag="li"  class="xrIconbox" v-for="item in menu[0].child" :key="item._id">
             <div class="xrIcon1">
                 <img src="./img/Tnine/Tnine1.png" alt="">
@@ -33,8 +33,6 @@
     <!--bag开始-->
     <div class="bag-scroll">
         <div class="sk-bag-scroll">
-
-
             <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
                     <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
@@ -86,7 +84,6 @@
                 list:[],
                 menu:[],
                 path:['Shop','Bathroom','SellWater'],
-                child:[]
             }
         },
         methods:{
@@ -100,7 +97,8 @@
             },
             getMenu(){
                 this.$http.get('/general/base/menu').then(res=>{
-                    for(let i in res.data){
+                  if(!res.data){ return ;}
+                  for(let i in res.data){
                         if(res.data[i].name && res.data[i].child) {
                             this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
                         }

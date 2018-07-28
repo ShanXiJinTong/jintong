@@ -43,7 +43,7 @@
               <img v-lazy="item.image" alt="">
             </router-link>
             <li class="sk-bag-content">
-             git <div class="sk-service-type">
+              <div class="sk-service-type">
                 <h3>{{item.name}}</h3>
               </div>
               <div class="sk-service-desc">
@@ -98,7 +98,10 @@
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
-            }
+            },
+          infinite(done) {
+            console.log('infinite called..')
+          },
         },
         mounted:function () {
           this.cid = this.$route.query.categoryId;
