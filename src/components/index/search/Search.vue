@@ -70,7 +70,7 @@
         }).then(res => {
           let count = Number(res.data.data.searchCount);
           this.products=res.data.data.products;
-          console.log(this.products);
+          // console.log(this.products);
         })
       }
     }
