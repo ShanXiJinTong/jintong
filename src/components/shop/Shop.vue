@@ -33,8 +33,6 @@
     <!--bag开始-->
     <div class="bag-scroll">
         <div class="sk-bag-scroll">
-
-
             <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
                     <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
@@ -95,7 +93,6 @@
                     res.data.data.productList.forEach(elemlent=>{
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
-
                 })
             },
             getMenu(){
@@ -122,5 +119,4 @@
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("./css/Tnine.css");
-
 </style>

@@ -10,12 +10,16 @@
 }
 
 .search span {
-  width:0.5rem;
+  display: block;
+  width:1.2rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
   font-size: 0.28rem;
   color: #36a8fe;
   height: 0.6rem;
   line-height: 0.6rem;
+
 }
 
 .search i {

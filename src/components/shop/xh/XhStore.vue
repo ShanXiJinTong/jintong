@@ -48,8 +48,8 @@
     <!--banner-->
     <section class="wsq-banner">
         <div class="wsq-title" @click="checkOk">
-            <div class="wsq-cateaty hot" >全部项目</div>
-            <div class="wsq-cateaty"  style="margin: 0 0.25rem">促销项目</div>
+            <div class="wsq-cateaty" :class="{hot:isOk}">全部项目</div>
+            <div class="wsq-cateaty"   style="margin: 0 0.25rem">促销项目</div>
             <div class="wsq-cateaty " >用户评价</div>
         </div>
     </section>

@@ -55,13 +55,11 @@
                             <li class="yjyText">已售</li>
                             <li class="yjyNum">68</li>
                         </ul>
+
                         <div class="price">{{item.price.value}}</div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
     <!--section结束-->
@@ -89,7 +87,6 @@
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
-
             }
         },
         mounted:function () {
