@@ -80,12 +80,17 @@
         data() {
             return {
                 uid:'',
-                shopDetail:[]
+                shopDetail:{
+                  image_detail:[],
+                  name:'',
+                  description:'',
+                }
             }
         },
         methods:{
             getData(){
                 this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
+
                     this.shopDetail = res.data.data.product;
                 })
             }

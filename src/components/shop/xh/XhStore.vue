@@ -47,15 +47,22 @@
     </div>
     <!--banner-->
     <section class="wsq-banner">
+<<<<<<< HEAD
         <div class="wsq-title" @click="checkOk">
             <div class="wsq-cateaty" :class="{hot:isOk}">全部项目</div>
             <div class="wsq-cateaty"   style="margin: 0 0.25rem">促销项目</div>
             <div class="wsq-cateaty " >用户评价</div>
+=======
+        <div class="wsq-title">
+            <div :class="['wsq-cateaty', isOk==1?'hot':'']" @click="checkOk(1)">全部项目</div>
+            <div :class="['wsq-cateaty', isOk==2?'hot':'']" @click="checkOk(2)" style="margin: 0 0.25rem">促销项目</div>
+            <div :class="['wsq-cateaty', isOk==3?'hot':'']" @click="checkOk(3 )">用户评价</div>
+>>>>>>> 7574003a9afe74140d28bf087a21fcc98bbfa7fc
         </div>
     </section>
     <!--更多详情分类-->
     <div class="bag-scroll">
-        <div class="sk-bag-scroll" :class="{block:isOk}">
+        <div class="sk-bag-scroll" :class="{block:isOk==1}">
             <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
                     <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
@@ -91,7 +98,7 @@
                 </li>
             </ul>
         </div>
-        <div class="sk-bag-scroll" :class="{block:isOk}">
+        <div class="sk-bag-scroll" :class="{block:isOk==2}">
             <ul class="bag-item" v-for="item in list">
                 <li class="sk-bag-photo">
                     <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
@@ -127,7 +134,7 @@
                 </li>
             </ul>
         </div>
-        <div class="sk-scroll" :class="{block:isOk}" >
+        <div class="sk-scroll" :class="{block:isOk==3}" >
             <ul class="com-item">
                 <li class="sk-photo">
                     <img src="../img/photo.png" alt="">
@@ -360,12 +367,8 @@
                     })
                 })
             },
-            checkOk(){
-                if(this.isOk==1){
-                    this.isOk=0;
-                }else{
-                    this.isOk=1;
-                }
+            checkOk(index){
+                this.isOk = index;
             }
         },
         mounted:function () {
@@ -374,5 +377,5 @@
     }
 </script>
 <style scoped>
-    @import url("../css/Thirteen.css");
+    @import url("../css/Thirteens.css");
 </style>

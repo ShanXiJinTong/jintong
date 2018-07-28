@@ -24,24 +24,31 @@
                   </li>
               </div>
 
+              <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
               <div class="dis" :class="{block:!isOk}">
                   <li class="one">
-                      <div class="dot"></div>
-                      <span>用户名：</span>
-                      <input type="text" v-model="ruleForm.name" placeholder="请输入用户名">
+                      <!--<div class="dot"></div>-->
+                      <!--<span>用户名：</span>-->
+
+                      <el-form-item label="用户名：" prop="name">
+                          <el-input type="text" v-model="ruleForm.name" placeholder="请输入用户名"></el-input>
+                      </el-form-item>
+                      <!--<input type="text" v-model="ruleForm.name" placeholder="请输入用户名">-->
                   </li>
                   <li class="two">
-                      <div class="dot"></div>
-                      <span>密&nbsp;码：</span>
-                      <input type="text" v-model="ruleForm.password" placeholder="请输入密码">
+                      <!--<div class="dot"></div>-->
+                      <el-form-item label="密 码：" prop="name">
+                          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码"></el-input>
+                      </el-form-item>
+                      <!--<span>密&nbsp;码：</span>
+                      <input type="text" v-model="ruleForm.password" placeholder="请输入密码">-->
                   </li>
                   <li class="bigbox">
-                      <button @click="handleSubmit">登录</button>
-
-                      <!--<el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>-->
+                      <!--<button @click="handleSubmit">登录</button>-->
+                      <el-button type="primary" @click="handleSubmit">登录</el-button>
                   </li>
               </div>
-
+              </el-form>
               <!--<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
               <div :class="{block:!isOk}">
                   <li class="one">
@@ -91,7 +98,7 @@
                 },
                 rules: {
                     name: [
-                        {required: true, message: '请输入活动名称', trigger: 'blur'},
+                        {required: true, message: '请输入用户名', trigger: 'blur'},
                         {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
                     ],
                 }

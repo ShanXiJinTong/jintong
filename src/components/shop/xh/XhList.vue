@@ -98,7 +98,10 @@
                         this.list.push(...[elemlent.one,elemlent.two]);
                     })
                 })
-            }
+            },
+          infinite(done) {
+            console.log('infinite called..')
+          },
         },
         mounted:function () {
           this.cid = this.$route.query.categoryId;
