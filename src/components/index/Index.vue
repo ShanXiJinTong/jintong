@@ -71,7 +71,7 @@
                         this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
                     }
                 }
-                this.menu = this.menu.slice(0,7);
+                this.menu = this.menu.slice(1,8);
             })
         },
     },

@@ -373,3 +373,104 @@ header >p{
 .bag-item .sk-service-operator span{
     font-size: 0.2rem;
 }
+.sk-scroll{
+    width: 100%;
+    height: auto;
+}
+.com-item{
+    width: 100%;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 0.01rem solid rgba(216,223,227,0.3);
+}
+.com-item .sk-photo{
+    width: 0.85rem;
+    height: 0.85rem;
+    border-radius: 50%;
+    margin-top: 0.26rem;
+    margin-right: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.01rem 0.21rem rgba(223,223,223,0.5);
+}
+.com-item .sk-photo img{
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 0.04rem solid #fefefe;
+    box-sizing: border-box;
+}
+.com-item .sk-content{
+    flex-grow: 1;
+    padding: 0.57rem 0 0.18rem;
+}
+.com-item .sk-content .sk-user_time{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.18rem;
+}
+.com-item .sk-content .sk-user_time h5{
+    color: #c9cbcc;
+    font-weight: normal;
+}
+.com-item .sk-content .sk-user_time .star{
+    color: #c9cbcc;
+}
+.com-item .sk-content .sk-user_time .star i.hot{
+    color: #41b2fc;
+}
+.com-item .sk-content .sk-user_time span{
+    color: #41b2fc;
+}
+.com-item .sk-content .sk-desc{
+    width: 100%;
+    height: 0.4rem;
+    margin-top: 0.23rem;
+    font-size: 0.3rem;
+
+}
+.com-item .sk-content .sk-desc p{
+    width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.com-item .sk-content .sk-pos{
+    margin-top: 0.18rem;
+    font-size: 0.22rem;
+    color: #c9cbcc;
+}
+.com-item .sk-content .sk-pos span{
+    margin-right: 0.04rem;
+}
+.com-item .sk-content .sk-com-img{
+    margin-top: 0.18rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.com-item .sk-content .sk-com-img img{
+    width: 1.78rem;
+    height: 1.28rem;
+    margin-right: 0.15rem;
+}
+.com-item .sk-content .sk-like{
+    margin-top: 0.09rem;
+    font-size: 0.24rem;
+}
+.com-item .sk-content .sk-like i{
+    float: right;
+}
+.com-item .sk-content .sk-like i.icon-xiaoxi2{
+    margin-left: 0.65rem;
+    color: #31d094;
+    /*color: linear-gradient(left,#33e171,#27d29c);*/
+    text-shadow: 0 0.01rem 0.09rem rgba(55,223,116,0.7);
+}
+.com-item .sk-content .sk-like i.icon-xihuan{
+    color: #41b2fc;
+    text-shadow: 0 0.01rem 0.09rem rgba(77,198,255,0.7) ;
+
+}

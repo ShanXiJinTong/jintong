@@ -10,6 +10,8 @@
 }
 
 .search span {
+  width:0.5rem;
+  overflow: hidden;
   font-size: 0.28rem;
   color: #36a8fe;
   height: 0.6rem;

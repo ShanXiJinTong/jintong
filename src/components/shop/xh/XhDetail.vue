@@ -5,7 +5,7 @@
     </div>
     <div class="introduction">
         <div class="one">{{shopDetail.name}}</div>
-        <div class="two"><p>{{shopDetail.description}}</p></div>
+        <div class="two"><p v-html="shopDetail.description"></p></div>
         <div class="three">
             <div class="tl">
                 <span>现价 {{shopDetail.price_info.price.value}}元／件</span>
