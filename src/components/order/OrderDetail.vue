@@ -97,7 +97,7 @@
                 <td><img :src="product.imgUrl" alt=""></td>
                 <td>{{product.sku}}</td>
                 <td>{{product.qty}}</td>
-                <td><router-link :to="{name:'OrderEvaluate'}">去评价</router-link></td>
+                <td><router-link :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}">去评价</router-link></td>
                 <td>{{product.row_total}}</td>
               </tr>
            </table>
@@ -159,7 +159,7 @@
       getData(order_id) {
 
         this.$http({
-          methods: 'get',
+          method: 'get',
           url: '/customer/order/view',
           headers: getheaders,
           params: {

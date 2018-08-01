@@ -3,9 +3,9 @@
     <!--横向滚动栏开始-->
     <div id="wrapper">
       <ul class="x-ulone">
-        <li class="x-fl" v-for="(tabName,index) in tabsName" :class="{x_li:tabName.isActive}"
-            @click="tabsSwitch(index)">
-           <div></div>
+        <li v-for="(tabName,index) in tabsName" :class="['x-fl',state==tabName.status?'hot':'']"
+            @click="tabsSwitch(tabName.status)">
+          <div></div>
           {{tabName.name}}
         </li>
       </ul>
@@ -13,8 +13,8 @@
     <!--横向滚动栏结束-->
     <!--订单开始-->
     <div class="middle" id="wrapper2">
-      <div class="scroller2">
-        <div class="x-box" v-for="item in orderlist">
+      <scroller class="scroller2" :on-refresh="getData">
+        <div class="x-box" v-for="item in display">
           <div class="x-DR">
             <div class="x-commodity">
               <router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}"><img
@@ -23,10 +23,10 @@
               <div class="x-c-right">
                 <div id="x-name"><b>{{item['increment_id']}} </b></div>
                 <ul id="x-li">
-                  <li class="x-blue x-jone"><b>{{item['order_status']}}</b></li>
-                  <li class="x-blue x-jtwo">商品规格潜水艇高端龙头</li>
-                  <li class="x-blue x-jthree">¥60</li>
-                  <li class="x-green x-jfour">×1</li>
+                  <li class="x-blue x-jone"><b> {{item.customer_firstname}}</b></li>
+                  <li class="x-blue x-jtwo">{{item['order_status']}}</li>
+                  <li class="x-blue x-jthree"> ¥{{item.grand_total}}</li>
+                  <!--<li class="x-green x-jfour">×1</li>-->
                 </ul>
               </div>
             </div>
@@ -35,7 +35,7 @@
 
         </div>
 
-      </div>
+      </scroller>
     </div>
     <!--footer结束-->
     <Tab></Tab>
@@ -49,46 +49,65 @@
     name: 'Order',
     data() {
       return {
-
         tabsName: [
           {
             name: '全部',
-            status:'all'
+            status: 'all'
           },
           {
             name: "代付款",
-            status:'payment_pending'
+            status: 'payment_pending'
           }, {
             name: "待收货",
-            status:'dispatched'
+            status: 'dispatched'
           }, {
             name: "已完成",
-            status:'completed'
+            status: 'completed'
           }],
         active: false,
         orderlist: [],
         order_id: null,
-        display:null,
-        status:'all'
+        state: 'all',
+        page:0,
+        total:0
+      }
+    },
+    computed: {
+      display() {
+        let arr = this.orderlist.filter(element => {
+          if (this.state === 'all') {
+            return true;
+          } else {
+            return element.order_status === this.state;
+          }
+        });
+
+        return arr;
       }
     },
     methods: {
-      tabsSwitch: function (tabIndex) {
+      tabsSwitch(statusname) {
+        this.state = statusname;
       },
-      getData() {
+      getData(done) {
+        if(this.page > this.total){
+           return ;
+        }
+        this.page++;
         this.$http({
           method: 'get',
           headers: getheaders,
-          url: '/customer/order/index'
+          url: '/customer/order/index',
+          params:{
+            p:this.page
+          }
         }).then(res => {
           if (res.status == 200 && res.data.data.orderList) {
-            this.orderlist = res.data.data.orderList;
-            console.log(res.data.data);
+             this.total = Math.ceil( res.data.data.count / 10 );
+             this.orderlist.unshift(...res.data.data.orderList);
+             done();
           }
         })
-      },
-      setStatus(){
-
       }
     },
     mounted: function () {
@@ -133,7 +152,7 @@
     position: relative;
   }
 
-  .x-fl.hot div{
+  .x-fl.hot div {
     width: 80%;
     height: 0.04rem;
     background: #36a8fe;

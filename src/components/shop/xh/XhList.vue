@@ -147,18 +147,16 @@
                         sortColumn: ""
                     }
                 }).then(res=>{
+
                     res.data.data.products.forEach(elemlent => {
                         this.list.push(...[elemlent.one, elemlent.two]);
                     })
                 })
             },
-<<<<<<< HEAD
           infinite(done) {
              this.p++;
              this.getData()
           },
-=======
->>>>>>> 31c101cd9b52f612bb289663995588d31ed2bf0c
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;
