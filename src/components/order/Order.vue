@@ -90,6 +90,7 @@
         this.state = statusname;
       },
       getData(done) {
+
         if(this.page > this.total){
            return ;
         }
@@ -105,7 +106,9 @@
           if (res.status == 200 && res.data.data.orderList) {
              this.total = Math.ceil( res.data.data.count / 10 );
              this.orderlist.unshift(...res.data.data.orderList);
-             done();
+            if(done){
+              done();
+            }
           }
         })
       }
