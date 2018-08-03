@@ -153,7 +153,13 @@
 #UserLogin .dis:nth-of-type(2) .two input{
     margin: 0 0 0 0.14rem;
 }
+#UserLogin .none{
+    display: none;
+}
 #UserLogin .block{
+     display: block;
+}
+#UserLogin .block1{
     display: block;
 }
 #UserLogin #ul .el-form-item__label{

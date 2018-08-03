@@ -75,13 +75,21 @@
             this.products=res.data.data.products;
             this.history.push(key);
             this.flag = false;
-            // let arr = uniq(this.history);
-            console.log(this.history);
-            localStorage.history=JSON.stringify(this.history);
-            console.log(this.history);
+            let arr =this.history;
+            let newarr=[];
+            for(let i=0;i<arr.length;i++){
+                for(let j=i+1;j<arr.length;j++){
+                    if(arr[i]==arr[j]){
+                        j=++i;
+                    }
+                }
+                newarr.push(arr[i]);
+            }
+            localStorage.history=JSON.stringify(newarr);
             console.log(this.products);
         })
-      }
+      },
+
     },
       mounted(){
          this.history=JSON.parse(localStorage.history);
