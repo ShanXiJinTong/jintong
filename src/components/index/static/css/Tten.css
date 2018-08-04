@@ -22,7 +22,7 @@
 
 }
 .bag-item:first-child{
-  margin-top: 0.8rem;
+  margin-top: 1.2rem;
 }
 .bag-item .sk-bag-photo {
   width: 1.97rem;
@@ -138,4 +138,5 @@
 
 .bag-item .sk-service-operator span {
   font-size: 0.2rem;
+  margin-top: 0.16rem;
 }

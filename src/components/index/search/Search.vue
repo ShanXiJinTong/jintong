@@ -6,7 +6,7 @@
                 <input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容">
             </form>
         </header>
-        <div v-if="flag">
+        <div v-if="flag" class="posBox">
             <div class="box">
                 <div class="one"></div>
                 <span class="blue">最近&nbsp;</span>
@@ -86,6 +86,8 @@
         },
         methods: {
             sendkey(key) {
+                this.searchkey=key;
+                this.$router.push({name:'Search'});
                 // 在这里进行ajax请求
                 if (key === '') {
                     return;
@@ -160,4 +162,8 @@
         color: rgba(0, 0, 0, 0.4);
         font-weight: bold;
     }
+    input::-webkit-input-placeholder {
+        color: #CDDDE9;
+    }
+
 </style>

@@ -2,6 +2,11 @@
     width: 100%;
     background-color: #fbfeff;
     box-shadow: 0 0.03rem 0.43rem  0  rgba(41,167,255,0.13);
+    padding-top: 0.2rem;
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index: 9999;
 }
 .wsq-searchBox{
     width: 100%;
@@ -16,8 +21,8 @@
 }
 .wsq-searchBox > img{
     position: absolute;
-    right: 0.3rem;
-    top: 0.08rem;
+    right: 0.36rem;
+    top: 0.09rem;
     width: 0.79rem;
     height: 0.44rem;
 }
@@ -31,6 +36,7 @@
     padding-left: 0.28rem;
     box-sizing: border-box;
     outline: none;
+    line-height: 0.6rem;
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
@@ -87,5 +93,8 @@
 
 .aa li{
     margin-bottom: 0.3rem;
+}
+.posBox{
+    margin-top: 1.3rem;
 }
 
