@@ -3,11 +3,11 @@
         <!--nav开始-->
         <nav>
             <div class="main">
-                <p :class="{hot:type===item.name}" v-for="item,key in typedata" @click="getList(item,key)">{{item.name}}</p>
+                <p :class="{hot:type===item.name}" v-for="item,key in typedata" @click="getList(item,key)">
+                    {{item.name}}</p>
             </div>
         </nav>
         <!--nav结束-->
-
         <!--cate开始-->
         <div class="cate">
             <div class="main">
@@ -30,7 +30,8 @@
         <div class="bag-scroll">
             <scroller
                     :on-infinite="infinite"
-                    ref="my_scroller"
+                    :on-refresh="contentRefresh"
+                    ref="myscroller"
                     class="myScroll"
             >
                 <ul class="bag-item" v-for="item in list">
@@ -77,21 +78,21 @@
         name: 'XhList',
         data() {
             return {
-                type:"",
+                type: "",
                 list: [],
                 cid: '',
                 page: 1,
                 totalPage: null,
-                typedata:{}
+                typedata: {},
             }
         },
-        watch:{
-            type:function(){
+        watch: {
+            type() {
                 this.refresh();
             }
         },
         methods: {
-            getData(sort = ''){
+            getData(sort = '') {
                 let _this = this;
                 this.list = [];
                 this.$http.get('/catalog/category/index', {
@@ -101,43 +102,43 @@
                     }
                 }).then(res => {
                     res.data.data.products.forEach(elemlent => {
-                        this.list.push(...[elemlent.one, elemlent.two]);
-                    })
-                    this.typedata=res.data.data.filter_category;
-                    for(let i in this.typedata){
-                        this.type=this.typedata[i].name;
+                        this.list.push(elemlent.one, elemlent.two);
+                    });
+                    this.typedata = res.data.data.filter_category;
+                    for (let i in this.typedata) {
+                        this.type = this.typedata[i].name;
                         break;
                     }
                     this.totalPage = res.data.data.page_count;
                 })
             },
-            getList(obj,key){
-                this.cid=key;
-                this.$nextTick(()=>{
-                    this.type=obj.name;
+            getList(obj, key) {
+                this.cid = key;
+                this.$nextTick(() => {
+                    this.type = obj.name;
                 })
-
             },
-            refresh(){
+            refresh() {
                 let _this = this;
                 this.list = [];
                 this.$http.get('/catalog/category/index', {
                     params: {
                         categoryId: _this.cid,
-                        sortColumn:"",
-                      //  filterAttrs:this.type
+                        sortColumn: "",
                     }
                 }).then(res => {
                     res.data.data.products.forEach(elemlent => {
-                        this.list=[...[elemlent.one, elemlent.two]];
-                    })
+                        this.list.push(elemlent.one, elemlent.two);
+                    });
                     this.totalPage = res.data.data.page_count;
                 })
             },
             infinite(done) {
+                console.log("infinite");
                 this.page += 1;
                 if (this.page > this.totalPage) {
                     this.page -= 1;
+                    done(true);
                     return;
                 }
                 this.$http.get('/catalog/category/product', {
@@ -146,17 +147,16 @@
                         categoryId: this.cid,
                         sortColumn: ""
                     }
-                }).then(res=>{
-
+                }).then(res => {
                     res.data.data.products.forEach(elemlent => {
-                        this.list.push(...[elemlent.one, elemlent.two]);
-                    })
+                        this.list.push(elemlent.one, elemlent.two);
+                    });
+                    done();
                 })
             },
-          infinite(done) {
-             this.p++;
-             this.getData()
-          },
+            contentRefresh(){
+                this.getData();
+            }
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;

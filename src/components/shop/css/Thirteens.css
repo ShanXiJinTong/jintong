@@ -199,18 +199,23 @@ header >p{
     height: 0.6rem;
     padding: 0 0.24rem;
     box-sizing: border-box;
-    display: flex;
     position: relative;
 }
-.wsq-searchBox > img{
+.wsq-searchBox a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.wsq-searchBox  img{
     position: absolute;
     right: 0.3rem;
-    top: 0.08rem;
+    top:0.12rem;
+    margin:auto;
     width: 0.79rem;
     height: 0.44rem;
 }
 
-.wsq-searchBox>input{
+.wsq-searchBox input{
     border: solid 0.03rem rgba(55,169,254,0.1);
     border-radius: 0.5rem;
     width: 100%;
@@ -278,10 +283,10 @@ header >p{
     width: 100%;
     padding: 0.16rem 0.24rem;
     box-sizing: border-box;
-    display: flex;
+    height:2.28rem;
 }
 .bag-item .sk-bag-photo{
-    width: 1.97rem;
+    width: 1.93rem;
     height: 1.97rem;
     border-radius: 0.1rem;
     margin-right: 0.29rem;
@@ -289,6 +294,7 @@ header >p{
     display: flex;
     justify-content: center;
     align-items: center;
+    float:left;
 }
 .bag-item .sk-bag-photo img{
     width: 1.2rem;
@@ -296,10 +302,11 @@ header >p{
 }
 .bag-item .sk-bag-content{
     margin-top: 0.1rem;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    float:left;
+    width:4.7rem;
 }
 .bag-item .sk-bag-content .sk-service-type h3{
     font-size: 0.3rem;

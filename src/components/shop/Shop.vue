@@ -33,11 +33,11 @@
 
     <!--bag开始-->
     <div class="bag-scroll">
-
         <div class="sk-bag-scroll">
             <scroller
                     :on-infinite="infinite"
-                    ref="my_scroller"
+                    :on-refresh="contentRefresh"
+                    ref="myscroller"
                     class="myScroll"
             >
             <ul class="bag-item" v-for="item in list">
@@ -105,7 +105,7 @@
             getData(){
                 this.$http.get('/cms/home/index').then(res=>{
                     res.data.data.productList.forEach(elemlent=>{
-                        this.list.push(...[elemlent.one,elemlent.two]);
+                        this.list.push(elemlent.one,elemlent.two);
                     })
                 })
             },
@@ -140,6 +140,7 @@
                 this.page += 1;
                 if (this.page > this.totalPage) {
                     this.page -= 1;
+                    done(true)
                     return;
                 }
                 this.$http.get('/catalog/category/product', {
@@ -150,11 +151,14 @@
                     }
                 }).then(res=>{
                     res.data.data.products.forEach(elemlent => {
-                        this.list.push(...[elemlent.one, elemlent.two]);
-                    })
+                        this.list.push(elemlent.one, elemlent.two);
+                    });
+                    done();
                 })
             },
-
+            contentRefresh(){
+                this.getData();
+            }
         },
         mounted:function () {
              this.getData();
