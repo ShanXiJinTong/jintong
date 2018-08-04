@@ -67,7 +67,7 @@ const WaterStoreIntro = r => require.ensure([], () => r(require('../components/s
 // 商店详情
 const WaterStoreDetail = r => require.ensure([], () => r(require('../components/shop/sellwater/WaterStoreDetail.vue')), "WaterStoreDetail");
 // 个人中心
-const My = r => require.ensure([], () => r(require('../components/my/my.vue')), "my");
+const My = r => require.ensure([], () => r(require('../components/my/My.vue')), "my");
 // 个人信息
 const PersonalMessage = r => require.ensure([], () => r(require('../components/my/PersonalMessage.vue')), "PersonalMeaasge");
 // 购物车
