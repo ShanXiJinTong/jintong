@@ -26,7 +26,40 @@
     </div>
     <div v-else>
       <template v-if="products.length">
-
+        <scroller>
+          <ul class="bag-item" v-for="item in products">
+            <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
+              <img v-lazy="item.image" alt="">
+            </router-link>
+            <li class="sk-bag-content">
+              <div class="sk-service-type">
+                <h3>{{item.name}}</h3>
+              </div>
+              <div class="sk-service-desc">
+                <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
+              </div>
+              <div class="sk-estimate_sale_price">
+                <ul class="sk-estimate sk-item">
+                  <li class="dot"></li>
+                  <li class="text">好评</li>
+                  <li class="number">90<span>%</span></li>
+                </ul>
+                <ul class="sk-sale sk-item">
+                  <li class="dot"></li>
+                  <li class="text">月售</li>
+                  <li class="number">278</li>
+                </ul>
+                <ul class="sk-price">
+                  <li>{{item.price.value}}元/件</li>
+                </ul>
+              </div>
+              <div class="sk-service-operator">
+                <img src="../static/img/bds.png" alt="">
+                <span>包大师</span>
+              </div>
+            </li>
+          </ul>
+        </scroller>
       </template>
       <template v-else>
         <div class="boxms"><img src="../static/img/icon2.png" alt=""></div>
@@ -38,87 +71,86 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'Search',
-    data() {
-      return {
-        flag: true,
-        searchkey: '',
-        products:[],
-        history: [],
-        MoutPeople: ['水管', '龙头', '弹跳面板', '龙头', '水管', '龙头', '龙头',]
-      }
-    },
-    methods: {
-      sendkey(key) {
-
-        // 在这里进行ajax请求
-        if (key === '') {
-          return;
-        }
-
-        this.$http.get("/catalogsearch/index/index", {
-          params: {
-            q: key,
-            filterAttrs: {},
-            price: "",
-          },
-            headers:{
-                'access-token':'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
-                'fecshop-currency':'EUR',
-                'fecshop-lang':'zh',
-                'fecshop-uuid':'e15c77d4-921c-11e8-a965-00163e021360',
+    export default {
+        name: 'Search',
+        data() {
+            return {
+                flag: true,
+                searchkey: '',
+                products: [],
+                history: [],
+                MoutPeople: ['水管', '龙头', '弹跳面板', '龙头', '水管', '龙头', '龙头',]
             }
-        }).then(res => {
-            console.log(res);
-            let count = Number(res.data.data.searchCount);
-            this.products=res.data.data.products;
-            this.history.push(key);
-            this.flag = false;
-            let arr =this.history;
-            let newarr=[];
-            for(let i=0;i<arr.length;i++){
-                for(let j=i+1;j<arr.length;j++){
-                    if(arr[i]==arr[j]){
-                        j=++i;
-                    }
+        },
+        methods: {
+            sendkey(key) {
+                // 在这里进行ajax请求
+                if (key === '') {
+                    return;
                 }
-                newarr.push(arr[i]);
+                this.$http.get("/catalogsearch/index/index", {
+                    params: {
+                        q: key,
+                        filterAttrs: {},
+                        price: "",
+                    },
+                    headers: {
+                        'access-token': 'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
+                        'fecshop-currency': 'EUR',
+                        'fecshop-lang': 'zh',
+                        'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
+                    }
+                }).then(res => {
+                    let count = Number(res.data.data.searchCount);
+                    res.data.data.products.forEach(v=>{
+                        this.products.push(v.one,v.two);
+                    });
+                    this.history.push(key);
+                    this.flag = false;
+                    let arr = this.history;
+                    let newarr = [];
+                    for (let i = 0; i < arr.length; i++) {
+                        for (let j = i + 1; j < arr.length; j++) {
+                            if (arr[i] == arr[j]) {
+                                j = ++i;
+                            }
+                        }
+                        newarr.push(arr[i]);
+                    }
+                    localStorage.history = JSON.stringify(newarr);
+                })
+            },
+        },
+        mounted() {
+            if (localStorage.history) {
+                this.history = JSON.parse(localStorage.history);
             }
-            localStorage.history=JSON.stringify(newarr);
-            console.log(this.products);
-        })
-      },
-
-    },
-      mounted(){
-         this.history=JSON.parse(localStorage.history);
-      }
-
-  }
+        }
+    }
 </script>
 <style scoped>
   @import url(../static/css/sou.css);
-  .boxms{
+  @import url(../static/css/Tten.css);
+  .boxms {
     width: 4rem;
     height: 3.4rem;
     margin: 0 auto;
     margin-top: 2.6rem;
   }
-  .boxms >img{
+  .boxms > img {
     display: block;
     margin: auto auto;
   }
-  .text{
+  .text {
     height: auto;
     width: 4rem;
     margin: 0.2rem auto;
     overflow: hidden;
   }
-  .text >p{
+  .text > p {
     text-align: center;
     font-size: 0.26rem;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
     font-weight: bold;
   }
 </style>
