@@ -2,11 +2,11 @@
     <div id="search">
         <header class="tab">
             <form class="wsq-searchBox">
-                <img src="../static/img/sousuoicon.png" @click='sendkey(searchkey)' style="z-index: 999"/>
+                <img src="../static/img/sousuoicon.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999"/>
                 <input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容">
             </form>
         </header>
-        <div v-if="flag">
+        <div v-if="flag" class="posBox">
             <div class="box">
                 <div class="one"></div>
                 <span class="blue">最近&nbsp;</span>
@@ -27,9 +27,9 @@
         <div v-else>
             <template v-if="products.length">
 
-                <scroller>
+                <scroller :on-infinite="infinite">
                     <ul class="bag-item" v-for="item in products">
-                        <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
+                        <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}" tag="li" class="sk-bag-photo">
                             <img v-lazy="item.image" alt="">
                         </router-link>
                         <li class="sk-bag-content">
@@ -59,6 +59,7 @@
                                 <span>包大师</span>
                             </div>
                         </li>
+
                     </ul>
                 </scroller>
 
@@ -78,6 +79,8 @@
         data() {
             return {
                 flag: true,
+                page: 1,
+                totalPage: 3,
                 searchkey: '',
                 products: [],
                 history: [],
@@ -86,6 +89,8 @@
         },
         methods: {
             sendkey(key) {
+                this.searchkey=key;
+                this.$router.push({name:'Search'});
                 // 在这里进行ajax请求
                 if (key === '') {
                     return;
@@ -103,6 +108,7 @@
                         'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
+                    console.log(this.products);
                     let count = Number(res.data.data.searchCount);
                     res.data.data.products.forEach(v=>{
                         this.products.push(v.one,v.two);
@@ -121,6 +127,30 @@
                     }
                     localStorage.history = JSON.stringify(newarr);
                 })
+            },
+            infinite(done) {
+                console.log("infinite");
+                this.page += 1;
+                if (this.page > this.totalPage) {
+                    this.page -= 1;
+                    done(true);
+                    return;
+                }
+
+                /*this.$http.get('/catalog/category/product', {
+                    params: {
+                        p: this.page,
+                        categoryId: this.cid,
+                        sortColumn: ""
+                    }
+                }).then(res => {
+                    res.data.data.products.forEach(elemlent => {
+                        this.list.push(elemlent.one, elemlent.two);
+                    });
+                    done();
+                })*/
+               setTimeout(done,500)
+                // done();
             },
         },
         mounted() {
@@ -160,4 +190,8 @@
         color: rgba(0, 0, 0, 0.4);
         font-weight: bold;
     }
+    input::-webkit-input-placeholder {
+        color: #CDDDE9;
+    }
+
 </style>
