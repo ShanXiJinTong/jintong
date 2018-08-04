@@ -63,7 +63,7 @@
 .box span.blue{
     color:#4ebbfe;
 }
-ul{
+.styleFather{
     height: auto;
     line-height: 0.48rem;
     width: 100%;
@@ -72,7 +72,7 @@ ul{
     margin-top: 0.32rem;
     float: left;
     }
-li{
+.styleList{
     height: 0.48rem;
     background: rgba(59,171,255,0.1);
     border-radius: 0.24rem;

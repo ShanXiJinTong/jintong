@@ -19,8 +19,11 @@
   padding: 0.16rem 0.24rem;
   box-sizing: border-box;
   display: flex;
-}
 
+}
+.bag-item:first-child{
+  margin-top: 0.8rem;
+}
 .bag-item .sk-bag-photo {
   width: 1.97rem;
   height: 1.97rem;
@@ -30,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: none;
 }
 
 .bag-item .sk-bag-photo img {
@@ -43,6 +47,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background: none;
 }
 
 .bag-item .sk-bag-content .sk-service-type h3 {
@@ -102,6 +107,7 @@
 .sk-item .text {
   color: #c9cbcc;
   margin-right: 0.11rem;
+  background: none;
 }
 
 .sk-item .number {
@@ -116,6 +122,7 @@
 .bag-item .sk-estimate_sale_price .sk-price {
   color: #fbb548;
   font-size: 0.26rem;
+  margin-top: 0.18rem;
 }
 
 .bag-item .sk-service-operator {

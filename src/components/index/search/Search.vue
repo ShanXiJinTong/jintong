@@ -12,20 +12,21 @@
                 <span class="blue">最近&nbsp;</span>
                 <span>搜索</span>
             </div>
-            <ul>
-                <li v-for="(item,index) in history" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
+            <ul class="styleFather">
+                <li class="styleList" v-for="(item,index) in history" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
             </ul>
             <div class="box">
                 <div class="one"></div>
                 <span class="blue">大家&nbsp;</span>
                 <span>都在搜</span>
             </div>
-            <ul>
-                <li v-for="(item,index) in MoutPeople" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
+            <ul class="styleFather">
+                <li class="styleList" v-for="(item,index) in MoutPeople" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
             </ul>
         </div>
         <div v-else>
             <template v-if="products.length">
+
                 <scroller>
                     <ul class="bag-item" v-for="item in products">
                         <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
@@ -60,6 +61,7 @@
                         </li>
                     </ul>
                 </scroller>
+
             </template>
             <template v-else>
                 <div class="boxms"><img src="../static/img/icon2.png" alt=""></div>
@@ -146,7 +148,7 @@
 
     .text {
         height: auto;
-        width: 4rem;
+        /*width: 4rem;*/
         margin: 0.2rem auto;
         overflow: hidden;
     }
