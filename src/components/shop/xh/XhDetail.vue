@@ -32,8 +32,60 @@
 
         <img src="../img/lingjuan.png" alt="">
 
-        <div class="lingjuan2" >领卷</div>
+        <div class="lingjuan2" @click="get()">领卷</div>
         <div class="lingjuan3" >满500减50</div>
+    </div>
+    <div class="tuikuan" :class="{display:display}">
+        <div class="tktitle">
+            <span class="tkcolor">领取</span>优惠券
+            <div class="tkclose">
+                <img src="img/tuikuan2/cuohao.png" alt="">
+            </div>
+        </div>
+
+        <ul class="tkbox">
+            <li class="tklist ">
+                <div class="left">
+                    <div class="money">
+                        <div class="tkyuan">
+                        </div>
+                        <h3>20元</h3>
+                    </div>
+                    <div class="tktext">订单满100元可用</div>
+                    <h5>有效期至2018.9.10</h5>
+                </div>
+                <div class="get">领取</div>
+                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
+            </li>
+            <li class="tklist ">
+                <div class="left">
+                    <div class="money">
+                        <div class="tkyuan">
+                        </div>
+                        <h3>20元</h3>
+                    </div>
+                    <div class="tktext">订单满100元可用</div>
+                    <h5>有效期至2018.9.10</h5>
+                </div>
+                <div class="get">领取</div>
+                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
+            </li>
+            <li class="tklist ">
+                <div class="left">
+                    <div class="money">
+                        <div class="tkyuan">
+                        </div>
+                        <h3>20元</h3>
+                    </div>
+                    <div class="tktext">订单满100元可用</div>
+                    <h5>有效期至2018.9.10</h5>
+                </div>
+                <div class="get">领取</div>
+                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
+            </li>
+
+        </ul>
+        <div class="tkbutton" @click="get()">关闭</div>
     </div>
     <div class="line">
         <div class="line1 "></div>
@@ -92,6 +144,7 @@
                         el: '.swiper-pagination',
                     }
                 },
+                display:0
             }
         },
         methods:{
@@ -105,6 +158,13 @@
                     this.$router.push({name:'WxLogin'})
                 }
                 this.$router.push({name:'Car'});
+            },
+            get(){
+                if(this.display==1){
+                    this.display=0;
+                }else{
+                    this.display=1;
+                }
             }
         },
         mounted:function(){

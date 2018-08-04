@@ -39,9 +39,10 @@
                     class="myScroll"
             >
                 <ul class="bag-item" v-for="item in list">
-                    <router-link :to="{name:'XhDetail',query:{uid:item._id}}" tag="li" class="sk-bag-photo">
-                        <img v-lazy="item.image" alt="">
-                    </router-link>
+                    <router-link :to="{name:'XhDetail',query:{uid:item._id}}" >
+                        <li class="sk-bag-photo">
+                            <img v-lazy="item.image" alt="">
+                        </li>
                     <li class="sk-bag-content">
                         <div class="sk-service-type">
                             <h3>{{item.name}}</h3>
@@ -69,10 +70,9 @@
                             <span>包大师</span>
                         </div>
                     </li>
+                    </router-link>
                 </ul>
-
             </scroller>
-
         </div>
         <!--bag结束-->
     </div>

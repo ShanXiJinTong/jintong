@@ -105,21 +105,26 @@ nav .main .navBox i{
 .conIScroll .yjyBox .yjySec .yjyRight .yjyTitle{
     width: 100%;
     height: calc(100% / 4);
-    display: flex;
-    justify-content: flex-start;
+    /*display: flex;*/
+    /*justify-content: flex-start;*/
 }
 .conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h3{
-    width: auto;
-    height: 100%;
+    width: 50%;
+    float:left;
+    overflow:hidden;
+    height:0.3rem;
+    line-height:0.3rem;
     font-size: 0.3rem;
     color: rgba(0,0,0,0.6);
+    margin-bottom:0.1rem;
 }
 .conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h4{
-    width: auto;
-    height: 100%;
+    width: 50%;
+    float:left;
     font-size: 0.28rem;
     color: rgba(0,0,0,0.4);
     margin-left: 0.1rem;
+    margin-bottom:0.2rem;
 }
 
 .conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate{

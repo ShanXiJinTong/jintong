@@ -11,11 +11,14 @@
         <!--搜索结束-->
         <!--banner开始-->
         <section class="wsq-banner">
-            <div class="wsq-title">
-                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:$route.query.cid==item.id}]"
-                             v-for="(item,index) in menu" :key="item.id">{{item.name}}
-                </router-link>
-            </div>
+
+                <swiper :options="swiperOption" ref="mySwiper" class="wsq-title">
+                    <swiper-slide :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:$route.query.cid==item.id}]"
+                                  v-for="(item,index) in menu" :key="item.id">
+                        <p :class="{hot:type===item.name}" @click="getList(item,key)">
+                            {{item.name}}</p>
+                    </swiper-slide>
+                </swiper>
             <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
         </section>
         <!--banner结束-->
@@ -82,6 +85,15 @@
                 list: [],
                 menu: [],
                 path: ['Shop', 'Bathroom', 'Bathroom'],
+                swiperOption: {
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    freeMode:true,
+                    slidesPerView:3,
+                    spaceBetween: 40,
+                    cancelable:false
+                },
             }
         },
         methods: {
@@ -97,12 +109,9 @@
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
                     for (let i in res.data) {
-                        if (res.data[i].name && res.data[i].child) {
                             this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
-                        }
                     }
-                    this.menu = this.menu.slice(0, 3);
-
+                    console.log(this.menu);
                 })
             },
             refresh(done){

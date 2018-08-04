@@ -5,10 +5,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow:hidden;
+    background:#e5e5e5;
 }
 .photo img{
     width: 100%;
-    height: 100%;
     display: block;
 }
 .introduction{
@@ -21,6 +22,8 @@
 }
 .one{
     width: 100%;
+    height:0.34rem;
+    overflow:hidden;
     margin-bottom: 0.15rem;
     font-size: 0.32rem;
     color: #4f5b64;
@@ -32,10 +35,15 @@
 }
 .two p{
     width: 100%;
+    height:1.5rem;
     font-size: 0.24rem;
     color: #c9cbcc;
     line-height: 0.35rem;
     letter-spacing:0.05rem;
+    overflow:hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 .three{
     width: 100%;
@@ -139,7 +147,7 @@
     width: 100%;
     height: 0.25rem;
     margin-top: 0.28rem;
-    margin-bottom: 1.08rem;
+    margin-bottom: 1.5rem;
 }
 .termm{
     width: 7.5rem;
@@ -258,4 +266,114 @@
     line-height: 0.6rem;
     box-shadow: 0rem 0.05rem 0.12rem 0rem
     rgba(59, 172, 254, 0.43);
+}
+.tuikuan{
+    width: 100%;
+    height: 9rem;
+    padding: 0.24rem 0.24rem;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    position: absolute;
+    left: 0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    box-shadow:0 0 0 5rem rgba(0,0,0,0.2);
+    z-index:999;
+    display:none;
+}
+.display{
+    display:block;
+}
+.tuikuan.hot{
+    transform: translate3d(0,-9rem,0);
+}
+.tuikuan .tktitle{
+    width: 100%;
+    height: 0.88rem;
+    font-size: 0.22rem;
+    font-weight: bold;
+    text-align: center;
+}
+.tuikuan .tktitle .tkcolor{
+    color: #41B2FC;
+}
+.tuikuan .tktitle .tkclose{
+    float: right;
+}
+.tkbox .tklist{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.02rem solid #fafafa;
+    padding-bottom:0.5rem;
+    position:relative;
+}
+.tkbox .tklist .left{
+    width:auto ;
+}
+.tkbox .tklist .left .money{
+    width:100%;
+    color:#44b5ff;
+    font-size:0.28rem;
+}
+.tkbox .tklist .get{
+    width: 1.24rem;
+    height: 0.45rem;
+    background: #41b2fc;
+    border-radius: 0.2rem;
+    -webkit-box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);
+    box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);
+    position: absolute;
+    bottom: 0.46rem;
+    right: 0.36rem;
+    font-size: 0.2rem;
+    line-height: 0.43rem;
+    text-align: center;
+    color: white;
+
+}
+.tkbox .tklist .left .tkyuan{
+    width: 0.06rem;
+    height: 0.06rem;
+    background: #44b5ff;
+    border-radius: 50%;
+    margin: 0.09rem 0.05rem 0 0;
+    box-shadow: 0  0.02rem 0.05rem 0 rgba(68,181,255,0.43) ;
+    float:left;
+}
+.tkbox .tklist .left .tktext{
+    width: auto;
+    font-size: 0.24rem;
+    line-height: 0.88rem;
+}
+.tkbox .tklist .left h5{
+    font-size:0.22rem;
+    color:#ccc;
+}
+.tkbox .tklist .right{
+    width: 0.3rem;
+    height: 0.3rem;
+    display: none;
+}
+.tkbox .tklist .right.hot{
+    display: block;
+}
+.tkbutton{
+    width: 4.9rem;
+    height: 0.98rem;
+    border-radius: 0.5rem;
+    background: -webkit-linear-gradient(left,#37e06f, #32d69a);
+    background: -o-linear-gradient(right,#37e06f, #32d69a);
+    background: -moz-linear-gradient(right,#37e06f,#32d69a);
+    background: linear-gradient(to right,#37e06f, #32d69a);
+    box-shadow: 0rem 0.04rem 0.2rem 0rem
+    rgba(55, 223, 116, 0.75);
+    font-size: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.98rem;
+    margin: 0.7rem  auto 0 auto;
 }
