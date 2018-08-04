@@ -1,7 +1,7 @@
 <template>
 <div>
     <!--<div class="photo">-->
-        <swiper :options="swiperOption" ref="mySwiper" class="photo">
+        <swiper :options="swiperOption" ref="mySwiper" class="photo" v-if="shopDetail">
             <!-- slides -->
             <swiper-slide v-for="(item,index) in shopDetail.image_detail" v-bind:key="index">
                 <img :src="item" alt="">
@@ -10,7 +10,7 @@
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
     <!--</div>-->
-    <div class="introduction">
+    <div class="introduction" v-if="shopDetail">
         <div class="one">{{shopDetail.name}}</div>
         <div class="two"><p v-html="shopDetail.description"></p></div>
         <div class="three">
@@ -23,7 +23,6 @@
                 <span class="tr2">月售</span>
                 <span class="tr3">278</span>
             </div>
-
         </div>
     </div>
     <div class="line">
@@ -87,11 +86,7 @@
         data() {
             return {
                 uid:'',
-                shopDetail:{
-                  image_detail:[],
-                  name:'',
-                  description:'',
-                },
+                shopDetail:null,
                 swiperOption: {
                     pagination: {
                         el: '.swiper-pagination',
@@ -102,7 +97,6 @@
         methods:{
             getData(){
                 this.$http.get('/catalog/product/index?product_id='+this.uid).then(res=>{
-
                     this.shopDetail = res.data.data.product;
                 })
             },
@@ -111,8 +105,6 @@
                     this.$router.push({name:'WxLogin'})
                 }
                 this.$router.push({name:'Car'});
-
-
             }
         },
         mounted:function(){

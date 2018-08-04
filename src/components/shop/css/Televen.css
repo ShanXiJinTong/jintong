@@ -7,9 +7,8 @@
     justify-content: center;
 }
 .photo img{
-    width: 3.01rem;
-    height: 3.62rem;
-    margin: 120px auto 0;
+    width: 100%;
+    height: 100%;
     display: block;
 }
 .introduction{

@@ -4,7 +4,7 @@
     <!--banner开始-->
     <section class="wsq-banner">
         <div class="wsq-title" v-if="menu.length">
-                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
+                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" :class='["wsq-cateaty",{hot:index==0}]' v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
         </div>
     </section>
     <!--banner结束-->
@@ -91,7 +91,7 @@
             return {
                 list:[],
                 menu:[],
-                path:['Shop','Bathroom','SellWater'],
+                path:['Shop','Bathroom','Bathroom'],
                 page: 1,
                 totalPage: null,
             }

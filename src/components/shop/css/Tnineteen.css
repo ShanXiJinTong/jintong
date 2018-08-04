@@ -46,13 +46,18 @@ header >p{
     display: flex;
     position: relative;
 }
-.wsq-searchBox > img{
+.wsq-searchBox a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.wsq-searchBox  img{
     position: absolute;
     right: 0.3rem;
     top: 0.08rem;
 }
 
-.wsq-searchBox>input{
+.wsq-searchBox input{
     border: solid 0.03rem rgba(55,169,254,0.1);
     border-radius: 0.5rem;
     width: 100%;
@@ -167,6 +172,7 @@ header >p{
     width: 100%;
     height: 7.8rem;
     overflow: scroll;
+    position: relative;
 }
 ul{
     width: 100%;

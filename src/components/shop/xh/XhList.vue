@@ -3,8 +3,12 @@
         <!--nav开始-->
         <nav>
             <div class="main">
-                <p :class="{hot:type===item.name}" v-for="item,key in typedata" @click="getList(item,key)">
-                    {{item.name}}</p>
+                <swiper :options="swiperOption" ref="mySwiper" class="photo">
+                    <swiper-slide v-for="item,key in typedata">
+                        <p :class="{hot:type===item.name}" @click="getList(item,key)">
+                            {{item.name}}</p>
+                    </swiper-slide>
+                </swiper>
             </div>
         </nav>
         <!--nav结束-->
@@ -84,6 +88,15 @@
                 page: 1,
                 totalPage: null,
                 typedata: {},
+                swiperOption: {
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    freeMode:true,
+                    slidesPerView:3,
+                    spaceBetween: 40,
+                    cancelable:false
+                },
             }
         },
         watch: {
@@ -92,7 +105,7 @@
             }
         },
         methods: {
-            getData(sort = '') {
+            getData(sort = '', callback) {
                 let _this = this;
                 this.list = [];
                 this.$http.get('/catalog/category/index', {
@@ -104,12 +117,16 @@
                     res.data.data.products.forEach(elemlent => {
                         this.list.push(elemlent.one, elemlent.two);
                     });
-                    this.typedata = res.data.data.filter_category;
-                    for (let i in this.typedata) {
-                        this.type = this.typedata[i].name;
-                        break;
+                    if (this.type === "") {
+                        this.typedata = res.data.data.filter_category;
+                        for (let i in this.typedata) {
+                            this.type = this.typedata[i].name;
+                            break;
+                        }
                     }
+
                     this.totalPage = res.data.data.page_count;
+                    callback && callback();
                 })
             },
             getList(obj, key) {
@@ -154,8 +171,8 @@
                     done();
                 })
             },
-            contentRefresh(){
-                this.getData();
+            contentRefresh(done) {
+                this.getData("", done);
             }
         },
         mounted: function () {

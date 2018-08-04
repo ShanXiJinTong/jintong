@@ -63,6 +63,7 @@ nav .main .navBox i{
     padding: 0 0.24rem;
     box-sizing: border-box;
     overflow-y: scroll;
+    position: relative;
 }
 .conIScroll .yjyBox{
     width: 100%;
