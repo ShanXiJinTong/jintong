@@ -297,8 +297,8 @@ header >p{
     float:left;
 }
 .bag-item .sk-bag-photo img{
-    width: 1.2rem;
-    height: 1.45rem;
+    width: 1.93rem;
+    height: 1.97rem;
 }
 .bag-item .sk-bag-content{
     margin-top: 0.1rem;
@@ -312,6 +312,8 @@ header >p{
     font-size: 0.3rem;
     color: #4f5b64;
     font-weight: normal;
+    height:0.32rem;
+    overflow: hidden;
 }
 .bag-item .sk-bag-content .sk-service-desc{
     margin-top: 0.1rem;
@@ -373,6 +375,7 @@ header >p{
 .bag-item .sk-service-operator{
     margin-top: 0.1rem;
     display: flex;
+    align-items: center;
 }
 .bag-item .sk-service-operator img{
     width: 0.3rem;

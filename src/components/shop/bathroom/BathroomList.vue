@@ -58,7 +58,7 @@
                                     <li class="yjyText">已售</li>
                                     <li class="yjyNum">68</li>
                                 </ul>
-                                <div class="price">{{item.price.value}}</div>
+                                <div class="price">￥{{item.price.value}}</div>
                             </div>
                         </div>
                     </div>
@@ -126,5 +126,6 @@
     }
 </script>
 <style scoped>
+    @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("../css/Ttwenty.css");
 </style>

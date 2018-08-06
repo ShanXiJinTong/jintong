@@ -1,14 +1,5 @@
 <template>
     <div>
-        <!--头部结束-->
-        <!--搜索框-->
-        <form class="wsq-searchBox">
-            <router-link :to="{name:'Search'}" class="input">
-                <img src="../img/sousuoicon.png" height="24" width="40"/>
-                <input type="text" placeholder="搜素您需要定位的城市">
-            </router-link>
-        </form>
-        <!--搜索结束-->
 
         <!--单品详情-->
         <div class="LZJ-singleDetail">

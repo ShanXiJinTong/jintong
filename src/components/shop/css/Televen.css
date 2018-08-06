@@ -269,7 +269,7 @@
 }
 .tuikuan{
     width: 100%;
-    height: 9rem;
+    height: 10.2rem;
     padding: 0.24rem 0.24rem;
     box-sizing: border-box;
     background: #FFFFFF;
@@ -309,6 +309,7 @@
     align-items: center;
     border-bottom: 0.02rem solid #fafafa;
     padding-bottom:0.5rem;
+    padding-top: 0.5rem;
     position:relative;
 }
 .tkbox .tklist .left{
@@ -365,6 +366,7 @@
     width: 4.9rem;
     height: 0.98rem;
     border-radius: 0.5rem;
+    margin-bottom: 0.3rem;
     background: -webkit-linear-gradient(left,#37e06f, #32d69a);
     background: -o-linear-gradient(right,#37e06f, #32d69a);
     background: -moz-linear-gradient(right,#37e06f,#32d69a);

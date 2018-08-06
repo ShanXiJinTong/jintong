@@ -1,14 +1,5 @@
 <template>
     <div>
-
-        <!--搜索框-->
-        <form class="wsq-searchBox">
-            <router-link :to="{name:'SelectCity'}">
-                <img src="../img/sousuoicon.png" height="24" width="40"/>
-                <input type="text" placeholder="搜素您需要定位的城市">
-            </router-link>
-        </form>
-        <!--搜索结束-->
         <!--banner开始-->
         <section class="wsq-banner">
 

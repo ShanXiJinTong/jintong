@@ -15,8 +15,8 @@
         <div class="two"><p v-html="shopDetail.description"></p></div>
         <div class="three">
             <div class="tl">
-                <span>现价 {{shopDetail.price_info.price.value}}元／件</span>
-                <del>原价 {{shopDetail.price_info.special_price.value}}元／件</del>
+                <span>现价 {{shopDetail.price_info.special_price.value}}元／件</span>
+                <del>原价 {{shopDetail.price_info.price.value}}元／件</del>
             </div>
             <div class="tr">
                 <span class="tr1"></span>
@@ -32,7 +32,7 @@
 
         <img src="../img/lingjuan.png" alt="">
 
-        <div class="lingjuan2" @click="get()">领卷</div>
+        <div class="lingjuan2" @click="get()">领券</div>
         <div class="lingjuan3" >满500减50</div>
     </div>
     <div class="tuikuan" :class="{display:display}">
