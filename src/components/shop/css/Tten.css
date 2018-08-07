@@ -63,6 +63,8 @@ nav .main p.hot {
   position: fixed;
   left: 0;
   top: 0.97rem;
+  background: #f8fcff;
+
   z-index: 1111;
 }
 
