@@ -4,7 +4,7 @@
         <nav>
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo">
-                    <swiper-slide v-for="item,key in typedata">
+                    <swiper-slide v-for="item,key in typedata" :key="key">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
                     </swiper-slide>
@@ -15,17 +15,17 @@
         <!--cate开始-->
         <div class="cate">
             <div class="main">
-                <div class="cateBox">
+                <div class="cateBox"@click="handleorder('all')">
                     <p>综合</p>
-                    <i class="iconfont icon-xiangxiajiantou" @click="getData"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='all'"></i>
                 </div>
-                <div class="cateBox" @click="getData('hot')">
+                <div class="cateBox" @click="handleorder('sell')">
                     <p>销量</p>
-                    <i class="iconfont icon-xiangxiajiantou"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='sell'"></i>
                 </div>
-                <div class="cateBox" @click="getData('high-to-low')">
+                <div class="cateBox" @click="handleorder('price')">
                     <p>价格降序</p>
-                    <i class="iconfont icon-xiangxiajiantou"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='price'"></i>
                 </div>
             </div>
         </div>
@@ -97,6 +97,7 @@
                     spaceBetween: 40,
                     cancelable:false
                 },
+                orderBy:"all"
             }
         },
         watch: {
@@ -151,7 +152,6 @@
                 })
             },
             infinite(done) {
-                console.log("infinite");
                 this.page += 1;
                 if (this.page > this.totalPage) {
                     this.page -= 1;
@@ -173,6 +173,14 @@
             },
             contentRefresh(done) {
                 this.getData("", done);
+            },
+            handleorder(type){
+                this.orderBy=type;
+                switch(type){
+                    case "all":this.getData();break;
+                    case "sell":this.getData("sell");break;
+                    case "price":this.getData("high-to-low");break;
+                }
             }
         },
         mounted: function () {

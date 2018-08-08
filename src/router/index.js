@@ -204,23 +204,6 @@ export default new Router({
       path: '/Shop',
       name: 'Shop',
       component: Shop,
-      children: [
-        {
-          path: '',
-          name: 'Xh',
-          component: Xh,
-        },
-        {
-          path: "SellWater",
-          name: 'SellWater',
-          component: SellWater,
-        },
-        // {
-        //   path: 'Bathroom',
-        //   name: 'Bathroom',
-        //   component: Bathroom,
-        // }
-      ]
     },
     {
        path: '/Bathroom',
