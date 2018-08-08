@@ -4,9 +4,9 @@
         <section class="wsq-banner">
 
                 <swiper :options="swiperOption" ref="mySwiper" class="wsq-title">
-                    <swiper-slide :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:$route.query.cid==item.id}]"
+                    <swiper-slide :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:nowid==item.id}]"
                                   v-for="(item,index) in menu" :key="item.id">
-                        <p :class="{hot:type===item.name}" @click="getList(item,key)">
+                        <p  @click="getList(item)">
                             {{item.name}}</p>
                     </swiper-slide>
                 </swiper>
@@ -85,6 +85,7 @@
                     spaceBetween: 40,
                     cancelable:false
                 },
+                nowid:""
             }
         },
         methods: {
@@ -102,12 +103,14 @@
                     for (let i in res.data) {
                             this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
                     }
-                    console.log(this.menu);
+                    this.nowid=this.menu[0].id;
                 })
             },
             refresh(done){
                 this.getData(done);
-
+            },
+            getList(item){
+                this.nowid=item.id;
             }
         },
         mounted: function () {

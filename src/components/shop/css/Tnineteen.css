@@ -18,7 +18,6 @@
 }
 .wsq-banner .wsq-title{
     width: 100%;
-    /*height: 1rem;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,11 +25,9 @@
     margin-bottom:0.2rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty{
-    /*height: 0.52rem;*/
     border-radius: 0.26rem;
     background: rgba(59,172,254,0.1);
     text-align: center;
-    /*line-height: 0.52rem;*/
     color: rgb(59,172,254);
     padding:0.3rem 0.2rem;
 }
