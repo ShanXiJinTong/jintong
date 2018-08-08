@@ -88,12 +88,13 @@ input::-webkit-input-placeholder {
 ul.class {
   width: calc(100% - 0.8rem);
   height: auto;
-  padding: 0 0.24rem;
+  padding: 0 0.24rem 1.2rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+
 }
 
 .class li {

@@ -63,6 +63,8 @@ nav .main p.hot {
   position: fixed;
   left: 0;
   top: 0.97rem;
+  background: #f8fcff;
+
   z-index: 1111;
 }
 
@@ -127,8 +129,8 @@ nav .main p.hot {
 }
 
 .bag-item .sk-bag-photo img {
-  width: 1.2rem;
-  height: 1.45rem;
+  width: 1.93rem;
+  height: 1.97rem;
 }
 
 .bag-item .sk-bag-content {
@@ -139,12 +141,16 @@ nav .main p.hot {
   align-items: flex-start;
   float:left;
   width:4.8rem;
+
 }
 
 .bag-item .sk-bag-content .sk-service-type h3 {
   font-size: 0.3rem;
   color: #4f5b64;
   font-weight: normal;
+  width: 100%;
+  overflow: hidden;
+  height: 0.32rem;
 }
 
 .bag-item .sk-bag-content .sk-service-desc {
@@ -217,6 +223,7 @@ nav .main p.hot {
 .bag-item .sk-service-operator {
   margin-top: 0.1rem;
   display: flex;
+  align-items:center;
 }
 
 .bag-item .sk-service-operator img {
@@ -227,4 +234,5 @@ nav .main p.hot {
 
 .bag-item .sk-service-operator span {
   font-size: 0.2rem;
+  color:#333;
 }

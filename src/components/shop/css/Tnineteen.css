@@ -5,99 +5,31 @@
     list-style: none;
     outline: none;
 }
-header{
-    width: 100%;
-    height: 0.88rem;
-    display: flex;
-    align-items: center;
-    padding: 0 0.24rem;
-    box-sizing: border-box;
-    font-size: 0.38rem;
-    color: rgb(78,187,254);
-    position: relative;
-}
-header >a{
-    display: block;
-    height: 0.42rem ;
-    width: 0.26rem;
-    position: absolute;
-    left: 0.24rem;
-}
 
-header > img{
-    width: 100%;
-    height: 100%;
-}
-
-header >p{
-    margin: 0 auto;
-    width:100%;
-    height: 100%;
-    font-size: 0.38rem;
-    font-weight: bold;
-    text-align: center;
-    line-height: 0.88rem;
-}
-.wsq-searchBox{
-    width: 100%;
-    height: 0.6rem;
-    padding: 0 0.24rem;
-    box-sizing: border-box;
-    display: flex;
-    position: relative;
-}
-.wsq-searchBox a{
-    display: block;
-    width:100%;
-    height:100%;
-}
-.wsq-searchBox  img{
-    position: absolute;
-    right: 0.3rem;
-    top: 0.08rem;
-}
-
-.wsq-searchBox input{
-    border: solid 0.03rem rgba(55,169,254,0.1);
-    border-radius: 0.5rem;
-    width: 100%;
-    height: 100%;
-    background: rgba(235,247,255,0.58);
-    padding-left: 0.28rem;
-    box-sizing: border-box;
-
-}
-.wsq-searchBox>input::-webkit-input-placeholder{
-    color:rgb(200,217,230);
-    font-size: 0.24rem;
-    line-height: 100%;
-}
 .wsq-cateaty{
     margin: 0 0.25rem;
 }
 .wsq-banner{
     width: 100%;
     height: 3.54rem;
-    padding: 0 0.24rem;
+    padding: 0.3rem 0.24rem 0;
     box-sizing: border-box;
     margin-bottom: 0.4rem;
 }
 .wsq-banner .wsq-title{
     width: 100%;
-    height: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.2rem;
+    margin-bottom:0.2rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty{
-    height: 0.52rem;
     border-radius: 0.26rem;
     background: rgba(59,172,254,0.1);
     text-align: center;
-    line-height: 0.52rem;
     color: rgb(59,172,254);
-    padding:0.1rem 0.2rem;
+    padding:0.3rem 0.2rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty.hot{
     color: #ffffff;
@@ -107,7 +39,6 @@ header >p{
     width: 100%;
     height: 2.55rem;
     border-radius: 0.1rem;
-
 }
 .wsq-banner .wsq-img img{
     width: 100%;
@@ -116,7 +47,7 @@ header >p{
 
 .wsq-more{
     width: 100%;
-    padding: 0 0.24rem;
+    padding: 0.2rem 0.24rem;
     box-sizing: border-box;
 }
 .wsq-line{
@@ -165,12 +96,12 @@ header >p{
 }
 .wsq-wrapper{
     width: 100%;
-    height: 7.8rem;
+    height: 8rem;
     overflow: hidden;
 }
 .wsq-wrapper .wsq-scroller{
     width: 100%;
-    height: 7.8rem;
+    height: 8rem;
     overflow: scroll;
     position: relative;
 }

@@ -116,6 +116,11 @@
              })
           }
         },
+        beforeMount(){
+            if(!localStorage['access-token']){
+                this.$router.replace({name:"UserLogin"});
+            }
+        },
         mounted(){
            this.getData();
         },

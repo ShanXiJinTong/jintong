@@ -84,6 +84,11 @@
                 return arr;
             }
         },
+        beforeMount(){
+            if(!localStorage['access-token']){
+                this.$router.replace({name:"UserLogin"});
+            }
+        },
         methods: {
             tabsSwitch(statusname) {
                 this.state = statusname;
@@ -101,6 +106,7 @@
                         p: this.page
                     }
                 }).then(res => {
+                    console.log(res)
                     if (res.status == 200 && res.data.data.orderList) {
                         this.total = Math.ceil(res.data.data.count / 10);
                         this.orderlist.unshift(...res.data.data.orderList);

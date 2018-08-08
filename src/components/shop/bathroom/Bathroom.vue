@@ -1,21 +1,15 @@
 <template>
     <div>
-
-        <!--搜索框-->
-        <form class="wsq-searchBox">
-            <router-link :to="{name:'SelectCity'}">
-                <img src="../img/sousuoicon.png" height="24" width="40"/>
-                <input type="text" placeholder="搜素您需要定位的城市">
-            </router-link>
-        </form>
-        <!--搜索结束-->
         <!--banner开始-->
         <section class="wsq-banner">
-            <div class="wsq-title">
-                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:$route.query.cid==item.id}]"
-                             v-for="(item,index) in menu" :key="item.id">{{item.name}}
-                </router-link>
-            </div>
+
+                <swiper :options="swiperOption" ref="mySwiper" class="wsq-title">
+                    <swiper-slide :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:nowid==item.id}]"
+                                  v-for="(item,index) in menu" :key="item.id">
+                        <p  @click="getList(item)">
+                            {{item.name}}</p>
+                    </swiper-slide>
+                </swiper>
             <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
         </section>
         <!--banner结束-->
@@ -82,6 +76,16 @@
                 list: [],
                 menu: [],
                 path: ['Shop', 'Bathroom', 'Bathroom'],
+                swiperOption: {
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                    freeMode:true,
+                    slidesPerView:3,
+                    spaceBetween: 40,
+                    cancelable:false
+                },
+                nowid:""
             }
         },
         methods: {
@@ -97,17 +101,16 @@
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
                     for (let i in res.data) {
-                        if (res.data[i].name && res.data[i].child) {
                             this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
-                        }
                     }
-                    this.menu = this.menu.slice(0, 3);
-
+                    this.nowid=this.menu[0].id;
                 })
             },
             refresh(done){
                 this.getData(done);
-
+            },
+            getList(item){
+                this.nowid=item.id;
             }
         },
         mounted: function () {

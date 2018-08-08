@@ -58,7 +58,7 @@ nav .main .navBox i{
 
 .conIScroll{
     width: 100%;
-    height: 11rem;
+    height: 12.5rem;
     margin-top: 0.1rem;
     padding: 0 0.24rem;
     box-sizing: border-box;
@@ -75,7 +75,7 @@ nav .main .navBox i{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 0.54rem;
+    padding: 0.54rem 0.24rem 0;
     box-sizing: border-box;
 }
 .conIScroll .yjyBox .yjySec .yjyPic{
@@ -88,8 +88,8 @@ nav .main .navBox i{
     align-items: center;
 }
 .conIScroll .yjyBox .yjySec .yjyPic img{
-    width: 1.68rem;
-    height: 1.68rem;
+    width: 1.86rem;
+    height: 1.86rem;
 }
 
 .conIScroll .yjyBox .yjySec .yjyRight{
@@ -104,22 +104,28 @@ nav .main .navBox i{
 }
 .conIScroll .yjyBox .yjySec .yjyRight .yjyTitle{
     width: 100%;
-    height: calc(100% / 4);
-    display: flex;
-    justify-content: flex-start;
 }
-.conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h3{
-    width: auto;
-    height: 100%;
+.conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h3 {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 0.3rem;
+    line-height: 0.3rem;
     font-size: 0.3rem;
-    color: rgba(0,0,0,0.6);
+    color: rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
 }
 .conIScroll .yjyBox .yjySec .yjyRight .yjyTitle h4{
-    width: auto;
-    height: 100%;
+    width: 50%;
+    float:right;
     font-size: 0.28rem;
     color: rgba(0,0,0,0.4);
-    margin-left: 0.1rem;
+    padding-left: 0.1rem;
+    overflow:hidden;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .conIScroll .yjyBox .yjySec .yjyRight .yjyEvaluate{
@@ -196,9 +202,11 @@ nav .main .navBox i{
     font-size: 0.22rem;
     color: rgba(0,0,0,0.2);
 }
-.conIScroll .yjyBox .yjySec .yjyRight .yjySale .price{
+.conIScroll .yjyBox .yjySec .yjyRight .yjySale .price {
     font-size: 0.26rem;
-    color: rgb(251,181,72);
+    color: rgb(251, 181, 72);
+    padding-right: 0.3rem;
+    box-sizing: border-box;
 }
 
 
