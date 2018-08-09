@@ -95,7 +95,6 @@
                     },
                     freeMode:true,
                     slidesPerView:3,
-                    spaceBetween: 40,
                     cancelable:false
                 },
                 orderBy:"all"
@@ -103,7 +102,7 @@
         },
         watch: {
             type() {
-               // this.refresh();
+               this.refresh();
             }
         },
         methods: {

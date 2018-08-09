@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '*': {
-        target: 'http://fecshop.appserver.fancyecommerce.com',
+        target: 'http://appserver.chengzhanghao.com:81/',
         changeOrigin: true
       }
     },

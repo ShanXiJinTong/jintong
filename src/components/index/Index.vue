@@ -13,7 +13,7 @@
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
         <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
-          <img :src="item.imgUrl" alt="">
+          <img :src="item.img" alt="">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination" slot="pagination"></div>
@@ -26,7 +26,7 @@
              <p>{{item.name}}</p>
           </router-link>
       </li>
-
+      <li></li>
     </ul>
     <Tab></Tab>
   </div>
@@ -71,13 +71,12 @@
                         this.menu.push({id: res.data[i]['_id'], name: res.data[i].name,child:res.data[i].child});
                     }
                 }
-                this.menu = this.menu.slice(1,8);
             })
         },
     },
     created() {
-      this.$http.get('/cms/home/index').then((res) => {
-        this.advList = res.data.data.advertiseImg.bigImgList;
+      this.$http.get('/general/base/banner').then((res) => {
+          this.advList = res.data;
       })
     },
       mounted:function () {

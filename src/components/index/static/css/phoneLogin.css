@@ -129,11 +129,12 @@
     color: rgba(0,0,0,0.3);
     position: relative;
 }
-#UserLogin .txt >span{
+#UserLogin .txt >a{
     font-size: 0.22rem;
     position: absolute;
     top:0;
     left:0.3rem;
+    color:inherit;
 }
 #UserLogin .round{
     width: 0.25rem;

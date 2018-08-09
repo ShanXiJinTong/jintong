@@ -5,16 +5,16 @@
             <nav>
                 <div class="main">
                     <div class="navBox">
-                        <p @click="getData">综合</p>
-                        <i class="iconfont icon-xiangxiajiantou"></i>
+                        <p @click="handleorder('all')">综合</p>
+                        <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='all'"></i>
                     </div>
                     <div class="navBox">
-                        <p @click="getData('hot')">销量</p>
-                        <i class="iconfont icon-xiangxiajiantou"></i>
+                        <p @click="handleorder('sell')">销量</p>
+                        <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='sell'"></i>
                     </div>
                     <div class="navBox">
-                        <p @click="getData('low-to-high')">价格降序</p>
-                        <i class="iconfont icon-xiangxiajiantou"></i>
+                        <p @click="handleorder('price')">价格降序</p>
+                        <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='price'"></i>
                     </div>
                 </div>
             </nav>
@@ -77,11 +77,12 @@
                 cid: "",
                 page: 1,
                 totalPage: null,
+                orderBy:"all"
             }
         },
         methods: {
-            getData(sort = '',callback) {
-                this.list = [];
+            getData(sort='', callback) {
+                this.list=[];
                 this.$http.get('/catalog/category/index', {
                     params: {
                         sortColumn: sort,
@@ -91,14 +92,14 @@
                     res.data.data.products.forEach(elemlent => {
                         this.list.push(elemlent.one, elemlent.two);
                     });
-                    this.totalPage = res.data.data.page_count;
-                    callback&&callback();
+                    this.totalPage=res.data.data.page_count;
+                    callback && callback();
                 })
             },
             infinite(done) {
-                this.page += 1;
+                this.page+=1;
                 if (this.page > this.totalPage) {
-                    this.page -= 1;
+                    this.page-=1;
                     done(true);
                     return;
                 }
@@ -117,10 +118,18 @@
             },
             contentRefresh(done) {
                 this.getData("", done);
+            },
+            handleorder(type){
+                this.orderBy=type;
+                switch(type){
+                    case "all":this.getData();break;
+                    case "sell":this.getData("sell");break;
+                    case "price":this.getData("high-to-low");break;
+                }
             }
         },
         mounted: function () {
-            this.cid = this.$route.query.id;
+            this.cid=this.$route.query.id;
             this.getData();
         },
     }

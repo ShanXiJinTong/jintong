@@ -45,14 +45,14 @@
         data() {
             return {
                     imgUrl:'',
-                    code:'1234',
+                    code:'',
                     ruleForm2: {
-                        "email": "2@qq.com",
-                        "password": "123456",
-                        "firstname": "abc",
-                        "lastname": "123",
-                        "is_subscribed": "true",
-                        "captcha": "9598",
+                        "email": "",
+                        "password": "",
+                        "firstname": "",
+                        "lastname": "",
+                        "is_subscribed": "",
+                        "captcha": "",
                         'cookies[_fta]':'9ddb336a-e4d7-e670-ca34-f36c573162b9',
             'cookies[_fta_site_id]':'9b17f5b4-b96f-46fd-abe6-a579837ccdd9',
             'cookies[_ftreturn]':'1',

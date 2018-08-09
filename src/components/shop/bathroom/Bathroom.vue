@@ -2,12 +2,14 @@
     <div>
         <!--banner开始-->
         <section class="wsq-banner">
-
                 <swiper :options="swiperOption" ref="mySwiper" class="wsq-title">
                     <swiper-slide :to="{name:path[index],query:{cid:item.id}}" tag="div" :class="['wsq-cateaty',{hot:nowid==item.id}]"
                                   v-for="(item,index) in menu" :key="item.id">
-                        <p  @click="getList(item)">
-                            {{item.name}}</p>
+                        <p>
+                            <router-link :to="{name:'XhList',query:{categoryId:item.id}}">
+                                {{item.name}}
+                            </router-link>
+                        </p>
                     </swiper-slide>
                 </swiper>
             <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
@@ -104,6 +106,7 @@
                             this.menu.push({id: res.data[i]['_id'], name: res.data[i].name});
                     }
                     this.nowid=this.menu[0].id;
+//                    this.menu = this.menu.slice(0,8);
                 })
             },
             refresh(done){

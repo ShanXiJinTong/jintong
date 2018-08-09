@@ -51,7 +51,7 @@
 
               <li class="txt">
                   <div class="round"></div>
-                  <span>注册即视为同意接受晋彤电商发送的商业性信息</span>
+                  <router-link :to="{name:'Sign'}">注册即视为同意接受晋彤电商发送的商业性信息</router-link>
               </li>
           </ul>
       <!--</el-form>-->

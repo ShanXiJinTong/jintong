@@ -137,6 +137,9 @@ ul.class {
 .class li:nth-child(7) div.img{
   background:#00aaee url("../img/l7.png") no-repeat center/cover;
 }
+.class li:nth-child(8) div.img{
+  background:#00aaee url("../img/l8.png") no-repeat center/cover;
+}
 
 .class li a .img img {
   width: 100%;

@@ -7,7 +7,7 @@
 }
 
 .wsq-cateaty{
-    margin: 0 0.25rem;
+    /*margin: 0 0.25rem;*/
 }
 .wsq-banner{
     width: 100%;
@@ -23,6 +23,7 @@
     align-items: center;
     font-size: 0.2rem;
     margin-bottom:0.2rem;
+    height:0.52rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty{
     display: inline-block;
@@ -34,6 +35,9 @@
     border-radius: 0.26rem;
     line-height: 0.52rem;
     padding:0 10px;
+}
+.wsq-banner .wsq-title .wsq-cateaty a{
+    color:inherit;
 }
 .wsq-banner .wsq-title .wsq-cateaty.hot{
     color: #ffffff;

@@ -106,8 +106,7 @@
                         p: this.page
                     }
                 }).then(res => {
-                    console.log(res)
-                    if (res.status == 200 && res.data.data.orderList) {
+                    if (res.data.code === 200 && res.data.data.orderList) {
                         this.total = Math.ceil(res.data.data.count / 10);
                         this.orderlist.unshift(...res.data.data.orderList);
                         if (done) {
