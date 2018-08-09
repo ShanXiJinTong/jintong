@@ -119,9 +119,9 @@
     height: 100%;
     border:none;
     outline: none;
-    background: none;
+    background: #3bacfe;
     border-radius: 0.26rem;
-    color: #3bacfe;
+    color: #fff;
 }
 #UserLogin .txt{
     height: 0.3rem;
@@ -139,7 +139,7 @@
     width: 0.25rem;
     height: 0.25rem;
     border-radius: 50%;
-    background: #e7f6ff;
+    background: #3bacfe;
 }
 #UserLogin .dis{
     width: 100%;

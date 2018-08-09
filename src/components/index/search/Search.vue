@@ -191,7 +191,9 @@
         font-weight: bold;
     }
     input::-webkit-input-placeholder {
+        font-size: 0.1rem;
         color: #CDDDE9;
+        /*line-height: 0.3rem;*/
     }
 
 </style>

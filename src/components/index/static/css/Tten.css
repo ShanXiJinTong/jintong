@@ -127,6 +127,7 @@
 .bag-item .sk-service-operator {
   margin-top: 0.1rem;
   display: flex;
+  align-items: center;
 }
 
 .bag-item .sk-service-operator img {
