@@ -125,12 +125,12 @@ ul>li{
 ul>li a{
     display: block;
     margin-bottom: 0.15rem;
+    background: #fff;
 }
 
-ul>li>img{
+ul>li a img{
     display: block;
-    margin:0 0 0.1rem 0.57rem;
-
+    margin:0 auto;
 }
 ul>li>.wsq-sore{
     width: 0.54rem;
