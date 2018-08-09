@@ -60,12 +60,12 @@
 }
 .wsq-line{
     width: 100%;
-    height: 0.4rem;
+    height: 0.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.32rem;
-    margin-bottom: 0.57rem;
+    line-height:0.6rem;
 
 }
 .wsq-line .wsq-lineL{
@@ -104,12 +104,12 @@
 }
 .wsq-wrapper{
     width: 100%;
-    height: 8rem;
+    height: 9rem;
     overflow: hidden;
 }
 .wsq-wrapper .wsq-scroller{
     width: 100%;
-    height: 8rem;
+    height: 100%;
     overflow: scroll;
     position: relative;
 }
@@ -128,12 +128,13 @@ ul>li{
 }
 ul>li a{
     display: block;
+    margin-bottom: 0.15rem;
+    background: #fff;
 }
 
-ul>li>img{
+ul>li a img{
     display: block;
-    margin:0 0 0.1rem 0.57rem;
-
+    margin:0 auto;
 }
 ul>li>.wsq-sore{
     width: 0.54rem;
