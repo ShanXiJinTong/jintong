@@ -25,11 +25,15 @@
     margin-bottom:0.2rem;
 }
 .wsq-banner .wsq-title .wsq-cateaty{
-    border-radius: 0.26rem;
-    background: rgba(59,172,254,0.1);
+    display: inline-block;
+    height: 0.52rem;
+    font-size: 0.18rem;
     text-align: center;
-    color: rgb(59,172,254);
-    padding:0.3rem 0.2rem;
+    background: #E7F6FF;
+    color: #3BACFE;
+    border-radius: 0.26rem;
+    line-height: 0.52rem;
+    padding:0 10px;
 }
 .wsq-banner .wsq-title .wsq-cateaty.hot{
     color: #ffffff;
