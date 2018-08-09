@@ -37,7 +37,7 @@ nav .main {
 }
 
 nav .main p {
-  width: 1.33rem;
+  display: inline-block;
   height: 0.52rem;
   font-size: 0.18rem;
   text-align: center;
@@ -45,6 +45,7 @@ nav .main p {
   color: #3BACFE;
   border-radius: 0.26rem;
   line-height: 0.52rem;
+  padding:0 10px;
 }
 
 nav .main p.hot {
