@@ -5,7 +5,7 @@
         <span>{{city}}</span>
         </router-link>
         <router-link :to="{name:'Search'}" class="input">
-        <input type="text" disabled placeholder="搜索您需要的服务 商品">
+        <input type="text" disabled placeholder="搜索您需要的服务商品">
         <img src="../common/static/img/sousuo.png" alt="">
       </router-link>
     </section>
