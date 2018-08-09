@@ -39,7 +39,6 @@
         <div class="tktitle">
             <span class="tkcolor">领取</span>优惠券
             <div class="tkclose">
-                <img src="img/tuikuan2/cuohao.png" alt="">
             </div>
         </div>
 
@@ -55,7 +54,6 @@
                     <h5>有效期至2018.9.10</h5>
                 </div>
                 <div class="get">领取</div>
-                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
             </li>
             <li class="tklist ">
                 <div class="left">
@@ -68,7 +66,6 @@
                     <h5>有效期至2018.9.10</h5>
                 </div>
                 <div class="get">领取</div>
-                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
             </li>
             <li class="tklist ">
                 <div class="left">
@@ -81,7 +78,6 @@
                     <h5>有效期至2018.9.10</h5>
                 </div>
                 <div class="get">领取</div>
-                <img src="img/tuikuan2/tuikuan.png" alt="" class="right hot">
             </li>
 
         </ul>

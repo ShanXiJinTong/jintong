@@ -8,39 +8,11 @@
       <img src="./static/img/store.png" alt="">
       <h3>商城</h3>
     </router-link>
-    <div class="sk-tabItem">
+    <router-link :to="{name:'Ruzhu'}" tag="div" class="sk-tabItem">
       <img src="./static/img/rz.png" alt="">
       <h3>入驻</h3>
-
-      <!--Teight-icon开始-->
-      <!--<div class="xrBg">-->
-        <!--<div class="xrIcon">-->
-          <!--<div class="xrIconbox">-->
-            <!--<a href="">-->
-              <!--<div class="xrIcon1">-->
-                <!--<img src="./static/img/Teight1.png" alt="">-->
-              <!--</div>-->
-            <!--</a>-->
-            <!--<span>商家入驻</span>-->
-          <!--</div>-->
-          <!--<div class="xrIconbox">-->
-            <!--<a href="">-->
-              <!--<div class="xrIcon2">-->
-                <!--<img src="./static/img/Teight2.png" alt="">-->
-              <!--</div>-->
-            <!--</a>-->
-            <!--<span>水司入驻</span>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="xrclose">-->
-          <!--<div class="xrcircle">×</div>-->
-        <!--</div>-->
-      <!--</div>-->
-
-
-
       <!--Teight-icon结束-->
-    </div>
+    </router-link>
     <router-link :to="{name:'Order'}" tag="div" class="sk-tabItem">
       <img src="./static/img/order.png" alt="">
       <h3>订单</h3>

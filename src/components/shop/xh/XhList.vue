@@ -3,7 +3,7 @@
         <!--nav开始-->
         <nav>
             <div class="main">
-                <swiper :options="swiperOption" ref="mySwiper" class="photo">
+                <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;">
                     <swiper-slide v-for="item,key in typedata" :key="key">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
@@ -38,12 +38,12 @@
                     ref="myscroller"
                     class="myScroll"
             >
-                <ul class="bag-item" v-for="item in list">
+                <ul class="bag-item" v-for="item in list" v-if="list.length>0">
                     <router-link :to="{name:'XhDetail',query:{uid:item._id}}" >
                         <li class="sk-bag-photo">
                             <img v-lazy="item.image" alt="">
                         </li>
-                    <li class="sk-bag-content">
+                        <li class="sk-bag-content">
                         <div class="sk-service-type">
                             <h3>{{item.name}}</h3>
                         </div>
@@ -62,7 +62,8 @@
                                 <li class="number">278</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.price.value}}元/件</li>
+
+                                <li v-if="item.price">{{item.price.value}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -102,7 +103,7 @@
         },
         watch: {
             type() {
-                this.refresh();
+               // this.refresh();
             }
         },
         methods: {
@@ -115,9 +116,14 @@
                         sortColumn: sort,
                     }
                 }).then(res => {
-                    res.data.data.products.forEach(elemlent => {
-                        this.list.push(elemlent.one, elemlent.two);
-                    });
+                    var elemlent=res.data.data.products;
+                    for (var i=0;i<elemlent.length;i++){
+                        if (i==elemlent.length-1){
+                            this.list.push(elemlent[i].one);
+                        }else {
+                            this.list.push(elemlent[i].one, elemlent[i].two);
+                        }
+                    }
                     if (this.type === "") {
                         this.typedata = res.data.data.filter_category;
                         for (let i in this.typedata) {
@@ -125,7 +131,6 @@
                             break;
                         }
                     }
-
                     this.totalPage = res.data.data.page_count;
                     callback && callback();
                 })
@@ -145,10 +150,14 @@
                         sortColumn: "",
                     }
                 }).then(res => {
-                    res.data.data.products.forEach(elemlent => {
-                        this.list.push(elemlent.one, elemlent.two);
-                    });
-                    this.totalPage = res.data.data.page_count;
+                    var elemlent=res.data.data.products;
+                    for (var i=0;i<elemlent.length;i++){
+                        if (i==elemlent.length-1){
+                            this.list.push(elemlent[i].one);
+                        }else {
+                            this.list.push(elemlent[i].one, elemlent[i].two);
+                        }
+                    }
                 })
             },
             infinite(done) {
