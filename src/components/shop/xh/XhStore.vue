@@ -87,7 +87,7 @@
                 </ul>
             </div>
             <div class="sk-bag-scroll" :class="{block:isOk==2}">
-                <ul class="bag-item" v-for="item in list">
+                <ul class="bag-item" v-for="item in cuxiao">
                     <li class="sk-bag-photo">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
                             <img :src="item.image" alt="">
@@ -123,13 +123,35 @@
                 </ul>
             </div>
             <div class="sk-scroll" :class="{block:isOk==3}">
-                <ul class="com-item">
+                <!--nav开始-->
+                <nav>
+                    <div class="main">
+                        <div :class="['navBox',{hot:commentsHot==''}]" @click="handleCommentsTypeChange('')">
+                            <p>全部</p>
+                            <p>{{count.zong}}</p>
+                        </div>
+                        <div :class="['navBox',{hot:commentsHot=='hao'}]" @click="handleCommentsTypeChange('hao')">
+                            <p>好评</p>
+                            <p>{{count.hao}}</p>
+                        </div>
+                        <div :class="['navBox',{hot:commentsHot=='zhong'}]" @click="handleCommentsTypeChange('zhong')">
+                            <p>中评</p>
+                            <p>{{count.zhong}}</p>
+                        </div>
+                        <div :class="['navBox',{hot:commentsHot=='cha'}]" @click="handleCommentsTypeChange('cha')">
+                            <p>差评</p>
+                            <p>{{count.cha}}</p>
+                        </div>
+                    </div>
+                </nav>
+                <!--nav结束-->
+                <ul class="com-item" v-for="item in comments">
                     <li class="sk-photo">
                         <img src="../img/photo.png" alt="">
                     </li>
                     <li class="sk-content">
                         <div class="sk-user_time">
-                            <h5>用户名</h5>
+                            <h5>{{item.name}}</h5>
                             <div class="star">
                                 <i class="iconfont icon-xing hot"></i>
                                 <i class="iconfont icon-xing hot"></i>
@@ -137,28 +159,23 @@
                                 <i class="iconfont icon-xing"></i>
                                 <i class="iconfont icon-xing"></i>
                             </div>
-                            <span>2018-06-29</span>
+                            <span>{{item.review_date1}}</span>
                         </div>
                         <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
+                            <p>{{item.review_content}}</p>
                         </div>
                         <div class="sk-pos">
                             <span class="province">北京</span>
                             <span class="city">海淀区</span>
                             <span class="service">四双跑步鞋清洗</span>
                         </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
+
                         <div class="sk-like">
                             <i class="iconfont icon-xiaoxi2"></i>
                             <i class="iconfont icon-xihuan"></i>
                         </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>
@@ -170,7 +187,11 @@
             return {
                 list: [],
                 isOk: 1,
-                shop:{}
+                shop:{},
+                comments:[],
+                commentsHot:"",
+                cuxiao:[],
+                count:{}
             }
         },
         methods: {
@@ -178,18 +199,33 @@
                 let id=this.$route.query.id;
                 this.$http.get('/store/store/index?id='+id).then(res => {
                     this.shop=res.data.store;
-
                     res.data.shop.forEach(elemlent => {
                         this.list.push(elemlent);
-                    })
+                    });
+                    res.data.cuxiao.forEach(element=>{
+                        this.cuxiao.push(element);
+                    });
+
+                    this.count=res.data.review_count;
                 })
+            },
+            getComments(){
+                let id=this.$route.query.id;
+                this.$http.get("/store/store/getreview?id="+id+"&review_type="+this.commentsHot).then(res=>{
+                  this.comments=res.data.review;
+              })
             },
             checkOk(index) {
                 this.isOk = index;
+            },
+            handleCommentsTypeChange(type){
+                this.commentsHot=type;
+                this.getComments();
             }
         },
         mounted: function () {
             this.getData();
+            this.getComments();
         },
     }
 </script>

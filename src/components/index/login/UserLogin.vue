@@ -12,7 +12,7 @@
                   <li class="one">
                       <img src="../static/img/img.png" alt="">
                       <b>+86</b>
-                      <input type="text" placeholder="请填写手机号码" v-model="form.email">
+                      <input type="text" placeholder="请填写手机号码" v-model="form.tel">
                   </li>
                   <li class="two">
                       <div class="dot"></div>
@@ -30,7 +30,7 @@
                       <div class="dot"></div>
                       <span>用户名：</span>
 
-                      <input type="text" v-model="ruleForm.email" placeholder="请输入手机号码">
+                      <input type="text" v-model="ruleForm.tel" placeholder="请输入手机号码">
                   </li>
                   <li class="two">
                       <div class="dot"></div>
@@ -67,11 +67,11 @@
                 isOk:1,
                 dis:false,
                 form:{
-                    email:'',
+                    tel:'',
                     password:''
                 },
                 ruleForm: {
-                    email: '',
+                    tel: '',
                     password:''
                 }
             }
@@ -101,12 +101,17 @@
                         'Content-Type': 'application/x-www-form-urlencoded',
                         'access-token':localStorage['access-token'],
                     },
-                    url:'/customer/login/account',
+                    url:'/customer/login/checklogin',
                     data: this.$qs.stringify(this.ruleForm)
                 }).then(res=>{
-                    if(res.data.code ==200){
-                        localStorage['access-token'] = res.headers['access-token'];
-                        localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
+                    console.log(res);
+                    if(res.data.status ==200){
+//                        localStorage['access-token'] = res.headers['access-token'];
+//                        localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
+                        localStorage['access-token'] = 123123123;
+                        localStorage['fecshop-uuid'] = 123123123;
+                        document.cookie="userName="+res.data.firstname;
+                        document.cookie="userId="+res.data.id;
                         this.$router.push({name:'Index'});
                     }
                 })
