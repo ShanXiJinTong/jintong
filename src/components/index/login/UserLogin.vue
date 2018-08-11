@@ -87,14 +87,16 @@
                   this.$router.push({name:'Index'});
                     this.$message({
                         message: '登录成功',
-                        type: 'success'
+                        type: 'success',
+                        duration:700
                     });
                }
                else{
                     this.$message({
                         showClose: true,
                         message: '登录失败，请重新登录',
-                        type: 'error'
+                        type: 'error',
+                        duration:700
                     });
                 }
             })
@@ -120,14 +122,16 @@
                         this.$router.push({name:'Index'});
                         this.$message({
                             message: '登录成功',
-                            type: 'success'
+                            type: 'success',
+                            duration:700
                         });
                     }
                     else{
                         this.$message({
                             showClose: true,
                             message: '登录失败，请重新登录',
-                            type: 'error'
+                            type: 'error',
+                            duration:700
                         });
                     }
                 })
