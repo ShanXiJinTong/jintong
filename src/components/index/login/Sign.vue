@@ -66,7 +66,6 @@
         },
         methods:{
             submit(){
-                console.log(this.ruleForm2);
                 this.$http({
                     method:'post',
                     headers: {

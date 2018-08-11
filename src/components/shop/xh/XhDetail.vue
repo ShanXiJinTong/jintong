@@ -160,10 +160,12 @@
                 })
             },
             handleClick(){
-                if(!(localStorage.access-token&&localStorage.fecshop-uuid)){
-                    this.$router.push({name:'WxLogin'})
+                if(!(localStorage['access-token']&&localStorage['fecshop-uuid'])){
+                    this.$router.push({name:'UserLogin'})
+                }else {
+                    this.$http.get("")
+                    //this.$router.push({name: 'Car', query: {uid: this.uid}});
                 }
-                this.$router.push({name:'Car'});
             },
             get(){
                 if(this.display===1){

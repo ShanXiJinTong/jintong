@@ -93,8 +93,10 @@
         this.$http({
            method:'get',
            headers:getheaders,
-           url:'/checkout/cart/index'
+           url:'/customer/car/carlist?customer_id='+localStorage['fecshop-uuid'],
         }).then(res => {
+            console.log(res);
+            return;
           let data = res.data.data['cart_info'];
           if (data) {
             let data = res.data.data['cart_info'].products;

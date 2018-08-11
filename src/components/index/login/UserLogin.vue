@@ -109,7 +109,7 @@
 //                        localStorage['access-token'] = res.headers['access-token'];
 //                        localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
                         localStorage['access-token'] = 123123123;
-                        localStorage['fecshop-uuid'] = 123123123;
+                        localStorage['fecshop-uuid'] = res.data.id;
                         document.cookie="userName="+res.data.firstname;
                         document.cookie="userId="+res.data.id;
                         this.$router.push({name:'Index'});
