@@ -2,7 +2,7 @@
     <div id="search">
         <header class="tab">
             <form class="wsq-searchBox">
-                <img src="../static/img/sousuoicon.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999"/>
+                <img src="../static/img/sousuo.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999"/>
                 <input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容">
             </form>
         </header>
@@ -66,7 +66,7 @@
             </template>
             <template v-else>
                 <div class="boxms"><img src="../static/img/icon2.png" alt=""></div>
-                <div class="text">
+                <div class="text text1">
                     <p>很遗憾 没有为您找到合适的内容 <br> 换个关键词试试吧</p>
                 </div>
             </template>
@@ -108,7 +108,6 @@
                         'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
-                    console.log(this.products);
                     let count = Number(res.data.data.searchCount);
                     res.data.data.products.forEach(v=>{
                         this.products.push(v.one,v.two);
@@ -129,7 +128,6 @@
                 })
             },
             infinite(done) {
-                console.log("infinite");
                 this.page += 1;
                 if (this.page > this.totalPage) {
                     this.page -= 1;
@@ -181,14 +179,19 @@
         /*width: 4rem;*/
         margin: 0.2rem auto;
         overflow: hidden;
-    }
 
+    }
+   .text1{
+       margin-top: 1.5rem;
+       line-height: 0.44rem;
+   }
     .text > p {
 
         text-align: center;
         font-size: 0.26rem;
         color: rgba(0, 0, 0, 0.4);
         font-weight: bold;
+
     }
     input::-webkit-input-placeholder {
         font-size: 0.1rem;

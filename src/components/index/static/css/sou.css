@@ -21,10 +21,10 @@
 }
 .wsq-searchBox > img{
     position: absolute;
-    right: 0.36rem;
-    top: 0.09rem;
-    width: 0.79rem;
-    height: 0.44rem;
+    right: 0.44rem;
+    top: 0.12rem;
+    width: 0.38rem;
+    height: 0.38rem;
 }
 
 .wsq-searchBox>input{
@@ -36,8 +36,9 @@
     padding-left: 0.28rem;
     box-sizing: border-box;
     outline: none;
-    /*line-height: 0.6rem;*/
+    line-height: 0.6rem;
     color: #36a8fe;
+    font-size: 0.12rem;
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
