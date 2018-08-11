@@ -41,14 +41,14 @@
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
                     <router-link :to="{name:'XhDetail',query:{uid:item._id}}" >
                         <li class="sk-bag-photo">
-                            <img v-lazy="item.image" alt="">
+                            <img :src="item.image" alt="">
                         </li>
                         <li class="sk-bag-content">
                         <div class="sk-service-type">
                             <h3>{{item.name}}</h3>
                         </div>
                         <div class="sk-service-desc">
-                            <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
+                            <p>{{item.description}}</p>
                         </div>
                         <div class="sk-estimate_sale_price">
                             <ul class="sk-estimate sk-item">
@@ -63,12 +63,12 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.special_price.value}}元/件</li>
+                                <li v-if="item.price">{{item.special_price}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
-                            <img src="../img/Tnine/bds.png" alt="">
-                            <span>包大师</span>
+                            <img :src="'http://img.chengzhanghao.com:81/'+item.shop.shop_logo" alt="">
+                            <span>{{item.shop.shop_name}}</span>
                         </div>
                     </li>
                     </router-link>
@@ -102,7 +102,7 @@
         },
         watch: {
             type() {
-               this.refresh();
+              // this.refresh();
             }
         },
         methods: {
@@ -115,14 +115,9 @@
                         sortColumn: sort,
                     }
                 }).then(res => {
-                    var elemlent=res.data.data.products;
-                    for (var i=0;i<elemlent.length;i++){
-                        if (i==elemlent.length-1){
-                            this.list.push(elemlent[i].one);
-                        }else {
-                            this.list.push(elemlent[i].one, elemlent[i].two);
-                        }
-                    }
+                    res.data.data.products.forEach(ele=>{
+                        this.list.push(ele);
+                    });
                     if (this.type === "") {
                         this.typedata = res.data.data.filter_category;
                         for (let i in this.typedata) {
@@ -149,14 +144,9 @@
                         sortColumn: "",
                     }
                 }).then(res => {
-                    var elemlent=res.data.data.products;
-                    for (var i=0;i<elemlent.length;i++){
-                        if (i==elemlent.length-1){
-                            this.list.push(elemlent[i].one);
-                        }else {
-                            this.list.push(elemlent[i].one, elemlent[i].two);
-                        }
-                    }
+                    res.data.data.products.forEach(ele=>{
+                        this.list.push(ele);
+                    });
                 })
             },
             infinite(done) {
@@ -173,8 +163,8 @@
                         sortColumn: ""
                     }
                 }).then(res => {
-                    res.data.data.products.forEach(elemlent => {
-                        this.list.push(elemlent.one, elemlent.two);
+                    res.data.data.products.forEach(ele=>{
+                        this.list.push(ele);
                     });
                     done();
                 })

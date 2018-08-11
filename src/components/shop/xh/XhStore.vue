@@ -1,59 +1,5 @@
 <template>
     <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!--单品详情-->
         <div class="LZJ-singleDetail">
             <div class="LZJ-main">
@@ -61,7 +7,8 @@
                     <img src="../img/thumb.png" alt="">
                 </router-link>
                 <div class="LZJ-infos">
-                    <div class="LZJ-title">皮悦皮具护理</div>
+                    <div class="LZJ-title">{{shop.shop_company_name}}
+                    </div>
                     <div class="LZJ-bargain">
                         <div class="LZJ-already">
                             <div class="LZJ-spot"></div>
@@ -107,12 +54,12 @@
                 <ul class="bag-item" v-for="item in list">
                     <li class="sk-bag-photo">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
-                            <img :src="item.image" alt="">
+                            <img :src="item.image.main.image" alt="">
                         </router-link>
                     </li>
                     <li class="sk-bag-content">
                         <div class="sk-service-type">
-                            <h3>{{item.name}}</h3>
+                            <h3>{{item.name.name_en}}</h3>
                         </div>
                         <div class="sk-service-desc">
                             <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
@@ -129,7 +76,7 @@
                                 <li class="number">278</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.price.value}}元/件</li>
+                                <li>{{item.special_price}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -148,7 +95,7 @@
                     </li>
                     <li class="sk-bag-content">
                         <div class="sk-service-type">
-                            <h3>{{item.name}}</h3>
+                            <h3>{{item.name.name_en}}</h3>
                         </div>
                         <div class="sk-service-desc">
                             <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
@@ -165,7 +112,7 @@
                                 <li class="number">278</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.price.value}}元/件</li>
+                                <li>{{item.price}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -176,181 +123,6 @@
                 </ul>
             </div>
             <div class="sk-scroll" :class="{block:isOk==3}">
-                <ul class="com-item">
-                    <li class="sk-photo">
-                        <img src="../img/photo.png" alt="">
-                    </li>
-                    <li class="sk-content">
-                        <div class="sk-user_time">
-                            <h5>用户名</h5>
-                            <div class="star">
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing"></i>
-                                <i class="iconfont icon-xing"></i>
-                            </div>
-                            <span>2018-06-29</span>
-                        </div>
-                        <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
-                        </div>
-                        <div class="sk-pos">
-                            <span class="province">北京</span>
-                            <span class="city">海淀区</span>
-                            <span class="service">四双跑步鞋清洗</span>
-                        </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
-                        <div class="sk-like">
-                            <i class="iconfont icon-xiaoxi2"></i>
-                            <i class="iconfont icon-xihuan"></i>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="com-item">
-                    <li class="sk-photo">
-                        <img src="../img/photo.png" alt="">
-                    </li>
-                    <li class="sk-content">
-                        <div class="sk-user_time">
-                            <h5>用户名</h5>
-                            <div class="star">
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing"></i>
-                                <i class="iconfont icon-xing"></i>
-                            </div>
-                            <span>2018-06-29</span>
-                        </div>
-                        <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
-                        </div>
-                        <div class="sk-pos">
-                            <span class="province">北京</span>
-                            <span class="city">海淀区</span>
-                            <span class="service">四双跑步鞋清洗</span>
-                        </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
-                        <div class="sk-like">
-                            <i class="iconfont icon-xiaoxi2"></i>
-                            <i class="iconfont icon-xihuan"></i>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="com-item">
-                    <li class="sk-photo">
-                        <img src="../img/photo.png" alt="">
-                    </li>
-                    <li class="sk-content">
-                        <div class="sk-user_time">
-                            <h5>用户名</h5>
-                            <div class="star">
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing"></i>
-                                <i class="iconfont icon-xing"></i>
-                            </div>
-                            <span>2018-06-29</span>
-                        </div>
-                        <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
-                        </div>
-                        <div class="sk-pos">
-                            <span class="province">北京</span>
-                            <span class="city">海淀区</span>
-                            <span class="service">四双跑步鞋清洗</span>
-                        </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
-                        <div class="sk-like">
-                            <i class="iconfont icon-xiaoxi2"></i>
-                            <i class="iconfont icon-xihuan"></i>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="com-item">
-                    <li class="sk-photo">
-                        <img src="../img/photo.png" alt="">
-                    </li>
-                    <li class="sk-content">
-                        <div class="sk-user_time">
-                            <h5>用户名</h5>
-                            <div class="star">
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing"></i>
-                                <i class="iconfont icon-xing"></i>
-                            </div>
-                            <span>2018-06-29</span>
-                        </div>
-                        <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
-                        </div>
-                        <div class="sk-pos">
-                            <span class="province">北京</span>
-                            <span class="city">海淀区</span>
-                            <span class="service">四双跑步鞋清洗</span>
-                        </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
-                        <div class="sk-like">
-                            <i class="iconfont icon-xiaoxi2"></i>
-                            <i class="iconfont icon-xihuan"></i>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="com-item">
-                    <li class="sk-photo">
-                        <img src="../img/photo.png" alt="">
-                    </li>
-                    <li class="sk-content">
-                        <div class="sk-user_time">
-                            <h5>用户名</h5>
-                            <div class="star">
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing hot"></i>
-                                <i class="iconfont icon-xing"></i>
-                                <i class="iconfont icon-xing"></i>
-                            </div>
-                            <span>2018-06-29</span>
-                        </div>
-                        <div class="sk-desc">
-                            <p>服务专业,商家细节做得很好，准时到达</p>
-                        </div>
-                        <div class="sk-pos">
-                            <span class="province">北京</span>
-                            <span class="city">海淀区</span>
-                            <span class="service">四双跑步鞋清洗</span>
-                        </div>
-                        <!--<div class="sk-com-img">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--<img src="../../img/plt.png" alt="">-->
-                        <!--</div>-->
-                        <div class="sk-like">
-                            <i class="iconfont icon-xiaoxi2"></i>
-                            <i class="iconfont icon-xihuan"></i>
-                        </div>
-                    </li>
-                </ul>
                 <ul class="com-item">
                     <li class="sk-photo">
                         <img src="../img/photo.png" alt="">
@@ -397,14 +169,18 @@
         data() {
             return {
                 list: [],
-                isOk: 1
+                isOk: 1,
+                shop:{}
             }
         },
         methods: {
             getData() {
-                this.$http.get('/cms/home/index').then(res => {
-                    res.data.data.productList.forEach(elemlent => {
-                        this.list.push(elemlent.one, elemlent.two);
+                let id=this.$route.query.id;
+                this.$http.get('/store/store/index?id='+id).then(res => {
+                    this.shop=res.data.store;
+
+                    res.data.shop.forEach(elemlent => {
+                        this.list.push(elemlent);
                     })
                 })
             },

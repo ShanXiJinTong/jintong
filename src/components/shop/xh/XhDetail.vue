@@ -3,8 +3,8 @@
     <!--<div class="photo">-->
         <swiper :options="swiperOption" ref="mySwiper" class="photo" v-if="shopDetail">
             <!-- slides -->
-            <swiper-slide v-for="(item,index) in shopDetail.image_detail" v-bind:key="index">
-                <img :src="item" alt="">
+            <swiper-slide v-for="(item,index) in imgs" v-bind:key="index">
+                <img :src="'http://img.chengzhanghao.com:81/'+item.image" alt="">
             </swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
@@ -15,8 +15,8 @@
         <div class="two"><p v-html="shopDetail.description"></p></div>
         <div class="three">
             <div class="tl">
-                <span>现价 {{shopDetail.price_info.special_price.value}}元／件</span>
-                <del>原价 {{shopDetail.price_info.price.value}}元／件</del>
+                <span>现价 {{shopDetail.special_price}}元／件</span>
+                <del>原价 {{shopDetail.price}}元／件</del>
             </div>
             <div class="tr">
                 <span class="tr1"></span>
@@ -104,7 +104,7 @@
     </div>
     <div class="root">
         <div class="rl">
-            <router-link :to="{name:'XhStore'}" tag="a" >
+            <router-link :to="{name:'XhStore',query:{id:shopDetail.shop_id}}" tag="a" >
                 <div class="rl1">
                     <img src="../img/dianpu.png" alt="">
                     <span>店铺</span>
@@ -134,7 +134,7 @@
         data() {
             return {
                 uid:'',
-                shopDetail:null,
+                shopDetail:{},
                 swiperOption: {
                     pagination: {
                         el: '.swiper-pagination',
@@ -142,6 +142,16 @@
                 },
                 display:0
             }
+        },
+        computed:{
+           imgs(){
+               if(this.shopDetail.img) {
+                   this.shopDetail.img.gallery.push(this.shopDetail.img.main);
+                   return this.shopDetail.img.gallery;
+               }else{
+                   return [];
+               }
+           }
         },
         methods:{
             getData(){
@@ -156,7 +166,7 @@
                 this.$router.push({name:'Car'});
             },
             get(){
-                if(this.display==1){
+                if(this.display===1){
                     this.display=0;
                 }else{
                     this.display=1;
