@@ -63,7 +63,7 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.price.value}}元/件</li>
+                                <li v-if="item.price">{{item.special_price.value}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
