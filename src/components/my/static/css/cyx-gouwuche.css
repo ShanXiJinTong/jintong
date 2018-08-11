@@ -220,6 +220,7 @@ li.cyx-shop > .cyx-right{
 
 footer.cyx-footer{
     width: 100%;
+    background-color:#f8fcff;
     height: 2.32rem;
     position: fixed;
     left: 0;
@@ -258,12 +259,13 @@ footer.cyx-footer{
     line-height: .23rem;
     letter-spacing: 0.01rem;
     color: #3bacfe;
+    margin-top: 0.1rem;
 }
 
 .cyx-container > .cyx-bottom{
     width: 100%;
     height: 1.08rem;
-    background-color: #f1faff;
+    background-color:#f8fcff;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -269,16 +269,17 @@
 }
 .tuikuan{
     width: 100%;
-    height: 10.2rem;
+    /*height: 10.2rem;*/
     padding: 0.24rem 0.24rem;
     box-sizing: border-box;
     background: #FFFFFF;
     position: absolute;
     left: 0;
     right:0;
-    top:0;
-    bottom:0;
-    margin:auto;
+    /*top:0;*/
+    margin: 0 auto;
+    bottom:0.5rem;
+
     box-shadow:0 0 0 5rem rgba(0,0,0,0.2);
     z-index:999;
     display:none;

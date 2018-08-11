@@ -120,23 +120,24 @@ ul{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 ul>li{
     width: 3.25rem ;
     height: 3.86rem;
     margin-bottom: 0.72rem;
     position: relative;
 }
-ul>li a{
+ul li a{
     display: block;
     margin-bottom: 0.15rem;
     background: #fff;
 }
 
-ul>li a img{
+ul li a img{
     display: block;
     margin:0 auto;
 }
-ul>li>.wsq-sore{
+ul li .wsq-sore{
     width: 0.54rem;
     height: 0.3rem;
     background: -webkit-linear-gradient(left,rgb(55,224,111),rgb(50,214,154));
@@ -149,7 +150,7 @@ ul>li>.wsq-sore{
     font-size: 0.22rem;
     color: #ffffff;
 }
-ul>li .wsq-name {
+ul li .wsq-name {
     width: 2.3rem;
     /*display: flex;*/
     /*justify-content: space-between;*/
