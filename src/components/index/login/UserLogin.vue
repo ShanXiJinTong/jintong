@@ -1,7 +1,7 @@
 <template>
 
   <div id="UserLogin">
-      <!--<el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm">-->
+
           <ul id="ul">
               <li class="login" @click="changeOk()">
                   <p :class="{hot:isOk}">快捷登录</p><p :class="{hot:!isOk}">账号登录</p>
@@ -41,11 +41,6 @@
                       <button @click="handleSubmit()">登录</button>
                   </li>
 
-                  <el-alert
-                          title="登录失败"
-                          type="error"
-                          show-icon class="none" :class="{block1:dis}">
-                  </el-alert>
 
               </div>
 
@@ -54,7 +49,6 @@
                   <router-link :to="{name:'Sign'}">注册即视为同意接受晋彤电商发送的商业性信息</router-link>
               </li>
           </ul>
-      <!--</el-form>-->
   </div>
 </template>
 <script>
@@ -91,7 +85,18 @@
                   localStorage['access-token'] = res.headers['access-token'];
                   localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
                   this.$router.push({name:'Index'});
+                    this.$message({
+                        message: '登录成功',
+                        type: 'success'
+                    });
                }
+               else{
+                    this.$message({
+                        showClose: true,
+                        message: '登录失败，请重新登录',
+                        type: 'error'
+                    });
+                }
             })
            },
             handleSubmit(){
@@ -113,6 +118,17 @@
                         document.cookie="userName="+res.data.firstname;
                         document.cookie="userId="+res.data.id;
                         this.$router.push({name:'Index'});
+                        this.$message({
+                            message: '登录成功',
+                            type: 'success'
+                        });
+                    }
+                    else{
+                        this.$message({
+                            showClose: true,
+                            message: '登录失败，请重新登录',
+                            type: 'error'
+                        });
                     }
                 })
             },

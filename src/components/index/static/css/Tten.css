@@ -36,8 +36,8 @@
 }
 
 .bag-item .sk-bag-photo img {
-  width: 1.2rem;
-  height: 1.45rem;
+  width: 1.97rem;
+  height: 1.97rem;
 }
 
 .bag-item .sk-bag-content {
@@ -134,9 +134,11 @@
   width: 0.3rem;
   height: 0.3rem;
   margin-right: 0.08rem;
-  vertical-align: middle;
+  float: left;
 }
 
 .bag-item .sk-service-operator span {
   font-size: 0.2rem;
+  float: left;
+  margin-top: 0.06rem;
 }
