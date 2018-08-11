@@ -223,6 +223,7 @@ footer.cyx-footer{
     height: 2.32rem;
     position: fixed;
     left: 0;
+    background-color:#f8fcff;
     bottom: 0;
 }
 .cyx-contain{

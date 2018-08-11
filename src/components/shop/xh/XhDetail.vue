@@ -121,7 +121,7 @@
             <a @click="handleClick">
                 <div class="rr1">加入购物车</div>
             </a>
-            <router-link :to="{name:'WaitServicePay'}" tag="a">
+            <router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id}}" tag="a">
                 <div class="rr2">立即下单</div>
             </router-link>
         </div>
@@ -163,8 +163,12 @@
                 if(!(localStorage['access-token']&&localStorage['fecshop-uuid'])){
                     this.$router.push({name:'UserLogin'})
                 }else {
-                    this.$http.get("")
-                    //this.$router.push({name: 'Car', query: {uid: this.uid}});
+                    this.$http.get(`/customer/car/addcar?shop_id=${this.shopDetail.shop_id}&customer_id=${localStorage['fecshop-uuid']}&product_id=${this.shopDetail._id}&num=1`,{
+                    }).then(res=>{
+                        if(res.data.status==1) {
+                            this.$router.push({name: 'Car', query: {uid: this.uid}});
+                        }
+                    })
                 }
             },
             get(){

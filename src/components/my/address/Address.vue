@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="mwq-model" v-for="item in addressList">
-      <div class="mwq-adressText" @click="setDefault(item)">
+      <div class="mwq-adressText" @click="chooseAddress(item)">
         <div class="mwq-info">
           <div class="mwq-name">{{item['first_name']+item['last_name']}}</div>
           <div class="mwq-phoneNumber">{{item['telephone']}}</div>
@@ -12,10 +12,9 @@
         <div class="mwq-left">
           <div :class="['mwq-icon',item['is_default']==1?'hot':'']" @click="setDefault(item)">
           </div>
-          <div class="mwq-defaultAdress">默认地址</div>
+          <div class="mwq-defaultAdress" @click="setDefault(item)">默认地址</div>
         </div>
         <div class="mwq-right">
-
           <img src="../static/img/delete.png" alt="" class="mwq-img1" @click="removeAdddress(item.address_id)">
           <router-link :to="{name:'EditAddress',query:{aid:item['address_id']}}">
             <img src="../static/img/xiugai.png" alt="" class="mwq-img2">
@@ -78,10 +77,10 @@
       getAddress() {
         this.$http({
           method: 'get',
-          url: '/customer/address/index',
+          url: '/customer/addr/addrlist?customer_id='+localStorage["fecshop-uuid"],
           headers: getheaders
         }).then(res => {
-          this.addressList = res.data.data.addressList;
+            this.addressList = res.data.info;
         })
       },
       removeAdddress(address_id) {
@@ -96,6 +95,10 @@
             this.addressList = this.addressList.filter(element => element.address_id != address_id);
           }
         })
+      },
+      chooseAddress(item){
+          this.$router.back();
+          sessionStorage.aid=item.address_id;
       }
     },
     mounted() {
