@@ -10,7 +10,7 @@
                   <img src="../static/img/img.png" alt="">
                   <b>+86</b>
 
-                  <el-form-item label="" prop="email">
+                  <el-form-item label="" prop="telphone">
                       <el-input v-model="ruleForm2.telphone" placeholder="请填写手机号码" auto-complete="true"></el-input>
                   </el-form-item>
 
@@ -38,7 +38,7 @@
 
               <li class="four">
                   <div class="icon"></div>
-                  <el-form-item label="" prop="pass">
+                  <el-form-item label="" prop="repassword">
                       <el-input type="password" v-model="ruleForm2.repassword" auto-complete="off" placeholder="重复输入您的密码"></el-input>
                   </el-form-item>
                   <!--<input type="password" placeholder="重复输入您的密码" v-model="ruleForm2.password">-->
@@ -149,7 +149,8 @@
                         //this.$router.push({name:'Index'});
                         this.$message({
                             message: '注册成功',
-                            type: 'success'
+                            type: 'success',
+                            duration:700
                         });
                         this.$router.push({name:'UserLogin'});
                     }
@@ -157,7 +158,9 @@
                         this.$message({
                             showClose: true,
                             message: '注册失败，请重新注册',
-                            type: 'error'
+                            type: 'error',
+                            duration:700
+
                         });
                         this.$router.push({name:'Sign'});
                     }
@@ -189,7 +192,7 @@
 </script>
 <style>
     @import url('../static/css/signIn.css');
-    .el-input{
+    .el-input__inner{
         background: none;
     }
 </style>
