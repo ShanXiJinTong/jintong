@@ -39,7 +39,7 @@
                     class="myScroll"
             >
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
-                    <router-link :to="{name:'XhDetail',query:{uid:item._id}}" >
+                    <router-link :to="{name:'XhDetail',query:{uid:item._id,sname:item.shop.shop_name}}" >
                         <li class="sk-bag-photo">
                             <img :src="item.image" alt="">
                         </li>

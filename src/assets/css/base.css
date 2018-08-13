@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html,body{
+    height:100%;
+    width: 100%;
+    background: #EBEBEB;
+}
+#box{
+	height:100%;
+    width: 100%;
+}
+#dialog .section .text{
+    height: auto !important;
+    margin-top: 1rem;
+}
+#dialog .section .text img{
+    border-radius: 50%;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+#dialog .section .text span{
+    padding: 0.4rem 1.5rem;
+    line-height: 1.5rem !important;
+}
