@@ -15,7 +15,7 @@
             <ul class="styleFather">
                 <li class="styleList" v-for="(item,index) in history" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
             </ul>
-            <div class="box">
+            <div class="box boxs">
                 <div class="one"></div>
                 <span class="blue">大家&nbsp;</span>
                 <span>都在搜</span>
