@@ -3,7 +3,7 @@
         <header class="tab">
             <form class="wsq-searchBox">
                 <img src="../static/img/sousuo.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999"/>
-                <input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容">
+                <input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容" >
             </form>
         </header>
         <div v-if="flag" class="posBox">
@@ -26,7 +26,6 @@
         </div>
         <div v-else>
             <template v-if="products.length">
-
                 <scroller :on-infinite="infinite">
                     <ul class="bag-item" v-for="item in products">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}" tag="li" class="sk-bag-photo">
@@ -62,10 +61,11 @@
 
                     </ul>
                 </scroller>
-
             </template>
             <template v-else>
-                <div class="boxms"><img src="../static/img/icon2.png" alt=""></div>
+                <div class="boxms">
+                    <img src="../static/img/icon2.png" alt="">
+                </div>
                 <div class="text text1">
                     <p>很遗憾 没有为您找到合适的内容 <br> 换个关键词试试吧</p>
                 </div>

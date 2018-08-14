@@ -23,7 +23,6 @@
                         <p @click="showCity(city.city_name)">{{city.city_name}}</p>
                     </div>
                 </li>
-
             </ul>
             <ul class="right">
                 <li class="hot" v-for="item in getLetter" @click="returnTop(item)">{{item}}</li>
@@ -32,17 +31,16 @@
     </div>
 </template>
 <script>
-
-
     export default {
         name: 'SelectCity',
         data() {
             return {
                 city: [],
                 letter: [],
-                searchName: ""
+                searchName: "",
             }
         },
+        components: {},
         methods: {
             getData() {
                 this.$http.get("/general/base/syscityall").then(res => {
@@ -65,10 +63,8 @@
                 else {
                     alert("输入有误");
                 }
-
             }
         },
-        components: {},
         mounted: function () {
             this.getData();
         },
@@ -94,7 +90,6 @@
                 return arr;
             }
         }
-
     }
 </script>
 <style scoped>

@@ -22,10 +22,7 @@
         <!--header结束-->
         <!--section开始-->
         <div class="conIScroll">
-            <scroller
-                    :on-infinite="infinite"
-                    :on-refresh="contentRefresh"
-            >
+            <scroller :on-infinite="infinite" :on-refresh="contentRefresh">
                 <div class="yjyBox">
                     <div class="yjySec" v-for="item in list">
                         <router-link :to="{name:'XhDetail',query:{uid:item._id}}" class="yjyPic">
@@ -113,7 +110,7 @@
                     res.data.data.products.forEach(elemlent => {
                         this.list.push(elemlent.one, elemlent.two);
                     });
-                    done();
+                    done();//done()表示这次异步加载数据完成，加载下一次
                 })
             },
             contentRefresh(done) {

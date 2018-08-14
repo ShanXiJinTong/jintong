@@ -56,8 +56,6 @@
   </div>
 </template>
 <script>
-
-
     export default {
         name: 'Sign',
         data() {
@@ -175,7 +173,7 @@
                 url:'/customer/register/account'
             }).then(res=>{
                 localStorage.setItem("fecshop-uuid",res.headers['fecshop-uuid']);
-            })
+            });
 
             this.$http({
                 method: 'post',

@@ -22,7 +22,6 @@
                 <div class="dot"><div class="dots"></div></div>
                 <input type="text" placeholder="重复输入您所在的片区">
             </li>
-
             <li class="bigbox">提 交</li>
             <li class="txt">
                 <div class="round"><div class="small"></div></div>

@@ -1,13 +1,10 @@
 <template>
-
   <div id="UserLogin">
-
           <ul id="ul">
               <li class="login" @click="changeOk()">
                   <p :class="{hot:isOk}">快捷登录</p><p :class="{hot:!isOk}">账号登录</p>
                   <div class="blue"></div>
               </li>
-
               <div class="dis" :class="{block:isOk}">
                   <li class="one">
                       <img src="../static/img/img.png" alt="">
@@ -21,10 +18,8 @@
                   </li>
                   <li class="bigbox">
                       <button @click="check()">快速登录</button>
-
                   </li>
               </div>
-
               <div class="dis" :class="{block:!isOk}">
                   <li class="one">
                       <div class="dot"></div>
@@ -40,10 +35,7 @@
                   <li class="bigbox">
                       <button @click="handleSubmit()">登录</button>
                   </li>
-
-
               </div>
-
               <li class="txt">
                   <div class="round"></div>
                   <router-link :to="{name:'Sign'}">注册即视为同意接受晋彤电商发送的商业性信息</router-link>
@@ -56,7 +48,6 @@
     export default {
         name: 'UserLogin',
         data() {
-
             return {
                 isOk:1,
                 dis:false,
