@@ -39,7 +39,7 @@
                     class="myScroll"
             >
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
-                    <router-link :to="{name:'XhDetail',query:{uid:item._id}}" >
+                    <router-link :to="{name:'XhDetail',query:{uid:item._id,sname:item.shop.shop_name}}" >
                         <li class="sk-bag-photo">
                             <img :src="item.image" alt="">
                         </li>
@@ -67,8 +67,8 @@
                             </ul>
                         </div>
                         <div class="sk-service-operator">
-                            <img :src="'http://img.chengzhanghao.com:81/'+item.shop.shop_logo" alt="">
-                            <span>{{item.shop.shop_name}}</span>
+                            <img :src="'http://img.chengzhanghao.com:81/images/'+item.shop.shop_logo" alt="">
+                            <span style="line-height: 0.2rem">{{item.shop.shop_name}}</span>
                         </div>
                     </li>
                     </router-link>

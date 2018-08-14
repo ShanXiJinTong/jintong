@@ -20,7 +20,10 @@
             <div class="wsq-line">
                 <div class="wsq-lineL">
                     <div class="wsq-dot"></div>
-                    <div class="wsq-text"><span><b>热门</b></span><span><b>推荐</b></span></div>
+                    <div class="wsq-text" style="letter-spacing: 0.01rem;">
+                        <span><b>热门</b></span>
+                        <span><b>推荐</b></span>
+                    </div>
                 </div>
                 <div class="wsq-lineR">
                     <a href="">

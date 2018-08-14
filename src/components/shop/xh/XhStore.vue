@@ -34,7 +34,7 @@
                         <div class="LZJ-times">9:00-12:00</div>
                     </div>
                     <div class="LZJ-dates">最近可约 16:00</div>
-                    <div class="LZJ-advice">咨询</div>
+                    <div class="LZJ-advice" @click="chat($route.query.id)">咨询</div>
                 </div>
             </div>
         </div>
@@ -54,7 +54,8 @@
                 <ul class="bag-item" v-for="item in list">
                     <li class="sk-bag-photo">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
-                            <img :src="item.image.main.image" alt="">
+                            <img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image.main.image" alt="">
+
                         </router-link>
                     </li>
                     <li class="sk-bag-content">
@@ -181,6 +182,8 @@
     </div>
 </template>
 <script>
+    import $ from "jquery";
+    import "jquery.cookie";
     export default {
         name: 'XhStore',
         data() {
@@ -221,6 +224,14 @@
             handleCommentsTypeChange(type){
                 this.commentsHot=type;
                 this.getComments();
+            },
+            chat(friId) {
+                var friId = 4;
+                this.$http.get(`http://localhost:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res =>{
+                    if(res.data == "ok"){
+                        this.$router.push({name:"Dialog",query:{fid:friId,p:this.shop.shop_name}});
+                    }
+                })
             }
         },
         mounted: function () {

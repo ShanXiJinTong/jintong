@@ -17,7 +17,8 @@
             <div class="cyx-left">
               <div class="cyx-choose" :class="['cyx-choose',item.active?'hot':'']"></div>
               <div class="cyx-picture">
-                <img class="cyx-product" :src="item.product.image.main.image" alt="">
+                <img class="cyx-product" :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image" alt="">
+
               </div>
               <div class="cyx-desc">
                 <span class="cyx-name">{{item.product.name.name_en}}</span>
@@ -32,7 +33,6 @@
                    @click="addNumber(item)">
             </div>
           </li>
-
         </ul>
       </div>
       <!--底部-->
@@ -95,9 +95,9 @@
            headers:getheaders,
            url:'/customer/car/carlist?customer_id='+localStorage['fecshop-uuid'],
         }).then(res => {
-            console.log(res);
           let data = res.data.car;
-          if (data.length>0) {
+            console.log(res.data);
+            if (data.length>0) {
               this.carInfo=data;
           } else {
             this.carInfo = false;
