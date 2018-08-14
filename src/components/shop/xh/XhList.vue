@@ -67,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="sk-service-operator">
-                            <img :src="'http://img.chengzhanghao.com:81/'+item.shop.shop_logo" alt="">
+                            <img :src="'http://img.chengzhanghao.com:81/images/'+item.shop.shop_logo" alt="">
                             <span>{{item.shop.shop_name}}</span>
                         </div>
                     </li>

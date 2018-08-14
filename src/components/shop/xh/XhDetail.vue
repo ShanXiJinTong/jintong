@@ -4,7 +4,7 @@
         <swiper :options="swiperOption" ref="mySwiper" class="photo" v-if="shopDetail">
             <!-- slides -->
             <swiper-slide v-for="(item,index) in imgs" v-bind:key="index">
-                <img :src="'http://img.chengzhanghao.com:81/'+item.image" alt="">
+                <img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image" alt="">
             </swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
@@ -121,7 +121,7 @@
                 <a @click="handleClick">
                     <div class="rr1">加入购物车</div>
                 </a>
-                <router-link :to="{name:'WaitServicePay'}" tag="a">
+                <router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id}}" tag="a">
                     <div class="rr2">立即下单</div>
                 </router-link>
             </div>
@@ -131,6 +131,7 @@
 <script>
     import $ from "jquery";
     import "jquery.cookie";
+
     export default {
         name: 'XhDetail',
         data() {
@@ -159,14 +160,18 @@
             getData() {
                 this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
                     this.shopDetail = res.data.data.product;
-                    console.log(this.shopDetail);
                 })
             },
             handleClick() {
-                if (!(localStorage.access - token && localStorage.fecshop - uuid)) {
-                    this.$router.push({name: 'WxLogin'})
+                if (!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+                    this.$router.push({name: 'UserLogin'})
+                } else {
+                    this.$http.get(`/customer/car/addcar?shop_id=${this.shopDetail.shop_id}&customer_id=${localStorage['fecshop-uuid']}&product_id=${this.shopDetail._id}&num=1`, {}).then(res => {
+                        if (res.data.status == 1) {
+                            this.$router.push({name: 'Car', query: {uid: this.uid}});
+                        }
+                    })
                 }
-                this.$router.push({name: 'Car'});
             },
             get() {
                 if (this.display === 1) {
@@ -177,9 +182,9 @@
             },
             chat(friId) {
                 var friId = 4;
-                this.$http.get(`http://localhost:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res =>{
-                    if(res.data == "ok"){
-                        this.$router.push({name:"Dialog",query:{fid:friId,p:this.$route.query.sname}});
+                this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
+                    if (res.data == "ok") {
+                        this.$router.push({name: "Dialog", query: {fid: friId, p: this.$route.query.sname}});
                     }
                 })
             }

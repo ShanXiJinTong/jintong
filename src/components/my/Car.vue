@@ -8,20 +8,21 @@
           <li class="cyx-top">
             <div class="cyx-left">
               <div :class="['cyx-choose',item.active?'hot':'']" @click="toggleSelect(item)"></div>
-              <span class="cyx-title">宅快修</span>
+              <span class="cyx-title">{{item.shop_name}}</span>
               <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
             </div>
             <img class="cyx-delete" src="./static/img/cyx-gouwuche/delete.png" alt="">
           </li>
           <li class="cyx-shop">
             <div class="cyx-left">
-              <div class="cyx-choose"></div>
+              <div class="cyx-choose" :class="['cyx-choose',item.active?'hot':'']"></div>
               <div class="cyx-picture">
-                <img class="cyx-product" :src="item['img_url']" alt="">
+                <img class="cyx-product" :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image" alt="">
+
               </div>
               <div class="cyx-desc">
-                <span class="cyx-name">{{item.name}}</span>
-                <span class="cyx-price">¥{{item['product_price']}}</span>
+                <span class="cyx-name">{{item.product.name.name_en}}</span>
+                <span class="cyx-price">¥{{item.product.special_price}}</span>
               </div>
             </div>
             <div class="cyx-right">
@@ -32,7 +33,6 @@
                    @click="addNumber(item)">
             </div>
           </li>
-
         </ul>
       </div>
       <!--底部-->
@@ -93,12 +93,12 @@
         this.$http({
            method:'get',
            headers:getheaders,
-           url:'/checkout/cart/index'
+           url:'/customer/car/carlist?customer_id='+localStorage['fecshop-uuid'],
         }).then(res => {
-          let data = res.data.data['cart_info'];
-          if (data) {
-            let data = res.data.data['cart_info'].products;
-            this.carInfo = res.data.data['cart_info'].products;
+          let data = res.data.car;
+            console.log(res.data);
+            if (data.length>0) {
+              this.carInfo=data;
           } else {
             this.carInfo = false;
           }
@@ -126,19 +126,19 @@
              })
            }).then(res=>{
              console.log(res);
+
            })
       },
       addNumber(item) {
-        let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
-        ++items.qty;
+        item.qty++;
         this.updateInfo(item['item_id'],'add_one');
       },
       subNumber(item) {
-        let items = this.carInfo.filter(element => element['product_id'] === item['product_id'])[0];
-        if(items.qty === 1){
-          return ;
+          item.qty--;
+          if(item.qty === 0){
+          let index=this.carInfo.indexOf(item);
+          this.carInfo.splice(index,1);
         }
-        items.qty--;
         this.updateInfo(item['item_id'],'less_one');
       },
       toggleSelect(item){
@@ -153,10 +153,9 @@
         this.totalMoney = 0;
         let  arr = this.carInfo.filter(element=>element.active === 1);
         this.carInfo.filter(element=>element.active === 1).forEach(element => {
-          this.totalMoney += element.qty * element['product_price'];
+          this.totalMoney += element.qty * element.product.price;
         });
         this.totalMoney = this.totalMoney.toFixed(2);
-
       },
       selectAll(){
          this.carInfo.forEach(element=>{
@@ -166,6 +165,7 @@
     },
     mounted: function () {
       this.getData();
+      this.calcTotalMoney();
     },
     components: {
       Scroll

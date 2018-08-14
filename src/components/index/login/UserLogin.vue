@@ -87,14 +87,16 @@
                   this.$router.push({name:'Index'});
                     this.$message({
                         message: '登录成功',
-                        type: 'success'
+                        type: 'success',
+                        duration:700
                     });
                }
                else{
                     this.$message({
                         showClose: true,
                         message: '登录失败，请重新登录',
-                        type: 'error'
+                        type: 'error',
+                        duration:700
                     });
                 }
             })
@@ -114,20 +116,22 @@
 //                        localStorage['access-token'] = res.headers['access-token'];
 //                        localStorage['fecshop-uuid'] = res.headers['fecshop-uuid'];
                         localStorage['access-token'] = 123123123;
-                        localStorage['fecshop-uuid'] = 123123123;
+                        localStorage['fecshop-uuid'] = res.data.id;
                         document.cookie="userName="+res.data.firstname;
                         document.cookie="userId="+res.data.id;
                         this.$router.push({name:'Index'});
                         this.$message({
                             message: '登录成功',
-                            type: 'success'
+                            type: 'success',
+                            duration:700
                         });
                     }
                     else{
                         this.$message({
                             showClose: true,
                             message: '登录失败，请重新登录',
-                            type: 'error'
+                            type: 'error',
+                            duration:700
                         });
                     }
                 })

@@ -31,7 +31,7 @@
                 p: "",
                 offset:0,
                 fid:this.$route.query.fid,
-                socket:io("http://localhost:1701"),
+                socket:io("http://www.chengzhanghao.com:1701"),
                 socketId:""
             }
         },
@@ -42,7 +42,7 @@
                 var fid = this.$route.query.fid;
                 var oldHeight = this.$refs.box.offsetHeight;
                 $.ajax({
-                    url:"http://localhost:1701/getChatInfo/"+userId+"/"+fid+"/"+this.offset,
+                    url:"http://www.chengzhanghao.com:1701/getChatInfo/"+userId+"/"+fid+"/"+this.offset,
                     dataType:"json",
                     success:(data)=>{
 
@@ -142,7 +142,7 @@
             var userId = myobj.userId;
             var fid = this.$route.query.fid;
             $.ajax({
-                url:"http://localhost:1701/getChatInfo/"+userId+"/"+fid+"/"+this.offset,
+                url:"http://www.chengzhanghao.com:1701/getChatInfo/"+userId+"/"+fid+"/"+this.offset,
                 dataType:"json",
                 success(data){
 

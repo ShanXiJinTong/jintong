@@ -54,7 +54,8 @@
                 <ul class="bag-item" v-for="item in list">
                     <li class="sk-bag-photo">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
-                            <img :src="item.image.main.image" alt="">
+                            <img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image.main.image" alt="">
+
                         </router-link>
                     </li>
                     <li class="sk-bag-content">

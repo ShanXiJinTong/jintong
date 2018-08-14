@@ -39,8 +39,9 @@
                         <ul>
                             <li v-for="item in list">
                                 <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
+                                <!--<router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">-->
                                     <img :src="item.image" height="94" width="90"/>
-                                </router-link>
+                                <!--</router-link>-->
                                 <div class="wsq-sore">5.0</div>
                                 <div class="wsq-name">{{item.name}}</div>
                                 <div class="right"><span>{{item.price.value}}</span></div>
@@ -59,8 +60,9 @@
                                     <h5>非常专业</h5>
                                     <h5>价格合理</h5>
                                 </div>
-                            </li>
+                                </router-link>
 
+                            </li>
                         </ul>
                     </scroller>
                 </div>
