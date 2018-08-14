@@ -181,12 +181,17 @@
                 }
             },
             chat(friId) {
-                var friId = 4;
-                this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
-                    if (res.data == "ok") {
-                        this.$router.push({name: "Dialog", query: {fid: friId, p: this.$route.query.sname}});
-                    }
-                })
+                if($.cookie("userId")){
+                    var friId = 4;
+                    this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
+                        if (res.data == "ok") {
+                            this.$router.push({name: "Dialog", query: {fid: friId, p: this.$route.query.sname}});
+                        }
+                    })
+                }else{
+                    this.$router.push("/UserLogin");
+                }
+                
             }
         },
         mounted: function () {

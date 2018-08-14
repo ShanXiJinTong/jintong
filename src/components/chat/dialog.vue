@@ -38,7 +38,7 @@
         methods: {
             refresh (done) { //这是向下滑动的时候请求最新的数据
                 this.offset = this.offset+1;
-                var userId = JSON.parse($.cookie("user")).userId;
+                var userId = JSON.parse($.cookie("userId"));
                 var fid = this.$route.query.fid;
                 var oldHeight = this.$refs.box.offsetHeight;
                 $.ajax({
