@@ -1,6 +1,7 @@
 <template>
 	<div id="index">
-		<section class="search">
+        <div class="sousuos">
+		 <section class="search">
 			<router-link :to="{name:'SelectCity'}">
 				<div>
 					<span>{{city}}</span>
@@ -12,6 +13,7 @@
 				<img src="../common/static/img/sousuo.png" alt="">
 			</router-link>
 		</section>
+        </div>
 		<section class="lunbo">
 			<swiper :options="swiperOption" ref="mySwiper">
 				<!-- slides -->

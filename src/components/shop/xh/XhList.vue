@@ -3,7 +3,7 @@
         <!--nav开始-->
         <nav>
             <div class="main">
-                <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;">
+                <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
                     <swiper-slide v-for="item,key in typedata" :key="key">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
@@ -15,7 +15,7 @@
         <!--cate开始-->
         <div class="cate">
             <div class="main">
-                <div class="cateBox"@click="handleorder('all')">
+                <div class="cateBox" @click="handleorder('all')">
                     <p>综合</p>
                     <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='all'"></i>
                 </div>
