@@ -1,7 +1,8 @@
 const state ={
     carAddress:{},
     car:[],
-    carList:[]
+    carList:[],
+	imghost:"http://img.uekuek.com/"
 };
 
 

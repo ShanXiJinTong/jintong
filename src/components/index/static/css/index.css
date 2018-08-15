@@ -25,12 +25,15 @@
 }
 .search div{
   width: 1.25rem;
+  display: flex;
+  align-items: center;
 }
 .search span {
+  width: 0.8rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 0.28rem;
+  font-size: 0.2rem;
   color: #36a8fe;
   height: 0.6rem;
   line-height: 0.6rem;
