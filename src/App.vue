@@ -15,6 +15,8 @@
 <style>
   #app{
     font-size: 14px;
+    padding-top: 0.3rem;
+    overflow: hidden;
   }
   a{
     text-decoration: none;
