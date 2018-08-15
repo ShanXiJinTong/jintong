@@ -1,17 +1,19 @@
 <template>
   <div id="index">
-    <section class="search">
-        <router-link :to="{name:'SelectCity'}">
-            <div>
-                <span>{{city}}</span>
-                <i class="el-icon-arrow-down"></i>
-            </div>
-        </router-link>
-        <router-link :to="{name:'Search'}" class="input">
-        <input type="text" disabled placeholder="搜索您需要的服务商品">
-        <img src="../common/static/img/sousuo.png" alt="">
-      </router-link>
-    </section>
+<div class="sousuos">
+          <section class="search">
+              <router-link :to="{name:'SelectCity'}">
+                  <div>
+                      <span>{{city}}</span>
+                      <i class="el-icon-arrow-down"></i>
+                  </div>
+              </router-link>
+              <router-link :to="{name:'Search'}" class="input">
+                  <input type="text" disabled placeholder="搜索您需要的服务商品">
+                  <img src="../common/static/img/sousuo.png" alt="">
+              </router-link>
+          </section>
+</div>
     <section class="lunbo">
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
