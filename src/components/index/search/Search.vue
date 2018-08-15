@@ -15,14 +15,14 @@
             <ul class="styleFather">
                 <li class="styleList" v-for="(item,index) in history" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
             </ul>
-            <div class="box boxs">
+            <!--<div class="box boxs">
                 <div class="one"></div>
                 <span class="blue">大家&nbsp;</span>
                 <span>都在搜</span>
             </div>
             <ul class="styleFather">
                 <li class="styleList" v-for="(item,index) in MoutPeople" v-bind:key="index" @click="sendkey(item)">{{item}}</li>
-            </ul>
+            </ul>-->
         </div>
         <div v-else>
             <template v-if="products.length">

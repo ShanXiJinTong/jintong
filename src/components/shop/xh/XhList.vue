@@ -115,6 +115,7 @@
                         sortColumn: sort,
                     }
                 }).then(res => {
+                	console.log(res.data.data);
                     res.data.data.products.forEach(ele=>{
                         this.list.push(ele);
                     });

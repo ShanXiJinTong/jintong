@@ -11,7 +11,7 @@
             <div class="min">
                 <div class="icon"></div>
                 <p>当前定位城市</p>
-                <a href="">太原</a>
+                <a href="">{{address}}</a>
             </div>
         </div>
         <div class="list">
@@ -38,6 +38,7 @@
                 city: [],
                 letter: [],
                 searchName: "",
+                address:localStorage.city1
             }
         },
         components: {},
@@ -66,6 +67,7 @@
             }
         },
         mounted: function () {
+
             this.getData();
         },
         computed: {
