@@ -28,15 +28,15 @@
             <template v-if="products.length">
                 <scroller :on-infinite="infinite">
                     <ul class="bag-item" v-for="item in products">
-                        <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}" tag="li" class="sk-bag-photo">
-                            <img v-lazy="item.image" alt="">
+                        <router-link :to="{name:'XhDetail',query:{'uid':item._id.$oid,sname:item.shop?item.shop.shop_name:''}}" tag="li" class="sk-bag-photo">
+                            <img :src="$store.state.imghost+'media/catalog/product/'+item.image.main.image" alt="">
                         </router-link>
                         <li class="sk-bag-content">
                             <div class="sk-service-type">
-                                <h3>{{item.name}}</h3>
+                                <h3>{{item.name.name_zh}}</h3>
                             </div>
                             <div class="sk-service-desc">
-                                <p>服饰内外污渍清洗，去霉杀菌，不包含补色补伤</p>
+                                <p>{{item.description}}</p>
                             </div>
                             <div class="sk-estimate_sale_price">
                                 <ul class="sk-estimate sk-item">
@@ -50,12 +50,12 @@
                                     <li class="number">278</li>
                                 </ul>
                                 <ul class="sk-price">
-                                    <li>{{item.price.value}}元/件</li>
+                                    <li>{{item.price}}元/件</li>
                                 </ul>
                             </div>
                             <div class="sk-service-operator">
                                 <img src="../static/img/bds.png" alt="">
-                                <span>包大师</span>
+                                <span>{{item.shop?item.shop.shop_name:""}}</span>
                             </div>
                         </li>
 
@@ -95,12 +95,7 @@
                 if (key === '') {
                     return;
                 }
-                this.$http.get("/catalogsearch/index/index", {
-                    params: {
-                        q: key,
-                        filterAttrs: {},
-                        price: "",
-                    },
+                this.$http.get("/catalogsearch/index/index?q="+key, {
                     headers: {
                         'access-token': 'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
                         'fecshop-currency': 'EUR',
@@ -108,10 +103,8 @@
                         'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
-                    let count = Number(res.data.data.searchCount);
-                    res.data.data.products.forEach(v=>{
-                        this.products.push(v.one,v.two);
-                    });
+                    this.products = res.data;
+                    console.log(this.products);
                     this.history.push(key);
                     this.flag = false;
                     let arr = this.history;
