@@ -2,7 +2,10 @@
   <div id="index">
     <section class="search">
         <router-link :to="{name:'SelectCity'}">
-        <span>{{city}}</span>
+            <div>
+                <span>{{city}}</span>
+                <i class="el-icon-arrow-down"></i>
+            </div>
         </router-link>
         <router-link :to="{name:'Search'}" class="input">
         <input type="text" disabled placeholder="搜索您需要的服务商品">

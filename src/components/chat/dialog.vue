@@ -215,12 +215,12 @@
         color: #fff;
     }
     .section {
-        /*margin-bottom: 0.01rem;*/
         background: #efeff4;
         min-height: 5.41rem;
         overflow: hidden;
         zoom: 1;
         padding-bottom:0.6rem;
+        padding-top: 1.2rem;
     }
     .zuo {
         line-height: 2.5rem;
