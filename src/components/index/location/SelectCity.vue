@@ -11,22 +11,22 @@
             <div class="min">
                 <div class="icon"></div>
                 <p>当前定位城市</p>
-                <a href="">{{address}}</a>
+                <a href="javascript:">{{address}}</a>
             </div>
         </div>
         <div class="list">
-            <ul class="left">
+            <ul class="left" style="width: 100%;">
                 <li v-for="item in getLetter">
-                    <div class="title" :id="item">{{item}}</div>
+                    <!--<div class="title" :id="item">{{item}}</div>-->
                     <div class="hot" v-for="city in getCity[item]">
                         <div class="dian"></div>
-                        <p @click="showCity(city.city_name)">{{city.city_name}}</p>
+                        <p @click="showCity(city.city_name)" style="margin-left: 0.2rem;">{{city.city_name}}</p>
                     </div>
                 </li>
             </ul>
-            <ul class="right">
-                <li class="hot" v-for="item in getLetter" @click="returnTop(item)">{{item}}</li>
-            </ul>
+            <!--<ul class="right">-->
+                <!--<li class="hot" v-for="item in getLetter" @click="returnTop(item)">{{item}}</li>-->
+            <!--</ul>-->
         </div>
     </div>
 </template>

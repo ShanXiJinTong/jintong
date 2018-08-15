@@ -17,7 +17,11 @@ module.exports = {
       }
     },
     // Various Dev Server settings
+<<<<<<< HEAD
     host: 'www.chengzhanghao.com', // can be overwritten by process.env.HOST
+=======
+    host: '', // can be overwritten by process.env.HOST
+>>>>>>> 4d6b9503dcc4f81e6eec18f3689360be86ab59ca
     port: 6001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

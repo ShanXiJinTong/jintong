@@ -15,8 +15,13 @@
 <style>
   #app{
     font-size: 14px;
-    padding-top: 0.3rem;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    max-width: 7.5rem;
+    margin:0 auto;
+    position: relative;
+  }
+  .swiper-slide{
+    justify-content: center;
   }
   a{
     text-decoration: none;

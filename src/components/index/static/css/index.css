@@ -1,27 +1,29 @@
 .sousuos{
+  margin:0 auto;
+  width: 100%;
+  max-width: 7.5rem;
   height: 1rem;
-  display: flex;
-  align-items: center;
   box-shadow: 0 0.03rem 0.43rem 0 rgba(41,167,255,0.13);
-  position: fixed;
-  top:0rem;
+  position: absolute;
+  top:0;
   left:0;
   z-index: 99999;
 }
 .search {
   width: 100%;
-  height: 0.78rem;
+  height: 1rem;
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
   /*background-color: #f8fcff;*/
   /*align-items: center;*/
-  padding: 0.07rem 0.24rem 0;
+  padding-left:0.24rem;
+  padding-right:0.24rem;
   /*position: fixed;*/
   /*left: 0;*/
   /*top:0;*/
   /*z-index: 99999;*/
-
+  align-items: center;
 }
 .search div{
   width: 1.25rem;
@@ -82,13 +84,16 @@ input::-webkit-input-placeholder {
   line-height: 0.6rem;
   font-size: 0.24rem;
 }
+#index{
+  padding-top:1rem;
+}
 
 .lunbo {
   width: 100%;
   height: 3.07rem;
   position: relative;
   overflow: hidden;
-  margin-top: 0.78rem;
+  /*margin-top: 0.78rem;*/
 }
 
 .lunbo .swiper-container {
