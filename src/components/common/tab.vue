@@ -36,11 +36,13 @@
   @import url('./static/css/Teight.css');
   footer {
     width: 100%;
+    max-width: 7.5rem;
+    margin:0 auto;
     height: 1rem;
     background: #f8fcff;
     position: fixed;
     bottom: 0;
-    left: 0;
+    /*left: 0;*/
     padding: 0.13rem 0.24rem 0.08rem;
     /*padding: 0 0.24rem;*/
     box-sizing: border-box;
