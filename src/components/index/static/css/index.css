@@ -14,10 +14,10 @@
   z-index: 99999;
 
 }
-
+.search div{
+  width: 1.25rem;
+}
 .search span {
-  display: block;
-  width:1.2rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -25,7 +25,9 @@
   color: #36a8fe;
   height: 0.6rem;
   line-height: 0.6rem;
-
+}
+.search div:hover i{
+  transform: rotate(180deg);
 }
 
 .search i {
