@@ -15,7 +15,7 @@
 <style>
   #app{
     font-size: 14px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     max-width: 7.5rem;
     margin:0 auto;
     position: relative;
