@@ -20,6 +20,9 @@
     margin:0 auto;
     position: relative;
   }
+  .swiper-slide{
+    justify-content: center;
+  }
   a{
     text-decoration: none;
   }

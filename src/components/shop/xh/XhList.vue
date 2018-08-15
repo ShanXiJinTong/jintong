@@ -4,7 +4,7 @@
         <nav>
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
-                    <swiper-slide v-for="item,key in typedata" :key="key" style="w">
+                    <swiper-slide v-for="item,key in typedata" :key="key" style="width:auto;">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
                     </swiper-slide>
