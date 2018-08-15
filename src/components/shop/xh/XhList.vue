@@ -4,7 +4,7 @@
         <nav>
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
-                    <swiper-slide v-for="item,key in typedata" :key="key">
+                    <swiper-slide v-for="item,key in typedata" :key="key" style="w">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
                     </swiper-slide>
@@ -63,7 +63,7 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.special_price}}元/件</li>
+                                <li v-if="item.price">{{item.price }}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -115,7 +115,7 @@
                         sortColumn: sort,
                     }
                 }).then(res => {
-                	console.log(res.data.data);
+                    console.log(res.data.data.filter_category);
                     res.data.data.products.forEach(ele=>{
                         this.list.push(ele);
                     });
@@ -126,7 +126,10 @@
                             break;
                         }
                     }
-                    this.totalPage = res.data.data.page_count;
+                    this.list = this.list.filter(function (val) {
+                        return val.shop;
+                    });
+                    // this.totalPage = res.data.data.page_count;
                     callback && callback();
                 })
             },

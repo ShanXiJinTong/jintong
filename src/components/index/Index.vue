@@ -28,8 +28,7 @@
             <ul class="class">
                 <li v-for="(item,index) in menu" :key="item.id">
                     <router-link :to="{name:'XhList',query:{categoryId:item.id}}">
-                        <div class="img"
-                             :style="'background-image: url('+$store.state.imghost+'media/catalog/'+item.img+');'"></div>
+                        <div class="img"></div>
                         <p>{{item.name}}</p>
                     </router-link>
                 </li>
@@ -58,7 +57,6 @@
         methods: {
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
-                    console.log(res.data);
                     for(var i in res.data ){
                         var arr = {
                             name:res.data[i].name,
