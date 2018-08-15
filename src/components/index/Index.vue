@@ -27,10 +27,10 @@
             </section>
             <ul class="class">
                 <li v-for="(item,index) in menu" :key="item.id">
-                    <router-link :to="{name:'XhList',query:{categoryId:item._id.$oid}}">
+                    <router-link :to="{name:'XhList',query:{categoryId:item.id}}">
                         <div class="img"
                              :style="'background-image: url('+$store.state.imghost+'media/catalog/'+item.img+');'"></div>
-                        <p>{{item.name.name_zh}}</p>
+                        <p>{{item.name}}</p>
                     </router-link>
                 </li>
                 <li></li>
@@ -58,8 +58,14 @@
         methods: {
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
-                    this.menu = res.data
-
+                    console.log(res.data);
+                    for(var i in res.data ){
+                        var arr = {
+                            name:res.data[i].name,
+                            id:i
+                        }
+                        this.menu.push(arr);
+                    }
                 })
             },
         },
