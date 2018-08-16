@@ -37,13 +37,20 @@ header .title span{
     color: #41b2fc;
     line-height: 0.88rem;
 }
+.centers{
+    width: 100%;
+    height: 2.61rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .gerengxingxi{
     width: 6.14rem;
     height: 1.85rem;
     background:#ffffff;
     box-shadow: 0 0.15rem 0.43rem 0.1rem rgba(244,247,248,1);
     border-radius: 0.1rem;
-    margin: 0.38rem auto;
+    /*margin: 0.38rem auto;*/
     display: flex;
     align-items: center;
 }
