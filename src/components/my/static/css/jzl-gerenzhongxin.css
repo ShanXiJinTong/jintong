@@ -167,8 +167,7 @@ header .title span{
 }
 .bottom{
     width: 6.14rem;
-    margin: 0 auto;
-    margin-top: 0.3rem;
+    margin: 0.3rem auto 1rem;
 }
 .bottom .wai .ne{
     display: flex;
