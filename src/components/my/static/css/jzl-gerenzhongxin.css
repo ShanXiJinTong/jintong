@@ -78,6 +78,7 @@ header .title span{
     color: #000000;
     opacity: 0.4;
     margin-right: 0.2rem;
+    line-height: .34rem;
 }
 .gerengxingxi .zi .nei{
     display: flex;
@@ -93,7 +94,6 @@ header .title span{
     justify-content: space-between;
     align-items: center;
     margin-left: 1.6rem;
-    height: 0.8rem;
 }
 .gerengxingxi a p{
     font-size: 0.2rem;
@@ -118,7 +118,7 @@ header .title span{
     width: 33.3%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 .xingxi .yh .shuzi{
     height: 100%;
@@ -128,10 +128,11 @@ header .title span{
     justify-content: center;
 }
 .xingxi .yh .shuzi span{
+    text-align: center;
     padding: 0.05rem 0.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;;
+    /*justify-content: center;*/
+    /*align-items: center;*/
     background: -webkit-linear-gradient(left, #30a3fe , #6fd5fe);     /* 背景色渐变 */
     -webkit-background-clip: text;         /* 规定背景的划分区域 */
     -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
@@ -156,7 +157,6 @@ header .title span{
     font-size: 0.24rem;
     color: rgb(142,147,151);
     text-align: center;
-
 }
 .bottom{
     width: 6.14rem;
@@ -205,7 +205,6 @@ footer{
     background: #f8fcff;
     position: fixed;
     bottom: 0;
-    left: 0;
     padding: 0.13rem 0.24rem 0.08rem;
     /*padding: 0 0.24rem;*/
     box-sizing: border-box;
