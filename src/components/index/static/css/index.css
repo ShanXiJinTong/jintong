@@ -4,9 +4,9 @@
   max-width: 7.5rem;
   height: 1rem;
   box-shadow: 0 0.03rem 0.43rem 0 rgba(41,167,255,0.13);
-  position: absolute;
+  position: fixed;
   top:0;
-  left:0;
+  background: white;
   z-index: 99999;
 }
 .search {
@@ -15,14 +15,8 @@
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
-  /*background-color: #f8fcff;*/
-  /*align-items: center;*/
   padding-left:0.24rem;
   padding-right:0.24rem;
-  /*position: fixed;*/
-  /*left: 0;*/
-  /*top:0;*/
-  /*z-index: 99999;*/
   align-items: center;
 }
 .search div{
@@ -40,9 +34,7 @@
   height: 0.6rem;
   line-height: 0.6rem;
 }
-.search div:hover i{
-  transform: rotate(180deg);
-}
+
 
 .search i {
   height: 0.6rem;
@@ -55,7 +47,9 @@
   width: 5.93rem;
   height: 0.6rem;
   position: relative;
+  line-height: normal;
 }
+
 
 .search img {
   width: 0.38rem;
