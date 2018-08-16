@@ -220,11 +220,10 @@ li.cyx-shop > .cyx-right{
 
 footer.cyx-footer{
     width: 100%;
+    max-width: 7.5rem;
     background-color:#f8fcff;
     height: 2.32rem;
     position: fixed;
-    left: 0;
-    background-color:#f8fcff;
     bottom: 0;
 }
 .cyx-contain{
@@ -250,7 +249,7 @@ footer.cyx-footer{
 }
 
 .cyx-top > .cyx-choose.hot{
-    background-position: -.16rem 0;
+    background-position: -0.06rem 0;
 }
 
 .cyx-top > .cyx-title{
