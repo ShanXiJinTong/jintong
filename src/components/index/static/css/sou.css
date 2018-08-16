@@ -1,11 +1,13 @@
 .tab{
     width: 100%;
+    height:1rem;
     background-color: #fbfeff;
     box-shadow: 0 0.03rem 0.43rem  0  rgba(41,167,255,0.13);
     padding-top: 0.2rem;
     position: fixed;
-    left: 0;
     top:0;
+    display: flex;
+    align-items: center;
     z-index: 9999;
 }
 .wsq-searchBox{
@@ -38,7 +40,7 @@
     outline: none;
     line-height: 0.6rem;
     color: #36a8fe;
-    font-size: 0.12rem;
+    font-size: 0.26rem;
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
