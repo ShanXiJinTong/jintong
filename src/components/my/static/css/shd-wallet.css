@@ -39,9 +39,8 @@ header .shdText {
 
 .shdpriceList {
   width: 100%;
-  height: 3.24rem;
-  margin-top: 0.31rem;
-  padding: 0 0.24rem;
+  height: 3.65rem;
+  padding: 0.4rem 0.24rem 0;
   box-sizing: border-box;
   border-bottom: 0.02rem solid rgba(0, 0, 0, 0.04);
 }
@@ -74,6 +73,7 @@ header .shdText {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height:0.5rem;
 }
 
 .shdpriceList .price .priceBottom {
@@ -82,6 +82,7 @@ header .shdText {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 0.5rem;
 }
 
 .shdpriceList .price.select .priceTop .text1 {
@@ -102,23 +103,25 @@ header .shdText {
 
 .shdpriceList .price .priceTop .text1 {
   font-size: 0.4rem;
-  line-height: 0.4rem;
+  /*line-height: 0.4rem;*/
   color: rgb(59, 172, 254);
 }
 
 .shdpriceList .price .priceTop .text2 {
   font-size: 0.3rem;
+  line-height: 0.5rem;
   color: rgba(59, 172, 254, 0.5);
 }
 
 .shdpriceList .price .priceBottom .text3 {
   font-size: 0.2rem;
+  line-height: 0.5rem;
   color: rgb(59, 172, 254);
 }
 
 .shdpriceList .price .priceBottom .text4 {
   font-size: 0.28rem;
-  line-height: 0.4rem;
+  line-height: 0.5rem;
   color: rgb(59, 172, 254);
 }
 
@@ -155,7 +158,8 @@ header .shdText {
   line-height: 0.76rem;
   padding-left: 0.24rem;
   outline: none;
-  color: rgb(59, 172, 254)
+  color: rgb(59, 172, 254);
+  font-size: 0.26rem;
 }
 
 ::-webkit-input-placeholder {
