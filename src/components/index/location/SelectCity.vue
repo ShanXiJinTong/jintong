@@ -1,12 +1,5 @@
 <template>
     <div id="SelectCity">
-        <section class="search">
-            <div class="input">
-                <input type="text" placeholder="搜索您需要的服务 商品" v-model="searchName">
-                <img src="../static/img/search.png" alt="" @click="searchCity(searchName)">
-            </div>
-        </section>
-        <!--<Searchbox placeholder="请输入您搜索的城市" url="Search"></Searchbox>-->
         <div class="current">
             <div class="min">
                 <div class="icon"></div>
