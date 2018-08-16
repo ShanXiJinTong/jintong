@@ -82,6 +82,7 @@ header .kong{
 }
 .moneyContent .moneyText{
     font-size: .3rem;
+    line-height: .4rem;
     color: #666;
     width: 1.96rem;
     display: flex;

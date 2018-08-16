@@ -4,7 +4,7 @@
         <nav>
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
-                    <swiper-slide v-for="item,key in typedata" :key="key" style="width:auto;">
+                    <swiper-slide v-for="item,key in typedata" :key="key" style="">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
                     </swiper-slide>
@@ -40,8 +40,8 @@
             >
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
                     <router-link :to="{name:'XhDetail',query:{uid:item._id,sname:item.shop.shop_name}}" >
-                        <li class="sk-bag-photo">
-                            <img :src="item.image" alt="">
+                        <li class="sk-bag-photo" :style="'background: url('+item.image+') no-repeat center /100% auto'">
+                            <!--<img :src="item.image" alt="">-->
                         </li>
                         <li class="sk-bag-content">
                         <div class="sk-service-type">
