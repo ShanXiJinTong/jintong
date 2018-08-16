@@ -23,9 +23,9 @@
 .wsq-searchBox > img{
     position: absolute;
     right: 0.44rem;
-    top: 0.12rem;
-    width: 0.38rem;
-    height: 0.38rem;
+    top: 0;
+    width: 0.6rem;
+    height: 0.6rem;
 }
 
 .wsq-searchBox>input{
@@ -35,6 +35,7 @@
     height: 0.6rem;
     background: rgba(235,247,255,0.58);
     padding-left: 0.28rem;
+    padding-right:0.6rem;
     box-sizing: border-box;
     outline: none;
     /*line-height: 0.6rem;*/
