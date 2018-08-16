@@ -17,13 +17,13 @@ html, body {
 
 nav {
   width: 100%;
+  max-width: 7.5rem;
   height: 0.97rem;
-  padding-left:0.24rem;
   background-color: #f8fcff;
   box-shadow: 0 0.2rem 0.43rem rgba(59, 172, 254, 0.1);
   margin: 0 auto;
   position: fixed;
-  left: 0;
+  /*left: 0;*/
   top: 0;
   z-index: 111;
 }
@@ -35,6 +35,9 @@ nav .main {
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
+  padding-left:0.24rem;
+  padding-right:0.24rem;
+  box-sizing: border-box;
 }
 .swiper-slide{
   display: flex;
@@ -62,12 +65,12 @@ nav .main p.hot {
 
 .cate {
   width: 100%;
+  max-width: 7.5rem;
   height: 0.9rem;
-  padding: 0 0.24rem;
   margin: 0 auto;
   line-height: 0.9rem;
   position: fixed;
-  left: 0;
+  /*left: 0;*/
   top: 0.97rem;
   background: #f8fcff;
   z-index: 1111;
@@ -80,6 +83,8 @@ nav .main p.hot {
   display: flex;
   justify-content: space-around;
   background: #f8fcff;
+  padding: 0 0.24rem;
+  box-sizing: border-box;
 }
 
 .cate .main .cateBox {
@@ -117,9 +122,9 @@ nav .main p.hot {
 
 .bag-item {
   width: 100%;
-  padding: 0.16rem 0.24rem;
+  padding: 0.26rem 0.24rem;
   box-sizing: border-box;
-  height:2.28rem;
+  overflow: hidden;
 }
 
 .bag-item .sk-bag-photo {
@@ -140,14 +145,14 @@ nav .main p.hot {
 }
 
 .bag-item .sk-bag-content {
-  margin-top: 0.1rem;
+  /*margin-top: 0.1rem;*/
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   float:left;
   width:4.8rem;
-
+height: 1.97rem;
 }
 
 .bag-item .sk-bag-content .sk-service-type h3 {
@@ -156,16 +161,16 @@ nav .main p.hot {
   font-weight: normal;
   width: 100%;
   overflow: hidden;
-  height: 0.32rem;
+  height: 0.35rem;
+  line-height: 0.35rem;
 }
 
 .bag-item .sk-bag-content .sk-service-desc {
-  margin-top: 0.1rem;
   width: 100%;
-  height: 0.42rem;
-  padding-bottom: 0.1rem;
+  height: 0.62rem;
   border-bottom: 0.01rem solid #efefef;
   box-sizing: border-box;
+  line-height: 0.62rem;
 }
 
 .bag-item .sk-bag-content .sk-service-desc p {
@@ -184,7 +189,8 @@ nav .main p.hot {
   justify-content: space-between;
   align-items: flex-start;
   font-size: 0.18rem;
-  margin-top: 0.1rem;
+  height:0.5rem;
+  line-height: 0.5rem;
 }
 
 .bag-item .sk-estimate_sale_price .sk-item {
@@ -227,7 +233,7 @@ nav .main p.hot {
 }
 
 .bag-item .sk-service-operator {
-  margin-top: 0.1rem;
+  height: 0.5rem;
   display: flex;
   align-items:center;
 }
