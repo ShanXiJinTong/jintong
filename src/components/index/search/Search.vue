@@ -34,12 +34,12 @@
                                 <ul class="sk-estimate sk-item">
                                     <li class="dot"></li>
                                     <li class="text">好评</li>
-                                    <li class="number">90<span>%</span></li>
+                                    <li class="number">{{item.praise}}<span>%</span></li>
                                 </ul>
                                 <ul class="sk-sale sk-item">
                                     <li class="dot"></li>
                                     <li class="text">月售</li>
-                                    <li class="number">278</li>
+                                    <li class="number">{{item.volume?item.volume:0}}</li>
                                 </ul>
                                 <ul class="sk-price">
                                     <li>{{item.price}}元/件</li>
@@ -71,23 +71,24 @@
         data() {
             return {
                 flag: true,
-                page: 1,
+                page: 0,
                 totalPage: 3,
                 searchkey: '',
                 products: [],
                 history: [],
-                MoutPeople: ['水管', '龙头', '弹跳面板', '龙头', '水管', '龙头', '龙头',]
+                MoutPeople: ['水管', '龙头', '弹跳面板', '龙头', '水管', '龙头', '龙头',],
+                n:0
             }
         },
         methods: {
             sendkey(key) {
                 this.searchkey=key;
-                this.$router.push({name:'Search'});
                 // 在这里进行ajax请求
                 if (key === '') {
                     return;
                 }
-                this.$http.get("/catalogsearch/index/index?q="+key, {
+                this.page = 0;
+                this.$http.get("/catalogsearch/index/index?q="+key+"&page=0", {
                     headers: {
                         'access-token': 'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
                         'fecshop-currency': 'EUR',
@@ -96,7 +97,6 @@
                     }
                 }).then(res => {
                     this.products = res.data;
-                    console.log(this.products);
                     this.history.push(key);
                     this.flag = false;
                     let arr = this.history;
@@ -113,27 +113,32 @@
                 })
             },
             infinite(done) {
+            	if(this.n == 0){
+            		this.n = 1;
+            		if(this.products.length<10){
+            			done(true);
+            		}else{
+            			done();            			
+            		}
+            		return;
+            	}
                 this.page += 1;
-                if (this.page > this.totalPage) {
-                    this.page -= 1;
-                    done(true);
-                    return;
-                }
-
-                /*this.$http.get('/catalog/category/product', {
-                    params: {
-                        p: this.page,
-                        categoryId: this.cid,
-                        sortColumn: ""
+                this.$http.get("/catalogsearch/index/index?q="+this.searchkey+"&page="+this.page, {
+                    headers: {
+                        'access-token': 'dSJJmn9s_4wvJ6X4PW1gsI4ARw9xmOYZ',
+                        'fecshop-currency': 'EUR',
+                        'fecshop-lang': 'zh',
+                        'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
-                    res.data.data.products.forEach(elemlent => {
-                        this.list.push(elemlent.one, elemlent.two);
-                    });
-                    done();
-                })*/
-               setTimeout(done,500)
-                // done();
+                    this.products = this.products.concat(res.data);
+                    if(res.data.length<10 ||res.data.length==0){
+                		done(true);
+                	}else{
+                   	 	done();                		
+                	}
+                })
+				
             },
         },
         mounted() {
