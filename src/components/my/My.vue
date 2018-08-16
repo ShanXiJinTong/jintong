@@ -22,25 +22,19 @@
   <div class="xingxi">
     <div class="yh">
       <router-link :to="{name:'Wallet'}" class="shuzi">
-          <span>
-             260
-          </span>
+          <span>260</span>
         <p>余额</p>
       </router-link>
     </div>
     <div class="yh">
       <router-link :to="{name:'Discount'}" class="shuzi">
-         <span>
-               06
-            </span>
+         <span>06</span>
         <p>优惠劵</p>
       </router-link>
     </div>
     <div class="yh">
       <router-link :to="{name:'Gold'}" class="shuzi">
-          <span>
-              489
-            </span>
+          <span>489</span>
         <p>金币</p>
       </router-link>
     </div>

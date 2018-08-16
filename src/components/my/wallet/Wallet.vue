@@ -5,9 +5,7 @@
     <div class="moneyGroup">
       <div class="moneyContent">
         <div class="nxrYuan"></div>
-        <div class="moneyText">余额
-          <span class="moneyShu">602</span>
-          元
+        <div class="moneyText">余额<span class="moneyShu">602</span>元
         </div>
         <div class="nxrYuan"></div>
       </div>
