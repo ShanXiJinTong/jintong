@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div v-if="carInfo">
       <!--内容-->
       <div class="cyx-container">
@@ -16,8 +15,8 @@
           <li class="cyx-shop">
             <div class="cyx-left">
               <div class="cyx-choose" :class="['cyx-choose',item.active?'hot':'']"></div>
-              <div class="cyx-picture">
-                <img class="cyx-product" :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image" alt="">
+              <div class="cyx-picture" :style="'background:url(http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image+') no-repeat center center/100% auto'">
+                <!--<img class="cyx-product" :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image" alt="">-->
 
               </div>
               <div class="cyx-desc">

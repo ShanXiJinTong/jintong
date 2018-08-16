@@ -169,32 +169,33 @@ li.cyx-shop > .cyx-left{
 }
 .cyx-left > .cyx-desc{
     flex: 1;
-    /*width: auto;*/
-    height: .76rem;
+    width: 2.5rem;
+    height:1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-left: .24rem;
 }
 
 .cyx-desc > .cyx-name{
-    height: .28rem;
+    display: block;
+    height: .5rem;
     font-size: .3rem;
     font-weight: bold;
-    line-height: .28rem;
+    line-height: .5rem;
     letter-spacing: .01rem;
     color: rgba(0, 0, 0, .6);
     overflow: hidden;
     text-overflow: ellipsis;
-    /*white-space: nowrap;*/
+    white-space: nowrap;
 }
-
 .cyx-desc > .cyx-price{
-    width: .51rem;
-    height: .18rem;
+    display: block;
+    /*width: .51rem;*/
+    height: .5rem;
     font-size: .26rem;
     font-weight: bold;
-    line-height: .18rem;
+    line-height: .5rem;
     color: rgba(142, 147, 151, .8);
 }
 
