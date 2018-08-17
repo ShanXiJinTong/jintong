@@ -48,10 +48,11 @@
                         <div class="money">
                             <div class="tkyuan">
                             </div>
-                            <h3>{{item.conditions
+                            <h3>{{item.discount
 }}元</h3>
                         </div>
-                        <div class="tktext">订单满{{item.discount}}元可用</div>
+                        <div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
+                        <div class="tktext" v-else>无条件</div>
                         <h5>有效期至{{item.gqsj}}</h5>
                     </div>
                     <div class="get" style="background: #ccc;" v-if="item.flag">已领取</div>
