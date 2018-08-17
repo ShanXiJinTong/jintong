@@ -71,6 +71,7 @@
   border: solid 0.03rem rgba(55, 169, 254, 0.1);
   float: right;
   line-height: 0.6rem;
+  outline: none;
 }
 
 input::-webkit-input-placeholder {
