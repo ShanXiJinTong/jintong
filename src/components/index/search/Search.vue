@@ -33,8 +33,9 @@
                             <div class="sk-estimate_sale_price">
                                 <ul class="sk-estimate sk-item">
                                     <li class="dot"></li>
-                                    <li class="text">好评</li>
-                                    <li class="number">{{item.praise}}<span>%</span></li>
+                                    <li class="text" v-if="item.praise==-1">暂无评论</li>
+                                    <li class="text" v-else>好评</li>
+                                    <li class="number" v-if="item.praise>-1">{{item.praise}}<span>%</span></li>
                                 </ul>
                                 <ul class="sk-sale sk-item">
                                     <li class="dot"></li>
@@ -122,6 +123,9 @@
             		}
             		return;
             	}
+            	if(n==2){
+            		done(true);
+            	}
                 this.page += 1;
                 this.$http.get("/catalogsearch/index/index?q="+this.searchkey+"&page="+this.page, {
                     headers: {
@@ -133,6 +137,7 @@
                 }).then(res => {
                     this.products = this.products.concat(res.data);
                     if(res.data.length<10 ||res.data.length==0){
+                    	n=2;
                 		done(true);
                 	}else{
                    	 	done();                		

@@ -4,6 +4,11 @@
         <nav>
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
+                	<swiper-slide style="">
+                        <p :class="{hot:type===''}" @click="getList({name:''},$route.query.categoryId)">
+                        	全部
+                            </p>
+                    </swiper-slide>
                     <swiper-slide v-for="item,key in typedata" :key="key" style="">
                         <p :class="{hot:type===item.name}" @click="getList(item,key)">
                             {{item.name}}</p>
@@ -53,13 +58,14 @@
                         <div class="sk-estimate_sale_price">
                             <ul class="sk-estimate sk-item">
                                 <li class="dot"></li>
-                                <li class="text">好评</li>
-                                <li class="number">90<span>%</span></li>
+                                <li class="text" v-if="item.praise==-1">暂无评论</li>
+                                    <li class="text" v-else>好评</li>
+                                    <li class="number" v-if="item.praise>-1">{{item.praise}}<span>%</span></li>
                             </ul>
                             <ul class="sk-sale sk-item">
                                 <li class="dot"></li>
                                 <li class="text">月售</li>
-                                <li class="number">278</li>
+                                <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
 
@@ -118,13 +124,13 @@
                     res.data.data.products.forEach(ele=>{
                         this.list.push(ele);
                     });
-                    if (this.type === "") {
-                        this.typedata = res.data.data.filter_category;
-                        for (let i in this.typedata) {
-                            this.type = this.typedata[i].name;
-                            break;
-                        }
-                    }
+                    this.typedata = res.data.data.filter_category;
+//                  if (this.type === "") {
+//                      for (let i in this.typedata) {
+//                          this.type = this.typedata[i].name;
+//                          break;
+//                      }
+//                  }
                     this.list = this.list.filter(function (val) {
                         return val.shop;
                     });
@@ -137,6 +143,7 @@
                 this.$nextTick(() => {
                     this.type = obj.name;
                 })
+                this.getData();
             },
             refresh() {
                 let _this = this;

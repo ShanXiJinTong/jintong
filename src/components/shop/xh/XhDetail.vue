@@ -48,13 +48,14 @@
                         <div class="money">
                             <div class="tkyuan">
                             </div>
-                            <h3>{{item.conditions
+                            <h3>{{item.discount
 }}元</h3>
                         </div>
-                        <div class="tktext">订单满{{item.discount}}元可用</div>
+                        <div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
+                        <div class="tktext" v-else>无条件</div>
                         <h5>有效期至{{item.gqsj}}</h5>
                     </div>
-                    <div class="get" style="background: #ccc;" v-if="item.flag">已领取</div>
+                    <div class="get" style="background: #ccc;" v-if="item.customer_id">已领取</div>
                     <div class="get" @click="getCoupon(item)" v-else>领取</div>
                 </li>
             </ul>
@@ -136,9 +137,9 @@ export default {
 	},
 	methods: {
 		getCoupon(item) {
-			this.$http.get('/catalog/product/getcoupon?coupon_code' + coupon_code).then(res => {
-				if(data == "ok") {
-					item.flag = true;
+			this.$http.get('/catalog/product/getcoupon?coupon_id=' + item.coupon_id+"&customer_id="+localStorage["fecshop-uuid"]).then(res => {
+				if(res.data == "ok") {
+					item.customer_id = true;
                     this.coupon = Object.assign({}, this.coupon)
 					this.$message({
 						type: "success",
@@ -178,10 +179,14 @@ export default {
 			}
 		},
 		get() {
-			if(this.display === 1) {
-				this.display = 0;
-			} else {
-				this.display = 1;
+			if((localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+				if(this.display === 1) {
+					this.display = 0;
+				} else {
+					this.display = 1;
+				}
+			}else{
+				this.$router.push("/UserLogin");
 			}
 		},
 		chat(friId) {
