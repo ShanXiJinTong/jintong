@@ -5,7 +5,9 @@
     list-style: none;
     outline: none;
 }
-
+body{
+    padding-bottom: 1rem;
+}
 .wsq-cateaty{
     /*margin: 0 0.25rem;*/
 }
@@ -14,6 +16,11 @@
     height: 3.54rem;
     padding: 0.3rem 0.24rem 0;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 3;
+    background: #fbffff;
     /*margin-bottom: 0.4rem;*/
 }
 .wsq-banner .wsq-title{
@@ -42,6 +49,10 @@
 .wsq-banner .wsq-title .wsq-cateaty.hot{
     color: #ffffff;
     background: rgb(59,172,254);
+
+
+
+
 }
 .wsq-banner .wsq-img{
     width: 100%;
@@ -55,7 +66,7 @@
 
 .wsq-more{
     width: 100%;
-    padding: 0.2rem 0.24rem;
+    padding: 4.7rem 0.24rem 0.2rem;
     box-sizing: border-box;
 }
 .wsq-line{
@@ -66,7 +77,13 @@
     align-items: center;
     font-size: 0.32rem;
     line-height:0.6rem;
-
+    padding: 0 0.24rem 0;
+    position: fixed;
+    top: 3.91rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 3;
 }
 .wsq-line .wsq-lineL{
     height: 100%;
@@ -106,6 +123,7 @@
     width: 100%;
     height: 8.8rem;
     overflow: hidden;
+
 }
 .wsq-wrapper .wsq-scroller{
     width: 100%;
@@ -119,7 +137,6 @@ ul{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-bottom: 1.5rem;
 }
 
 ul>li{
