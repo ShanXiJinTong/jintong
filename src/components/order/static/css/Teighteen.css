@@ -213,6 +213,7 @@
     margin-left: 0.2rem;
 }
 .xuantian input{
+    font-size: 0.22rem;
     border:none;
     background: none;
     display: block;
@@ -233,6 +234,7 @@
 }
 .root{
     width: 100%;
+    max-width: 7.5rem;
     height: 1.08rem;
     display: flex;
     padding: 0 0.24rem;
@@ -240,7 +242,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    left: 0;
+    /*left: 0;*/
     bottom: 0;
 }
 .root .rleft{

@@ -29,7 +29,7 @@
                         <div class="cyx-right">
                             <img src="./static/img/cyx-gouwuche/sub.png" alt="" class="cyx-sub"
                                  @click="subNumber(item)">
-                            <span class="cyx-number">{{item.qty}}</span>
+                            <div class="cyx-number">{{item.qty}}</div>
                             <img src="./static/img/cyx-gouwuche/add.png" alt="" class="cyx-add"
                                  @click="addNumber(item)">
                         </div>
@@ -66,7 +66,7 @@
             <div class="content">
                 <img src="./static/img/jingtong01-1.png" alt="">
                 <div class="mwq-text">购物车空空如也</div>
-                <router-link :to="{name:'Index'}" tag="div" class="mwq-circle">去逛逛</router-link>
+                <router-link :to="{ name:'Index'}" tag="div" class="mwq-circle">去逛逛</router-link>
             </div>
         </div>
     </div>
