@@ -335,7 +335,7 @@
     bottom: 0.46rem;
     right: 0.36rem;
     font-size: 0.2rem;
-    line-height: 0.43rem;
+    line-height: 0.45rem;
     text-align: center;
     color: white;
 
@@ -380,5 +380,5 @@
     color: #ffffff;
     text-align: center;
     line-height: 0.6rem;
-    margin: 0  auto ;
+    margin: 0.2rem  auto ;
 }
