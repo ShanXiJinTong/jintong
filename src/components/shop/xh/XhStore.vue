@@ -18,14 +18,13 @@
                         <div class="LZJ-already">
                             <div class="LZJ-spot"></div>
                             <div class="LZJ-poi">成交</div>
-                            <span>90</span>
-                            %
+                            <span>90%</span>
+
                         </div>
                         <div class="LZJ-already" style="margin-right: 0">
                             <div class="LZJ-spot"></div>
                             <div class="LZJ-poi">好评</div>
-                            <span>98</span>
-                            %
+                            <span>98%</span>
                         </div>
                     </div>
                     <div class="LZJ-service">
@@ -40,12 +39,10 @@
         </div>
         <!--banner-->
         <section class="wsq-banner">
-
             <div class="wsq-title">
                 <div :class="['wsq-cateaty', isOk==1?'hot':'']" @click="checkOk(1)">全部项目</div>
                 <div :class="['wsq-cateaty', isOk==2?'hot':'']" @click="checkOk(2)" style="margin: 0 0.25rem">促销项目</div>
                 <div :class="['wsq-cateaty', isOk==3?'hot':'']" @click="checkOk(3 )">用户评价</div>
-
             </div>
         </section>
         <!--更多详情分类-->
@@ -54,7 +51,8 @@
                 <ul class="bag-item" v-for="item in list">
                     <li class="sk-bag-photo">
                         <router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">
-                            <img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image.main.image" alt="">
+                            <div class="img" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+')no-repeat center center /100% auto'"></div>
+                            <!--<img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image.main.image" alt="">-->
 
                         </router-link>
                     </li>

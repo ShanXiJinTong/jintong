@@ -5,7 +5,9 @@
     list-style: none;
     outline: none;
 }
-
+body{
+    padding-bottom: 1rem;
+}
 .wsq-cateaty{
     /*margin: 0 0.25rem;*/
 }
@@ -14,6 +16,11 @@
     height: 3.54rem;
     padding: 0.3rem 0.24rem 0;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 3;
+    background: #fbffff;
     /*margin-bottom: 0.4rem;*/
 }
 .wsq-banner .wsq-title{
@@ -50,13 +57,14 @@
 }
 .wsq-banner .wsq-img img{
     width: 100%;
-    height: 100%;
+    height: 2.55rem;
 }
 
 .wsq-more{
     width: 100%;
-    padding: 0.2rem 0.24rem;
+    padding: 4.7rem 0.24rem 0.2rem;
     box-sizing: border-box;
+    position: fixed;
 }
 .wsq-line{
     width: 100%;
@@ -66,7 +74,13 @@
     align-items: center;
     font-size: 0.32rem;
     line-height:0.6rem;
-
+    padding: 0 0.24rem;
+    position: fixed;
+    top: 3.91rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 3;
 }
 .wsq-line .wsq-lineL{
     height: 100%;
@@ -84,7 +98,6 @@
     font-size: 0.22rem;
     color: rgb(59,172,254);
 }
-
 .wsq-line .wsq-dot{
     width: 0.1rem;
     height: 0.05rem;
@@ -104,8 +117,9 @@
 }
 .wsq-wrapper{
     width: 100%;
-    height: 9rem;
+    height: 8.8rem;
     overflow: hidden;
+    padding-bottom: 1.3rem;
 }
 .wsq-wrapper .wsq-scroller{
     width: 100%;
@@ -120,7 +134,6 @@ ul{
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 ul>li{
     width: 3.25rem ;
     height: 3.86rem;
@@ -223,33 +236,15 @@ ul>li .wsq-desc h5{
     background: rgba(59,171,255,0.1);
     border-radius: 0.17rem;
     margin-right: 0.09rem;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 footer{
     width: 100%;
+    max-width: 7.5rem;
     height: 1rem;
     background: #f8fcff;
     position: fixed;
     bottom: 0;
-    left: 0;
+    /*left: 0;*/
     padding: 0.13rem 0.24rem 0.08rem;
     /*padding: 0 0.24rem;*/
     box-sizing: border-box;
