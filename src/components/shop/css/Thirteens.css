@@ -26,8 +26,14 @@ a{
 }
 .LZJ-singleDetail{
     width: 100%;
+    max-width: 7.5rem;
     height: 3.07rem;
     display: flex;
+    position: fixed;
+    /*left:0;*/
+    top:0;
+    z-index: 999;
+    background: #fbffff;
 }
 .LZJ-singleDetail>.LZJ-main{
     width: 100%;
@@ -51,29 +57,30 @@ a{
 .LZJ-singleDetail .LZJ-main .LZJ-infos{
     width: 4.98rem;
     height: 100%;
-    padding-top: 0.08rem;
+    /*padding-top: 0.08rem;*/
     box-sizing: border-box;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-title{
     width: 100%;
-    height: 0.28rem;
+    height: 0.5rem;
     text-align: left;
-    line-height: 0.28rem;
+    line-height: 0.5rem;
     font-size: 0.3rem;
     font-weight: bold;
     color: rgba(0,0,0,0.6);
-    margin-bottom: 0.19rem;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-bargain{
     width: 4.9rem;
-    height: 0.22rem;
+    height: 0.44rem;
+    line-height: 0.44rem;
     font-size: 0.22rem;
     color: rgba(0,0,0,0.3);
-    margin-bottom: 0.22rem;
+    /*margin-bottom: 0.22rem;*/
     display: flex;
+    justify-content: space-around;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-bargain .LZJ-already{
-    width: auto;
+    /*width: auto;*/
     height: 100%;
     margin-right: 0.56rem;
     display: flex;
@@ -91,26 +98,28 @@ a{
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-bargain .LZJ-already .LZJ-poi{
     width: auto;
-    height: 0.22rem;
+    height: 100%;
     font-size: 0.22rem;
     color: rgba(0,0,0,0.3);
-    line-height: 0.22rem;
+    line-height: 0.44rem;
     margin:0 0.12rem  0 0.08rem;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-bargain .LZJ-already span{
     width: auto;
     height: 100%;
     font-size: 0.22rem;
-    line-height: 0.22rem;
+    line-height: 0.44rem;
     color:#36a8fe;
     font-weight: bold;
     margin-right: 0.06rem;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-service{
     width: 100%;
-    height: 0.20rem;
-    margin-bottom: 0.21rem;
+    height: 0.36rem;
+    /*margin-bottom: 0.21rem;*/
+    line-height: 0.36rem;
     display: flex;
+    align-items: center;
 }
 .LZJ-singleDetail .LZJ-main .LZJ-infos .LZJ-service img{
     width: 0.21rem;
@@ -153,7 +162,7 @@ a{
     bottom: 0.46rem;
     right: 0.36rem;
     font-size: 0.2rem;
-    line-height: 0.43rem;
+    line-height: 0.45rem;
     text-align: center;
     color: white;
 }
@@ -232,10 +241,14 @@ header >p{
 }
 .wsq-banner{
     width: 100%;
+    max-width: 7.5rem;
     height: 1rem;
-    padding: 0 0.24rem;
+    padding:0 0.24rem;
     box-sizing: border-box;
-    margin-bottom: 0.2rem;
+    position: fixed;
+    top:3rem;
+    z-index: 999;
+    background: #fbffff;
 }
 .wsq-banner .wsq-title{
     width: 100%;
@@ -271,8 +284,9 @@ header >p{
 /*is*/
 .bag-scroll{
     width: 100%;
-    height: 8.55rem;
+    /*height: 8.55rem;*/
     overflow: scroll;
+    padding-top:4.07rem;
 }
 .sk-bag-scroll{
     width: 100%;
@@ -296,12 +310,11 @@ header >p{
     align-items: center;
     float:left;
 }
-.bag-item .sk-bag-photo img{
+.bag-item .sk-bag-photo .img{
     width: 1.93rem;
     height: 1.97rem;
 }
 .bag-item .sk-bag-content{
-    margin-top: 0.1rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -309,17 +322,20 @@ header >p{
     width:4.7rem;
 }
 .bag-item .sk-bag-content .sk-service-type h3{
+    width: 4.5rem;
     font-size: 0.3rem;
     color: #4f5b64;
     font-weight: normal;
-    height:0.32rem;
+    height:0.4rem;
+    line-height: 0.4rem;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .bag-item .sk-bag-content .sk-service-desc{
-    margin-top: 0.1rem;
     width: 100%;
-    height: 0.42rem;
-    padding-bottom: 0.1rem;
+    height: 0.62rem;
+    line-height: 0.62rem;
     border-bottom: 0.01rem solid #efefef;
     box-sizing: border-box;
 }
@@ -330,15 +346,15 @@ header >p{
     white-space: nowrap;
     font-size: 0.2rem;
     color: #c9cbcc;
-
 }
 .bag-item .sk-estimate_sale_price{
+    height: 0.46rem;
+    line-height: 0.46rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     font-size: 0.18rem;
-    margin-top: 0.1rem;
 }
 .bag-item .sk-estimate_sale_price .sk-item{
     display: flex;
@@ -373,7 +389,8 @@ header >p{
     font-size: 0.26rem;
 }
 .bag-item .sk-service-operator{
-    margin-top: 0.1rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
     display: flex;
     align-items: center;
 }

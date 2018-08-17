@@ -66,7 +66,6 @@
     align-items: center;
     font-size: 0.32rem;
     line-height:0.6rem;
-
 }
 .wsq-line .wsq-lineL{
     height: 100%;
@@ -84,7 +83,6 @@
     font-size: 0.22rem;
     color: rgb(59,172,254);
 }
-
 .wsq-line .wsq-dot{
     width: 0.1rem;
     height: 0.05rem;
@@ -121,7 +119,6 @@ ul{
     flex-wrap: wrap;
     padding-bottom: 1.5rem;
 }
-
 ul>li{
     width: 3.25rem ;
     height: 3.86rem;
@@ -224,33 +221,15 @@ ul>li .wsq-desc h5{
     background: rgba(59,171,255,0.1);
     border-radius: 0.17rem;
     margin-right: 0.09rem;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 footer{
     width: 100%;
+    max-width: 7.5rem;
     height: 1rem;
     background: #f8fcff;
     position: fixed;
     bottom: 0;
-    left: 0;
+    /*left: 0;*/
     padding: 0.13rem 0.24rem 0.08rem;
     /*padding: 0 0.24rem;*/
     box-sizing: border-box;
