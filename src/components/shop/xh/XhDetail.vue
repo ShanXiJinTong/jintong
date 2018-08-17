@@ -21,19 +21,19 @@
                 <div class="tr">
                     <span class="tr1"></span>
                     <span class="tr2">月售</span>
-                    <span class="tr3">278</span>
+                    <span class="tr3">{{shopDetail.volume?shopDetail.volume:0}}</span>
                 </div>
             </div>
         </div>
         <div class="line">
             <div class="line1"></div>
         </div>
-        <div class="lingjuan">
+        <div class="lingjuan" @click="get()">
 
             <img src="../img/lingjuan.png" alt="">
 
-            <div class="lingjuan2" @click="get()">领券</div>
-            <div class="lingjuan3">满500减50</div>
+            <div class="lingjuan2">领券</div>
+            <div class="lingjuan3" v-if="coupon.length>0">{{coupon[0].coupon_name}}</div>
         </div>
         <div class="tuikuan" :class="{display:display}">
             <div class="tktitle">
@@ -43,43 +43,20 @@
             </div>
 
             <ul class="tkbox">
-                <li class="tklist ">
+                <li class="tklist" v-for="item in coupon">
                     <div class="left">
                         <div class="money">
                             <div class="tkyuan">
                             </div>
-                            <h3>20元</h3>
+                            <h3>{{item.conditions
+}}元</h3>
                         </div>
-                        <div class="tktext">订单满100元可用</div>
-                        <h5>有效期至2018.9.10</h5>
+                        <div class="tktext">订单满{{item.discount}}元可用</div>
+                        <h5>有效期至{{item.gqsj}}</h5>
                     </div>
-                    <div class="get">领取</div>
+                    <div class="get" style="background: #ccc;" v-if="item.flag">已领取</div>
+                    <div class="get" @click="getCoupon(item)" v-else>领取</div>
                 </li>
-                <li class="tklist ">
-                    <div class="left">
-                        <div class="money">
-                            <div class="tkyuan">
-                            </div>
-                            <h3>20元</h3>
-                        </div>
-                        <div class="tktext">订单满100元可用</div>
-                        <h5>有效期至2018.9.10</h5>
-                    </div>
-                    <div class="get">领取</div>
-                </li>
-                <li class="tklist ">
-                    <div class="left">
-                        <div class="money">
-                            <div class="tkyuan">
-                            </div>
-                            <h3>20元</h3>
-                        </div>
-                        <div class="tktext">订单满100元可用</div>
-                        <h5>有效期至2018.9.10</h5>
-                    </div>
-                    <div class="get">领取</div>
-                </li>
-
             </ul>
             <div class="tkbutton" @click="get()">关闭</div>
         </div>
@@ -128,78 +105,107 @@
         </div>
     </div>
 </template>
-<script>
-    import $ from "jquery";
-    import "jquery.cookie";
+<script>import $ from "jquery";
+import "jquery.cookie";
 
-    export default {
-        name: 'XhDetail',
-        data() {
-            return {
-                uid: '',
-                shopDetail: {},
-                swiperOption: {
-                    pagination: {
-                        el: '.swiper-pagination',
-                    }
-                },
-                display: 0
-            }
-        },
-        computed: {
-            imgs() {
-                if (this.shopDetail.img) {
-                    this.shopDetail.img.gallery.push(this.shopDetail.img.main);
-                    return this.shopDetail.img.gallery;
-                } else {
-                    return [];
-                }
-            }
-        },
-        methods: {
-            getData() {
-                this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
-                    this.shopDetail = res.data.data.product;
-                })
-            },
-            handleClick() {
-                if (!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
-                    this.$router.push({name: 'UserLogin'})
-                } else {
-                    this.$http.get(`/customer/car/addcar?shop_id=${this.shopDetail.shop_id}&customer_id=${localStorage['fecshop-uuid']}&product_id=${this.shopDetail._id}&num=1`, {}).then(res => {
-                        if (res.data.status == 1) {
-                            this.$router.push({name: 'Car', query: {uid: this.uid}});
-                        }
-                    })
-                }
-            },
-            get() {
-                if (this.display === 1) {
-                    this.display = 0;
-                } else {
-                    this.display = 1;
-                }
-            },
-            chat(friId) {
-                if($.cookie("userId")){
-                    var friId = 4;
-                    this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
-                        if (res.data == "ok") {
-                            this.$router.push({name: "Dialog", query: {fid: friId, p: this.$route.query.sname}});
-                        }
-                    })
-                }else{
-                    this.$router.push("/UserLogin");
-                }
-                
-            }
-        },
-        mounted: function () {
-            this.uid = this.$route.query.uid;
-            this.getData();
-        }
-    }
-</script>
-<style scoped>
-    @import url("../css/Televen.css");
-</style>
+export default {
+	name: 'XhDetail',
+	data() {
+		return {
+			uid: '',
+			shopDetail: {},
+			swiperOption: {
+				pagination: {
+					el: '.swiper-pagination',
+				}
+			},
+			display: 0,
+			coupon: []
+		}
+	},
+	computed: {
+		imgs() {
+			if(this.shopDetail.img) {
+				this.shopDetail.img.gallery.push(this.shopDetail.img.main);
+				return this.shopDetail.img.gallery;
+			} else {
+				return [];
+			}
+		}
+	},
+	methods: {
+		getCoupon(item) {
+			this.$http.get('/catalog/product/getcoupon?coupon_code' + coupon_code).then(res => {
+				if(data == "ok") {
+					item.flag = true;
+                    this.coupon = Object.assign({}, this.coupon)
+					this.$message({
+						type: "success",
+						message: "领取成功"
+					});
+				} else {
+					item.flag = false;
+					this.$message({
+						type: "error",
+						message: "领取失败"
+					});
+				}
+			})
+		},
+		getData() {
+			this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
+				this.shopDetail = res.data.data.product;
+				this.coupon = res.data.data.coupon;
+			})
+		},
+		handleClick() {
+			if(!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+				this.$router.push({
+					name: 'UserLogin'
+				})
+			} else {
+				this.$http.get(`/customer/car/addcar?shop_id=${this.shopDetail.shop_id}&customer_id=${localStorage['fecshop-uuid']}&product_id=${this.shopDetail._id}&num=1`, {}).then(res => {
+					if(res.data.status == 1) {
+						this.$router.push({
+							name: 'Car',
+							query: {
+								uid: this.uid
+							}
+						});
+					}
+				})
+			}
+		},
+		get() {
+			if(this.display === 1) {
+				this.display = 0;
+			} else {
+				this.display = 1;
+			}
+		},
+		chat(friId) {
+			if($.cookie("userId")) {
+				var friId = 4;
+				this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
+					if(res.data == "ok") {
+						this.$router.push({
+							name: "Dialog",
+							query: {
+								fid: friId,
+								p: this.$route.query.sname
+							}
+						});
+					}
+				})
+			} else {
+				this.$router.push("/UserLogin");
+			}
+
+		}
+	},
+	mounted: function() {
+		this.uid = this.$route.query.uid;
+		this.getData();
+	}
+}</script>
+<style scoped>@import url("../css/Televen.css");</style>
