@@ -68,6 +68,7 @@ body{
     width: 100%;
     padding: 4.7rem 0.24rem 0.2rem;
     box-sizing: border-box;
+    position: fixed;
 }
 .wsq-line{
     width: 100%;
