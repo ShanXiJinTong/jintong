@@ -274,18 +274,16 @@
 .tuikuan{
     width: 100%;
     /*height: 10.2rem;*/
-    padding: 0.24rem 0.24rem;
+    padding: 0.1rem 0.24rem;
     box-sizing: border-box;
     background: #FFFFFF;
-    position: absolute;
+    position: fixed;
     left: 0;
     right:0;
-    /*top:0;*/
     margin: 0 auto;
     bottom:0.5rem;
-
     box-shadow:0 0 0 5rem rgba(0,0,0,0.2);
-    z-index:999;
+    z-index:99999;
     display:none;
 }
 .display{
@@ -296,10 +294,11 @@
 }
 .tuikuan .tktitle{
     width: 100%;
-    height: 0.88rem;
+    height: 0.8rem;
     font-size: 0.22rem;
     font-weight: bold;
     text-align: center;
+    line-height: 0.8rem;
 }
 .tuikuan .tktitle .tkcolor{
     color: #41B2FC;
@@ -313,8 +312,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.02rem solid #fafafa;
-    padding-bottom:0.5rem;
-    padding-top: 0.5rem;
+    padding-bottom:0.2rem;
+    padding-top: 0.2rem;
     position:relative;
 }
 .tkbox .tklist .left{
@@ -381,5 +380,5 @@
     color: #ffffff;
     text-align: center;
     line-height: 0.6rem;
-    margin: 0.7rem  auto 0.2rem;
+    margin: 0  auto ;
 }
