@@ -71,7 +71,6 @@
         <div class="kuai"></div>
         <span>帮助</span>
       </router-link>
-
     </div>
     <div class="wai">
       <router-link class="ne" :to="{name:'About'}">
@@ -93,7 +92,6 @@
 <script>
     import Tab from '../common/tab';
     import {getheaders} from "../config";
-
     export default {
         name: 'My',
         data() {
@@ -127,6 +125,4 @@
 </script>
 <style scoped>
   @import url(./static/css/jzl-gerenzhongxin.css);
-
-
 </style>
