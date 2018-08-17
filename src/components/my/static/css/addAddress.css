@@ -83,10 +83,11 @@ header .title span{
     display: block;
     margin:0 auto;
     background: rgba(231,246,255,0.5);
+    font-weight: 500;
     border-radius: 0.08rem;
     padding-left: 0.37rem;
     box-sizing: border-box;
-    font-size: 0.24rem;
+    font-size: 0.22rem;
     line-height: 1.02rem;
     color:#b9c9d2;
     margin-top: 0.19rem;
