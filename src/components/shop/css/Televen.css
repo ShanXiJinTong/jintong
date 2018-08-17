@@ -18,20 +18,23 @@
     padding: 0.23rem 0.24rem;
     overflow: hidden;
     box-sizing: border-box;
-
 }
 .one{
-    width: 100%;
-    height:0.34rem;
-    overflow:hidden;
-    margin-bottom: 0.15rem;
+    width: 95%;
+    height:0.5rem;
     font-size: 0.32rem;
     color: #4f5b64;
-    line-height: 0.3rem;
+    line-height: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .two{
     width: 100%;
-    margin-bottom: 0.4rem;
+    height: 1.1rem;
+    display: flex;
+    align-items: center;
+    /*margin-bottom: 0.4rem;*/
 }
 .two p{
     width: 100%;
@@ -145,9 +148,10 @@
 }
 .term{
     width: 100%;
-    height: 0.25rem;
+    height: 2rem;
     margin-top: 0.28rem;
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.8rem;
+    line-height: 0.5rem;
 }
 .termm{
     width: 7.5rem;
@@ -178,15 +182,16 @@
 }
 .root{
     width: 100%;
+    max-width: 7.5rem;
     height: 1.08rem;
     background: #f1faff;
     position: fixed;
-    left: 0;
     bottom: 0;
     padding: 0 0.24rem;
     box-sizing: border-box;
     display:flex;
     justify-content: space-between;
+    z-index: 999;
 }
 .root .rl{
     width: 2.32rem;
@@ -196,7 +201,7 @@
     justify-content: space-between;
 }
 .root .rl .rl1{
-    width: 0.5rem;
+    /*width: 0.5rem;*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -214,7 +219,7 @@
     height: 0.5rem;
 }
 .root .rl .rl2{
-    width: 1rem;
+    /*width: 1rem;*/
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -270,18 +275,16 @@
 .tuikuan{
     width: 100%;
     /*height: 10.2rem;*/
-    padding: 0.24rem 0.24rem;
+    padding: 0.1rem 0.24rem;
     box-sizing: border-box;
     background: #FFFFFF;
-    position: absolute;
+    position: fixed;
     left: 0;
     right:0;
-    /*top:0;*/
     margin: 0 auto;
     bottom:0.5rem;
-
     box-shadow:0 0 0 5rem rgba(0,0,0,0.2);
-    z-index:999;
+    z-index:99999;
     display:none;
 }
 .display{
@@ -292,10 +295,11 @@
 }
 .tuikuan .tktitle{
     width: 100%;
-    height: 0.88rem;
+    height: 0.8rem;
     font-size: 0.22rem;
     font-weight: bold;
     text-align: center;
+    line-height: 0.8rem;
 }
 .tuikuan .tktitle .tkcolor{
     color: #41B2FC;
@@ -309,8 +313,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.02rem solid #fafafa;
-    padding-bottom:0.5rem;
-    padding-top: 0.5rem;
+    padding-bottom:0.2rem;
+    padding-top: 0.2rem;
     position:relative;
 }
 .tkbox .tklist .left{
@@ -332,7 +336,7 @@
     bottom: 0.46rem;
     right: 0.36rem;
     font-size: 0.2rem;
-    line-height: 0.43rem;
+    line-height: 0.45rem;
     text-align: center;
     color: white;
 
@@ -377,5 +381,5 @@
     color: #ffffff;
     text-align: center;
     line-height: 0.6rem;
-    margin: 0.7rem  auto 0.2rem;
+    margin: 0.2rem  auto ;
 }

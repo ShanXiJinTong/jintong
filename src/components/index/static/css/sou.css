@@ -30,6 +30,7 @@
 }
 
 .wsq-searchBox>input{
+    -webkit-appearance: none;
     border: solid 0.03rem rgba(55,169,254,0.1);
     border-radius: 0.5rem;
     width: 100%;
