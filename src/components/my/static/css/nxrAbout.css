@@ -15,7 +15,7 @@
 .nxrAbout .nxrPic{
     width: 1.1rem;
     height: 1.45rem;
-    margin: 0 auto;
+    margin: .8rem auto 0;
     background-image: url("../img/nxr-img/nxrShuiDI.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
