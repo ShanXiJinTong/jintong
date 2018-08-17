@@ -3,13 +3,17 @@
         <div class="centers">
             <div class="gerengxingxi">
                 <router-link :to="{name:'Vip'}" style="margin-left: 0">
-                    <div class="yuan"></div>
+                    <div class="yuan" :style="'background:url('+$store.state.imghost+myInfo.headImg+')'"></div>
                     <div class="zi">
-                        <h6>{{myInfo['firstname']+myInfo['lastname']}}</h6>
+                        <h6>{{myInfo.firstname}}</h6>
                         <div class="nei">
-                            <img src="./static/img/jzl-img/huangguan1.png" alt=""
+                            <img src="./static/img/jzl-img/huangguan.png" alt=""
                                  style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
-                            <span>黄金会员</span>
+                            <span v-if="!myInfo.level">普通会员</span>
+                            <span v-if="myInfo.level==1">黄金会员</span>
+                            <span v-if="myInfo.level==2">白金会员</span>
+                            <span v-if="myInfo.level==3">钻石会员</span>
+                            
                         </div>
                     </div>
                 </router-link>
@@ -24,26 +28,26 @@
         <div class="xingxi">
             <div class="yh">
                 <router-link :to="{name:'Wallet'}" class="shuzi">
-                    <span>260</span>
+                    <span>{{myInfo.money?myInfo.money:0}}</span>
                     <p>余额</p>
                 </router-link>
             </div>
             <div class="yh">
                 <router-link :to="{name:'Discount'}" class="shuzi">
-                    <span>06</span>
+                    <span>{{myInfo.coupon?myInfo.coupon:0}}</span>
                     <p>优惠劵</p>
                 </router-link>
             </div>
             <div class="yh">
                 <router-link :to="{name:'Gold'}" class="shuzi">
-                    <span>489</span>
+                    <span>{{myInfo.coin?myInfo.coin:0}}</span>
                     <p>金币</p>
                 </router-link>
             </div>
         </div>
         <div class="bottom">
             <div class="wai">
-                <router-link :to="{name:'Wallet'}" class="ne">
+                <router-link :to="{name:'Wallet',query:{price:myInfo.money?myInfo.money:0}}" class="ne">
                     <div class="kuai"></div>
                     <span>钱包</span>
                 </router-link>
@@ -105,9 +109,10 @@
                 this.$http({
                     method: 'get',
                     headers: getheaders,
-                    url: '/customer/editaccount/index'
+                    url: '/customer/editaccount/index?uid='+localStorage['fecshop-uuid']
                 }).then(res => {
                     this.myInfo = res.data.data;
+                    this.myInfo.coupon=res.data.coupon.tot;
                 })
             }
         },
