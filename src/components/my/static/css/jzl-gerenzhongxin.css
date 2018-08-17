@@ -1,175 +1,204 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-a{
+
+a {
     text-decoration: none;
 }
-header{
+
+header {
     width: 100%;
     height: 0.88rem;
     /*background-color: #f8fcff;*/
     padding: 0 0.24rem;
     margin: 0 auto;
     box-sizing: border-box;
-    box-shadow: 0 0.3rem 0.43rem  0 rgba(41,167,255,0.1);
+    box-shadow: 0 0.3rem 0.43rem 0 rgba(41, 167, 255, 0.1);
 }
-header .title{
+
+header .title {
     width: 100%;
     height: 0.88rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-header a{
+
+header a {
     height: 100%;
     display: flex;
     align-items: center;
 }
-header .title a .iconfont{
+
+header .title a .iconfont {
     font-size: 0.4rem;
     color: #41b2fc;
     line-height: 0.88rem;
     font-weight: 900;
 }
-header .title span{
+
+header .title span {
     font-size: 0.36rem;
     color: #41b2fc;
     line-height: 0.88rem;
 }
-.centers{
+
+.centers {
     width: 100%;
     height: 2.61rem;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.gerengxingxi{
-    width: 6.14rem;
+
+.gerengxingxi {
+
     height: 1.85rem;
-    background:#ffffff;
-    box-shadow: 0 0.15rem 0.43rem 0.1rem rgba(244,247,248,1);
+    background: #ffffff;
+    box-shadow: 0 0.15rem 0.43rem 0.1rem rgba(244, 247, 248, 1);
     border-radius: 0.1rem;
     /*margin: 0.38rem auto;*/
     display: flex;
     align-items: center;
 }
-.gerengxingxi .yuan{
+
+.gerengxingxi .yuan {
     width: 1.14rem;
     height: 1.14rem;
-    box-shadow: 0 0 0.27rem  0 rgba(204,204,204,0.75);
+    box-shadow: 0 0 0.27rem 0 rgba(204, 204, 204, 0.75);
     background: url("../img/jzl-img/touxiang.png");
     background-size: cover;
     border-radius: 0.58rem;
     margin-left: 0.29rem;
 }
-.gerengxingxi .yuan img{
+
+.gerengxingxi .yuan img {
     background-size: cover;
 }
-.gerengxingxi .zi{
+
+.gerengxingxi .zi {
     width: auto;
-    height:100%;
+    height: 100%;
     margin-left: 0.26rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.gerengxingxi .zi h6{
+
+.gerengxingxi .zi h6 {
     font-size: 0.3rem;
-    color:#333;
+    color: #333;
 
 }
-.gerengxingxi .zi span{
+
+.gerengxingxi .zi span {
     font-size: 0.22rem;
     color: #000000;
     opacity: 0.4;
     margin-right: 0.2rem;
     line-height: .34rem;
 }
-.gerengxingxi .zi .nei{
+
+.gerengxingxi .zi .nei {
     display: flex;
     justify-content: space-between;
     margin-top: 0.1rem;
 }
-.gerengxingxi .zi .nei img{
+
+.gerengxingxi .zi .nei img {
     background-position: center;
     margin-top: 0.04rem;
 }
-.gerengxingxi a{
+
+.gerengxingxi a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 1.6rem;
+    margin-left: 1.4rem;
+    margin-right: .2rem;
 }
-.gerengxingxi a p{
+
+.gerengxingxi a p {
     font-size: 0.2rem;
     color: #3bacfe;
     margin-right: 0.1rem;
 }
-.gerengxingxi a .dian{
+
+.gerengxingxi a .dian {
     width: 0.05rem;
     height: 0.05rem;
-    border-radius:50%;
+    border-radius: 50%;
     background: #3bacfe;
     margin-right: 0.08rem;
 }
-.xingxi{
+
+.xingxi {
     width: 6.14rem;
     height: 1rem;
     margin: 0.6rem auto 0 auto;
     display: flex;
     justify-content: space-between;
 }
-.xingxi .yh{
+
+.xingxi .yh {
     width: 33.3%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.xingxi .yh .shuzi{
+
+.xingxi .yh .shuzi {
     height: 100%;
     width: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.xingxi .yh .shuzi span{
+
+.xingxi .yh .shuzi span {
     text-align: center;
     padding: 0.05rem 0.1rem;
     display: block;;
     /*justify-content: center;*/
     /*align-items: center;*/
-    background: -webkit-linear-gradient(left, #30a3fe , #6fd5fe);     /* 背景色渐变 */
-    -webkit-background-clip: text;         /* 规定背景的划分区域 */
-    -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
+    background: -webkit-linear-gradient(left, #30a3fe, #6fd5fe); /* 背景色渐变 */
+    -webkit-background-clip: text; /* 规定背景的划分区域 */
+    -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
     font-size: 0.46rem;
     font-weight: bold;
-    text-shadow: 0 0.04rem  0.08rem rgba(41,167,255,0.4);
+    text-shadow: 0 0.04rem 0.08rem rgba(41, 167, 255, 0.4);
 }
-.xingxi .yh:nth-child(2) .shuzi span{
-  background: -webkit-linear-gradient(left, #2dde59 , #2fd4ba);
-  -webkit-background-clip: text;         /* 规定背景的划分区域 */
-  -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
-  text-shadow: 0 0.04rem  0.08rem rgba(46,213,147,0.4);
+
+.xingxi .yh:nth-child(2) .shuzi span {
+    background: -webkit-linear-gradient(left, #2dde59, #2fd4ba);
+    -webkit-background-clip: text; /* 规定背景的划分区域 */
+    -webkit-text-fill-color: transparent; /* 防止字体颜色覆盖 */
+    text-shadow: 0 0.04rem 0.08rem rgba(46, 213, 147, 0.4);
 }
-.xingxi .yh:nth-child(3) .shuzi span{
-  background: -webkit-linear-gradient(left, #ffb83a , #ffe333);
-  -webkit-background-clip: text;         /* 规定背景的划分区域 */
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0.04rem  0.08rem rgba(255,213,53,0.4);
+
+.xingxi .yh:nth-child(3) .shuzi span {
+    background: -webkit-linear-gradient(left, #ffb83a, #ffe333);
+    -webkit-background-clip: text; /* 规定背景的划分区域 */
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0.04rem 0.08rem rgba(255, 213, 53, 0.4);
 
 }
-.xingxi .yh .shuzi p{
+
+.xingxi .yh .shuzi p {
     font-size: 0.24rem;
-    color: rgb(142,147,151);
+    color: rgb(142, 147, 151);
     text-align: center;
 }
-.bottom{
+
+.bottom {
     width: 6.14rem;
     margin: 0.3rem auto 1rem;
+    padding-bottom: 1rem;
 }
-.bottom .wai .ne{
+
+.bottom .wai .ne {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -177,26 +206,30 @@ header .title span{
     width: 100%;
     position: relative;
 }
-.bottom .wai{
+
+.bottom .wai {
     width: 6.14rem;
     height: 0.94rem;
     border-bottom: 0.02rem solid #f2f3f4;
     display: flex;
     align-items: center;
 }
-.bottom .wai .ne span{
+
+.bottom .wai .ne span {
     display: block;
     font-size: 0.28rem;
     color: #333333;
 }
-.bottom .wai .ne h6{
+
+.bottom .wai .ne h6 {
     font-size: 0.36rem;
-    color: rgb(254,98,78);
+    color: rgb(254, 98, 78);
     position: absolute;
     right: 0;
 
 }
-.bottom .kuai{
+
+.bottom .kuai {
     width: 0.18rem;
     height: 0.12rem;
     background-image: url("../img/nxr-img/nxrYuanjiao.jpg");
@@ -205,7 +238,7 @@ header .title span{
     margin-right: 0.12rem;
 }
 
-footer{
+footer {
     width: 100%;
     height: 1rem;
     background: #f8fcff;
@@ -218,7 +251,8 @@ footer{
     align-items: center;
     justify-content: space-around;
 }
-footer .sk-tabItem{
+
+footer .sk-tabItem {
     width: 0.5rem;
     height: 0.79rem;
     display: flex;
@@ -226,23 +260,27 @@ footer .sk-tabItem{
     justify-content: space-between;
     align-items: center;
 }
-footer .sk-tabItem img{
+
+footer .sk-tabItem img {
     display: block;
     height: 0.40rem;
     opacity: 0.6;
 }
-footer .sk-tabItem.hot img{
+
+footer .sk-tabItem.hot img {
     opacity: 1;
 }
-footer .sk-tabItem h3{
+
+footer .sk-tabItem h3 {
     font-size: 0.22rem;
     line-height: 0.4rem;
     font-weight: normal;
-    color: rgb(162,222,255);
+    color: rgb(162, 222, 255);
 }
-footer .sk-tabItem h3.hot{
+
+footer .sk-tabItem h3.hot {
     font-size: 0.22rem;
     line-height: 0.4rem;
     font-weight: normal;
-    color: rgb(89,195,254);
+    color: rgb(89, 195, 254);
 }

@@ -16,12 +16,12 @@
 
 .bag-item {
   width: 100%;
-  padding: 0.16rem 0.24rem;
+  padding: 0.24rem 0.24rem;
   box-sizing: border-box;
   display: flex;
 }
 .bag-item:first-child{
-  margin-top: 1.2rem;
+  padding-top: 0.5rem;
 }
 .bag-item .sk-bag-photo {
   width: 1.97rem;
@@ -35,13 +35,13 @@
   background: none;
 }
 
-.bag-item .sk-bag-photo img {
+.bag-item .sk-bag-photo .img {
   width: 1.97rem;
   height: 1.97rem;
 }
 
 .bag-item .sk-bag-content {
-  margin-top: 0.1rem;
+  /*margin-top: 0.1rem;*/
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -50,16 +50,21 @@
 }
 
 .bag-item .sk-bag-content .sk-service-type h3 {
+  width: 4rem;
+  height: 0.4rem;
   font-size: 0.3rem;
   color: #4f5b64;
   font-weight: normal;
+  line-height: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bag-item .sk-bag-content .sk-service-desc {
-  margin-top: 0.1rem;
   width: 100%;
-  height: 0.42rem;
-  padding-bottom: 0.1rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
   border-bottom: 0.01rem solid #efefef;
   box-sizing: border-box;
 }
@@ -80,7 +85,7 @@
   justify-content: space-between;
   align-items: flex-start;
   font-size: 0.18rem;
-  margin-top: 0.1rem;
+  /*margin-top: 0.1rem;*/
 }
 
 .bag-item .sk-estimate_sale_price .sk-item {
