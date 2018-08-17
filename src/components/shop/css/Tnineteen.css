@@ -131,7 +131,7 @@ ul{
 }
 ul>li{
     width: 3.25rem ;
-    height: 3.82rem;
+    /*height: 3.82rem;*/
     margin-bottom: 0.6rem;
     position: relative;
 }
@@ -150,12 +150,13 @@ ul li .wsq-sore{
     background: -webkit-linear-gradient(left,rgb(55,224,111),rgb(50,214,154));
     border-radius: 0.15rem;
     position: absolute;
-    top: 0;
+    top:0.02rem;
     right: 0;
     text-align: center;
     line-height: 0.3rem;
     font-size: 0.22rem;
     color: #ffffff;
+    box-shadow: 0 0 0.02rem 0.01rem rgb(50,214,154);
 }
 .shopinfo{
     display: flex;
@@ -230,15 +231,16 @@ ul>li .wsq-desc{
     font-weight: normal;
     display: flex;
     justify-content: space-around;
-    font-size: 0.2rem;
     color: rgb(54,168,254);
 }
-ul>li .wsq-desc h5{
-    padding:0.05rem 0.19rem;
+ul>li .wsq-desc>div{
+    padding:0 0.15rem;
+    height: 0.35rem;
+    line-height: 0.35rem;
+    font-size: 0.28rem;
     box-sizing: border-box;
     background: rgba(59,171,255,0.1);
     border-radius: 0.17rem;
-    margin-right: 0.09rem;
 }
 footer{
     width: 100%;
