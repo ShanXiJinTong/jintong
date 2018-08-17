@@ -21,7 +21,7 @@
                 <scroller :on-infinite="infinite">
                     <ul class="bag-item" v-for="item in products">
                         <router-link :to="{name:'XhDetail',query:{'uid':item._id.$oid,sname:item.shop?item.shop.shop_name:''}}" tag="li" class="sk-bag-photo">
-                            <img :src="$store.state.imghost+'media/catalog/product/'+item.image.main.image" alt="">
+                            <div class="img" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center center /100% auto'"></div>
                         </router-link>
                         <li class="sk-bag-content">
                             <div class="sk-service-type">
@@ -148,33 +148,34 @@
         }
     }
 </script>
-
 <style scoped>
     @import url(../static/css/sou.css);
     @import url(../static/css/Tten.css);
     .boxms {
         width: 4rem;
-        height: 3.4rem;
+        height: 6rem;
+        padding-top:2.6rem;
         margin: 0 auto;
-        margin-top: 2.6rem;
     }
 
     .boxms > img {
         display: block;
         margin: auto auto;
     }
-
+._v-container{
+    height: calc(100% - 1rem);
+    position: absolute;
+    top: 1rem !important;
+    left: 0;
+    overflow: hidden;
+}
     .text {
         height: auto;
-        /*width: 4rem;*/
-        margin: 0.2rem auto;
+        margin: 0.1rem auto;
         overflow: hidden;
+        line-height: 0.44rem;
 
     }
-   .text1{
-       margin-top: 1.5rem;
-       line-height: 0.44rem;
-   }
     .text > p {
 
         text-align: center;
