@@ -1,23 +1,25 @@
 <template>
 <div>
-  <div class="gerengxingxi">
-    <router-link :to="{name:'Vip'}" style="margin-left: 0">
-      <div class="yuan"></div>
-      <div class="zi">
+  <div class="centers">
+    <div class="gerengxingxi">
+      <router-link :to="{name:'Vip'}" style="margin-left: 0">
+        <div class="yuan"></div>
+        <div class="zi">
           <h6>{{myInfo['firstname']+myInfo['lastname']}}</h6>
           <div class="nei">
             <img src="./static/img/jzl-img/huangguan1.png" alt="" style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
             <span>黄金会员</span>
           </div>
-      </div>
-    </router-link>
-    <router-link :to="{name:'VipImprove'}">
+        </div>
+      </router-link>
+      <router-link :to="{name:'VipImprove'}">
 
-      <p style="font-weight: bold">去升级</p>
-      <div class="dian" style="border-radius: 50%;"></div>
-      <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;" ></div>
-      <div class="dian" style="background: #3bacfe;opacity: 0.3;border-radius: 50%;"></div>
-    </router-link>
+        <p style="font-weight: bold">去升级</p>
+        <div class="dian" style="border-radius: 50%;"></div>
+        <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;" ></div>
+        <div class="dian" style="background: #3bacfe;opacity: 0.3;border-radius: 50%;"></div>
+      </router-link>
+    </div>
   </div>
   <div class="xingxi">
     <div class="yh">
