@@ -6,9 +6,9 @@
       <div class="middle">
         <span style="font-size: 0.3rem;color: #333;font-weight:bold;" >{{myInfo['firstname']+myInfo['lastname']}}</span><br>
         <span style="font-size: 0.22rem;color: #33cc9f;font-weight: bold;">·&nbsp;</span>
-        <span style="font-size: 0.22rem;color: #666;font-weight:bold;">累计充值</span>
-        <span style="font-size: 0.24rem;color: #41b2fc;font-weight: bold">&nbsp;&nbsp;1689</span>
-        <span style="font-size: 0.24rem;color: #999;font-weight: bold">&nbsp;.&nbsp;2000</span>
+        <span style="font-size: 0.2rem;color: #666;font-weight:bold;">累计充值</span>
+        <span style="font-size: 0.16rem;color: #41b2fc;font-weight: bold">&nbsp;&nbsp;1689</span>
+        <span style="font-size: 0.16rem;color: #333;font-weight: bold;opacity: .4">&nbsp;.&nbsp;2000</span>
       </div>
       <router-link :to="{name:'VipImprove'}" class="right">
         <div class="gb-title" style="font-size: 0.2rem">
