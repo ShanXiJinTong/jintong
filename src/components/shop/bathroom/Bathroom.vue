@@ -72,10 +72,12 @@
             </div>
         </section>
         <!--热门推荐结束-->
-
+        <Tab></Tab>
     </div>
 </template>
+
 <script>
+    import Tab from '../../common/tab';
     export default {
         name: 'Bathroom',
         data() {
@@ -126,6 +128,9 @@
             this.getData();
             this.getMenu();
         },
+        components:{
+            Tab
+        }
     }
 </script>
 <style scoped>
