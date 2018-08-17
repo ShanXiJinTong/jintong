@@ -14,12 +14,14 @@
         <!--订单开始-->
         <div class="middle" id="wrapper2">
             <scroller class="scroller2" :on-infinite="infinite">
+
                 <div class="x-box" v-for="item in orderlist">
+            	<router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}">
                     <div class="x-DR">
                         <div class="x-commodity">
-                            <router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}"><img
+                            <img
                                     :src="$store.state.imghost+'images/'+item.shop_logo" alt="" id="x-c-left">
-                            </router-link>
+
                             <div class="x-c-right">
                                 <div id="x-name"><b>{{item['increment_id']}} </b></div>
                                 <ul id="x-li">
@@ -34,8 +36,7 @@
                             </div>
                         </div>
                     </div>
-
-
+                            </router-link>
                 </div>
 
             </scroller>
