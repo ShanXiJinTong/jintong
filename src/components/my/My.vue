@@ -129,5 +129,4 @@
 <style scoped>
     @import url(./static/css/jzl-gerenzhongxin.css);
 
-
 </style>

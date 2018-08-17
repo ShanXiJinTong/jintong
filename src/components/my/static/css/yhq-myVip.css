@@ -103,7 +103,6 @@ header .title span{
 }
 .person{
     width: 6.41rem;
-    height: 1.85rem;
     background: #ffffff;
     border-radius: 0.1rem;
     margin: 0.43rem auto 0;
@@ -126,7 +125,7 @@ header .title span{
 
 }
 .middle .person>.middle{
-    width: 50%;
+    width: 60%;
     height: 0.96rem;
     margin-left: 1.18rem;
     line-height: 0.48rem;
@@ -181,7 +180,7 @@ div.gb-title{
     align-items: center;
 }
 .middle .person>.bottom>.line{
-    width: 2.95rem;
+    width: 2.65rem;
     height: 0.04rem;
     border-radius: 3rem;
     background: #ddf3fe;

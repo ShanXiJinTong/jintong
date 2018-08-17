@@ -52,7 +52,6 @@
   }
 
   footer .sk-tabItem {
-    width: 0.5rem;
     height: 0.79rem;
     display: flex;
     flex-direction: column;
