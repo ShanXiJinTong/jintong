@@ -3,8 +3,8 @@
         <!--<div class="photo">-->
         <swiper :options="swiperOption" ref="mySwiper" class="photo" v-if="shopDetail">
             <!-- slides -->
-            <swiper-slide v-for="(item,index) in imgs" v-bind:key="index">
-                <img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image" alt="">
+            <swiper-slide v-for="(item,index) in imgs" v-bind:key="index" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image+')no-repeat center center /100% auto'">
+                <!--<img :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.image" alt="">-->
             </swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination" slot="pagination"></div>
@@ -105,7 +105,8 @@
         </div>
     </div>
 </template>
-<script>import $ from "jquery";
+<script>
+    import $ from "jquery";
 import "jquery.cookie";
 
 export default {

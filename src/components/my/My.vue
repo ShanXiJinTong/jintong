@@ -14,7 +14,6 @@
                     </div>
                 </router-link>
                 <router-link :to="{name:'VipImprove'}">
-
                     <p style="font-weight: bold">去升级</p>
                     <div class="dian" style="border-radius: 50%;"></div>
                     <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;"></div>
@@ -94,7 +93,6 @@
 <script>
     import Tab from '../common/tab';
     import {getheaders} from "../config";
-
     export default {
         name: 'My',
         data() {
@@ -126,7 +124,6 @@
         }
     }
 </script>
-<style scoped>
-    @import url(./static/css/jzl-gerenzhongxin.css);
+<style scoped>@import url(./static/css/jzl-gerenzhongxin.css);
 
 </style>
