@@ -50,7 +50,7 @@ li.cyx-top > .cyx-left{
 
 .cyx-left > .cyx-choose{
 
-    width: .6rem;
+    width: .5rem;
     height: .5rem;
     background-image: url("../img/cyx-gouwuche/items.png");
     background-position: -.54rem center;
@@ -210,13 +210,14 @@ li.cyx-shop > .cyx-right{
 }
 
 .cyx-right > .cyx-number{
-    width: .23rem;
-    height: .18rem;
+    width: .61rem;
+    height: 100%;
     font-size: .26rem;
     font-weight: bold;
+    text-align: center;
     line-height: .18rem;
     color: #36a8fe;
-    margin: -.05rem .19rem 0;
+
 }
 
 footer.cyx-footer{
@@ -260,7 +261,7 @@ footer.cyx-footer{
     line-height: .23rem;
     letter-spacing: 0.01rem;
     color: #3bacfe;
-    margin-top: 0.1rem;
+
 }
 
 .cyx-container > .cyx-bottom{
