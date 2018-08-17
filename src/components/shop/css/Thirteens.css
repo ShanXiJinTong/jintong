@@ -298,12 +298,14 @@ header >p{
     padding: 0.16rem 0.24rem;
     box-sizing: border-box;
     height:2.28rem;
+    display: flex;
+    justify-content: space-around;
 }
 .bag-item .sk-bag-photo{
     width: 1.93rem;
     height: 1.97rem;
     border-radius: 0.1rem;
-    margin-right: 0.29rem;
+    /*margin-right: 0.29rem;*/
     box-shadow: 0 0.01rem 0.21rem rgba(223,223,223,0.4);
     display: flex;
     justify-content: center;
