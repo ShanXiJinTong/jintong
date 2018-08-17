@@ -33,7 +33,6 @@
             <img src="../img/rightjiantou.png" height="9" width="10"/></span></router-link>
                     </a>
                 </div>
-
             </div>
             <div class="wsq-wrapper">
                 <div class="wsq-scroller">

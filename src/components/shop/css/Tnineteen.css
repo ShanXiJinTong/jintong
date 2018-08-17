@@ -64,18 +64,21 @@ body{
     width: 100%;
     padding:3.54rem 0.24rem 0.2rem;
     box-sizing: border-box;
-
 }
 .wsq-line{
-    width: 100%;
+width: calc(100% - 0.48rem);
+    max-width: calc(7.5rem - 0.48rem );
     height: 0.8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.32rem;
     line-height:0.8rem;
-    padding: 0 0.24rem;
+    position: fixed;
+    top:3.54rem;
     z-index: 3;
+    background: #fbffff;
+
 }
 .wsq-line .wsq-lineL{
     height: 100%;
@@ -114,7 +117,8 @@ body{
     width: 100%;
     height: 8.8rem;
     overflow: hidden;
-    padding-bottom: 1.3rem;
+    /*padding-bottom: 1.3rem;*/
+    padding-top:0.8rem;
 }
 .wsq-wrapper .wsq-scroller{
     width: 100%;
