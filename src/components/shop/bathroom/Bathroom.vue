@@ -64,8 +64,8 @@
                                         </div>
                                     </div>
                                     <div class="wsq-desc">
-                                        <h5>非常专业</h5>
-                                        <h5>价格合理</h5>
+                                        <div>非常专业</div>
+                                        <div>价格合理</div>
                                     </div>
                                 </router-link>
 
