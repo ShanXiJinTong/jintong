@@ -17,7 +17,6 @@
 </template>
 <script>
 
-    import searchbar from "../common/searchbar.vue";
     import $ from "jquery";
     import "jquery.cookie";
     import io from "socket";
@@ -26,7 +25,6 @@
 
     export default {
         components: {
-            searchbar
         },
         data() {
             return {
@@ -78,6 +76,7 @@
             document.cookie = "user=" + escape(JSON.stringify(obj));
             this.socket = io("http://localhost:1701");
             var myobj = obj;
+            console.log(myobj);
             this.$store.state.myId = myobj.userId;
 
             this.socket.on("connection", function (data) {

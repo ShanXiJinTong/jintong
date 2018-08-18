@@ -124,11 +124,12 @@ const RefundDetail = r => require.ensure([], () => r(require('../components/orde
 //退款退货
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
 // 退款详情 提交成功
-const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), " RefundTo");
+const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), "RefundTo");
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 //客服
 const Dialog = r => require.ensure([], () => r(require('../components/chat/dialog')), " Dialog");
+const Wechat = r => require.ensure([], () => r(require('../components/chat/wechat.vue')), "Wechat");
 
 
 Vue.use(Router)
@@ -441,6 +442,11 @@ export default new Router({
             path:'/Dialog',
             name:'Dialog',
             component:Dialog
+        },
+        {
+            path:'/Wechat',
+            name:'Wechat',
+            component:Wechat
         }
     ]
 })

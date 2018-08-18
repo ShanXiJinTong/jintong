@@ -9,7 +9,7 @@ html,body{
     margin-top: .93rem;
 }
 .chongzhiGroup .moneyContent{
-    width: 2.6rem;
+    /*width: 2.6rem;*/
 }
 .chongzhiGroup .moneyContent .nxrYuan{
     background-image: url("../img/nxr-img/nxrYuanjiao2.jpg");

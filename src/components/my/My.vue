@@ -10,14 +10,14 @@
                             <img src="./static/img/jzl-img/huangguan.png" alt=""
                                  style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
                             <span v-if="!myInfo.level">普通会员</span>
-                            <span v-if="myInfo.level==1">黄金会员</span>
-                            <span v-if="myInfo.level==2">白金会员</span>
+                            <span v-if="myInfo.level==1">白银会员</span>
+                            <span v-if="myInfo.level==2">黄金会员</span>
                             <span v-if="myInfo.level==3">钻石会员</span>
                             
                         </div>
                     </div>
                 </router-link>
-                <router-link :to="{name:'VipImprove'}">
+                <router-link :to="{name:'Recharge'}">
                     <p style="font-weight: bold">去升级</p>
                     <div class="dian" style="border-radius: 50%;"></div>
                     <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;"></div>
@@ -27,7 +27,7 @@
         </div>
         <div class="xingxi">
             <div class="yh">
-                <router-link :to="{name:'Wallet'}" class="shuzi">
+                <router-link :to="{name:'Wallet',query:{price:myInfo.money?myInfo.money:0}}" class="shuzi">
                     <span>{{myInfo.money?myInfo.money:0}}</span>
                     <p>余额</p>
                 </router-link>
@@ -39,7 +39,7 @@
                 </router-link>
             </div>
             <div class="yh">
-                <router-link :to="{name:'Gold'}" class="shuzi">
+                <router-link :to="{name:'Gold',query:{coin:myInfo.coin?myInfo.coin:0}}" class="shuzi">
                     <span>{{myInfo.coin?myInfo.coin:0}}</span>
                     <p>金币</p>
                 </router-link>
@@ -65,7 +65,7 @@
                 </router-link>
             </div>
             <div class="wai">
-                <router-link class="ne" :to="{name:'Kf'}">
+                <router-link class="ne" :to="{name:'Wechat',query:{userNum:1,userId:uid,userName:myInfo.firstname}}">
                     <div class="kuai"></div>
                     <span>客服中心</span>
                 </router-link>
@@ -102,6 +102,7 @@
         data() {
             return {
                 myInfo: {},
+                uid:localStorage['fecshop-uuid']
             }
         },
         methods: {

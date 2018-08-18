@@ -4,7 +4,7 @@
     <div class="moneyContent">
       <div class="nxrYuan"></div>
       <div class="moneyText">充值
-        <span class="moneyShu">￥30</span>
+        <span class="moneyShu">￥{{price}}</span>
         元
       </div>
       <div class="nxrYuan"></div>
@@ -26,10 +26,19 @@
 </div>
 </template>
 <script>
+	import base64 from "../static/js/base64.js"
     export default {
         name: 'SelectWay',
         data() {
-            return {}
+            return {
+            	price:0,
+            	id:""
+            }
+        },
+        created(){
+        		var base = new base64();
+        		this.price = base.decode(localStorage[base.encode("price")]);
+        		this.id = base.decode(localStorage[base.encode("mid")]);
         }
     }
 </script>
