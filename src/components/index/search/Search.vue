@@ -20,7 +20,7 @@
             <template v-if="products.length">
                 <scroller :on-infinite="infinite">
                     <!--<ul class="bag-item" v-for="item in products">-->
-                        <router-link :to="{name:'XhDetail',query:{'uid':item._id.$oid,sname:item.shop?item.shop.shop_name:''}}"  class="bag-item" v-for="item in products" tag='ul'>
+                        <router-link :key="index" :to="{name:'XhDetail',query:{'uid':item._id.$oid,sname:item.shop?item.shop.shop_name:''}}"  class="bag-item" v-for="item,index in products" tag='ul'>
                         	<li class="sk-bag-photo">
                             <div class="img" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center center /100% auto'"></div>
                         	</li>

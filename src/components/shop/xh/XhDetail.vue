@@ -35,7 +35,7 @@
 			<img src="../img/lingjuan.png" alt="">
 
 			<div class="lingjuan2">领券</div>
-			<div class="lingjuan3" v-if="coupon.length>0">{{coupon[0].coupon_name}}</div>
+			<div class="lingjuan3" v-if="couponName">{{couponName}}</div>
 		</div>
 		<div class="tuikuan" :class="{display:display}">
 			<div class="tktitle">
@@ -124,7 +124,8 @@
 					}
 				},
 				display: 0,
-				coupon: []
+				coupon: [],
+				couponName:""
 			}
 		},
 		computed: {
@@ -160,6 +161,9 @@
 				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
 					this.shopDetail = res.data.data.product;
 					this.coupon = res.data.data.coupon;
+					if(this.coupon.length>0){
+						this.couponName = this.coupon[0].coupon_name;
+					}
 				})
 			},
 			handleClick() {
@@ -207,7 +211,7 @@
 								name: "Dialog",
 								query: {
 									fid: friId,
-									p: this.$route.query.sname
+									p: this.shopDetail.shop_name
 								}
 							});
 						}
