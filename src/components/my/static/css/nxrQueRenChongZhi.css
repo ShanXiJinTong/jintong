@@ -6,7 +6,8 @@ html,body{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: .93rem;
+    padding-top: .93rem;
+    box-sizing: border-box;
 }
 .chongzhiGroup .moneyContent{
     /*width: 2.6rem;*/
