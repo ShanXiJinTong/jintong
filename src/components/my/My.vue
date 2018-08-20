@@ -90,6 +90,9 @@
                     <h6>400-789-2211</h6>
                 </a>
             </div>
+            <div class="wai" style="justify-content: center;background: #00AAEE;color: #fff;border-radius: 5px;margin-top: 0.5rem;letter-spacing: 1px;" @click="loginOut">
+                	退出登陆
+            </div>
         </div>
         <Tab></Tab>
     </div>
@@ -97,6 +100,9 @@
 <script>
     import Tab from '../common/tab';
     import {getheaders} from "../config";
+    import $ from "jquery";
+    import "jquery.cookie";
+    
     export default {
         name: 'My',
         data() {
@@ -106,6 +112,12 @@
             }
         },
         methods: {
+        	loginOut(){
+        		localStorage.clear();
+        		$.cookie("userId","",{expires: -1});
+        		$.cookie("userName","",{ expires: -1 });
+        		this.$router.push("/UserLogin");
+        	},
             getData() {
                 this.$http({
                     method: 'get',

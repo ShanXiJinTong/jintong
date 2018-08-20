@@ -84,7 +84,7 @@
     font-size: 0.22rem;
     margin:0 0.4rem ;
 }
-#Sign .two >p{
+#Sign .two .btn{
     width: 1.56rem;
     height: 0.46rem;
     background:linear-gradient(to right,rgb(55,224,111),rgb(50,214,154));
@@ -93,6 +93,16 @@
     line-height: 0.46rem;
     border-radius:0.23rem ;
     box-shadow:0 0 0.2rem 0.02rem #37df74;
+}
+#Sign .two .btn1{
+    width: 1.56rem;
+    height: 0.46rem;
+    background:#ccc;
+    font-size:0.22rem ;
+    color: #000;
+    line-height: 0.46rem;
+    border-radius:0.23rem ;
+    box-shadow:0 0 0.2rem 0.02rem #ccc;
 }
 #Sign .three{
     height: 0.71rem;
