@@ -72,8 +72,8 @@
             <a href="javascript:">
                 <div class="aright" @click="couFlag=true;coinFlag = false">
                     <span v-if="coupon.length==0">无可用优惠卷</span>
-                    <span v-else-if="coupon1.coupon_name">{{coupon1.coupon_name}}</span>
-                    <span v-else-if="!coupon1.coupon_name">点击使用优惠卷</span>
+                    <span v-if="coupon1.coupon_name">{{coupon1.coupon_name}}</span>
+                    <span v-if="!coupon1.coupon_name">点击使用优惠卷</span>
                     <img src="./static/img/xiayibu.png" alt="">
                 </div>
             </a>
@@ -205,7 +205,7 @@
                     customer_id:localStorage["fecshop-uuid"],
                     product_id:this.$route.query.gid,
                     shop_id:this.$route.query.sid,
-                    coupon_id:this.coupon1.coupon_id,
+                    coupon_id:this.coupon1.id,
                     coin:this.coin,
                     order_remark:this.form.order_remark
                 };
