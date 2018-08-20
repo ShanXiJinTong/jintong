@@ -56,7 +56,9 @@
             <span class="cyx-title">订单地址</span>
           </div>
           <div class="cyx-right">
+						{{order.customer_address_city}}
 						{{order.customer_address_street1}}
+						{{order.customer_address_street2}}
           </div>
         </li>
         <li class="cyx-lis" >
@@ -119,18 +121,19 @@
             <span class="cyx-title">折扣</span>
           </div>
           <div class="cyx-right">
-            <span class="cyx-name">{{order.discount_amount}}</span>
+            <span class="cyx-name">{{order.subtotal_with_discount}}</span>
           </div>
         </li>
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">总计</span>
+            <span class="cyx-title">实际支付</span>
           </div>
           <div class="cyx-right">
             <span class="cyx-name">{{order.grand_total}}</span>
           </div>
         </li>
+        <button v-if="order.order_status==0" @click="zf" style="padding: 0.2rem 0.3rem;">去支付</button>
       </ul>
 
   </section>
@@ -149,6 +152,9 @@
       }
     },
     methods: {
+    	zf(){
+    		this.$router.push("/ServicePay");
+    	},
       getData(order_id) {
 				
         this.$http({

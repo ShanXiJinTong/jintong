@@ -6,12 +6,17 @@ import router from './router'
 import rem from './assets/js/rem'
 import axios from 'axios'
 import store from './store/index'
+import Vodal from 'vodal';
+
+
 import qs from 'qs'
 import './assets/css/animate.css'
 import './assets/css/base.css'
 import './assets/css/common.css'
 import './assets/font/iconfont.css'
 import './assets/font/iconfont1.css'
+import "vodal/common.css";
+import "vodal/rotate.css";
 
 
 import ElementUI from 'element-ui'
@@ -27,6 +32,7 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueScroller)
 Vue.use(ElementUI)
 Vue.use(VueAwesomeSwiper)
+Vue.component(Vodal.name, Vodal);
 Vue.use(VueLazyload, {
   loading: require('./components/common/static/img/logo.png')
 })

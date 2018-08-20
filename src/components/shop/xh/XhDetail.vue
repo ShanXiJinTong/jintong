@@ -101,7 +101,7 @@
 				<a @click="handleClick">
 					<div class="rr1">加入购物车</div>
 				</a>
-				<router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id}}" tag="a">
+				<router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id,price:shopDetail.special_price}}" tag="a">
 					<div class="rr2">立即下单</div>
 				</router-link>
 			</div>

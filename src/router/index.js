@@ -109,6 +109,7 @@ const Order = r => require.ensure([], () => r(require('../components/order/Order
 const WaitService = r => require.ensure([], () => r(require('../components/order/WaitService.vue')), "WaitService");
 // 填写订单
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
+const WaitServicePay1 = r => require.ensure([], () => r(require('../components/order/WaitServicePay1.vue')), "WaitServicePay1");
 // 订单地址
 const WaitAddress = r => require.ensure([], () => r(require('../components/order/address/Address')), "WaitAddress");
 // 待服务订单追踪
@@ -447,6 +448,11 @@ export default new Router({
             path:'/Wechat',
             name:'Wechat',
             component:Wechat
+        },
+        {
+            path:'/WaitServicePay1',
+            name:'WaitServicePay1',
+            component:WaitServicePay1
         }
     ]
 })

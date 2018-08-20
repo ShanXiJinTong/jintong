@@ -19,7 +19,9 @@
                 <swiper :options="swiperOption" ref="mySwiper">
                     <!-- slides -->
                     <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
-                        <img :src="item.img" alt="">
+                    	<a :href="item.url" style="height: 100%;width: 100%;display: block;">
+                        	<img :src="item.img" alt="">                    		
+                    	</a>
                     </swiper-slide>
                     <!-- Optional controls -->
                     <div class="swiper-pagination" slot="pagination"></div>
@@ -60,7 +62,7 @@
                     for(var i in res.data ){
                         var arr = {
                             name:res.data[i].name,
-                            id:i
+                            id:res.data[i]['_id']['$oid']
                         }
                         this.menu.push(arr);
                     }
