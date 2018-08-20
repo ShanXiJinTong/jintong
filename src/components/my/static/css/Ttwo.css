@@ -28,7 +28,7 @@ header .title span{
     height: 12.06rem;
     width: 100%;
     background: #ffffff;
-    padding:0 0.24rem;
+    padding:0.4rem 0.24rem 0;
     box-sizing: border-box;
 }
 .content .mwq-model{
@@ -40,7 +40,7 @@ header .title span{
     width: 7.0rem;
     background: #e7f6ff;
     border-radius: 0.08rem;
-    margin: 0.39rem auto 0;
+    margin: 0 auto;
     padding-left: 0.36rem;
     box-sizing: border-box;
     overflow: hidden;
@@ -91,7 +91,7 @@ header .title span{
 }
 .content .mwq-model .mwq-label .mwq-left{
     height: 100%;
-    /*width: 1.32rem;*/
+    /*width: 1.7rem;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,6 +104,7 @@ header .title span{
     justify-content: center;
     align-items: center;
     background: #e7f6ff;
+    margin-right:0.2rem;
     /*box-shadow: 0 0 0.2rem  0.04rem rgba(55,223,116,0.75);*/
 }
 .content .mwq-model .mwq-label .mwq-left .mwq-icon.hot{
