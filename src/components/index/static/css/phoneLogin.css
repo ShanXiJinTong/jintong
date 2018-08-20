@@ -2,11 +2,12 @@
     width:5.5rem;
     height:auto;
     margin: 0 auto;
-    margin-top: 2.03rem ;
+    padding-top: 2.03rem ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing:border-box;
 }
 #UserLogin li{
     width: 100%;

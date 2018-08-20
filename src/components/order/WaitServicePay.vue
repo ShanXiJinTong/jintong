@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom:1.08rem;">
         <div class="dizhi">
             <router-link :to="{name:'Address'}">
                 <div class="mwq-model" v-if="carAddress">
@@ -27,12 +27,11 @@
         <div class="line">
             <div class="line1"></div>
         </div>
-
         <div v-if="goods.special_price">
             <div class="cloth">
                 <div class="cleft">
                     <a href="">
-                        <img :src="$store.state.imghost+'media/catalog/product/'+goods['image']['main']['image']" alt="">
+                        <div class="img" :style="'background:url('+$store.state.imghost+'media/catalog/product/'+goods['image']['main']['image']+') no-repeat center center /100% auto'"></div>
                     </a>
                 </div>
                 <div class="cright">
@@ -57,10 +56,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
         <div class="line">
             <div class="line1"></div>
         </div>
@@ -128,15 +124,14 @@
        		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #3BACFE;color: #fff;border-radius: 5px;" @click="coin=coin1;coinFlag=false;">使用</button>
        	</div> 	
         </div>
-        <div v-if="couFlag" style="position: fixed;bottom: 0;z-index: 9999;left: 0;width: 100%;background: #f3f3f3;">
+        <div v-if="couFlag" style="position: fixed;bottom: 0;z-index: 9999;width: 100%;max-width:7.5rem;background: #f3f3f3;padding:0 0.24rem;">
         	<ul class="tkbox">
 				<li class="tklist" v-for="item in coupon">
 					<div class="left">
 						<div class="money">
 							<div class="tkyuan">
 							</div>
-							<h3>{{item.discount
-}}元</h3>
+							<h3>{{item.discount}}元</h3>
 						</div>
 						<div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
 						<div class="tktext" v-else>无条件</div>

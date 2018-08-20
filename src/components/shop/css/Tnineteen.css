@@ -14,7 +14,7 @@ body{
 .wsq-banner{
     width: 100%;
     max-width: 7.5rem;
-    /*height: 2.8rem;*/
+    height: 3.07rem;
     box-sizing: border-box;
     position: fixed;
     top: 0;
@@ -51,7 +51,7 @@ body{
 }
 .wsq-banner .wsq-img{
     width: 100%;
-    height: 2.55rem;
+    height: 100%;
     border-radius: 0.1rem;
 }
 .wsq-banner .wsq-img img{
@@ -61,7 +61,7 @@ body{
 
 .wsq-more{
     width: 100%;
-    padding:2.8rem 0.24rem 0.2rem;
+    padding:3.07rem 0.24rem 0.2rem;
     box-sizing: border-box;
 }
 .wsq-line{
@@ -141,7 +141,7 @@ ul li a{
 }
 
 ul li a .img{
-    width:1.8rem;
+    /*width:1.8rem;*/
     height:1.88rem ;
     display: block;
     margin:0 auto 0.2rem;
@@ -162,7 +162,7 @@ ul li .wsq-sore{
 }
 .shopinfo{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 ul li .wsq-name {
