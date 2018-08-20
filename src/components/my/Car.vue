@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div v-if="carInfo">
-			<vodal :show="show" animation="rotate" @hide="show = false" :width="260" :height="200">
+			<vodal :show="show" animation="rotate" @hide="show = false" :width="260" :height="150">
 				<div style="height: 100%;text-align: center;line-height: 100px;">{{mes}}</div>
-				<div style="position: absolute;bottom: 0.3rem;right: 0.3rem;width: 1.3rem;line-height: 0.65rem;text-align: center;border-radius: 5px;background: #007AFF;color: #fff;" @click="click(mesData)">点击</div>
+				<div style="position: absolute;bottom: 0.3rem;right: 0.3rem;width: 1.3rem;line-height: 0.5rem;text-align: center;border-radius:0.3rem;background: #007AFF;color: #fff;" @click="click(mesData)">点击</div>
 			</vodal>
 			<!--内容-->
 			<div class="cyx-container">
