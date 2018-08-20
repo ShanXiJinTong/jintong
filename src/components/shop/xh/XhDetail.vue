@@ -57,7 +57,7 @@
 						<div class="tktext" v-else>无条件</div>
 						<h5>有效期至{{item.gqsj}}</h5>
 					</div>
-					<div class="get" style="background: #ccc;" v-if="item.customer_id">已领取</div>
+					<div class="get" style="background: #ccc;box-shadow: 0 0.05rem 0.2rem 0 rgba(204,204,204,0.5);" v-if="item.customer_id">已领取</div>
 					<div class="get" @click="getCoupon(item)" v-else>领取</div>
 				</li>
 			</ul>
