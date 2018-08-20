@@ -135,7 +135,7 @@
             <span class="cyx-name">{{order.grand_total}}</span>
           </div>
         </li>
-        <button v-if="order.order_status==0" @click="zf" style="margin-top:0.2rem;padding: 0.15rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>
+        <button v-if="order.order_status==0" @click="zf" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>
       </ul>
 
   </section>
