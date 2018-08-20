@@ -13,26 +13,30 @@
         <!--横向滚动栏结束-->
         <!--订单开始-->
         <div class="middle" id="wrapper2">
-            <scroller class="scroller2" :on-refresh="getData">
-                <div class="x-box" v-for="item in display">
+            <scroller class="scroller2" :on-infinite="infinite">
+
+                <div class="x-box" v-for="item in orderlist">
+            	<router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}">
                     <div class="x-DR">
                         <div class="x-commodity">
-                            <router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}"><img
-                                    src="../common/static/img/logo.png" alt="" id="x-c-left">
-                            </router-link>
+                            <img
+                                    :src="$store.state.imghost+'images/'+item.shop_logo" alt="" id="x-c-left">
+
                             <div class="x-c-right">
                                 <div id="x-name"><b>{{item['increment_id']}} </b></div>
                                 <ul id="x-li">
-                                    <li class="x-blue x-jone"><b> {{item.customer_firstname}}</b></li>
-                                    <li class="x-blue x-jtwo">{{item['order_status']}}</li>
-                                    <li class="x-blue x-jthree"> ¥{{item.grand_total}}</li>
-                                    <!--<li class="x-green x-jfour">×1</li>-->
+                                    <li class="x-blue x-jone"><b> {{item.firstname}}</b></li>
+                                    <li class="x-blue x-jtwo" v-if="item.order_status==0">待付款</li>
+                                    <li class="x-blue x-jtwo" v-else-if="item.order_status<3">待收货</li>
+                                    <li class="x-blue x-jtwo" v-else-if="item.order_status==4">已完成</li>
+                                    <li class="x-blue x-jtwo" v-else-if="item.order_status==5">申请退货</li>
+                                    <li class="x-blue x-jtwo" v-else-if="item.order_status==6">退货</li>
+                                    <li class="x-blue x-jthree"> ¥{{item.subtotal}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-
-
+                            </router-link>
                 </div>
 
             </scroller>
@@ -52,24 +56,24 @@
                 tabsName: [
                     {
                         name: '全部',
-                        status: 'all'
+                        status: -1
                     },
                     {
                         name: "代付款",
-                        status: 'payment_pending'
+                        status: 0
                     }, {
                         name: "待收货",
-                        status: 'dispatched'
+                        status: 2
                     }, {
                         name: "已完成",
-                        status: 'completed'
+                        status: 4
                     }],
                 active: false,
                 orderlist: [],
                 order_id: null,
-                state: 'all',
+                state: -1,
                 page: 0,
-                total: 0
+                flag:0
             }
         },
         computed: {
@@ -90,27 +94,42 @@
             }
         },
         methods: {
+        	infinite(done){
+        		if(this.flag==1){
+        			done(true);
+        			return;
+        		}
+        		if(this.page==0){
+        			done();
+        			return ;
+        		}
+        		this.getData();
+        	},
             tabsSwitch(statusname) {
                 this.state = statusname;
+                this.page = 0;
+                this.orderlist=[];
+                this.flag = 0;
+                this.getData();
             },
-            getData(done) {
-                if (this.page > this.total) {
-                    return;
-                }
-                this.page++;
+            getData() {
                 this.$http({
                     method: 'get',
                     headers: getheaders,
                     url: '/customer/order/index',
                     params: {
-                        p: this.page
+                        page: this.page,
+                        uid:localStorage["fecshop-uuid"],
+                        type:this.state
                     }
                 }).then(res => {
-                    if (res.data.code === 200 && res.data.data.orderList) {
-                        this.total = Math.ceil(res.data.data.count / 10);
-                        this.orderlist.unshift(...res.data.data.orderList);
-                        if (done) {
-                            done();
+                	this.page++;
+                    if (res.data.code === 200) {
+                        res.data.data.forEach((forEach)=>{
+                        	this.orderlist.push(forEach);
+                        });
+                        if(res.data.data.length<10){
+                        	this.flag = 1;
                         }
                     }
                 })

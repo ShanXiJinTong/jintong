@@ -3,22 +3,21 @@
         <div v-if="carInfo">
             <!--内容-->
             <div class="cyx-container">
-                <ul class="cyx-items" v-for="item in carInfo">
+                <ul class="cyx-items" v-for="val in carInfo">
                     <li class="cyx-top">
                         <div class="cyx-left">
-                            <div :class="['cyx-choose',item.active?'hot':'']" @click="toggleSelect(item)"></div>
-                            <span class="cyx-title">{{item.shop_name}}</span>
+                            <div :class="['cyx-choose',val.flag?'hot':'']" @click="toggleSelect(val)"></div>
+                            <span class="cyx-title">{{val.shop_name}}</span>
                             <img class="cyx-next" src="./static/img/cyx-gouwuche/next.png" alt="">
                         </div>
                         <img class="cyx-delete" src="./static/img/cyx-gouwuche/delete.png" alt="">
                     </li>
-                    <li class="cyx-shop">
+                    <li class="cyx-shop" v-for="item in val.item">
                         <div class="cyx-left">
-                            <div class="cyx-choose" :class="['cyx-choose',item.active?'hot':'']"></div>
+                            <div class="cyx-choose" :class="['cyx-choose',item.flag?'hot':'']" @click="toggleSelect1(val,item)"></div>
                             <router-link to="">
                                 <div class="cyx-picture"
-                                     :style="'background:url(http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image+') no-repeat center center/100% auto'">
-                                    <!--<img class="cyx-product" :src="'http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image" alt="">-->
+:style="'background:url(http://img.chengzhanghao.com:81/media/catalog/product/'+item.product.image.main.image+') no-repeat center center/100% auto'">
                                 </div>
                             </router-link>
                             <div class="cyx-desc">
@@ -40,7 +39,7 @@
             <footer class="cyx-footer">
                 <div class="cyx-container">
                     <section class="cyx-top">
-                        <div :class="['cyx-choose',selectAllAttr?'':'hot']" @click="selectAll"></div>
+                        <div :class="['cyx-choose',n == n1?'hot':'']" @click="selectAll"></div>
                         <span class="cyx-title">全选</span>
                     </section>
                     <section class="cyx-bottom">
@@ -50,11 +49,6 @@
                                 <span class="cyx-heji">合计</span>
                                 <span class="cyx-mao">:</span>
                                 <span class="cyx-num"> {{totalMoney}} </span>
-                            </div>
-                            <div class="cyx-extraPrice">
-                                <img src="./static/img/cyx-gouwuche/extraprice.png" alt="" class="cyx-ep">
-                                <span class="cyx-yunfei">运费￥20</span>
-                                <span class="cyx-youhui">已优惠￥20</span>
                             </div>
                         </div>
                         <router-link :to="{name:'WaitServicePay'}" class="cyx-pay">结算</router-link>
@@ -82,13 +76,9 @@
                 carInfo: [],
                 totalMoney: 0,
                 flag: true,
+                n:"",
+                n1:0,
             }
-        },
-        computed: {
-            selectAllAttr() {
-                let arr = this.carInfo.filter(element => element.active);
-                return arr.length < this.carInfo.length;
-            },
         },
         methods: {
             getData() {
@@ -98,11 +88,9 @@
                     url: '/customer/car/carlist?customer_id=' + localStorage['fecshop-uuid'],
                 }).then(res => {
                     let data = res.data.car;
-                    console.log(res.data);
-                    if (data.length > 0) {
+                    if (res.data.status ==2 ) {
                         this.carInfo = data;
-                    } else {
-                        this.carInfo = false;
+                        this.n1 = this.carInfo.length;
                     }
                 })
             },
@@ -144,45 +132,83 @@
                 this.updateInfo(item['item_id'], 'less_one');
             },
             toggleSelect(item) {
-                if (!this.flag) {
-                    return
-                }
-                this.flag = false;
-                item.active = Number(!Boolean(item.active));
 
-                this.changeSelect(item['item_id'], item.active);
-            },
-            calcTotalMoney() {
-                let _this = this;
-                this.totalMoney = 0;
-                let arr = this.carInfo.filter(element => element.active === 1);
-                this.carInfo.filter(element => element.active === 1).forEach(element => {
-                    this.totalMoney += element.qty * element.product.price;
+                item.flag = item.flag?false:true;
+                if(item.flag){
+                	this.n++;
+                }else{
+                	this.n--;
+                }
+                item.item.forEach(val=>{
+                	
+                	if(item.flag){
+                		this.totalMoney = val.product.special_price*val.qty+this.totalMoney*1;
+                	}else{
+                		this.totalMoney = this.totalMoney*1-val.product.special_price*val.qty;
+                	}
+                	val.flag = item.flag;
+                	
                 });
-                this.totalMoney = this.totalMoney.toFixed(2);
+
+                this.carInfo = Object.assign([], this.carInfo);
+
+                
+            },
+            toggleSelect1(val,item){
+            	item.flag = item.flag?false:true;
+            	if(item.flag){
+                	this.totalMoney = item.product.special_price*item.qty+this.totalMoney*1;
+            	}else{
+                	this.totalMoney = this.totalMoney*1-item.product.special_price*item.qty;
+            	}
+            	var n = 0;
+            	val.item.forEach(val=>{
+            		if(val.flag){
+            			n++;
+            		}
+            	});
+            	if(n==val.item.length){
+            		val.flag = true;
+            		if(this.n!=this.n1){
+            			this.n++;
+            		}
+
+            	}else{
+            		val.flag = false;
+            		if(this.n==this.n1){
+            			this.n--;
+            		}
+            	}
+                this.carInfo = Object.assign([], this.carInfo);
             },
             selectAll() {
+
+            	if(this.n == this.n1){            		
+                	this.n = 0;
+	            	var flag = false;        		
+            	}else{
+                	this.n = this.n1;
+	            	var flag = true;        		
+            	}
                 this.carInfo.forEach(element => {
-                    element.active = 1;
+                    element.flag = flag;
+                    element.item.forEach(val=>{
+                    	if(flag){
+                			this.totalMoney = val.product.special_price*val.qty+this.totalMoney*1;	
+                    	}else{
+                			this.totalMoney = this.totalMoney*1-val.product.special_price*val.qty;
+                    	}
+                    	val.flag = flag;
+                    });
                 })
+                this.carInfo = Object.assign([], this.carInfo);
             }
         },
         mounted: function () {
             this.getData();
-            this.calcTotalMoney();
         },
         components: {
             Scroll
-        },
-        watch: {
-            carInfo: {
-                handler() {
-                    if (!this.carInfo) return;
-                    this.calcTotalMoney();
-
-                },
-                deep: true
-            }
         }
     }
 </script>

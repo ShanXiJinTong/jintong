@@ -1,17 +1,10 @@
 <template>
   <div class="shdBox">
     <ul class="totalList">
-        <router-link tag="li" class="list" :to="{name:'HelpDetail' , query:{hid:1}}">
+        <router-link tag="li" v-for="item in list" class="list" :to="{name:'HelpDetail' , query:{id:item.id}}" :key="item.id">
           <div class="listLeft">
             <img src="../static/img/shd-img/tubiao.png" alt="">
-            <span>如何预约上门服务</span>
-          </div>
-          <img src="../static/img/shd-img/shdBack1.png" alt="">
-        </router-link>
-        <router-link tag="li" class="list" :to="{name:'HelpDetail' , query:{hid:2}}">
-          <div class="listLeft">
-            <img src="../static/img/shd-img/tubiao.png" alt="">
-            <span>如何下单</span>
+            <span>{{item.title}}</span>
           </div>
           <img src="../static/img/shd-img/shdBack1.png" alt="">
         </router-link>
@@ -22,7 +15,16 @@
     export default {
         name: 'Help',
         data() {
-            return {}
+            return {
+            	list:[]
+            }
+        },
+        mounted(){
+        	this.$http.get("/customer/editaccount/helplist").then(res=>{
+        		if(res.status==200){
+							this.list = res.data;
+        		}
+        	});
         }
     }
 </script>

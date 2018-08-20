@@ -101,6 +101,7 @@ li.cyx-lis > .cyx-right {
   font-weight: bold;
   line-height: .27rem;
   color: rgba(0, 0, 0, .5);
+  text-align: center;
 }
 
 .cyx-container li table td {

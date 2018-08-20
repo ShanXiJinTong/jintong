@@ -16,16 +16,38 @@
             <span class="cyx-title">订单状态</span>
           </div>
           <div class="cyx-right">
-            <span class="cyx-name">{{order.order_status}}</span>
+            <span v-if="order.order_status==0">待付款</span>
+					<span v-else-if="order.order_status<3">待收货</span>
+					<span v-else-if="order.order_status==4">已完成</span>
+					<span v-else-if="order.order_status==5">申请退货</span>
+					<span v-else-if="order.order_status==6">退货</span>
           </div>
         </li>
         <li class="cyx-lis" style="border-bottom: 1px solid #e0e0e0;">
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">订单日期</span>
+            <span class="cyx-title">下单时间</span>
           </div>
           <div class="cyx-right">
-            <span class="cyx-name">{{order.updated_at}}</span>
+            <span class="cyx-name">{{order.created_at}}</span>
+          </div>
+        </li>
+        <li class="cyx-lis" style="border-bottom: 1px solid #e0e0e0;" v-if="order.paypal_order_datetime">
+          <div class="cyx-left">
+            <img class="cyx-items" src="./static/img/items.png" alt="">
+            <span class="cyx-title">支付时间</span>
+          </div>
+          <div class="cyx-right">
+            <span class="cyx-name">{{order.paypal_order_datetime}}</span>
+          </div>
+        </li>
+        <li class="cyx-lis" style="border-bottom: 1px solid #e0e0e0;" v-if="order.confirm_at">
+          <div class="cyx-left">
+            <img class="cyx-items" src="./static/img/items.png" alt="">
+            <span class="cyx-title">收货时间</span>
+          </div>
+          <div class="cyx-right">
+            <span class="cyx-name">{{order.confirm_at}}</span>
           </div>
         </li>
         <li class="cyx-lis" >
@@ -34,7 +56,7 @@
             <span class="cyx-title">订单地址</span>
           </div>
           <div class="cyx-right">
-
+						{{order.customer_address_street1}}
           </div>
         </li>
         <li class="cyx-lis" >
@@ -43,16 +65,7 @@
             <span class="cyx-title">收件人姓名</span>
           </div>
           <div class="cyx-right">
-            <span class="cyx-name">{{order.customer_firstname + order.customer_lastname}}</span>
-          </div>
-        </li>
-        <li class="cyx-lis" >
-          <div class="cyx-left">
-            <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">收件人姓名</span>
-          </div>
-          <div class="cyx-right">
-            <span class="cyx-name">{{order.customer_address_street1}}</span>
+            <span class="cyx-name">{{order.customer_firstname}}</span>
           </div>
         </li>
         <li class="cyx-lis" style="border-bottom: 1px solid #e0e0e0">
@@ -64,18 +77,6 @@
             <span class="cyx-name">{{order.customer_telephone}}</span>
           </div>
         </li>
-
-        <li class="cyx-lis" style="border-bottom: 1px solid #e0e0e0">
-          <div class="cyx-left">
-            <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">运货方式</span>
-          </div>
-          <div class="cyx-right">
-             <span class="cyx-name">{{order.shipping_method}}</span>
-          </div>
-        </li>
-
-
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
@@ -88,17 +89,17 @@
            <table>
               <tr>
                  <th>产品图片</th>
-                 <th>产品信息</th>
+                 <th>产品名</th>
                  <th>个数</th>
-                 <th>评论</th>
                  <th>小计</th>
+                 <th v-if="order.order_status==3">操作</th>
               </tr>
-              <tr v-for="product in order.products">
-                <td><img :src="product.imgUrl" alt=""></td>
-                <td>{{product.sku}}</td>
+              <tr v-for="product in list">
+                <td><img :src="$store.state.imghost+'media/catalog/product/'+product.image" alt=""></td>
+                <td>{{product.name}}</td>
                 <td>{{product.qty}}</td>
-                <td><router-link :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}">去评价</router-link></td>
-                <td>{{product.row_total}}</td>
+                <td>{{product.price}}</td>
+                <td><router-link v-if="order.order_status==3" :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}">去评价</router-link></td>
               </tr>
            </table>
         </li>
@@ -106,7 +107,7 @@
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">小计</span>
+            <span class="cyx-title">总计</span>
           </div>
           <div class="cyx-right">
             <span class="cyx-name">{{order.subtotal}}</span>
@@ -115,19 +116,10 @@
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">运费</span>
-          </div>
-          <div class="cyx-right">
-            <span class="cyx-name">{{order.shipping_total}}</span>
-          </div>
-        </li>
-        <li class="cyx-lis" >
-          <div class="cyx-left">
-            <img class="cyx-items" src="./static/img/items.png" alt="">
             <span class="cyx-title">折扣</span>
           </div>
           <div class="cyx-right">
-            <span class="cyx-name">{{order.subtotal_with_discount}}</span>
+            <span class="cyx-name">{{order.discount_amount}}</span>
           </div>
         </li>
         <li class="cyx-lis" >
@@ -152,22 +144,24 @@
     data() {
       return {
         order_id: 0,
-        order:{}
+        order:{},
+        list:[]
       }
     },
     methods: {
       getData(order_id) {
-
+				
         this.$http({
           method: 'get',
-          url: '/customer/order/view',
+          url: '/customer/order/orderlist',
           headers: getheaders,
           params: {
             order_id: order_id
           }
         }).then(res => {
            if(res.data.code == 200){
-                this.order = res.data.data.order;
+                this.order = res.data.order;
+                this.list = res.data.list;
            }
         })
       }

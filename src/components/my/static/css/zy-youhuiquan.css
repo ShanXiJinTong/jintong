@@ -31,6 +31,7 @@ section .top{
     top: 0;
     left: 0;
     background-color: #fff;
+    z-index: 999;
 }
 .top ul{
     height: 0.52rem;
@@ -62,7 +63,7 @@ section .top{
     rgba(59, 172, 254, 0.43);
 }
 .list{
-   padding-top: 1.4rem;
+  	margin-top: 1.4rem;
     width: 100%;
 }
 .list ul.youhuiquan{
