@@ -5,14 +5,9 @@
 			<div class="wsq-img">
 				<swiper :options="swiperOption" ref="mySwiper" style="height: 100%;">
 					<swiper-slide v-for="(item,index) in advList" v-bind:key="index">
-<<<<<<< HEAD
-						<div class="img" :style="'width:100%;height:100%;background:url('+$store.state.imghost+'media/'+item.img+')no-repeat center center /100% auto'"></div>
-						<!--<img :src="$store.state.imghost+'media/'+item.img" alt="" style="width: 100%;height: 100%;">-->
-=======
-						<a :href="item.url">
-						<img :src="$store.state.imghost+'media/'+item.img" alt="" style="width: 100%;height: 100%;;">
+				<a :href="item.url">
+							<div class="img" :style="'width:100%;height:100%;background:url('+$store.state.imghost+'media/'+item.img+')no-repeat center center /100% auto'"></div>
 						</a>
->>>>>>> 3070c4f4dfa07d7993d29076e960d8aa636b988c
 					</swiper-slide>
 					<div class="swiper-pagination" slot="pagination"></div>
 				</swiper>
