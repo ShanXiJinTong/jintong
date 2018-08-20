@@ -120,8 +120,8 @@
         </div>
         <div v-if="coinFlag" style="position: fixed;z-index: 99999;bottom: 0;left: 0;width: 100%;height: 1.7rem;background: #f3f3f3;">
        	<div style="max-width: 75rem;margin: 0 auto;height: 100%;display: flex;align-items: center;justify-content: space-around;">
-       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #E7F6FF;color: #3BACFE;border-radius: 5px;" @click="coin=0;coinFlag=false;">不使用</button>
-       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #3BACFE;color: #fff;border-radius: 5px;" @click="coin=coin1;coinFlag=false;">使用</button>
+       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #E7F6FF;color: #3BACFE;border-radius:0.15rem;" @click="coin=0;coinFlag=false;">不使用</button>
+       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #3BACFE;color: #fff;border-radius: 0.15rem;" @click="coin=coin1;coinFlag=false;">使用</button>
        	</div> 	
         </div>
         <div v-if="couFlag" style="position: fixed;bottom: 0;z-index: 9999;width: 100%;max-width:7.5rem;background: #f3f3f3;padding:0 0.24rem;">

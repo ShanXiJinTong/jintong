@@ -41,9 +41,9 @@
                 </div>
                 <input class="mwq-textarea" placeholder="详细地址" v-model="form.street2">
             </div>
-            <div class="mwq-box">
+            <div class="mwq-box mwq-box1">
                 <div class="mwq-title">
-                    <div class="mwq-wenzi">
+                    <div class="mwq-wenzi mwq-wenzi1">
                         <el-checkbox v-model="form.is_default">是否默认</el-checkbox>
                     </div>
                 </div>

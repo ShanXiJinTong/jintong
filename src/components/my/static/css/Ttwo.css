@@ -91,7 +91,7 @@ header .title span{
 }
 .content .mwq-model .mwq-label .mwq-left{
     height: 100%;
-    width: 1.32rem;
+    /*width: 1.32rem;*/
     display: flex;
     justify-content: space-between;
     align-items: center;

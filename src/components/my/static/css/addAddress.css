@@ -43,7 +43,7 @@ header .title span{
 }
 .content .mwq-box .mwq-title{
     width: 100%;
-    height: 0.26rem;
+    /*height: 0.26rem;*/
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,13 +57,19 @@ header .title span{
     box-shadow: 0 0.02rem 0.05rem rgba(68,181,255,0.43);
 }
 .content .mwq-box .mwq-title .mwq-wenzi{
-    height: 0.26rem;
+    height: 0.45rem;
     min-width: 0.81rem;
     font-size: 0.26rem;
-    line-height: 0.26rem;
+    line-height: 0.45rem;
     font-weight: bold;
     color:#41b2fc;
     margin-left: 0.1rem;
+}
+.mwq-box.mwq-box1{
+    height: 1rem;
+}
+.content .mwq-box .mwq-textarea[data-v-4b0a160b]{
+    font-size: 0.26rem;
 }
 .content .mwq-box .mwq-title .mwq-enter{
     height: 0.24rem;
@@ -90,7 +96,7 @@ header .title span{
     font-size: 0.22rem;
     line-height: 1.02rem;
     color:#b9c9d2;
-    margin-top: 0.19rem;
+    /*margin-top: 0.19rem;*/
     border:none;
 }
 .content .mwq-reserve{
@@ -104,7 +110,7 @@ header .title span{
     color:#ffffff;
     text-align: center;
     line-height: 0.6rem;
-    margin:0.68rem auto 0;
+    margin:0 auto;
     border:none;
 }
 
