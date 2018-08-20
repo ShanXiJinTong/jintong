@@ -43,7 +43,8 @@ header .shdText{
 .shdBox > .totalList{
     width: 100%;
     height: 1.7rem;
-    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    box-sizing: border-box;
 }
 .shdBox > .totalList .list{
     width: 100%;

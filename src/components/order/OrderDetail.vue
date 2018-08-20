@@ -56,9 +56,9 @@
             <span class="cyx-title">订单地址</span>
           </div>
           <div class="cyx-right">
-						{{order.customer_address_city}}
-						{{order.customer_address_street1}}
-						{{order.customer_address_street2}}
+            {{order.customer_address_city}}
+            {{order.customer_address_street1}}
+            {{order.customer_address_street2}}
           </div>
         </li>
         <li class="cyx-lis" >
@@ -97,7 +97,10 @@
                  <th v-if="order.order_status==3">操作</th>
               </tr>
               <tr v-for="product in list">
-                <td><img :src="$store.state.imghost+'media/catalog/product/'+product.image" alt=""></td>
+                <td>
+                  <div class="img" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+product.image+')no-repeat center center /100% auto'"></div>
+                  <!--<img :src="$store.state.imghost+'media/catalog/product/'+product.image" alt="">-->
+                </td>
                 <td>{{product.name}}</td>
                 <td>{{product.qty}}</td>
                 <td>{{product.price}}</td>
@@ -105,7 +108,6 @@
               </tr>
            </table>
         </li>
-
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
@@ -133,7 +135,7 @@
             <span class="cyx-name">{{order.grand_total}}</span>
           </div>
         </li>
-        <button v-if="order.order_status==0" @click="zf" style="padding: 0.2rem 0.3rem;">去支付</button>
+        <button v-if="order.order_status==0" @click="zf" style="padding: 0.2rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>
       </ul>
 
   </section>
