@@ -20,7 +20,8 @@
                     <!-- slides -->
                     <swiper-slide v-for="(item,index) in advList" v-bind:key="index">
                     	<a :href="item.url" style="height: 100%;width: 100%;display: block;">
-                        	<img :src="item.img" alt="">                    		
+                        	<div class="img" :style="'background:url('+item.img+')no-repeat center center /100% auto'"></div>
+                            <!--<img :src="item.img" alt="">-->
                     	</a>
                     </swiper-slide>
                     <!-- Optional controls -->

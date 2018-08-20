@@ -96,8 +96,9 @@ input::-webkit-input-placeholder {
   height: 100%;
 }
 
-.lunbo .swiper-container img {
+.lunbo .swiper-container .img {
   width: 100%;
+  height: 100%;
 }
 
 ul.class {

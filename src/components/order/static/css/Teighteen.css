@@ -27,37 +27,41 @@
     width: 100%;
     height: 1.74rem;
     display: flex;
+    justify-content: space-between;
     margin: 0.31rem 0;
     padding: 0 0.24rem;
 }
-.cloth img{
+
+.cloth .img{
     width: 1.74rem;
     height: 1.74rem;
 }
 .cloth .cright{
-    width: 100%;
+    width: 5rem;
     height: 100%;
-    padding-top: 0.13rem;
+    /*padding-top: 0.13rem;*/
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .cloth .cright .rightone{
     width: 100%;
-    height: 0.3rem;
+    height: 0.5rem;
     font-size: 0.28rem;
     color: #000000;
-    line-height: 0.3rem;
-    margin-bottom: 0.2rem;
+    line-height: 0.5rem;
+    /*margin-bottom: 0.2rem;*/
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
 }
 .cloth .cright .righttwo{
     width: 100%;
-    height: 0.2rem;
+    height: 0.33rem;
+    line-height: 0.33rem;
     display: flex;
     align-items: center;
-    margin-bottom: 0.13rem;
+    /*margin-bottom: 0.13rem;*/
 }
 .cloth .cright .righttwo .yuanjiao{
     width: 0.05rem;
@@ -75,10 +79,11 @@
 }
 .cloth .cright .rightthree{
     width: 100%;
-    height: 0.24rem;
+    height: 0.44rem;
+    line-height: 0.44rem;
     display: flex;
     align-items: center;
-    margin-bottom: 0.2rem;
+    /*margin-bottom: 0.2rem;*/
 }
 .cloth .cright .rightthree .yuanjiao1{
     width: 0.05rem;
@@ -96,7 +101,8 @@
 }
 .cloth .cright .rightfour{
     width: 100%;
-    height: 0.22rem;
+    height: 0.26rem;
+    line-height: 0.26rem;
     display: flex;
     justify-content: space-between;
 }
@@ -185,6 +191,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.aa .aright>span{
+    margin-right:0.15rem;
+}
 .aright img{
   width:0.14rem;
   height: 0.24rem;
@@ -209,11 +218,11 @@
     margin-right: 0.1rem;
 }
 .bb .xuantian{
-    font-size: 0.22rem;
+    /*font-size: 0.22rem;*/
     margin-left: 0.2rem;
 }
 .xuantian input{
-    font-size: 0.22rem;
+    font-size: 0.26rem;
     border:none;
     background: none;
     display: block;

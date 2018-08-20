@@ -145,17 +145,16 @@
 </script>
 <style scoped>
     /*横向滚动开始*/
-
     #wrapper {
         border-bottom: 0.01rem solid #a2deff;
         width: 100%;
+        max-width: 7.5rem;
         height: 0.82rem;
         box-sizing: border-box;
         position: fixed;
-        left: 0;
+        /*left: 0;*/
         top: 0;
         z-index: 999;
-
     }
 
     #wrapper .x-ulone {

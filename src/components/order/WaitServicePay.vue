@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom:1.08rem;">
         <div class="dizhi">
             <router-link :to="{name:'Address'}">
                 <div class="mwq-model" v-if="carAddress">
@@ -27,12 +27,12 @@
         <div class="line">
             <div class="line1"></div>
         </div>
-
         <div v-if="goods.special_price">
             <div class="cloth">
                 <div class="cleft">
                     <a href="">
-                        <img :src="$store.state.imghost+'media/catalog/product/'+goods['image']['main']['image']" alt="">
+                        <div class="img"
+                             :style="'background:url('+$store.state.imghost+'media/catalog/product/'+goods['image']['main']['image']+') no-repeat center center /100% auto'"></div>
                     </a>
                 </div>
                 <div class="cright">
@@ -57,10 +57,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-
         <div class="line">
             <div class="line1"></div>
         </div>
@@ -122,32 +119,39 @@
                 提交订单
             </div>
         </div>
-        <div v-if="coinFlag" style="position: fixed;z-index: 99999;bottom: 0;left: 0;width: 100%;height: 1.7rem;background: #f3f3f3;">
-       	<div style="max-width: 75rem;margin: 0 auto;height: 100%;display: flex;align-items: center;justify-content: space-around;">
-       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #E7F6FF;color: #3BACFE;border-radius: 5px;" @click="coin=0;coinFlag=false;">不使用</button>
-       		<button style="width: 1.3rem;height: 0.7rem;outline: none;border: none;background: #3BACFE;color: #fff;border-radius: 5px;" @click="coin=coin1;coinFlag=false;">使用</button>
-       	</div> 	
+        <div v-if="coinFlag" style="position: absolute;left:0;top:0;right:0;bottom:0;background: rgba(0,0,0,0.3);">
+            <div style="position: fixed;z-index: 99999;bottom: 0;width: 100%;max-width: 7.5rem;height: 1.7rem;background: #f3f3f3;display: flex;align-items: center;justify-content: space-around;">
+                <button style="width: 1.5rem;height: 0.7rem;outline: none;border: none;background: #E7F6FF;color: #3BACFE;border-radius:0.5rem;"
+                        @click="coin=0;coinFlag=false;">不使用
+                </button>
+                <button style="width: 1.5rem;height: 0.7rem;outline: none;border: none;background: #3BACFE;color: #fff;border-radius: 0.5rem;"
+                        @click="coin=coin1;coinFlag=false;">使用
+                </button>
+            </div>
         </div>
-        <div v-if="couFlag" style="position: fixed;bottom: 0;z-index: 9999;left: 0;width: 100%;background: #f3f3f3;">
-        	<ul class="tkbox">
-				<li class="tklist" v-for="item in coupon">
-					<div class="left">
-						<div class="money">
-							<div class="tkyuan">
-							</div>
-							<h3>{{item.discount
-}}元</h3>
-						</div>
-						<div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
-						<div class="tktext" v-else>无条件</div>
-						<h5>有效期至{{item.expiration_date}}</h5>
-					</div>
-					<div class="get" @click="useCou(item)">使用</div>
-				</li>
-				<li class="tklist" style="height: 1rem;">
-					<div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;" @click="couFlag=false;coupon1={}">不使用优惠卷</div>
-				</li>
-			</ul>
+        <div v-if="couFlag" style="position:absolute;top:0;left:0;right:0;bottom:0;background: rgba(0,0,0,0.35);">
+            <div style="position: fixed;bottom: 0;z-index: 9999;width: 100%;max-width:7.5rem;background: #f3f3f3;padding:0 0.24rem;">
+                <ul class="tkbox">
+                    <li class="tklist" v-for="item in coupon">
+                        <div class="left">
+                            <div class="money">
+                                <div class="tkyuan">
+                                </div>
+                                <h3>{{item.discount}}元</h3>
+                            </div>
+                            <div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
+                            <div class="tktext" v-else>无条件</div>
+                            <h5>有效期至{{item.expiration_date}}</h5>
+                        </div>
+                        <div class="get" @click="useCou(item)">使用</div>
+                    </li>
+                    <li class="tklist" style="height: 1rem;">
+                        <div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;"
+                             @click="couFlag=false;coupon1={}">不使用优惠卷
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -163,25 +167,25 @@
                 cart_address_id: 0,
                 // formdata:{ }
                 form: {
-                	order_remark:""
+                    order_remark: ""
                 }
                 ,
-                _csrf:"",
-                coinFlag:false,
-                coin:0,
-                coin1:0,
-                coupon:[],
-                couFlag:false,
-                coupon1:{},
-                goods:{}           
+                _csrf: "",
+                coinFlag: false,
+                coin: 0,
+                coin1: 0,
+                coupon: [],
+                couFlag: false,
+                coupon1: {},
+                goods: {}
             }
         },
         methods: {
-        	useCou(item){
-        		this.couFlag = false;
-        		this.coupon1 = item;
-        		this.coinFlag = false;
-        	},
+            useCou(item) {
+                this.couFlag = false;
+                this.coupon1 = item;
+                this.coinFlag = false;
+            },
             getData() {
                 this.$http({
                     headers: getheaders,
@@ -189,25 +193,25 @@
                     method: 'get'
                 }).then(res => {
                     if (res.status == 200) {
-                        let data=res.data.data;
-                        this.carAddress=data['cart_address'];
-                        this.carInfo=data['cart_info'];
-                        this.cart_address_id=data['cart_address_id'];
+                        let data = res.data.data;
+                        this.carAddress = data['cart_address'];
+                        this.carInfo = data['cart_info'];
+                        this.cart_address_id = data['cart_address_id'];
                     }
                 })
             },
-            handleSubmit(){
+            handleSubmit() {
 
-                let _this=this;
-                this.formdata={
-                    _csrf:this._csrf,
+                let _this = this;
+                this.formdata = {
+                    _csrf: this._csrf,
                     address_id: this.carAddress.address_id,
-                    customer_id:localStorage["fecshop-uuid"],
-                    product_id:this.$route.query.gid,
-                    shop_id:this.$route.query.sid,
-                    coupon_id:this.coupon1.coupon_id,
-                    coin:this.coin,
-                    order_remark:this.form.order_remark
+                    customer_id: localStorage["fecshop-uuid"],
+                    product_id: this.$route.query.gid,
+                    shop_id: this.$route.query.sid,
+                    coupon_id: this.coupon1.coupon_id,
+                    coin: this.coin,
+                    order_remark: this.form.order_remark
                 };
                 this.$http({
                     headers: postheaders,
@@ -222,49 +226,49 @@
                 })
 
             },
-            getCarAddress(){
-              if(sessionStorage.aid){
-                  this.$http.get("customer/addr/addrfind?id="+sessionStorage.aid).then(res=>{
-                    this.carAddress=res.data;
-                  })
-              }
+            getCarAddress() {
+                if (sessionStorage.aid) {
+                    this.$http.get("customer/addr/addrfind?id=" + sessionStorage.aid).then(res => {
+                        this.carAddress = res.data;
+                    })
+                }
             },
-            check(){
+            check() {
                 this.$http.get("/customer/addr/getcsrf").then(res => {
-                    this._csrf=res.data;
+                    this._csrf = res.data;
                 })
             },
-            getCoin(){
-            	this.$http.get("/customer/car/getcoin",{
-            		params:{
-            			money:this.$route.query.price,
-            			customer_id:localStorage['fecshop-uuid']
-            		}
-            	}).then(res=>{
-            		this.coin = res.data.coin;
-            		this.coin1 = res.data.coin;
-            	});
+            getCoin() {
+                this.$http.get("/customer/car/getcoin", {
+                    params: {
+                        money: this.$route.query.price,
+                        customer_id: localStorage['fecshop-uuid']
+                    }
+                }).then(res => {
+                    this.coin = res.data.coin;
+                    this.coin1 = res.data.coin;
+                });
             },
-            getCou(){
-            	this.$http.get("/customer/car/getcoupon",{
-            		params:{
-            			customer_id:localStorage['fecshop-uuid'],
-            			product_id:this.$route.query.gid,
-            			money:this.$route.query.price,
-            			shop_id:this.$route.query.sid
-            		}
-            	}).then(res=>{
-            		this.coupon = res.data.data
-            	});
+            getCou() {
+                this.$http.get("/customer/car/getcoupon", {
+                    params: {
+                        customer_id: localStorage['fecshop-uuid'],
+                        product_id: this.$route.query.gid,
+                        money: this.$route.query.price,
+                        shop_id: this.$route.query.sid
+                    }
+                }).then(res => {
+                    this.coupon = res.data.data
+                });
             },
-            getGoods(){
-            	this.$http.get("/customer/car/getgoods",{
-            		params:{
-            			id:this.$route.query.gid
-            		}
-            	}).then(res=>{
-            		this.goods = res.data.data;
-            	});
+            getGoods() {
+                this.$http.get("/customer/car/getgoods", {
+                    params: {
+                        id: this.$route.query.gid
+                    }
+                }).then(res => {
+                    this.goods = res.data.data;
+                });
             }
         },
         created: function () {
@@ -274,19 +278,18 @@
             this.getCoin();
             this.getCou();
             this.getGoods();
-            if(!sessionStorage.aid){
-            	this.$http.get("/customer/addr/getdefaultaddr?id="+localStorage['fecshop-uuid']).then(res=>{
-            		if(res.data.code==200){
-                    	this.carAddress=res.data.data;
-            		}
-            	})
+            if (!sessionStorage.aid) {
+                this.$http.get("/customer/addr/getdefaultaddr?id=" + localStorage['fecshop-uuid']).then(res => {
+                    if (res.data.code == 200) {
+                        this.carAddress = res.data.data;
+                    }
+                })
             }
-            
+
         }
     }
 </script>
 <style scoped>
     @import url('./static/css/Teighteen.css');
-
-	@import url("./static/css/Televen.css");
+    @import url("./static/css/Televen.css");
 </style>

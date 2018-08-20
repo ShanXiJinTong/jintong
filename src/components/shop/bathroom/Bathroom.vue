@@ -4,13 +4,11 @@
 		<section class="wsq-banner">
 			<div class="wsq-img">
 				<swiper :options="swiperOption" ref="mySwiper" style="height: 100%;">
-
 					<swiper-slide v-for="(item,index) in advList" v-bind:key="index">
-						<a :href="item.url">
-						<img :src="$store.state.imghost+'media/'+item.img" alt="" style="width: 100%;height: 100%;;">
+				<a :href="item.url">
+							<div class="img" :style="'width:100%;height:100%;background:url('+$store.state.imghost+'media/'+item.img+')no-repeat center center /100% auto'"></div>
 						</a>
 					</swiper-slide>
-
 					<div class="swiper-pagination" slot="pagination"></div>
 				</swiper>
 			</div>
@@ -34,13 +32,13 @@
 							<li v-for="item in recommend">
 								<router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid']}}">
 									<!--<router-link :to="{name:'XhDetail',query:{uid:item.product_id}}">-->
-									<img :src="$store.state.imghost+'media/catalog/product/'+item.image.main.image" height="94" width="90" />
+									<div class="img" :style="'background:url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center center /100% auto'"></div>
+									<!--<img :src="" height="94" width="90" />-->
 									<!--</router-link>-->
 									<div class="shopinfo">
 										<div class="wsq-name">{{item.name.name_zh}}</div>
 										<div class="right"><span>{{item.price}}元</span></div>
 									</div>
-
 									<h6>{{item.sku}}</h6>
 									<div class="wsq-sale">
 										<div class="wsq-saleLeft">
@@ -85,7 +83,8 @@
 						<ul>
 							<li v-for="item in val.goods">
 								<router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid']}}">
-									<img :src="$store.state.imghost+'media/catalog/product/'+item.image.main.image" height="94" width="90" />
+									<div class="img" :style="'background:url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+')no-repeat center center /100% auto'"></div>
+									<!--<img :src="" height="94" width="90" />-->
 									<div class="shopinfo">
 										<div class="wsq-name">{{item.name.name_zh}}</div>
 										<div class="right"><span>{{item.price}}元</span></div>

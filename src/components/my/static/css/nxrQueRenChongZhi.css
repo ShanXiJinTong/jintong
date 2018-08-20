@@ -6,7 +6,8 @@ html,body{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: .93rem;
+    padding-top: .93rem;
+    box-sizing: border-box;
 }
 .chongzhiGroup .moneyContent{
     /*width: 2.6rem;*/
@@ -18,7 +19,7 @@ html,body{
     font-size: .26rem;
     font-family: MicrosoftYaHei Bold ;
     color:#4F5B64;
-    width: 1.8rem;
+    /*width: 1.8rem;*/
 }
 .chongzhiGroup .moneyText .moneyShu{
     font-family:  SanFranciscoDisplay Heavy ;
@@ -64,7 +65,7 @@ html,body{
     height: .6rem;
     border-radius: .3rem;
     background: -webkit-linear-gradient(left,#37DF71 ,#32D698);
-    margin: 4.16rem auto 0 auto;
+    margin: 2rem auto 0;
     font-size: .2rem;
     color: #fff;
     text-align: center;
