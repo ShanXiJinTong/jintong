@@ -20,7 +20,7 @@
 				</router-link>
 				<div class="bottom">
 					<div class="left">
-						<img src="../static/img/yhq-pic/yellow.png" alt="" style="width: 0.3rem;height: 0.3rem;margin-right: 0.14rem;margin-top: 0.06rem">
+						<img src="../static/img/yhq-pic/yellow.png" alt="" style="width: 0.3rem;height: 0.3rem;margin-right: 0.14rem;">
 						<span style="font-size:0.22rem;color:#666;font-weight: bold ">{{oldDatas.name?oldDatas.name:"普通"}}会员</span>
 					</div>
 					<div class="line"></div>
