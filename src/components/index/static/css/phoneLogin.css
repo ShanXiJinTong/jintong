@@ -95,7 +95,8 @@
     margin:0 0.4rem ;
 }
 #UserLogin .two .btn{
-    width: 1.56rem;
+    min-width: 1.60rem;
+   padding: 0 0.2rem;
     height: 0.46rem;
     background:linear-gradient(to right,rgb(55,224,111),rgb(50,214,154));
     font-size:0.22rem ;
@@ -105,7 +106,8 @@
     box-shadow:0 0 0.2rem 0.02rem #37df74;
 }
 #UserLogin .two .btn1{
-    width: 1.56rem;
+   padding: 0 0.2rem;
+    min-width: 1.60rem;
     height: 0.46rem;
     background:#ccc;
     font-size:0.22rem ;
