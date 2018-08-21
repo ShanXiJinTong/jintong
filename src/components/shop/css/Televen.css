@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     overflow:hidden;
-    background:#e5e5e5;
+    /*background:#e5e5e5;*/
 }
 .photo img{
     width: 100%;

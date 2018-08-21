@@ -101,7 +101,7 @@
                   <div class="img" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+product.image+')no-repeat center center /100% auto'"></div>
                   <!--<img :src="$store.state.imghost+'media/catalog/product/'+product.image" alt="">-->
                 </td>
-                <td>{{product.name}}</td>
+                <td><span class="pan">{{product.name}}</span></td>
                 <td>{{product.qty}}</td>
                 <td>{{product.price}}</td>
                 <td><router-link v-if="order.order_status==3" :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}">去评价</router-link></td>
