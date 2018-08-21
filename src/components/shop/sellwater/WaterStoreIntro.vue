@@ -20,8 +20,10 @@
 				</div>
 			</div>
 			<div class="photo">
-				<img :src="$store.state.imghost+'images/'+info.shop_logo" alt="">
+				<!--<img :src="$store.state.imghost+'images/'+info.shop_logo" alt="">-->
+				<div :style="'width:100%;height:100%;background: url('+$store.state.imghost+'images/'+info.shop_logo+') no-repeat center center /100% auto ;'"></div>
 			</div>
+
 		</div>
 		<div class="line">
 			<div class="line1"></div>
@@ -67,7 +69,7 @@
 <script>
 	import $ from "jquery";
 	import "jquery.cookie";
-	
+
 	export default {
 		name: 'WaterStoreIntro',
 		data() {
@@ -82,7 +84,14 @@
 			});
 		},
 		methods: {
+
 			chat(friId) {
+				if(!$.cookie("userId")) {
+					this.$router.push({
+						name: "UserLogin"
+					});
+					return;
+				}
 				this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
 					if(res.data == "ok") {
 						this.$router.push({

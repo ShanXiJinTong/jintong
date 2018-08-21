@@ -3,7 +3,7 @@
 		<header class="tab">
 			<form class="wsq-searchBox">
 				<img src="../static/img/sousuo.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999" />
-				<input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容">
+				<input type="text" v-model="searchkey" placeholder="搜索您需要搜索的内容" value="">
 			</form>
 		</header>
 		<div v-if="flag" class="posBox">

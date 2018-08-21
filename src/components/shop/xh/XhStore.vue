@@ -284,6 +284,12 @@
 				this.getComments();
 			},
 			chat(friId) {
+				if(!$.cookie("userId")) {
+					this.$router.push({
+						name: "UserLogin"
+					});
+					return;
+				}
 				this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
 					if(res.data == "ok") {
 						this.$router.push({
