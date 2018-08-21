@@ -4,7 +4,7 @@
 		<div class="LZJ-singleDetail">
 			<div class="LZJ-main">
 				<router-link :to="{name:'WaterStoreIntro',query:{id:shop.shop_id}}" tag="div" class="LZJ-Thumb">
-                    <div class="img" :style="'background:url('+$store.state.imghost+'images/'+shop.shop_avatar+') no-repeat center center /100% auto'"></div>
+                    <div class="img" :style="'background:url('+$store.state.imghost+'images/'+shop.shop_logo+') no-repeat center center /100% auto'"></div>
 					<!--<img :src="" alt="">-->
 				</router-link>
 				<div class="LZJ-infos">
@@ -13,7 +13,7 @@
 					<div class="LZJ-bargain">
 						<div class="LZJ-already">
 							<div class="LZJ-spot"></div>
-							<div class="LZJ-poi">成交量</div>
+							<div class="LZJ-poi">销售量</div>
 							<span>{{shop.chengjiao}}</span>
 						</div>
 						<div class="LZJ-already">
