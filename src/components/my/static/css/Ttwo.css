@@ -41,7 +41,8 @@ header .title span{
     background: #e7f6ff;
     border-radius: 0.08rem;
     margin: 0 auto;
-    padding-left: 0.36rem;
+    padding-left: 0.24rem;
+    padding-right:0.24rem;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -81,6 +82,9 @@ header .title span{
     color: #c9cbcc;
     /*background: green;*/
     margin-top: 0.06rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .content .mwq-model .mwq-label{
     height: 0.88rem;

@@ -50,7 +50,7 @@ a{
     height: 1.74rem;
     border-radius: 0.06rem;
 }
-.LZJ-singleDetail>.LZJ-main .LZJ-Thumb>img{
+.LZJ-singleDetail>.LZJ-main .LZJ-Thumb>.img{
     width: 1.74rem;
     height: 1.74rem;
 }
@@ -270,6 +270,7 @@ header >p{
 .wsq-banner .wsq-title .wsq-cateaty.hot{
     color: #ffffff;
     background: rgb(59,172,254);
+    box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);
 }
 .wsq-banner .wsq-img{
     width: 100%;
@@ -300,8 +301,11 @@ header >p{
     padding: 0.16rem 0.24rem;
     box-sizing: border-box;
     height:2.28rem;
+}
+.bag-item a{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .bag-item .sk-bag-photo{
     width: 1.93rem;
@@ -309,10 +313,6 @@ header >p{
     border-radius: 0.1rem;
     /*margin-right: 0.29rem;*/
     box-shadow: 0 0.01rem 0.21rem rgba(223,223,223,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float:left;
 }
 .bag-item .sk-bag-photo .img{
     width: 1.93rem;
