@@ -160,10 +160,12 @@ height: 1.97rem;
   font-size: 0.3rem;
   color: #4f5b64;
   font-weight: normal;
-  width: 100%;
-  overflow: hidden;
+  width: 4.8rem;
   height: 0.35rem;
   line-height: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bag-item .sk-bag-content .sk-service-desc {
