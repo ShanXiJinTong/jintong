@@ -183,7 +183,8 @@
                 couFlag: false,
                 coupon: [],
                 obj: "",
-                obj1: ""
+                obj1: "",
+                flag:true
             }
         },
         methods: {
@@ -218,6 +219,10 @@
                 this.couFlag = false;
             },
             handleSubmit() {
+            	if(!this.flag){
+            		return;
+            	}
+            	this.flag = true;
                 var arr = [];
                 this.info.forEach(val => {
                     var obj = {};
