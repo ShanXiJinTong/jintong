@@ -87,7 +87,7 @@
                 <a class="ne">
                     <div class="kuai"></div>
                     <span>监督热线</span>
-                    <h6>400-789-2211</h6>
+                    <h6><a href="tel:13220289350" style="color: rgb(254, 98, 78);">400-789-2211</a></h6>
                 </a>
             </div>
             <div class="wai" style="height:0.7rem;line-height:0.7rem;justify-content: center;background: #00AAEE;color: #fff;border-radius:0.5rem;margin-top: 0.5rem;letter-spacing: 1px;font-size: 0.26rem;" @click="loginOut">
