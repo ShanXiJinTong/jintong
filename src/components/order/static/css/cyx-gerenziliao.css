@@ -113,6 +113,8 @@ li.cyx-lis > .cyx-right {
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
+  font-size: 0.26rem;
+  line-height: 0.34rem;
 }
 .cyx-container li table td {
   vertical-align: middle;
