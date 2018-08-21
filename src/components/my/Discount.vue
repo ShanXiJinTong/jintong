@@ -79,6 +79,7 @@
         		});
         	},
         	xz(type){
+        		this.datas=[];
         		this.type = type;
         		this.page = 0;
         		this.datas = [];
