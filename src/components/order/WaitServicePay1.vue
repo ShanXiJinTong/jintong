@@ -75,10 +75,10 @@
                     <span>优惠卷</span>
                 </div>
                 <a href="javascript:">
-                    <div class="aright" @click="useCou(item)">
+                    <div class="aright">
                         <span v-if="item.coupon.length==0">无可用优惠卷</span>
-                        <span v-else-if="item.coupon2.coupon_name">{{item.coupon2.coupon_name}}</span>
-                        <span v-else-if="!item.coupon2.coupon_name">点击使用优惠卷</span>
+                        <span v-else-if="item.coupon2.coupon_name"  @click="useCou(item)">{{item.coupon2.coupon_name}}</span>
+                        <span v-else-if="!item.coupon2.coupon_name"  @click="useCou(item)">点击使用优惠卷</span>
                         <img src="./static/img/xiayibu.png" alt="">
                     </div>
                 </a>
@@ -210,6 +210,9 @@
                 this.coupon = item.coupon;
             },
             useCoin(item) {
+            	if(item.coin == 0){
+            		return;
+            	}
                 this.obj1 = item;
                 this.coinFlag = true;
                 this.couFlag = false;
@@ -280,7 +283,6 @@
                 this.$http.get("/customer/addr/getdefaultaddr?id=" + localStorage['fecshop-uuid']).then(res => {
                     if (res.data.code == 200) {
                         this.carAddress = res.data.data;
-                        console.log(this.carAddress);
                     }
                 })
             }
