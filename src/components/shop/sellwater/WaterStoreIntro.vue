@@ -20,7 +20,7 @@
 				</div>
 			</div>
 			<div class="photo">
-				<img :src="$store.state.imghost+'images/'+info.shop_avatar" alt="">
+				<img :src="$store.state.imghost+'images/'+info.shop_logo" alt="">
 			</div>
 		</div>
 		<div class="line">
@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<a href="javascript:">
-					<div class="oneright" @click="chat(info.shop_id)">联系</div>
+					<div class="oneright" @click="chat(info.uid)">联系</div>
 				</a>
 			</div>
 			<div class="two">
@@ -45,7 +45,7 @@
 				<img src="../img/weizhi.png" alt=""> 所在城市 : {{info.city}}
 			</div>
 			<div class="four">
-				<img src="../img/zhizhao.png" alt=""> 注册执照 : 2783-93829-9384
+				<img src="../img/zhizhao.png" alt=""> 注册执照 : {{info.business_licence_number}}
 			</div>
 		</div>
 		<div class="line">
@@ -65,6 +65,9 @@
 	</div>
 </template>
 <script>
+	import $ from "jquery";
+	import "jquery.cookie";
+	
 	export default {
 		name: 'WaterStoreIntro',
 		data() {

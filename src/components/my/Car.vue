@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div v-if="carInfo">
+	<div style="overflow: hidden;">
+		<div v-if="carInfo.length">
 			<vodal :show="show" animation="rotate" @hide="show = false" :width="260" :height="150">
 				<div style="height: 100%;text-align: center;line-height: 100px;">{{mes}}</div>
 				<div style="position: absolute;bottom: 0.3rem;right: 0.3rem;width: 1.3rem;line-height: 0.5rem;text-align: center;border-radius:0.3rem;background: #007AFF;color: #fff;" @click="click(mesData)">点击</div>
@@ -58,11 +58,7 @@
 			</footer>
 		</div>
 		<div v-else>
-			<div class="content">
-				<img src="./static/img/jingtong01-1.png" alt="">
-				<div class="mwq-text">购物车空空如也</div>
-				<router-link :to="{ name:'Index'}" tag="div" class="mwq-circle">去逛逛</router-link>
-			</div>
+			<img src='./static/img/car.png' style="width: 100%;" />
 		</div>
 	</div>
 </template>

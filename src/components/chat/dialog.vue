@@ -216,11 +216,11 @@
     }
     .section {
         background: #efeff4;
-        min-height: 5.41rem;
+        min-height: 100vh;
         overflow: hidden;
         zoom: 1;
         padding-bottom:0.6rem;
-        padding-top: 1.2rem;
+        padding-top: 1.8rem;
     }
     .zuo {
         line-height: 2.5rem;

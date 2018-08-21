@@ -7,8 +7,7 @@
         <li id="date" :class="type==2?'top-hot':''" @click="xz(2)">已过期</li>
       </ul>
     </div>
-    <div class="list">
-    	<scroller :on-infinite='infinite'>
+    <div class="list" v-if="datas.length>0">
 	      <ul class="youhuiquan">
 	        <li class="green" v-for="item,index in datas" :key="index">
 	          <div class="litop">
@@ -30,8 +29,15 @@
 	          </div>
 	        </li>
 	      </ul>
-    	</scroller>
+	      <div class="jzgd" @click="infinite" v-if="flag==0">
+					<button>
+						加载更多
+					</button>
+				</div>
     </div>
+  	<div v-else>
+			<img src='./static/img/coupon.png' style="width: 100%;" />
+  	</div>
   </section>
 </template>
 <script>
@@ -49,13 +55,9 @@
         	jump(id){
         		this.$router.push({name:"XhStore",query:{id:id}});
         	},
-        	infinite(done){
+        	infinite(){
         		if(this.flag ==1){
-        			done(true);
         			return;
-        		}
-        		if(this.page = 0){
-        			done();
         		}
         		this.getData();
         		this.page++;
