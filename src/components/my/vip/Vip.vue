@@ -32,7 +32,7 @@
 			</div>
 		</div>
 		<!--第二行-->
-		<div class="content">
+		<div class="content"  v-if="oldDatas.privilege">
 			<div class="nxrYuan"></div>
 			<span>我的<p>特权</p></span>
 		</div>

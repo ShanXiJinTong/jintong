@@ -21,7 +21,7 @@
   display: flex;
 }
 .bag-item:first-child{
-  padding-top: 0.5rem;
+  padding-top: 1.2rem;
 }
 .bag-item .sk-bag-photo {
   width: 1.97rem;
