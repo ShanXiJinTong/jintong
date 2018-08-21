@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="middle">
-			<div class=" person">
+			<div class="person">
 				<div class="left" :style="'background-image: url('+$store.state.imghost+myInfo.headImg+');'"></div>
 				<div class="middle">
 					<span style="font-size: 0.3rem;color: #333;font-weight:bold;">{{myInfo['firstname']}}</span><br>
@@ -36,18 +36,17 @@
 			<div class="nxrYuan"></div>
 			<span>我的<p>特权</p></span>
 		</div>
-
 		<div class="middle" v-if="oldDatas.privilege">
 			<div class="box1" v-for="item in oldDatas.privilege">
 				<img :src="$store.state.imghost+'images/'+item.img" alt="">
 				<p>{{item.name}}</p>
 			</div>
 		</div>
-		<div class="middle" v-else>
+		<!--<div class="middle" v-else>
 			<div class="box1">
 				无
 			</div>
-		</div>
+		</div>-->
 		<!--第三行-->
 		<div class="content">
 			<div class="left" style="width: auto">
