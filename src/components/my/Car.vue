@@ -86,9 +86,35 @@
 		},
 		methods: {
 			js(){
+				var arr=[];
+				this.carInfo.forEach(val=>{
+					var obj = {};
+					obj.id = val.shop_id;
+					obj.goods = [];
+					val.item.forEach((ele)=>{
+						if(ele.flag){
+							obj.goods.push({
+								id:ele.product._id['$oid'],
+								num:ele.qty
+							});
+						}
+					});
+					arr.push(obj);
+				});
+				arr = arr.filter(val=>{
+					return val.goods.length;
+				});
 				
-				
-				
+				if(arr.length == 0){
+					this.$message({
+						message:"请选择商品",
+						type:"warning",
+						duration: 700
+					});
+					return;
+				}
+				sessionStorage.car = JSON.stringify(arr);
+				this.$router.push({name:"WaitServicePay1"});
 			},
 			getData() {
 				this.$http({
