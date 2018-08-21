@@ -53,6 +53,7 @@ nav .main p {
   border-radius: 0.26rem;
   line-height: 0.52rem;
   padding:0 0.2rem;
+  overflow: hidden;
 }
 /*.swiper-container {*/
    /*overflow:auto !important;*/

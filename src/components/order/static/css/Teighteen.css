@@ -342,6 +342,9 @@
   font-size: 0.22rem;
   color: #8a8c8d;
   margin-top: 0.06rem;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
 }
 
 .mwq-model  img{
