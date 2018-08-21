@@ -213,7 +213,7 @@
 					obj.order_remark = val.order_remark;
 					obj.goods = [];
 					val.goods.forEach(ele=>{
-						obj.goods.push({product_id:ele._id["$oid"],num:ele.num});
+						obj.goods.push({product_id:ele._id["$oid"],num:ele.num,item_id:ele.item_id});
 					});
 					arr.push(obj);
 				});

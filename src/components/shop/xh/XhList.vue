@@ -29,7 +29,7 @@
                     <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
                 </div>
                 <div class="cateBox" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
-                    <p>价格降序</p>
+                    <p>价格</p>
                     <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
                 </div>
             </div>
@@ -37,11 +37,6 @@
         <!--nav结束-->
         <!--bag开始-->
         <div class="bag-scroll">
-            <scroller
-                    :on-infinite="infinite"
-                    ref="myscroller"
-                    class="myScroll"
-            >
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
                     <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" >
                         <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
@@ -78,7 +73,11 @@
                     </li>
                     </router-link>
                 </ul>
-            </scroller>
+                <div class="jzgd" @click="infinite" v-if="!flag2">
+						<button>
+							加载更多
+						</button>
+					</div>
         </div>
         <!--bag结束-->
     </div>
@@ -106,20 +105,17 @@
                 flag:true,
                 flag1:true,
                 flag2:false,
-                flag3:true
             }
         },
         methods: {
             getData(type) {
             	if(type=='page'){
-            		this.page++;
+//          		this.page++;
             	}else{
             		this.page = 0;
             		this.flag2 = false;
             	}
                 let _this = this;
-                this.list = [];
-                this.flag3 = false;
                 this.$http.get('/catalog/category/index', {
                     params: {
                         categoryid: _this.cid,
@@ -127,6 +123,7 @@
                         page:this.page
                     }
                 }).then(res => {
+            		this.page++;
                 	if(res.data.goods.length<10){
                 		this.flag2 = true;
                 	}
@@ -134,25 +131,19 @@
 	                    this.list.push(val);
                 	});
                     this.typedata = res.data.category;
-                    this.list = res.data.goods;
                 })
             },
             getList(item) {
-            	this.goods = [];
+            	this.list = [];
                 this.cid = item['_id']['$oid'];
                 this.type = item.name.name_zh;
                 this.getData();
             },
-            infinite(done) {
+            infinite() {
             	if(this.flag2){
-            		done(true);
             		return;
             	}
-            	if(this.page==0){
-            		done();
-            		return;
-            	}
-                this.getData();
+                this.getData('page');
             },
             handleorder(type,flag){
             	if(flag == 'nums'){
@@ -160,7 +151,7 @@
             	}else if(flag == 'price'){
             		this.flag1 = !this.flag1;
             	}
-            	this.goods = [];
+            	this.list = [];
                 this.orderBy=type;
                 this.getData();
             }

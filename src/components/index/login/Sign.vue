@@ -80,9 +80,9 @@
 				if(value === '') {
 					callback(new Error('请输入密码'));
 				} else {
-					if(this.ruleForm2.password !== '') {
-						this.$refs.ruleForm2.validateField('pass');
-					}
+//					if(this.ruleForm2.password !== '') {
+//						this.$refs.ruleForm2.validateField('pass');
+//					}
 					callback();
 				}
 			};
@@ -121,7 +121,7 @@
 					}]
 				},
 				tel: "",
-				flag1:true
+				flag1: true
 			}
 		},
 		methods: {
@@ -136,35 +136,37 @@
 				}
 				this.flag1 = false;
 				this.$refs['ruleForm2'].validate((valid) => {
-					this.$http({
-						method: 'post',
-						url: '/customer/login/regedit',
-						data: this.$qs.stringify(this.ruleForm2)
-					}).then(res => {
-						if(res.data.status == 1) {
-							this.$message({
-								message: '注册成功',
-								type: 'success',
-								duration: 700
-							});
-							this.$router.push({
-								name: 'UserLogin'
-							});
-						} else {
-							this.$message({
-								showClose: true,
-								message: '注册失败，请重新注册',
-								type: 'error',
-								duration: 700
+					if(valid) {
+						this.$http({
+							method: 'post',
+							url: '/customer/login/regedit',
+							data: this.$qs.stringify(this.ruleForm2)
+						}).then(res => {
+							if(res.data.status == 1) {
+								this.$message({
+									message: '注册成功',
+									type: 'success',
+									duration: 700
+								});
+								this.$router.push({
+									name: 'UserLogin'
+								});
+							} else {
+								this.$message({
+									showClose: true,
+									message: '注册失败，请重新注册',
+									type: 'error',
+									duration: 700
 
-							});
-							this.$router.push({
-								name: 'Sign'
-							});
-							this.flag1 = true;
-						}
+								});
+								this.$router.push({
+									name: 'Sign'
+								});
+								this.flag1 = true;
+							}
 
-					})
+						})
+					}
 				});
 			},
 			fs() {

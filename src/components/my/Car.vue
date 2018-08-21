@@ -95,7 +95,8 @@
 						if(ele.flag){
 							obj.goods.push({
 								id:ele.product._id['$oid'],
-								num:ele.qty
+								num:ele.qty,
+								item_id:ele.item_id
 							});
 						}
 					});
