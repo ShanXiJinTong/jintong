@@ -284,9 +284,11 @@ header >p{
 /*is*/
 .bag-scroll{
     width: 100%;
-    /*height: 8.55rem;*/
+    height: auto;
     overflow: scroll;
-    padding-top:4.07rem;
+    margin-top:4.07rem;
+    /*padding-bottom: 2rem;*/
+    
 }
 .sk-bag-scroll{
     width: 100%;

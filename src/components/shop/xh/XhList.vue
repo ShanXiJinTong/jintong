@@ -5,13 +5,13 @@
             <div class="main">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
                 	<swiper-slide style="">
-                        <p :class="{hot:type===''}" @click="getList({name:''},$route.query.categoryId)">
+                        <p :class="{hot:type===''}" @click="getList({name:{name_zh:''},'_id':{'$oid':$route.query.categoryId}})">
                         	全部
                             </p>
                     </swiper-slide>
                     <swiper-slide v-for="item,key in typedata" :key="key" style="">
-                        <p :class="{hot:type===item.name}" @click="getList(item,key)">
-                            {{item.name}}</p>
+                        <p :class="{hot:type===item.name.name_zh}" @click="getList(item)">
+                            {{item.name.name_zh}}</p>
                     </swiper-slide>
                 </swiper>
             </div>
@@ -20,17 +20,17 @@
         <!--cate开始-->
         <div class="cate">
             <div class="main">
-                <div class="cateBox" @click="handleorder('all')">
+                <div class="cateBox" @click="handleorder('default')">
                     <p>综合</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='all'"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='default'"></i>
                 </div>
-                <div class="cateBox" @click="handleorder('sell')">
+                <div class="cateBox" @click="handleorder(flag?'saledesc':'saleasc','nums')">
                     <p>销量</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='sell'"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
                 </div>
-                <div class="cateBox" @click="handleorder('price')">
+                <div class="cateBox" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
                     <p>价格降序</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='price'"></i>
+                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
                 </div>
             </div>
         </div>
@@ -39,21 +39,20 @@
         <div class="bag-scroll">
             <scroller
                     :on-infinite="infinite"
-                    :on-refresh="contentRefresh"
                     ref="myscroller"
                     class="myScroll"
             >
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
-                    <router-link :to="{name:'XhDetail',query:{uid:item._id,sname:item.shop.shop_name}}" >
-                        <li class="sk-bag-photo" :style="'background: url('+item.image+') no-repeat center /100% auto'">
+                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" >
+                        <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
                             <!--<img :src="item.image" alt="">-->
                         </li>
                         <li class="sk-bag-content">
                         <div class="sk-service-type">
-                            <h3>{{item.name}}</h3>
+                            <h3>{{item.name.name_zh}}</h3>
                         </div>
                         <div class="sk-service-desc">
-                            <p>{{item.description}}</p>
+                            <p>{{item.meta_description.meta_description_zh}}</p>
                         </div>
                         <div class="sk-estimate_sale_price">
                             <ul class="sk-estimate sk-item">
@@ -69,7 +68,7 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.price }}元/件</li>
+                                <li v-if="item.price">{{item.special_price }}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -91,8 +90,8 @@
             return {
                 type: "",
                 list: [],
-                cid: '',
-                page: 1,
+                cid: this.$route.query.categoryId,
+                page: 0,
                 totalPage: null,
                 typedata: {},
                 swiperOption: {
@@ -103,92 +102,67 @@
                     slidesPerView:3,
                     cancelable:false
                 },
-                orderBy:"all"
-            }
-        },
-        watch: {
-            type() {
-              // this.refresh();
+                orderBy:"default",
+                flag:true,
+                flag1:true,
+                flag2:false,
+                flag3:true
             }
         },
         methods: {
-            getData(sort = '', callback) {
+            getData(type) {
+            	if(type=='page'){
+            		this.page++;
+            	}else{
+            		this.page = 0;
+            		this.flag2 = false;
+            	}
                 let _this = this;
                 this.list = [];
+                this.flag3 = false;
                 this.$http.get('/catalog/category/index', {
                     params: {
-                        categoryId: _this.cid,
-                        sortColumn: sort,
+                        categoryid: _this.cid,
+                        type: this.orderBy,
+                        page:this.page
                     }
                 }).then(res => {
-                    res.data.data.products.forEach(ele=>{
-                        this.list.push(ele);
-                    });
-                    this.typedata = res.data.data.filter_category;
-//                  if (this.type === "") {
-//                      for (let i in this.typedata) {
-//                          this.type = this.typedata[i].name;
-//                          break;
-//                      }
-//                  }
-                    this.list = this.list.filter(function (val) {
-                        return val.shop;
-                    });
-                    // this.totalPage = res.data.data.page_count;
-                    callback && callback();
+                	if(res.data.goods.length<10){
+                		this.flag2 = true;
+                	}
+                	res.data.goods.forEach(val=>{
+	                    this.list.push(val);
+                	});
+                    this.typedata = res.data.category;
+                    this.list = res.data.goods;
                 })
             },
-            getList(obj, key) {
-                this.cid = key;
-                this.$nextTick(() => {
-                    this.type = obj.name;
-                })
+            getList(item) {
+            	this.goods = [];
+                this.cid = item['_id']['$oid'];
+                this.type = item.name.name_zh;
                 this.getData();
             },
-            refresh() {
-                let _this = this;
-                this.list = [];
-                this.$http.get('/catalog/category/index', {
-                    params: {
-                        categoryId: _this.cid,
-                        sortColumn: "",
-                    }
-                }).then(res => {
-                    res.data.data.products.forEach(ele=>{
-                        this.list.push(ele);
-                    });
-                })
-            },
             infinite(done) {
-                this.page += 1;
-                if (this.page > this.totalPage) {
-                    this.page -= 1;
-                    done(true);
-                    return;
-                }
-                this.$http.get('/catalog/category/product', {
-                    params: {
-                        p: this.page,
-                        categoryId: this.cid,
-                        sortColumn: ""
-                    }
-                }).then(res => {
-                    res.data.data.products.forEach(ele=>{
-                        this.list.push(ele);
-                    });
-                    done();
-                })
+            	if(this.flag2){
+            		done(true);
+            		return;
+            	}
+            	if(this.page==0){
+            		done();
+            		return;
+            	}
+                this.getData();
             },
-            contentRefresh(done) {
-                this.getData("", done);
-            },
-            handleorder(type){
+            handleorder(type,flag){
+            	if(flag == 'nums'){
+            		this.flag = !this.flag;
+            	}else if(flag == 'price'){
+            		this.flag1 = !this.flag1;
+            	}
+            	this.goods = [];
                 this.orderBy=type;
-                switch(type){
-                    case "all":this.getData();break;
-                    case "sell":this.getData("sell");break;
-                    case "price":this.getData("high-to-low");break;
-                }
+                this.getData();
             }
         },
         mounted: function () {
@@ -204,5 +178,8 @@
     .myScroll {
         width: 100%;
         height: 100%;
+    }
+    .xz{
+    	transform: rotate(180deg);
     }
 </style>

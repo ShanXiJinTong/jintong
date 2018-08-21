@@ -13,6 +13,14 @@
 </script>
 
 <style>
+	.jzgd{
+		color: #fff;
+		padding: 0.16rem 0.4rem !important;
+	}
+	.jzgd button{
+		width: 100%;
+		height: 0.7rem;
+	}
   #app{
     font-size: 14px;
     /*overflow: hidden;*/

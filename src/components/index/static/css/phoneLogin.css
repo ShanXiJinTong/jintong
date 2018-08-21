@@ -94,7 +94,7 @@
     font-size: 0.22rem;
     margin:0 0.4rem ;
 }
-#UserLogin .two >p{
+#UserLogin .two .btn{
     width: 1.56rem;
     height: 0.46rem;
     background:linear-gradient(to right,rgb(55,224,111),rgb(50,214,154));
@@ -103,6 +103,16 @@
     line-height: 0.46rem;
     border-radius:0.23rem ;
     box-shadow:0 0 0.2rem 0.02rem #37df74;
+}
+#UserLogin .two .btn1{
+    width: 1.56rem;
+    height: 0.46rem;
+    background:#ccc;
+    font-size:0.22rem ;
+    color: #000;
+    line-height: 0.46rem;
+    border-radius:0.23rem ;
+    box-shadow:0 0 0.2rem 0.02rem #ccc;
 }
 #UserLogin .bigbox{
     height: 0.52rem;
