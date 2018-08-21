@@ -15,11 +15,15 @@
 <style>
 	.jzgd{
 		color: #fff;
-		padding: 0.16rem 0.4rem !important;
+		padding: 0.16rem 0.8rem !important;
 	}
 	.jzgd button{
 		width: 100%;
-		height: 0.7rem;
+		color: #666;
+		height: 0.6rem;
+		border-radius: 1rem;
+		background: #eee;
+		box-shadow: 0 0 0.1rem #eee;
 	}
   #app{
     font-size: 14px;
