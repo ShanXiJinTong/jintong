@@ -67,10 +67,10 @@
                 <span>优惠卷</span>
             </div>
             <a href="javascript:">
-                <div class="aright" @click="couFlag=true;coinFlag = false">
+                <div class="aright">
                     <span v-if="coupon.length==0">无可用优惠卷</span>
-                    <span v-else-if="coupon1.coupon_name">{{coupon1.coupon_name}}</span>
-                    <span v-else-if="!coupon1.coupon_name">点击使用优惠卷</span>
+                    <span v-else-if="coupon1.coupon_name" @click="couFlag=true;coinFlag = false">{{coupon1.coupon_name}}</span>
+                    <span v-else-if="!coupon1.coupon_name" @click="couFlag=true;coinFlag = false">点击使用优惠卷</span>
                     <img src="./static/img/xiayibu.png" alt="">
                 </div>
             </a>
