@@ -4,7 +4,8 @@
 		<div class="LZJ-singleDetail">
 			<div class="LZJ-main">
 				<router-link :to="{name:'WaterStoreIntro',query:{id:shop.shop_id}}" tag="div" class="LZJ-Thumb">
-					<img :src="$store.state.imghost+'images/'+shop.shop_avatar" alt="">
+                    <div class="img" :style="'background:url('+$store.state.imghost+'images/'+shop.shop_avatar+') no-repeat center center /100% auto'"></div>
+					<!--<img :src="" alt="">-->
 				</router-link>
 				<div class="LZJ-infos">
 					<div class="LZJ-title">{{shop.shop_company_name}}

@@ -31,37 +31,35 @@
 			<div class="line1"></div>
 		</div>
 		<div class="lingjuan" @click="get(shopDetail.shop_id)">
-
 			<img src="../img/lingjuan.png" alt="">
-
 			<div class="lingjuan2">领券</div>
 			<div class="lingjuan3" v-if="couponName">{{couponName}}</div>
 		</div>
 		<div class="tuikuan" :class="{display:display}">
-			<div class="tktitle">
-				<span class="tkcolor">领取</span>优惠券
-				<div class="tkclose">
-				</div>
-			</div>
-
-			<ul class="tkbox">
-				<li class="tklist" v-for="item in coupon">
-					<div class="left">
-						<div class="money">
-							<div class="tkyuan">
-							</div>
-							<h3>{{item.discount
-}}元</h3>
-						</div>
-						<div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
-						<div class="tktext" v-else>无条件</div>
-						<h5>有效期至{{item.gqsj}}</h5>
+			<div class="youhui">
+				<div class="tktitle">
+					<span class="tkcolor">领取</span>优惠券
+					<div class="tkclose">
 					</div>
-					<div class="get" style="background: #ccc;box-shadow: 0 0.05rem 0.2rem 0 rgba(204,204,204,0.5);" v-if="item.customer_id">已领取</div>
-					<div class="get" @click="getCoupon(item)" v-else>领取</div>
-				</li>
-			</ul>
-			<div class="tkbutton" @click="get()">关闭</div>
+				</div>
+				<ul class="tkbox">
+					<li class="tklist" v-for="item in coupon">
+						<div class="left">
+							<div class="money">
+								<div class="tkyuan">
+								</div>
+								<h3>{{item.discount}}元</h3>
+							</div>
+							<div class="tktext" v-if="item.conditions>0">订单满{{item.conditions}}元可用</div>
+							<div class="tktext" v-else>无条件</div>
+							<h5>有效期至{{item.gqsj}}</h5>
+						</div>
+						<div class="get" style="background: #ccc;box-shadow: 0 0.05rem 0.2rem 0 rgba(204,204,204,0.5);" v-if="item.customer_id">已领取</div>
+						<div class="get" @click="getCoupon(item)" v-else>领取</div>
+					</li>
+				</ul>
+				<div class="tkbutton" @click="get()">关闭</div>
+			</div>
 		</div>
 		<div class="line">
 			<div class="line1 "></div>
@@ -111,7 +109,6 @@
 <script>
 	import $ from "jquery";
 	import "jquery.cookie";
-
 	export default {
 		name: 'XhDetail',
 		data() {
@@ -143,7 +140,7 @@
 				this.$http.get('/catalog/product/getcoupon?coupon_id=' + item.coupon_id + "&customer_id=" + localStorage["fecshop-uuid"]).then(res => {
 					if(res.data == "ok") {
 						item.customer_id = true;
-						this.coupon = Object.assign({}, this.coupon)
+						this.coupon = Object.assign({}, this.coupon);
 						this.$message({
 							type: "success",
 							message: "领取成功"
@@ -191,11 +188,10 @@
 				}
 				if((localStorage['access-token'] && localStorage['fecshop-uuid'])) {
 					this.coupon = [];
-
-					this.$http.get('/catalog/product/index1?product_id=' + this.uid + "&customer_id=" + localStorage["fecshop-uuid"]+"&shop_id="+shop_id).then(res => {
+					this.$http.get('/catalog/product/index1?product_id=' + this.uid + "&customer_id=" + localStorage["fecshop-uuid"]+"&shop_id="+shop_id)
+						.then(res => {
 						this.coupon = res.data;
 						this.coupon = Object.assign({}, this.coupon);
-
 						this.display = 1;
 					})
 				} else {
@@ -219,7 +215,6 @@
 				} else {
 					this.$router.push("/UserLogin");
 				}
-
 			}
 		},
 		mounted: function() {

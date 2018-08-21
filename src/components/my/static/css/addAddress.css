@@ -74,10 +74,8 @@ header .title span{
 .content .mwq-box .mwq-title .mwq-enter{
     height: 0.24rem;
     width: 0.15rem;
-    display: flex;
-    margin-right: 0;
     position: absolute;
-    right:0;
+    right:0.2rem;
 }
 .content .mwq-box .mwq-title .mwq-enter img{
     height: 0.24rem;
@@ -93,7 +91,7 @@ header .title span{
     border-radius: 0.08rem;
     padding-left: 0.37rem;
     box-sizing: border-box;
-    font-size: 0.22rem;
+    font-size: 0.26rem;
     line-height: 1.02rem;
     color:#b9c9d2;
     /*margin-top: 0.19rem;*/

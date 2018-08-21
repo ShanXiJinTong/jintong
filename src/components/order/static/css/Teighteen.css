@@ -53,7 +53,7 @@
     /*margin-bottom: 0.2rem;*/
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word;
+    white-space: nowrap;
 }
 .cloth .cright .righttwo{
     width: 100%;
@@ -255,7 +255,7 @@
     bottom: 0;
 }
 .root .rleft{
-    width: 2.5rem;
+    /*width: 2.5rem;*/
     height: 100%;
     display: flex;
     align-items: center;
