@@ -87,7 +87,7 @@
 				<a href="javascript:">
 					<div class="rl2">
 						<img src="../img/lianxi.png" alt="">
-						<span @click="chat(shopDetail.shop_id)">联系商家</span>
+						<span @click="chat(shopDetail.uid)">联系商家</span>
 					</div>
 				</a>
 			</div>
@@ -196,7 +196,6 @@
 			},
 			chat(friId) {
 				if($.cookie("userId")) {
-					var friId = 4;
 					this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
 						if(res.data == "ok") {
 							this.$router.push({
