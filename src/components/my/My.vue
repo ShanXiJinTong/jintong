@@ -90,8 +90,8 @@
                     <h6>400-789-2211</h6>
                 </a>
             </div>
-            <div class="wai" style="justify-content: center;background: #00AAEE;color: #fff;border-radius: 5px;margin-top: 0.5rem;letter-spacing: 1px;" @click="loginOut">
-                	退出登陆
+            <div class="wai" style="height:0.7rem;line-height:0.7rem;justify-content: center;background: #00AAEE;color: #fff;border-radius:0.5rem;margin-top: 0.5rem;letter-spacing: 1px;font-size: 0.26rem;" @click="loginOut">
+                	退出登录
             </div>
         </div>
         <Tab></Tab>

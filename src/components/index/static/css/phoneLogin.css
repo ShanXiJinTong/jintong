@@ -69,7 +69,7 @@
     border: 0;
     outline: none;
     background: none;
-    font-size: 0.22rem;
+    font-size: 0.26rem;
 }
 #UserLogin .two{
     height: 0.71rem;
@@ -91,7 +91,7 @@
     border: 0;
     outline: none;
     background: none;
-    font-size: 0.22rem;
+    font-size: 0.26rem;
     margin:0 0.4rem ;
 }
 #UserLogin .two .btn{
@@ -115,14 +115,14 @@
     box-shadow:0 0 0.2rem 0.02rem #ccc;
 }
 #UserLogin .bigbox{
-    height: 0.52rem;
+    height: 0.6rem;
     width: 3.86rem;
     background:rgba(59,172,254,0.1);
     margin: 0.4rem auto;
-    border-radius: 0.26rem;
+    border-radius: 0.3rem;
     text-align: center;
-    font-size: 0.22rem;
-    line-height: 0.52rem;
+    font-size: 0.24rem;
+    line-height: 0.6rem;
     color: #3bacfe;
 }
 #UserLogin .bigbox button{
@@ -131,20 +131,26 @@
     border:none;
     outline: none;
     background: #3bacfe;
-    border-radius: 0.26rem;
+    border-radius: 0.3rem;
     color: #fff;
+    font-size: 0.26rem;
 }
 #UserLogin .txt{
     height: 0.3rem;
     width: 100%;
     color: rgba(0,0,0,0.3);
-    position: relative;
+    /*position: relative;*/
+    display: flex;
+    align-items: center;
 }
 #UserLogin .txt >a{
+    height: 0.3rem;
+    margin-left:0.1rem;
     font-size: 0.22rem;
-    position: absolute;
-    top:0;
-    left:0.3rem;
+    line-height: 0.3rem;
+    /*position: absolute;*/
+    /*top:0;*/
+    /*left:0.3rem;*/
     color:inherit;
 }
 #UserLogin .round{

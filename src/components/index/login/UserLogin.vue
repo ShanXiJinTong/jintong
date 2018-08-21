@@ -24,13 +24,12 @@
 			<div class="dis" :class="{block:!isOk}">
 				<li class="one">
 					<div class="dot"></div>
-					<span>用户名：</span>
-
+					<span style="font-size: 0.26rem;">用户名：</span>
 					<input type="text" v-model="ruleForm.tel" placeholder="请输入手机号码">
 				</li>
 				<li class="two">
 					<div class="dot"></div>
-					<span>密&nbsp;码：</span>
+					<span style="font-size: 0.26rem;">密&nbsp;码：</span>
 					<input type="password" v-model="ruleForm.password" placeholder="请输入密码">
 				</li>
 				<li class="bigbox">

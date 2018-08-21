@@ -157,4 +157,7 @@
 </script>
 <style scoped>
     @import url(../static/css/addAddress.css);
+    .el-checkbox__label{
+        font-size: 0.26rem !important;
+    }
 </style>
