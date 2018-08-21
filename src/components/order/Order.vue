@@ -11,7 +11,7 @@
 		</div>
 		<!--横向滚动栏结束-->
 		<!--订单开始-->
-		<div class="middle" id="wrapper2" style="margin-bottom: 1rem;">
+		<div class="middle" id="wrapper2" style="margin-bottom: 1rem;" v-if="orderlist[0]">
 				<div class="x-box" v-for="item in orderlist">
 					<router-link :to="{name:'OrderDetail',query:{order_id:item.order_id}}">
 						<div class="x-DR">
@@ -40,6 +40,10 @@
 					</button>
 				</div>
 		</div>
+		<div v-else>
+			<img src='./img/order.png' style="width: 100%;" />
+		</div>
+			
 		<!--footer结束-->
 		<Tab></Tab>
 	</div>

@@ -19,10 +19,10 @@
 	}
 	.jzgd button{
 		width: 100%;
-		color: #666;
+		color: #fff;
 		height: 0.6rem;
 		border-radius: 1rem;
-		background: #eee;
+		background: #00AAEE;
 		box-shadow: 0 0 0.1rem #eee;
 	}
   #app{

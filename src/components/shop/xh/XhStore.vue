@@ -34,7 +34,7 @@
 						<div class="LZJ-times">9:00-12:00</div>
 					</div>
 					<div class="LZJ-dates">最近可约 16:00</div>
-					<div class="LZJ-advice" @click="chat($route.query.id)">咨询</div>
+					<div class="LZJ-advice" @click="chat(shop.uid)">咨询</div>
 				</div>
 			</div>
 		</div>
@@ -284,8 +284,7 @@
 				this.getComments();
 			},
 			chat(friId) {
-				var friId = 4;
-				this.$http.get(`http://localhost:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
+				this.$http.get(`http://www.chengzhanghao.com:1701/directAddFri?friId=${friId}&userId=${$.cookie("userId")}`).then(res => {
 					if(res.data == "ok") {
 						this.$router.push({
 							name: "Dialog",

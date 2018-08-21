@@ -3,13 +3,13 @@
         <div class="centers">
             <div class="gerengxingxi">
                 <router-link :to="{name:'Vip'}" style="margin-left: 0">
-                    <div class="yuan" :style="'background:url('+$store.state.imghost+myInfo.headImg+')'"></div>
+                    <div class="yuan" :style="'background-image:url('+$store.state.imghost+myInfo.headImg+')'"></div>
                     <div class="zi">
                         <h6>{{myInfo.firstname}}</h6>
                         <div class="nei">
                             <img src="./static/img/jzl-img/huangguan.png" alt=""
                                  style="width: 0.3rem; height: 0.3rem; background-size: cover;display: block;">
-                            <span v-if="!myInfo.level">普通会员</span>
+                            <span v-if="myInfo.level==''||myInfo.level==0">普通会员</span>
                             <span v-if="myInfo.level==1">白银会员</span>
                             <span v-if="myInfo.level==2">黄金会员</span>
                             <span v-if="myInfo.level==3">钻石会员</span>
