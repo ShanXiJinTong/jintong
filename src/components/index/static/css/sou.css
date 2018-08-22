@@ -42,7 +42,7 @@
     outline: none;
     color: #36a8fe;
     font-size: 0.26rem;
-    line-height: 0.7rem;
+    /*line-height: 0.7rem;*/
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
