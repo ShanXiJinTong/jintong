@@ -448,6 +448,9 @@ header >p{
 .com-item .sk-content .sk-user_time h5{
     color: #c9cbcc;
     font-weight: normal;
+    font-size: 0.18rem;
+    line-height: 0.24rem;
+
 }
 .com-item .sk-content .sk-user_time .star{
     color: #c9cbcc;
@@ -470,6 +473,8 @@ header >p{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 0.3rem;
+    line-height: 0.4rem;
 }
 .com-item .sk-content .sk-pos{
     margin-top: 0.18rem;
