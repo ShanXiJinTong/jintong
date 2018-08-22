@@ -41,8 +41,8 @@
     box-sizing: border-box;
     outline: none;
     color: #36a8fe;
-    font-size: 0.2rem;
-    line-height: 0.6rem;
+    font-size: 0.26rem;
+    line-height: 0.7rem;
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
