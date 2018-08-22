@@ -40,9 +40,9 @@
     padding-right:0.6rem;
     box-sizing: border-box;
     outline: none;
-    /*line-height: 10rem;*/
     color: #36a8fe;
-    font-size: 0.24rem;
+    font-size: 0.2rem;
+    line-height: 0.6rem;
 
 }
 .wsq-searchBox>input::-webkit-input-placeholder{
