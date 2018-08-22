@@ -463,16 +463,16 @@ header >p{
 }
 .com-item .sk-content .sk-desc{
     width: 100%;
-    height: 0.4rem;
+    /*height: 0.4rem;*/
     margin-top: 0.23rem;
     font-size: 0.3rem;
 
 }
 .com-item .sk-content .sk-desc p{
     width: 5.5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*white-space: nowrap;*/
     font-size: 0.3rem;
     line-height: 0.4rem;
 }
