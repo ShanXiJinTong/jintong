@@ -81,8 +81,9 @@
     border: 0;
     outline: none;
     background: none;
-    font-size: 0.22rem;
-    margin:0 0.4rem ;
+    font-size: 0.26rem;
+    margin:0 0.4rem;
+    width: 2.5rem;
 }
 #Sign .two .btn{
     width: 1.56rem;
@@ -95,12 +96,13 @@
     box-shadow:0 0 0.2rem 0.02rem #37df74;
 }
 #Sign .two .btn1{
-    width: 1.56rem;
+    /*width: 1.56rem;*/
     height: 0.46rem;
     background:#ccc;
     font-size:0.22rem ;
     color: #000;
     line-height: 0.46rem;
+    padding:0 0.2rem;
     border-radius:0.23rem ;
     box-shadow:0 0 0.2rem 0.02rem #ccc;
 }
@@ -154,7 +156,7 @@
     margin: 0.4rem auto;
     border-radius: 0.26rem;
     text-align: center;
-    font-size: 0.22rem;
+    font-size: 0.26rem;
     line-height: 0.52rem;
     color: #3bacfe;
 }
@@ -194,10 +196,10 @@
     border: none;
     outline: none;
     padding:0 7px;
-    font-size: 0.22rem;
+    font-size: 0.26rem;
 }
 #Sign .el-form-item{
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 

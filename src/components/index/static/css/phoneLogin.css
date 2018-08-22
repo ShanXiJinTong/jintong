@@ -93,6 +93,7 @@
     background: none;
     font-size: 0.26rem;
     margin:0 0.4rem ;
+    width: 2.5rem;
 }
 #UserLogin .two .btn{
     min-width: 1.60rem;
