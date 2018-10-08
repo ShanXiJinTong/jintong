@@ -136,6 +136,7 @@
           </div>
         </li>
         <button v-if="order.order_status==0" @click="zf" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>
+        <button v-if="order.goods_type==2" @click="zf1" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">支付尾款</button>
       </ul>
 
   </section>
@@ -157,8 +158,11 @@
     	zf(){
     		this.$router.push("/ServicePay");
     	},
+      zf1(){
+        this.$router.push({name:'WaitServicePay2',query:{orderid:this.order_id}});
+      },
       getData(order_id) {
-				
+
         this.$http({
           method: 'get',
           url: '/customer/order/orderlist',
