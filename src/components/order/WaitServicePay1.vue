@@ -51,7 +51,6 @@
             </div>
             <div class="er">
               <div class="yuanjiao3"></div>
-              {{1}}
             </div>
           </div>
         </div>

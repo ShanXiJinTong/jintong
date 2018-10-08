@@ -98,14 +98,14 @@
 				<a @click="handleClick" >
 					<div class="rr1">加入购物车</div>
 				</a>
-				<router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id,price:shopDetail.special_price}}" tag="a">
-					<div class="rr2">立即下单</div>
-				</router-link>
+        <a @click="handleSubmit">
+          <div class="rr2">立即下单</div>
+        </a>
 			</div>
       <div class="rr" v-if="shopDetail['goods_type']==2">
-        <router-link :to="{name:'WaitServicePay1',query:{sid:shopDetail.shop_id,gid:shopDetail._id,price:shopDetail.deposit}}" tag="a">
+        <a @click="handleSubmit1">
           <div class="rr2">立即下单</div>
-        </router-link>
+        </a>
       </div>
 		</div>
 	</div>
@@ -160,7 +160,6 @@
 			},
 			getData() {
 				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
-          console.log(res);
           this.shopDetail = res.data.data.product;
 					this.coupon = res.data.data.coupon;
 					if(this.coupon.length>0){
@@ -186,6 +185,24 @@
 					})
 				}
 			},
+      handleSubmit() {
+        if(!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+          this.$router.push({
+            name: 'UserLogin'
+          })
+        } else {
+          this.$router.push({name:'WaitServicePay',query:{sid:this.shopDetail.shop_id,gid:this.shopDetail._id,price:this.shopDetail.special_price}})
+        }
+      },
+      handleSubmit1() {
+        if(!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+          this.$router.push({
+            name: 'UserLogin'
+          })
+        } else {
+          this.$router.push({name:'WaitServicePay1',query:{sid:this.shopDetail.shop_id,gid:this.shopDetail._id,price:this.shopDetail.deposit}})
+        }
+      },
 			get(shop_id) {
 				if(this.display==1){
 					this.display = 0;
