@@ -12,10 +12,13 @@
 				<p v-html="shopDetail.description"></p>
 			</div>
 			<div class="three">
-				<div class="tl">
+				<div class="tl" v-if="shopDetail['goods_type']==1">
 					<span>现价 {{shopDetail.special_price}}元／件</span>
 					<del>原价 {{shopDetail.price}}元／件</del>
 				</div>
+        <div class="tl" v-else>
+          <span>定金 {{shopDetail.deposit}}</span>
+        </div>
 				<div class="tr">
 					<span class="tr1"></span>
 					<span class="tr2">月售</span>
@@ -91,14 +94,19 @@
 					</div>
 				</a>
 			</div>
-			<div class="rr">
-				<a @click="handleClick">
+			<div class="rr" v-if="shopDetail['goods_type']==1">
+				<a @click="handleClick" >
 					<div class="rr1">加入购物车</div>
 				</a>
 				<router-link :to="{name:'WaitServicePay',query:{sid:shopDetail.shop_id,gid:shopDetail._id,price:shopDetail.special_price}}" tag="a">
 					<div class="rr2">立即下单</div>
 				</router-link>
 			</div>
+      <div class="rr" v-if="shopDetail['goods_type']==2">
+        <router-link :to="{name:'WaitServicePay1',query:{sid:shopDetail.shop_id,gid:shopDetail._id,price:shopDetail.deposit}}" tag="a">
+          <div class="rr2">立即下单</div>
+        </router-link>
+      </div>
 		</div>
 	</div>
 </template>
@@ -152,7 +160,8 @@
 			},
 			getData() {
 				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
-					this.shopDetail = res.data.data.product;
+          console.log(res);
+          this.shopDetail = res.data.data.product;
 					this.coupon = res.data.data.coupon;
 					if(this.coupon.length>0){
 						this.couponName = this.coupon[0].coupon_name;

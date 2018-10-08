@@ -110,6 +110,8 @@ const WaitService = r => require.ensure([], () => r(require('../components/order
 // 填写订单
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
 const WaitServicePay1 = r => require.ensure([], () => r(require('../components/order/WaitServicePay1.vue')), "WaitServicePay1");
+const WaitServicePay2 = r => require.ensure([], () => r(require('../components/order/WaitServicePay2.vue')), "WaitServicePay2");
+
 // 订单地址
 const WaitAddress = r => require.ensure([], () => r(require('../components/order/address/Address')), "WaitAddress");
 // 待服务订单追踪
@@ -136,323 +138,334 @@ const Wechat = r => require.ensure([], () => r(require('../components/chat/wecha
 Vue.use(Router)
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'Index',
-            component: Index
-        },
-        {
-            path: '/Search',
-            name: 'Search',
-            component: Search
-        },
-        {
-            path: '/Ruzhu',
-            name: 'Ruzhu',
-            component: Ruzhu
-        },
-        {
-            path: '/WxLogin',
-            name: 'WxLogin',
-            component: WxLogin
-        },
-        {
-            path: '/UserLogin',
-            name: 'UserLogin',
-            component: UserLogin
-        },
-        {
-            path: '/Sign',
-            name: 'Sign',
-            component: Sign
-        },
-        {
-            path: '/MessageFill',
-            name: 'MessageFill',
-            component: MessageFill
-        },
-        {
-            path: '/SelectLocation',
-            name: 'SelectLocation',
-            component: SelectLocation
-        },
-        {
-            path: '/SelectCity',
-            name: 'SelectCity',
-            component: SelectCity
-        },
-        {
-            path: '/ServiceOrder',
-            name: 'ServiceOrder',
-            component: ServiceOrder
-        },
-        {
-            path: '/ServiceList',
-            name: 'ServiceList',
-            component: ServiceList
-        },
-        {
-            path: '/ServiceDetail',
-            name: 'ServiceDetail',
-            component: ServiceDetail
-        },
-        {
-            path: '/ServicePay',
-            name: 'ServicePay',
-            component: ServicePay
-        },
-        {
-            path: '/ServicePaySuccess',
-            name: 'ServicePaySuccess',
-            component: ServicePaySuccess
-        },
+  routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+      component: Search
+    },
+    {
+      path: '/Ruzhu',
+      name: 'Ruzhu',
+      component: Ruzhu
+    },
+    {
+      path: '/WxLogin',
+      name: 'WxLogin',
+      component: WxLogin
+    },
+    {
+      path: '/UserLogin',
+      name: 'UserLogin',
+      component: UserLogin
+    },
+    {
+      path: '/Sign',
+      name: 'Sign',
+      component: Sign
+    },
+    {
+      path: '/MessageFill',
+      name: 'MessageFill',
+      component: MessageFill
+    },
+    {
+      path: '/SelectLocation',
+      name: 'SelectLocation',
+      component: SelectLocation
+    },
+    {
+      path: '/SelectCity',
+      name: 'SelectCity',
+      component: SelectCity
+    },
+    {
+      path: '/ServiceOrder',
+      name: 'ServiceOrder',
+      component: ServiceOrder
+    },
+    {
+      path: '/ServiceList',
+      name: 'ServiceList',
+      component: ServiceList
+    },
+    {
+      path: '/ServiceDetail',
+      name: 'ServiceDetail',
+      component: ServiceDetail
+    },
+    {
+      path: '/ServicePay',
+      name: 'ServicePay',
+      component: ServicePay
+    },
+    {
+      path: '/ServicePaySuccess',
+      name: 'ServicePaySuccess',
+      component: ServicePaySuccess
+    },
 
-        // 商店
-        {
-            path: '/Shop',
-            name: 'Shop',
-            component: Shop,
-        },
-        {
-            path: '/Bathroom',
-            name: 'Bathroom',
-            component: Bathroom,
-        },
-        {
-            path: '/BathroomList',
-            name: 'BathroomList',
-            component: BathroomList,
-        },
-        {
-            path: '/XhList',
-            name: 'XhList',
-            component: XhList,
-        },
-        {
-            path: '/XhDetail',
-            name: 'XhDetail',
-            component: XhDetail,
-        },
-        {
-            path: '/XhEvaluate',
-            name: 'XhEvaluate',
-            component: XhEvaluate,
-        },
-        {
-            path: '/XhStore',
-            name: 'XhStore',
-            component: XhStore,
-        },
-        {
-            path: '/XhOrder',
-            name: 'XhOrder',
-            component: XhOrder,
-        },
-        {
-            path: '/XhServer',
-            name: 'XhServer',
-            component: XhServer,
-        },
-        {
-            path: '/SellWater',
-            name: 'SellWater',
-            component: SellWater,
-        },
-        {
-            path: '/SellWaterList',
-            name: 'SellWaterList',
-            component: SellWaterList,
-        },
-        {
-            path: '/SellWaterDetail',
-            name: 'SellWaterDetail',
-            component: SellWaterDetail,
-        },
-        {
-            path: '/SellWaterOrder',
-            name: 'SellWaterOrder',
-            component: SellWaterOrder,
-        },
-        {
-            path: '/WaterStore',
-            name: 'WaterStore',
-            component: WaterStore,
-        },
-        {
-            path: '/WaterStoreIntro',
-            name: 'WaterStoreIntro',
-            component: WaterStoreIntro,
-        },
-        {
-            path: '/WaterStoreDetail',
-            name: 'WaterStoreDetail',
-            component: WaterStoreDetail,
-        },
-        {
-            path: '/My',
-            name: 'My',
-            component: My,
-        },
-        {
-            path: '/PersonalMessage',
-            name: 'PersonalMessage',
-            component: PersonalMessage
-        },
-        {
-            path: '/Car',
-            name: 'Car',
-            component: Car,
-        },
-        {
-            path: '/Discount',
-            name: 'Discount',
-            component: Discount,
-        },
-        {
-            path: '/Gold',
-            name: 'Gold',
-            component: Gold,
-        },
-        {
-            path: '/Wallet',
-            name: 'Wallet',
-            component: Wallet,
-        },
-        {
-            path: '/Kf',
-            name: 'Kf',
-            component: Kf
-        },
-        {
-            path: '/Recharge',
-            name: 'Recharge',
-            component: Recharge
-        },
-        {
-            path: '/SelectWay',
-            name: 'SelectWay',
-            component: SelectWay
-        },
-        {
-            path: '/Address',
-            name: 'Address',
-            component: Address
-        },
-        {
-            path: '/AddAddress',
-            name: 'AddAddress',
-            component: AddAddress
-        },
-        {
-            path: '/EditAddress',
-            name: 'EditAddress',
-            component: EditAddress
-        },
-        {
-            path: '/Help',
-            name: 'Help',
-            component: Help
-        },
-        {
-            path: '/HelpDetail',
-            name: 'HelpDetail',
-            component: HelpDetail
-        },
-        {
-            path: '/About',
-            name: 'About',
-            component: About
-        },
-        {
-            path: '/Vip',
-            name: 'Vip',
-            component: Vip
-        },
-        {
-            path: '/VipList',
-            name: 'VipList',
-            component: VipList
-        },
-        {
-            path: '/VipImprove',
-            name: 'VipImprove',
-            component: VipImprove
-        },
-        {
-            path: '/Order',
-            name: 'Order',
-            component: Order
-        },
-        {
-            path: '/WaitService',
-            name: 'WaitService',
-            component: WaitService
-        },
-        {
-            path: '/WaitServicePay',
-            name: 'WaitServicePay',
-            component: WaitServicePay
-        },
-        {
-            path: '/WaitAddress',
-            name: 'WaitAddress',
-            component: WaitAddress
-        },
-        {
-            path: '/WaitZz',
-            name: 'WaitZz',
-            component: WaitZz
-        },
-        {
-            path: '/OrderEvaluate',
-            name: 'OrderEvaluate',
-            component: OrderEvaluate
-        },
-        {
-            path: '/OrderDetail',
-            name: 'OrderDetail',
-            component: OrderDetail
-        },
-        {
-            path: '/Refund',
-            name: 'Refund',
-            component: Refund
-        },
-        {
-            path: '/RefundDetail',
-            name: 'RefundDetail',
-            component: RefundDetail
-        },
-        {
-            path: '/RefundAnd',
-            name: 'RefundAnd',
-            component: RefundAnd
-        },
-        {
-            path: '/RefundTo',
-            name: 'RefundTo',
-            component: RefundTo
-        },
-        {
-            path: '/AmendApplication',
-            name: 'AmendApplication',
-            component: AmendApplication
-        },
-        {
-            path:'/Dialog',
-            name:'Dialog',
-            component:Dialog
-        },
-        {
-            path:'/Wechat',
-            name:'Wechat',
-            component:Wechat
-        },
-        {
-            path:'/WaitServicePay1',
-            name:'WaitServicePay1',
-            component:WaitServicePay1
-        }
-    ]
+    // 商店
+    {
+      path: '/Shop',
+      name: 'Shop',
+      component: Shop,
+    },
+    {
+      path: '/Bathroom',
+      name: 'Bathroom',
+      component: Bathroom,
+    },
+    {
+      path: '/BathroomList',
+      name: 'BathroomList',
+      component: BathroomList,
+    },
+    {
+      path: '/XhList',
+      name: 'XhList',
+      component: XhList,
+    },
+    {
+      path: '/XhDetail',
+      name: 'XhDetail',
+      component: XhDetail,
+    },
+    {
+      path: '/XhEvaluate',
+      name: 'XhEvaluate',
+      component: XhEvaluate,
+    },
+    {
+      path: '/XhStore',
+      name: 'XhStore',
+      component: XhStore,
+    },
+    {
+      path: '/XhOrder',
+      name: 'XhOrder',
+      component: XhOrder,
+    },
+    {
+      path: '/XhServer',
+      name: 'XhServer',
+      component: XhServer,
+    },
+    {
+      path: '/SellWater',
+      name: 'SellWater',
+      component: SellWater,
+    },
+    {
+      path: '/SellWaterList',
+      name: 'SellWaterList',
+      component: SellWaterList,
+    },
+    {
+      path: '/SellWaterDetail',
+      name: 'SellWaterDetail',
+      component: SellWaterDetail,
+    },
+    {
+      path: '/SellWaterOrder',
+      name: 'SellWaterOrder',
+      component: SellWaterOrder,
+    },
+    {
+      path: '/WaterStore',
+      name: 'WaterStore',
+      component: WaterStore,
+    },
+    {
+      path: '/WaterStoreIntro',
+      name: 'WaterStoreIntro',
+      component: WaterStoreIntro,
+    },
+    {
+      path: '/WaterStoreDetail',
+      name: 'WaterStoreDetail',
+      component: WaterStoreDetail,
+    },
+    {
+      path: '/My',
+      name: 'My',
+      component: My,
+    },
+    {
+      path: '/PersonalMessage',
+      name: 'PersonalMessage',
+      component: PersonalMessage
+    },
+    {
+      path: '/Car',
+      name: 'Car',
+      component: Car,
+    },
+    {
+      path: '/Discount',
+      name: 'Discount',
+      component: Discount,
+    },
+    {
+      path: '/Gold',
+      name: 'Gold',
+      component: Gold,
+    },
+    {
+      path: '/Wallet',
+      name: 'Wallet',
+      component: Wallet,
+    },
+    {
+      path: '/Kf',
+      name: 'Kf',
+      component: Kf
+    },
+    {
+      path: '/Recharge',
+      name: 'Recharge',
+      component: Recharge
+    },
+    {
+      path: '/SelectWay',
+      name: 'SelectWay',
+      component: SelectWay
+    },
+    {
+      path: '/Address',
+      name: 'Address',
+      component: Address
+    },
+    {
+      path: '/AddAddress',
+      name: 'AddAddress',
+      component: AddAddress
+    },
+    {
+      path: '/EditAddress',
+      name: 'EditAddress',
+      component: EditAddress
+    },
+    {
+      path: '/Help',
+      name: 'Help',
+      component: Help
+    },
+    {
+      path: '/HelpDetail',
+      name: 'HelpDetail',
+      component: HelpDetail
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
+    },
+    {
+      path: '/Vip',
+      name: 'Vip',
+      component: Vip
+    },
+    {
+      path: '/VipList',
+      name: 'VipList',
+      component: VipList
+    },
+    {
+      path: '/VipImprove',
+      name: 'VipImprove',
+      component: VipImprove
+    },
+    {
+      path: '/Order',
+      name: 'Order',
+      component: Order
+    },
+    {
+      path: '/WaitService',
+      name: 'WaitService',
+      component: WaitService
+    },
+    {
+      path: '/WaitServicePay',
+      name: 'WaitServicePay',
+      component: WaitServicePay
+    },
+
+    {
+      path: '/WaitServicePay1',
+      name: 'WaitServicePay1',
+      component: WaitServicePay1
+    },
+    {
+      path: '/WaitServicePay2',
+      name: 'WaitServicePay2',
+      component: WaitServicePay2
+    },
+    {
+      path: '/WaitAddress',
+      name: 'WaitAddress',
+      component: WaitAddress
+    },
+    {
+      path: '/WaitZz',
+      name: 'WaitZz',
+      component: WaitZz
+    },
+    {
+      path: '/OrderEvaluate',
+      name: 'OrderEvaluate',
+      component: OrderEvaluate
+    },
+    {
+      path: '/OrderDetail',
+      name: 'OrderDetail',
+      component: OrderDetail
+    },
+    {
+      path: '/Refund',
+      name: 'Refund',
+      component: Refund
+    },
+    {
+      path: '/RefundDetail',
+      name: 'RefundDetail',
+      component: RefundDetail
+    },
+    {
+      path: '/RefundAnd',
+      name: 'RefundAnd',
+      component: RefundAnd
+    },
+    {
+      path: '/RefundTo',
+      name: 'RefundTo',
+      component: RefundTo
+    },
+    {
+      path: '/AmendApplication',
+      name: 'AmendApplication',
+      component: AmendApplication
+    },
+    {
+      path: '/Dialog',
+      name: 'Dialog',
+      component: Dialog
+    },
+    {
+      path: '/Wechat',
+      name: 'Wechat',
+      component: Wechat
+    },
+    {
+      path: '/WaitServicePay1',
+      name: 'WaitServicePay1',
+      component: WaitServicePay1
+    }
+  ]
 })
