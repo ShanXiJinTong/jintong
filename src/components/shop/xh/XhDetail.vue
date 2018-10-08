@@ -12,9 +12,12 @@
 				<p v-html="shopDetail.description"></p>
 			</div>
 			<div class="three">
-				<div class="tl">
-					<span>现价 {{shopDetail.special_price}}元／件</span>
-					<del>原价 {{shopDetail.price}}元／件</del>
+				<div class="tl" v-if="shopDetail.deposit">
+						<span>定金 {{shopDetail.deposit}}元／次</span>
+				</div>
+				<div class="tl" v-else>
+						<span>现价 {{shopDetail.special_price}}元／件</span>
+						<del>原价 {{shopDetail.price}}元／件</del>
 				</div>
 				<div class="tr">
 					<span class="tr1"></span>
@@ -153,6 +156,8 @@
 			getData() {
 				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
 					this.shopDetail = res.data.data.product;
+					
+					console.log(res.data.data.product);
 					this.coupon = res.data.data.coupon;
 					if(this.coupon.length>0){
 						this.couponName = this.coupon[0].coupon_name;
