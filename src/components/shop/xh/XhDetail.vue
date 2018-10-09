@@ -161,7 +161,7 @@
 			getData() {
 				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
           this.shopDetail = res.data.data.product;
-					this.coupon = res.data.data.coupon;
+          this.coupon = res.data.data.coupon;
 					if(this.coupon.length>0){
 						this.couponName = this.coupon[0].coupon_name;
 					}
