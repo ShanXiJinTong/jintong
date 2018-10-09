@@ -3,10 +3,10 @@
 		<header class="tab">
 			<form class="wsq-searchBox">
 				<img src="../static/img/sousuo.png" @click='sendkey(searchkey)' @input="sendkey(searchkey)" style="z-index: 999" />
-				<input type="text" placeholder="搜索您需要搜索的内容" value="">
+				<input type="text" @keydown.13="sendkey(searchkey)" v-model="searchkey" placeholder="搜索您需要搜索的内容" style="line-height: 1em">
 			</form>
 		</header>
-		<div v-if="flag" class="posBox">
+		<div v-if="flag" class="posBox"> 
 			<div class="box">
 				<div class="one"></div>
 				<span class="blue">最近&nbsp;</span>

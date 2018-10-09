@@ -83,7 +83,7 @@
 							</li>
 						</router-link>
 					</ul>
-					<div class="jzgd" @click="infinite">
+					<div class="jzgd" @click="infinite" v-if="flag">
 						<button>
 							加载更多
 						</button>
@@ -124,7 +124,7 @@
 							</li>
 						</router-link>
 					</ul>
-					<div class="jzgd" @click="infinite1">
+					<div class="jzgd" @click="infinite1" v-if="flag">
 						<button>
 							加载更多
 						</button>
@@ -237,7 +237,7 @@
 				if(this.page == 0){
 					return;
 				}
-				this.getCuoxiao();
+				this.getGoods();
 			},
 			getShopData() {
 				let id = this.$route.query.id;
@@ -309,8 +309,10 @@
 						res.data.data.forEach(val=>{
 							this.list.push(val);
 						})
+						console.log(res.data.data.length);
 						if(res.data.data.length<10){
 							this.flag = false;
+							
 						}
 					}
 				});
