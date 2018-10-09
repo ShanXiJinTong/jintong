@@ -212,17 +212,17 @@
 					coin: this.coin,
 					order_remark: this.form.order_remark
 				};
-				this.$http({
+
+        this.$http({
 					headers: postheaders,
 					method: 'post',
 					url: 'customer/car/createorder',
 					data: _this.$qs.stringify(_this.formdata)
 				}).then(res => {
 					//生成订单成功
-          console.log(res.data);
           if(res.data.status ==1) {
-						// this.$router.push("/Order");
-            location.href = 'http://appserver.sxjtyb.cn/weixin/example/index.php?orderid='+res.data.order_id;
+						this.$router.push({name:'ServicePay',query:{price:this.$route.query.price,orderid:res.data.order_id}});
+            /*location.href = 'http://appserver.sxjtyb.cn/weixin/example/index.php?orderid='+res.data.order_id;*/
 					}
 				})
 

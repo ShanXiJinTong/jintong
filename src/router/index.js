@@ -466,11 +466,6 @@ export default new Router({
       path: '/Wechat',
       name: 'Wechat',
       component: Wechat
-    },
-    {
-      path: '/WaitServicePay1',
-      name: 'WaitServicePay1',
-      component: WaitServicePay1
     }
   ]
 })
