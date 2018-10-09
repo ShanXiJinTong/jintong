@@ -115,7 +115,7 @@
           return;
         }
         sessionStorage.car = JSON.stringify(arr);
-        this.$router.push({name: "WaitServicePay1"});
+        this.$router.push({name: "WaitServicePay3"});
       },
       getData() {
         this.$http({

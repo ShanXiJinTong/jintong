@@ -111,7 +111,7 @@ const WaitService = r => require.ensure([], () => r(require('../components/order
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
 const WaitServicePay1 = r => require.ensure([], () => r(require('../components/order/WaitServicePay1.vue')), "WaitServicePay1");
 const WaitServicePay2 = r => require.ensure([], () => r(require('../components/order/WaitServicePay2.vue')), "WaitServicePay2");
-
+const WaitServicePay3 = r => require.ensure([], () => r(require('../components/order/WaitServicePay3.vue')), "WaitServicePay3");
 // 订单地址
 const WaitAddress = r => require.ensure([], () => r(require('../components/order/address/Address')), "WaitAddress");
 // 待服务订单追踪
@@ -406,6 +406,11 @@ export default new Router({
       path: '/WaitServicePay2',
       name: 'WaitServicePay2',
       component: WaitServicePay2
+    },
+    {
+      path: '/WaitServicePay3',
+      name: 'WaitServicePay3',
+      component: WaitServicePay3
     },
     {
       path: '/WaitAddress',

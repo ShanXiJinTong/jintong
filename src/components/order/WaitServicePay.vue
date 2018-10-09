@@ -219,8 +219,10 @@
 					data: _this.$qs.stringify(_this.formdata)
 				}).then(res => {
 					//生成订单成功
-					if(res.data.info === "生成订单成功") {
-						this.$router.push("/Order");
+          console.log(res.data);
+          if(res.data.status ==1) {
+						// this.$router.push("/Order");
+            location.href = 'http://appserver.sxjtyb.cn/weixin/example/index.php?orderid='+res.data.order_id;
 					}
 				})
 
