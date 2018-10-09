@@ -246,7 +246,7 @@
           //生成订单成功
           if (res.data.status == 1) {
             console.log(res.data);
-            // this.$router.push("/Order");
+           this.$router.push({name:'ServicePay1',query:{price:this.total,orderid:res.data.order}})
           }
         })
       },

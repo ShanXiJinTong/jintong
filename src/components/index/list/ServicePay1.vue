@@ -84,9 +84,9 @@
       handlerSubmit() {
         let type = this.type;
         if (type == 2) {
-          location.href = 'http://appserver.sxjtyb.cn/weixin/example/index.php?orderid=' + this.order_id + '&money=' + this.price;
+          location.href = 'http://appserver.sxjtyb.cn/weixin/example/index2.php?orderid=' + this.order_id + '&money=' + this.price;
         } else if (type == 1) {
-          this.$http.get('/customer/car/yuepay', {
+          this.$http.get('/customer/car/yuepay2', {
             params: {
               money: this.price,
               order_id: this.order_id,

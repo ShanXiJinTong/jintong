@@ -165,6 +165,7 @@
           this.shopDetail = res.data.data.product;
 
 					this.coupon = res.data.data.coupon;
+
 					if(this.coupon.length>0){
 						this.couponName = this.coupon[0].coupon_name;
 					}

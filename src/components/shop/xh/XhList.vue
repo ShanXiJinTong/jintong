@@ -64,6 +64,7 @@
                             <ul class="sk-price">
 
                                 <li v-if="item.price">{{item.special_price }}元/件</li>
+                                <li v-else></li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -127,7 +128,7 @@
                 	if(res.data.goods.length<10){
                 		this.flag2 = true;
                 	}
-                	res.data.goods.forEach(val=>{
+                  res.data.goods.forEach(val=>{
 	                    this.list.push(val);
                 	});
                     this.typedata = res.data.category;
