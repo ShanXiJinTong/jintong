@@ -182,8 +182,8 @@
         coinFlag: false,
         couFlag: false,
         coupon: [],
-        obj: "",
-        obj1: "",
+        obj: null,
+        obj1: {coin1:10},
         flag:true
       }
     },
@@ -222,13 +222,15 @@
         if(!this.flag){
           return;
         }
+
         this.flag = true;
         var arr = [];
+        console.log(this.obj1.coin1);
         this.info.forEach(val => {
           var obj = {};
           obj.shop_id = val.shop.shop_id;
           obj.coupon_id = val.coupon2['id'];
-          obj.coin = val.coin;
+          obj.coin = this.obj1.coin1;
           obj.order_remark = val.order_remark;
           obj.goods = [];
           val.goods.forEach(ele => {
