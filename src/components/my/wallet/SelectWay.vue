@@ -32,7 +32,8 @@
         data() {
             return {
             	price:0,
-            	id:""
+            	id:"",
+              orderid:0
             }
         },
         methods:{
