@@ -202,7 +202,6 @@
           data: _this.$qs.stringify(_this.formdata)
         }).then(res => {
           //生成订单成功
-          console.log(res.data);
           if(res.data.status == 1) {
             if(!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
               this.$router.push({
@@ -257,7 +256,7 @@
           }
         }).then(res => {
           this.goods = res.data.data;
-          console.log(this.goods);
+
         });
       }
     },

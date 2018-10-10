@@ -175,7 +175,6 @@
 				  headers:getheaders,
 					params: {
 						order_id: this.$route.query.orderid
-
 					}
 				}).then(res => {
 					 this.goods = res.data.data;
