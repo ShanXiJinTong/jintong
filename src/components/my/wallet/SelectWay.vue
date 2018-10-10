@@ -32,18 +32,20 @@
         data() {
             return {
             	price:0,
+              payment:0,
             	id:"",
               orderid:0
             }
         },
         methods:{
            handleSubmit(){
-             location.href = 'http://appserver.sxjtyb.cn/weixin/example/index5.php?orderid=' + this.orderid + '&money=' + this.price;
+             location.href = 'http://appserver.sxjtyb.cn/weixin/example/index5.php?orderid=' + this.orderid + '&money=' + this.payment;
            }
         },
         created(){
         		var base = new base64();
-        		this.price = base.decode(localStorage[base.encode("payment")]);
+        		this.price = base.decode(localStorage[base.encode("price")]);
+        		this.payment = base.decode(localStorage[base.encode("payment")]);
         		this.id = base.decode(localStorage[base.encode("mid")]);
         		this.orderid = this.$route.query.orderid;
         }
