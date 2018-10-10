@@ -63,8 +63,8 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.special_price }}元/件</li>
-                                <li v-else></li>
+                                <li v-if="item.type == 1">{{item.special_price }}元/件</li>
+                                <li v-if="item.type == 2">{{item.deposit}} 定金</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -131,7 +131,8 @@
                   res.data.goods.forEach(val=>{
 	                    this.list.push(val);
                 	});
-                    this.typedata = res.data.category;
+                  console.log(this.list);
+                  this.typedata = res.data.category;
                 })
             },
             getList(item) {
