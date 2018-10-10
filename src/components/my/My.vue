@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="myInfo">
         <div class="centers">
             <div class="gerengxingxi">
                 <router-link :to="{name:'PersonalMessage'}" style="margin-left: 0">
@@ -107,7 +107,7 @@
         name: 'My',
         data() {
             return {
-                myInfo: {},
+                myInfo: null,
                 uid:localStorage['fecshop-uuid']
             }
         },
