@@ -17,10 +17,10 @@
           </div>
         </li>
         <li class="li2">
-          <input type="text" v-model="formdata.summary" placeholder="Summary of your review ">
+          <input type="text" v-model="formdata.name" placeholder="评论标题">
         </li>
         <li class="li2">
-          <textarea v-model="formdata.review_content" placeholder="Your review content"></textarea>
+          <textarea v-model="formdata.review_content" placeholder="评论详情"></textarea>
         </li>
 
       </ul>
@@ -41,52 +41,44 @@
         products: null,
         formdata: {
           'product_id': '',
-          'customer_name': '',
-          'summary': 'good',
-          'captcha': '5474',
-          review_content: 'this goods is very good',
+          'customer_id': '',
+          name: '',
+          review_content: '',
           selectStar: 5
         }
       }
     },
     methods: {
-      getData() {
-        this.$http({
-          method: 'get',
-          headers: getheaders,
-          url: '/catalog/reviewproduct/add',
-          params: {
-            product_id: this.product_id
-          }
-        }).then(res => {
-          let data = res.data.data;
-          this.formdata.customer_name = data.customer_name;
-          this.formdata.product_id = data.product.product_id;
-          this.products = data.product;
-          console.log(this.formdata);
-        })
-      },
       publicInfo(){
-        this.$http({
-           method:'post',
-           url:'/catalog/reviewproduct/submitreview',
-           headers:postheaders,
-           data:this.$qs.stringify(this.formdata)
-        }).then(res=>{
 
-        })
+          this.$http({
+             method:'get',
+             url:'/customer/car/createview',
+             params:this.formdata
+          }).then(res=>{
+            console.log(res.data);
+             if(res.data.code == 1){
+                this.$router.push({'name':'XhStore',query:{id:res.data.shop_id}})
+             }else if(res.data == 0){
+
+             }
+          })
         console.log(this.formdata);
       }
     },
     mounted() {
       this.product_id = this.$route.query.product_id;
-      this.getData();
+      this.formdata.customer_id = localStorage['fecshop-uuid'];
+      this.formdata.product_id = this.$route.query.product_id;
     }
   }
 </script>
 <style>
   body{
     background: #fbfeff;
+  }
+  input{
+    border: none;
   }
   .el-icon-star-on{
     color: #36a8fe!important;

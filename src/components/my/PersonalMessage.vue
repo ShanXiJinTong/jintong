@@ -71,7 +71,7 @@
              })
            },
            notice(){
-             this.$message.info({ message:'该页面暂不支持修改,请见谅',duration:3000});
+             this.$message.success({ message:'该页面暂不支持修改,请见谅',duration:3000});
            }
         },
         mounted:function(){
