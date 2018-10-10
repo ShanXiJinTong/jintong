@@ -43,7 +43,7 @@
         },
         created(){
         		var base = new base64();
-        		this.price = base.decode(localStorage[base.encode("price")]);
+        		this.price = base.decode(localStorage[base.encode("payment")]);
         		this.id = base.decode(localStorage[base.encode("mid")]);
         		this.orderid = this.$route.query.orderid;
         }

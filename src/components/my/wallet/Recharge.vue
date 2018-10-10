@@ -46,6 +46,7 @@
               var base = new base64();
 							localStorage[base.encode("mid")] = base.encode(this.selectPrice);
 							localStorage[base.encode("price")] = base.encode(this.price);
+							localStorage[base.encode("payment")] = base.encode(this.payment);
 
              this.$http.get("/customer/addr/getcsrf").then(res => {
                 if(res.data){
