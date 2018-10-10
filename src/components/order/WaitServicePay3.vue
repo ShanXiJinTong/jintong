@@ -72,13 +72,13 @@
       <div class="aa">
         <div class="alfet">
           <div class="yuanjiao11"></div>
-          <span>优惠卷</span>
+          <span>优惠券</span>
         </div>
         <a href="javascript:">
           <div class="aright">
-            <span v-if="item.coupon.length==0">无可用优惠卷</span>
+            <span v-if="item.coupon.length==0">无可用优惠券</span>
             <span v-else-if="item.coupon2.coupon_name"  @click="useCou(item)">{{item.coupon2.coupon_name}}</span>
-            <span v-else-if="!item.coupon2.coupon_name"  @click="useCou(item)">点击使用优惠卷</span>
+            <span v-else-if="!item.coupon2.coupon_name"  @click="useCou(item)">点击使用优惠券</span>
             <img src="./static/img/xiayibu.png" alt="">
           </div>
         </a>
@@ -160,7 +160,7 @@
           </li>
           <li class="tklist" style="height: 1rem;">
             <div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;"
-                 @click="useCou1(0)">不使用优惠卷
+                 @click="useCou1(0)">不使用优惠券
             </div>
           </li>
         </ul>

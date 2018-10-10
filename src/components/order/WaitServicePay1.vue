@@ -125,7 +125,7 @@
             <div class="get" @click="useCou(item)">使用</div>
           </li>
           <li class="tklist" style="height: 1rem;">
-            <div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;" @click="couFlag=false;coupon1={}">不使用优惠卷
+            <div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;" @click="couFlag=false;coupon1={}">不使用优惠券
             </div>
           </li>
         </ul>

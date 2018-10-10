@@ -36,9 +36,13 @@
 					<button @click="handleSubmit()">登录</button>
 				</li>
 			</div>
-			<li class="txt">
-				<div class="round"></div>
-				<router-link :to="{name:'Sign'}">注册即视为同意接受晋彤电商发送的商业性信息</router-link>
+      <!--<li class="bigboxs" style="margin: 0 auto;">-->
+        <!--<router-link :to="{name:'Sign'}" >注册</router-link>-->
+      <!--</li>-->
+			<li class="txt" style="margin: 0 auto;">
+				<!--<div class="round"></div>-->
+        <router-link  :to="{name:'Sign'}">注册</router-link>
+        <!--<router-link :to="{name:'Sign'}" tag="button">注册</router-link>-->
 			</li>
 		</ul>
 	</div>
@@ -97,7 +101,7 @@
 								duration: 700
 							});
 						}else{
-							
+
 						}
 					});
 
