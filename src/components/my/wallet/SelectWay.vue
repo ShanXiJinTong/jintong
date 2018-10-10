@@ -38,7 +38,7 @@
         },
         methods:{
            handleSubmit(){
-             location.href = 'http://appserver.sxjtyb.cn/weixin/example/index4.php?orderid=' + this.order_id + '&money=' + this.price;
+             location.href = 'http://appserver.sxjtyb.cn/weixin/example/index5.php?orderid=' + this.orderid + '&money=' + this.price;
            }
         },
         created(){
