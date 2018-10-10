@@ -77,7 +77,8 @@
 										<li class="number">{{item.volume}}</li>
 									</ul>
 									<ul class="sk-price">
-										<li>{{item.special_price}}元/件</li>
+										<li v-if="item.type == 1">{{item.special_price}}元/件</li>
+										<li v-if="item.type == 2">{{item.deposit}} 定金 </li>
 									</ul>
 								</div>
 							</li>
@@ -118,7 +119,8 @@
 										<li class="number">{{item.volume}}</li>
 									</ul>
 									<ul class="sk-price">
-										<li>{{item.special_price}}元/件</li>
+										<li v-if="item.type == 1">{{item.special_price}}元/件</li>
+										<li v-else-if="item.type == 2">{{item.deposit}} 定金</li>
 									</ul>
 								</div>
 							</li>
@@ -214,7 +216,7 @@
 		methods: {
 			infinite2(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -223,7 +225,7 @@
 			},
 			infinite1(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -232,7 +234,7 @@
 			},
 			infinite(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -312,7 +314,7 @@
 						console.log(res.data.data.length);
 						if(res.data.data.length<10){
 							this.flag = false;
-							
+
 						}
 					}
 				});
