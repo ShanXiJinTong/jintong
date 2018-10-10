@@ -52,7 +52,7 @@
            </div>
          </li>
        </ul>
-       <button class="cyx-btn" type="submit">保存</button>
+       <!--<button class="cyx-btn" type="submit">保存</button>-->
      </form>
    </section>
 </template>
@@ -60,7 +60,22 @@
     export default {
         name: 'PersonalMessage',
         data() {
-            return {}
+            return {
+              person:null
+            }
+        },
+        methods:{
+           getInfo(){
+             this.$http.get('').then(res=>{
+
+             })
+           },
+           notice(){
+             this.$message.info('该页面暂不支持修改,请见谅');
+           }
+        },
+        mounted:function(){
+           this.notice();
         }
     }
 </script>
