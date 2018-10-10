@@ -151,8 +151,14 @@
       },
       js(){
         let obj = {};
+        let arr =  this.carinfo.filter(ele=>ele.numbers>0);
         obj.order_id = this.$route.query.orderid;
-        obj.info = JSON.stringify(this.carinfo);
+        obj.info = JSON.stringify(arr);
+        if(!arr.length){
+          this.$message.info('请选择最少一件商品');
+          return ;
+        }
+
          this.$http({
            headers: postheaders,
            method: 'post',
@@ -160,7 +166,7 @@
            data: this.$qs.stringify(obj)
                 }).then(res=>{
              if(res.data.status == 1){
-                this.$router.push('Order')
+               this.$router.push({name:'ServicePay3',query:{price:this.total,orderid:this.$route.query.orderid}})
              }
           })
       },

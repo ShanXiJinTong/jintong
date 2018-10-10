@@ -32,6 +32,8 @@ const OrderAdress = r => require.ensure([], () => r(require('../components/index
 // 支付选择
 const ServicePay = r => require.ensure([], () => r(require('../components/index/list/ServicePay.vue')), "ServicePay");
 const ServicePay1 = r => require.ensure([], () => r(require('../components/index/list/ServicePay1.vue')), "ServicePay1");
+const ServicePay2 = r => require.ensure([], () => r(require('../components/index/list/ServicePay2.vue')), "ServicePay2");
+const ServicePay3 = r => require.ensure([], () => r(require('../components/index/list/ServicePay3.vue')), "ServicePay3");
 // 支付成功
 const ServicePaySuccess = r => require.ensure([], () => r(require('../components/index/list/ServicePaySuccess.vue')), "ServicePaySuccess");
 // 商店
@@ -209,6 +211,16 @@ export default new Router({
       path: '/ServicePay1',
       name: 'ServicePay1',
       component: ServicePay1
+    },
+    {
+      path: '/ServicePay2',
+      name: 'ServicePay2',
+      component: ServicePay2
+    },
+    {
+      path: '/ServicePay3',
+      name: 'ServicePay3',
+      component: ServicePay3
     },
     {
       path: '/ServicePaySuccess',

@@ -27,7 +27,7 @@
     <div class="line">
       <div class="line1"></div>
     </div>
-    <div v-if="goods.special_price">
+    <div v-if="goods">
       <div class="cloth">
         <div class="cleft">
           <a href="">
@@ -47,7 +47,7 @@
           <div class="rightfour">
             <div class="yi">
               <div class="yuanjiao2"></div>
-              <div class="price">¥{{goods['special_price']}}</div>
+              <div class="price">¥ {{goods['deposit']}}.00</div>
             </div>
             <div class="er">
               <div class="yuanjiao3"></div>
@@ -154,7 +154,7 @@
         coupon: [],
         couFlag: false,
         coupon1: {},
-        goods: {},
+        goods: null,
         flag:true
       }
     },
@@ -202,8 +202,15 @@
           data: _this.$qs.stringify(_this.formdata)
         }).then(res => {
           //生成订单成功
-          if(res.data.info === "生成订单成功") {
-            this.$router.push("/Order");
+          console.log(res.data);
+          if(res.data.status == 1) {
+            if(!(localStorage['access-token'] && localStorage['fecshop-uuid'])) {
+              this.$router.push({
+                name: 'UserLogin'
+              })
+            } else {
+              this.$router.push({name:'ServicePay2',query:{price:this.goods['deposit'],orderid:res.data.order}})
+            }
           }
         })
 
@@ -250,6 +257,7 @@
           }
         }).then(res => {
           this.goods = res.data.data;
+          console.log(this.goods);
         });
       }
     },
