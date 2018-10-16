@@ -22,16 +22,16 @@
 							<span>{{shop.chengjiaolv}}%</span>
 
 						</div>
-						<div class="LZJ-already" style="margin-right: 0">
+						<div class="LZJ-already">
 							<div class="LZJ-spot"></div>
 							<div class="LZJ-poi">好评</div>
 							<span>{{shop.haopinlv}}</span>
 						</div>
 					</div>
 					<div class="LZJ-service">
-						<img src="../img/icon-time.png" alt="">
+						<!--<img src="../img/icon-time.png" alt="">
 						<div class="LZJ-offer">服务时间</div>
-						<div class="LZJ-times">9:00-12:00</div>
+						<div class="LZJ-times">9:00-12:00</div>-->
 					</div>
 					<!--<div class="LZJ-dates"> &lt;!&ndash; 最近可约 16:00 &ndash;&gt; </div>-->
 					<div class="LZJ-advice" @click="chat(shop.uid)">咨询</div>
