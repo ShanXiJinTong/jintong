@@ -87,7 +87,8 @@
 									<!--<img :src="" height="94" width="90" />-->
 									<div class="shopinfo">
 										<div class="wsq-name">{{item.name.name_zh}}</div>
-										<div class="right"><span>{{item.price}}元</span></div>
+										<div class="right" v-if="item.type==1"><span>{{item.price}}元</span></div>
+										<div class="right" v-if="item.type==2"><span>{{item.deposit}} 定金</span></div>
 									</div>
 
 									<h6>{{item.sku}}</h6>
@@ -112,10 +113,10 @@
 					</div>
 				</div>
 			</section>
-				
+
 			<!--热门推荐结束-->
-			
-			
+
+
 		</div>
 		<Tab></Tab>
 	</div>

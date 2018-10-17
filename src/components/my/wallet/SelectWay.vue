@@ -20,9 +20,9 @@
       <img src="../static/img/nxr-img/nxrYuandian.jpg" alt="">
     </div>
   </section>
-  <router-link :to="{name:'My'}" tag="div" class="weiConfirm">
+  <div class="weiConfirm" @click="handleSubmit">
      确认支付
-  </router-link>
+  </div>
 </div>
 </template>
 <script>
@@ -32,13 +32,22 @@
         data() {
             return {
             	price:0,
-            	id:""
+              payment:0,
+            	id:"",
+              orderid:0
             }
+        },
+        methods:{
+           handleSubmit(){
+             location.href = 'http://appserver.sxjtyb.cn/weixin/example/index5.php?orderid=' + this.orderid + '&money=' + this.payment;
+           }
         },
         created(){
         		var base = new base64();
         		this.price = base.decode(localStorage[base.encode("price")]);
+        		this.payment = base.decode(localStorage[base.encode("payment")]);
         		this.id = base.decode(localStorage[base.encode("mid")]);
+        		this.orderid = this.$route.query.orderid;
         }
     }
 </script>

@@ -94,7 +94,7 @@
                  <th>产品名</th>
                  <th>个数</th>
                  <th>小计</th>
-                 <th v-if="order.order_status==3">操作</th>
+                 <th v-if="order.order_status==4">操作</th>
               </tr>
               <tr v-for="product in list">
                 <td>
@@ -104,7 +104,7 @@
                 <td><span class="pan">{{product.name}}</span></td>
                 <td>{{product.qty}}</td>
                 <td>{{product.price}}</td>
-                <td><router-link v-if="order.order_status==3" :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}">去评价</router-link></td>
+                <td><router-link v-if="order.order_status==4" :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}" style="color: #41b2fc;">去评价</router-link></td>
               </tr>
            </table>
         </li>
@@ -120,25 +120,26 @@
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">折扣</span>
-          </div>
-          <div class="cyx-right">
-            <span class="cyx-name">{{order.subtotal_with_discount}}</span>
-          </div>
-        </li>
-        <li class="cyx-lis" >
-          <div class="cyx-left">
-            <img class="cyx-items" src="./static/img/items.png" alt="">
             <span class="cyx-title">实际支付</span>
           </div>
           <div class="cyx-right">
             <span class="cyx-name">{{order.grand_total}}</span>
           </div>
         </li>
+        <li class="cyx-lis" style="justify-content: space-between">
+          <div class="cyx-left">
+            <img class="cyx-items" src="./static/img/items.png" alt="">
+            <span class="cyx-title">商家电话</span>
+          </div>
+          <div class="cyx-right" >
+            <a href="tel:15711223344" style="width: 0.9rem;height: 0.9rem;display: flex;align-items: center;justify-content: center;margin-right: 0.2rem">
+              <img src="./static/img/phone.png" alt="" style="width: 60%;height: 60%;">
+            </a>
+          </div>
+        </li>
         <button v-if="order.order_status==0" @click="zf" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>
         <button v-if="order.goods_type==2 && order['is_wei'] == 0" @click="zf1" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">支付尾款</button>
       </ul>
-
   </section>
 </template>
 
@@ -174,9 +175,11 @@
            if(res.data.code == 200){
                 this.order = res.data.order;
                 this.list = res.data.list;
-             console.log(this.order);
            }
         })
+      },
+      comment(){
+        this.$router.push({name:'OrderEvaluate',query:{orderid:this.order_id}})
       }
     },
     mounted() {

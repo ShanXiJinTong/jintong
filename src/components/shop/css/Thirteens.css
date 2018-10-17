@@ -289,7 +289,7 @@ header >p{
     overflow: scroll;
     margin-top:4.07rem;
     /*padding-bottom: 2rem;*/
-    
+
 }
 .sk-bag-scroll{
     width: 100%;
@@ -546,4 +546,8 @@ nav .main .navBox p{
 nav .main .navBox i{
     font-size: 0.26rem;;
     color: #41b2fc;
+}
+
+.el-icon-star-on {
+  color: #36a8fe!important;
 }

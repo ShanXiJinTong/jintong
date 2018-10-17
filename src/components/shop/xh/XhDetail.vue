@@ -19,6 +19,8 @@
 				</div>
 				<div class="tl" v-else>
 				  <span>定金 {{shopDetail.deposit}}</span>
+          <span>定金</span>
+          <span>上门服务</span>
 				</div>
 				<div class="tr">
 					<span class="tr1"></span>
