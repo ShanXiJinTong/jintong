@@ -64,6 +64,34 @@
     line-height: 0.3rem;
     color: #fbb548;
 }
+section .content .top .left span:nth-of-type(1){
+  font-size: 0.26rem;
+  color: #fbc36a;
+}
+.three .tl span:nth-of-type(2){
+  font-size: 0.20rem;
+  color: #41b2fc;
+  display: block;
+  width: 0.87rem;
+  height: 0.36rem;
+  background-color: #e7faf2;
+  text-align: center;
+  line-height: 0.36rem;
+  border-radius: 0.18rem;
+  margin:0 0.25rem;
+}
+.three .tl span:nth-of-type(3){
+  font-size: 0.20rem;
+  color: #36d681;
+  display: block;
+  width: 1.33rem;
+  height: 0.36rem;
+  background-color: #e7faf2;
+  text-align: center;
+  line-height: 0.36rem;
+  border-radius: 0.18rem;
+}
+
 .three .tl del{
     margin-left: 0.22rem;
     color: #c9cbcc;
@@ -290,7 +318,7 @@
     left: 0;
     right:0;
     margin: 0 auto;
-    bottom:0.5rem;
+    bottom:0;
     z-index:99999;
 }
 .display{

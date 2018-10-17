@@ -2,7 +2,7 @@
 	<div>
 		<!--单品详情-->
 		<div class="LZJ-singleDetail">
-			<div class="LZJ-main">
+			<div class="LZJ-main" v-if="shop">
 				<router-link :to="{name:'WaterStoreIntro',query:{id:shop.shop_id}}" tag="div" class="LZJ-Thumb">
                     <div class="img" :style="'background:url('+$store.state.imghost+'images/'+shop.shop_logo+') no-repeat center center /100% auto'"></div>
 					<!--<img :src="" alt="">-->
@@ -21,9 +21,16 @@
 							<div class="LZJ-poi">好评</div>
 							<span>{{shop.haopinlv}}</span>
 						</div>
-						<div class="LZJ-already" style="margin-right: 0;width:0.8rem"></div>
+						<div class="LZJ-already" style="margin-right: 0;width:0.8rem">
+
+						</div>
 					</div>
-					<div class="LZJ-dates">最近可约 16:00</div>
+					<div class="LZJ-service">
+						<!--<img src="../img/icon-time.png" alt="">
+						<div class="LZJ-offer">服务时间</div>
+						<div class="LZJ-times">9:00-12:00</div>-->
+					</div>
+					<!--<div class="LZJ-dates"> &lt;!&ndash; 最近可约 16:00 &ndash;&gt; </div>-->
 					<div class="LZJ-advice" @click="chat(shop.uid)">咨询</div>
 				</div>
 			</div>
@@ -67,7 +74,8 @@
 										<li class="number">{{item.volume}}</li>
 									</ul>
 									<ul class="sk-price">
-										<li>{{item.special_price}}元/件</li>
+										<li v-if="item.type == 1">{{item.special_price}}元/件</li>
+										<li v-if="item.type == 2">{{item.deposit}} 定金 </li>
 									</ul>
 								</div>
 							</li>
@@ -108,7 +116,8 @@
 										<li class="number">{{item.volume}}</li>
 									</ul>
 									<ul class="sk-price">
-										<li>{{item.special_price}}元/件</li>
+										<li v-if="item.type == 1">{{item.special_price}}元/件</li>
+										<li v-else-if="item.type == 2">{{item.deposit}} 定金</li>
 									</ul>
 								</div>
 							</li>
@@ -151,11 +160,12 @@
 							<div class="sk-user_time">
 								<h5>{{item.name}}</h5>
 								<div class="star">
-									<i class="iconfont icon-xing hot"></i>
-									<i class="iconfont icon-xing hot"></i>
-									<i class="iconfont icon-xing hot"></i>
-									<i class="iconfont icon-xing"></i>
-									<i class="iconfont icon-xing"></i>
+
+                  <el-rate
+                  v-model="item.rate_star*1"
+                  :colors="colors"
+                  >
+                </el-rate>
 								</div>
 								<span>{{item.review_date1}}</span>
 							</div>
@@ -163,9 +173,9 @@
 								<p>{{item.review_content}}</p>
 							</div>
 							<div class="sk-pos">
-								<span class="province">北京</span>
-								<span class="city">海淀区</span>
-								<span class="service">四双跑步鞋清洗</span>
+								<span class="province">{{item.goods.name.name_zh}}</span>
+							<!--	<span class="city">海淀区</span>
+								<span class="service">四双跑步鞋清洗</span>-->
 							</div>
 
 							<div class="sk-like">
@@ -174,6 +184,7 @@
 							</div>
 						</li>
 					</ul>
+          <div v-if="!comments.length" style="text-align: center;line-height: 5;color: #41b2fc;">暂无评论</div>
 					<div class="jzgd" @click="infinite2" v-if="flag">
 						<button>
 							加载更多
@@ -198,13 +209,14 @@
 				cuxiao: [],
 				count: {},
 				flag: true,
-				page: 0
+				page: 0,
+        colors:['#36a8fe','#36a8fe','#36a8fe']
 			}
 		},
 		methods: {
 			infinite2(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -213,7 +225,7 @@
 			},
 			infinite1(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -222,7 +234,7 @@
 			},
 			infinite(){
 				if(!this.flag){
-					return;	
+					return;
 				}
 				if(this.page == 0){
 					return;
@@ -302,7 +314,7 @@
 						console.log(res.data.data.length);
 						if(res.data.data.length<10){
 							this.flag = false;
-							
+
 						}
 					}
 				});
@@ -329,4 +341,6 @@
 </script>
 <style scoped>
 	@import url("../css/Thirteens.css");
+
+
 </style>

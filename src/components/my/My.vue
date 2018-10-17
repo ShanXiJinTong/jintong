@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div v-if="myInfo">
         <div class="centers">
             <div class="gerengxingxi">
-                <router-link :to="{name:'Vip'}" style="margin-left: 0">
+                <router-link :to="{name:'PersonalMessage'}" style="margin-left: 0">
                     <div class="yuan" :style="'background-image:url('+$store.state.imghost+myInfo.headImg+')'"></div>
                     <div class="zi">
                         <h6>{{myInfo.firstname}}</h6>
@@ -13,11 +13,11 @@
                             <span v-if="myInfo.level==1">白银会员</span>
                             <span v-if="myInfo.level==2">黄金会员</span>
                             <span v-if="myInfo.level==3">钻石会员</span>
-                            
+
                         </div>
                     </div>
                 </router-link>
-                <router-link :to="{name:'Recharge'}">
+                <router-link :to="{name:'Vip'}">
                     <p style="font-weight: bold">去升级</p>
                     <div class="dian" style="border-radius: 50%;"></div>
                     <div class="dian" style="color: #3bacfe;opacity: 0.5;border-radius: 50%;"></div>
@@ -102,12 +102,12 @@
     import {getheaders} from "../config";
     import $ from "jquery";
     import "jquery.cookie";
-    
+
     export default {
         name: 'My',
         data() {
             return {
-                myInfo: {},
+                myInfo: null,
                 uid:localStorage['fecshop-uuid']
             }
         },

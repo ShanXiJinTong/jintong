@@ -1,7 +1,8 @@
 <template>
 	<div>
 		<div>
-				<textarea style="opacity: 0;" id="url">http://www.chengzhanghao.com:81/shop/login/index</textarea>
+				<textarea style="opacity: 0;" id="url" ref="copys">http://www.chengzhanghao.com:81/shop/login/index</textarea>
+
 			</div>
 		<div class="xrBg">
 			<div class="xrIcon">
@@ -34,8 +35,19 @@
 		name: "ruzhu",
 		methods: {
 			copy() {
-				document.querySelector("#url").select();
-				document.execCommand("Copy");
+			  let copyele = this.$refs.copys;
+        if(!document.execCommand) {
+          console.error('copy unsupport');
+          return;
+        }
+        copyele.select();
+        let result = document.execCommand('copy');
+        if(result) {
+          console.log('copy success');
+        } else {
+          console.error('copy fail');
+        }
+
 				this.$message({
 					type: "success",
 					message: "链接已复制"

@@ -1,7 +1,7 @@
 <template>
 <div>
   <ul class="shdpriceList">
-    <li  v-for="item in list" :class="[item.id=== selectPrice ?'select' :'' , 'price']" @click="changePrice(item.id,item.price)">
+    <li  v-for="item in list" :class="[item.id=== selectPrice ?'select' :'' , 'price']" @click="changePrice(item.id,item.price,item['actual_payment'])">
       <div class="priceTop">
         <span class="text1">{{item.price}}</span>
         <span class="text2">元</span>
@@ -27,13 +27,16 @@
             return {
                list:[],
                selectPrice:0,
-               price:""
+               price:0,
+               payment:0,
+               _csrf:'',
             }
         },
         methods:{
-           changePrice(value,price){
+           changePrice(value,price,actual_payment){
              this.selectPrice = value;
              this.price = price;
+             this.payment = actual_payment;
            },
            submitPrice(){
               if(this.price <=0){
@@ -43,9 +46,37 @@
               var base = new base64();
 							localStorage[base.encode("mid")] = base.encode(this.selectPrice);
 							localStorage[base.encode("price")] = base.encode(this.price);
-              this.$router.push({
-                name:'SelectWay'
-              })
+							localStorage[base.encode("payment")] = base.encode(this.payment);
+
+             this.$http.get("/customer/addr/getcsrf").then(res => {
+                if(res.data){
+                   this._csrf = res.data;
+                   let obj = {
+                      customer_id:localStorage['fecshop-uuid'],
+                      price:this.price,
+                      payment:this.payment,
+                      csrf:this._csrf
+                   };
+
+                   this.$http({
+                     method: 'post',
+                     headers: {
+                       'Content-Type': 'application/x-www-form-urlencoded'
+                     },
+                     url: 'customer/car/createordermoney',
+                     data: this.$qs.stringify(obj)
+                   }).then(res=>{
+                     if(res.data.status == 1){
+                       this.$router.push({
+                         name:'SelectWay',
+                         query:{orderid:res.data.order_id}
+                       })
+                     }
+
+                   })
+                }
+             })
+
            }
         },
         mounted(){
@@ -54,6 +85,7 @@
         			this.list = res.data;
         			this.selectPrice = this.list[0].id;
         			this.price = this.list[0].price;
+        			this.payment = this.list[0].actual_payment;
         		}
         	});
         }

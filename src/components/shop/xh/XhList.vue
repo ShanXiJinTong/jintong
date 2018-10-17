@@ -2,7 +2,7 @@
     <div>
         <!--nav开始-->
         <nav>
-            <div class="main">
+            <div class="main" v-if="typedata">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
                 	<swiper-slide style="">
                         <p :class="{hot:type===''}" @click="getList({name:{name_zh:''},'_id':{'$oid':$route.query.categoryId}})">
@@ -36,7 +36,7 @@
         </div>
         <!--nav结束-->
         <!--bag开始-->
-        <div class="bag-scroll">
+        <div class="bag-scroll" v-if="list.length">
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
                     <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" >
                         <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
@@ -63,8 +63,8 @@
                             </ul>
                             <ul class="sk-price">
 
-                                <li v-if="item.price">{{item.special_price }}元/件</li>
-                                <li v-else></li>
+                                <li v-if="item.type == 1">{{item.special_price }}元/件</li>
+                                <li v-if="item.type == 2">{{item.deposit}} 定金</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -93,7 +93,7 @@
                 cid: this.$route.query.categoryId,
                 page: 0,
                 totalPage: null,
-                typedata: {},
+                typedata: null,
                 swiperOption: {
                     pagination: {
                         el: '.swiper-pagination',
@@ -131,7 +131,7 @@
                   res.data.goods.forEach(val=>{
 	                    this.list.push(val);
                 	});
-                    this.typedata = res.data.category;
+                  this.typedata = res.data.category;
                 })
             },
             getList(item) {

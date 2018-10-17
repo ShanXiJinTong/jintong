@@ -36,7 +36,7 @@
 						<span>信息</span>
 					</div>
 				</div>
-				<a href="javascript:">
+				<a href="tel:15111223344">
 					<div class="oneright" @click="chat(info.uid)">联系商家</div>
 				</a>
 			</div>

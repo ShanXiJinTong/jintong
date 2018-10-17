@@ -6,7 +6,7 @@
 				<input type="text" @keydown.13="sendkey(searchkey)" v-model="searchkey" placeholder="搜索您需要搜索的内容" style="line-height: 1em">
 			</form>
 		</header>
-		<div v-if="flag" class="posBox"> 
+		<div v-if="flag" class="posBox">
 			<div class="box">
 				<div class="one"></div>
 				<span class="blue">最近&nbsp;</span>
@@ -42,7 +42,9 @@
 								<li class="number">{{item.volume?item.volume:0}}</li>
 							</ul>
 							<ul class="sk-price">
-								<li>{{item.price}}元/件</li>
+                <ul class="sk-price">
+                  <li>{{item.special_price }}元/件</li>
+                </ul>
 							</ul>
 						</div>
 						<div class="sk-service-operator">
@@ -99,7 +101,7 @@
 					}
 				}).then(res => {
 					this.products = res.data;
-					if(res.data.length < 10) {
+          if(res.data.length < 10) {
 						this.n = 2;
 					}
 					this.history.push(key);
@@ -131,7 +133,8 @@
 					}
 				}).then(res => {
 					this.products = this.products.concat(res.data);
-					if(res.data.length < 10) {
+          console.log(res.data);
+          if(res.data.length < 10) {
 						this.n = 2;
 					}
 				})
@@ -154,12 +157,12 @@
 		padding-top: 2.6rem;
 		margin: 0 auto;
 	}
-	
+
 	.boxms>img {
 		display: block;
 		margin: auto auto;
 	}
-	
+
 	._v-container {
 		height: calc(100% - 1rem);
 		position: absolute;
@@ -167,21 +170,21 @@
 		left: 0;
 		overflow: hidden;
 	}
-	
+
 	.text {
 		height: auto;
 		margin: 0.1rem auto;
 		overflow: hidden;
 		line-height: 0.44rem;
 	}
-	
+
 	.text>p {
 		text-align: center;
 		font-size: 0.26rem;
 		color: rgba(0, 0, 0, 0.4);
 		font-weight: bold;
 	}
-	
+
 	input::-webkit-input-placeholder {
 		font-size: 0.1rem;
 		color: #CDDDE9;
