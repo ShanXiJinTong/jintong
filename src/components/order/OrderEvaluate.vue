@@ -11,7 +11,9 @@
             <div class="you">
               <el-rate
                 v-model="formdata.selectStar"
-                show-text>
+                show-text
+                :texts="texts"
+              >
               </el-rate>
             </div>
           </div>
@@ -41,6 +43,7 @@
       return {
         product_id: 0,
         products: null,
+        texts:['非常差','不满意','还可以','还可以','满意'],
         formdata: {
           'product_id': '',
           'customer_id': '',
