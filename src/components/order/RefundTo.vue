@@ -7,9 +7,9 @@
             <h1 id="x-h1">等待商家处理</h1>
             <div id="x-djs">
                 <img src="./img/x-d-red.png" alt="" class="x-rimg">
-                还剩 <span class="x-d-time"></span>
-                天   <span class="x-d-time"></span>
-                时   <span class="x-d-time"></span>
+                还剩 <span class="x-d-time">01</span>
+                天   <span class="x-d-time">20</span>
+                时   <span class="x-d-time">10</span>
                 分
                 <img src="./img/x-d-red.png" alt="" class="x-rimg">
             </div>
@@ -22,7 +22,7 @@
                 <router-link :to="{name:'AmendApplication'}">
                 <button class="x-but  x-but1">修改</button>
                 </router-link>
-                <button class="x-but x-but2">客服</button>
+                <button class="x-but x-but2">卖家</button>
             </div>
         </div>
         <!--等待处理结束-->
@@ -52,7 +52,7 @@
     <!--中部结束-->
     <!--底部开始-->
     <footer>
-        <div class="dialog-B">联系卖家</div>
+        <div class="dialog-B">首页</div>
     </footer>
     <!--底部结束-->
 </div>
