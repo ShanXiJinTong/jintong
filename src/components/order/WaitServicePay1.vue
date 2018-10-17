@@ -59,18 +59,6 @@
     <div class="line">
       <div class="line1"></div>
     </div>
-    <div class="aa" @click="coinFlag=true;couFlag = false;">
-      <div class="alfet">
-        <div class="yuanjiao11"></div>
-        <span>金币</span>
-      </div>
-      <a href="javascript:">
-        <div class="aright">
-          <span>{{coin}}</span>
-          <img src="./static/img/xiayibu.png" alt="">
-        </div>
-      </a>
-    </div>
     <div class="line">
       <div class="line1"></div>
     </div>

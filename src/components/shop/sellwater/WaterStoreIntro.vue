@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<a href="javascript:">
-					<div class="oneright" @click="chat(info.uid)">联系</div>
+					<div class="oneright" @click="chat(info.uid)">联系商家</div>
 				</a>
 			</div>
 			<div class="two">
