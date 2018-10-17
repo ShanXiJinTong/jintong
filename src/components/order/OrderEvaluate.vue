@@ -6,7 +6,7 @@
           <div class="left">
             <div class="zuo">
               <div class="wb-yuan1"></div>
-              <p>评星 </p>
+              <p>描述相符</p>
             </div>
             <div class="you">
               <el-rate
@@ -17,12 +17,14 @@
           </div>
         </li>
         <li class="li2">
-          <input type="text" v-model="formdata.name" placeholder="评论标题">
+          <textarea v-model="formdata.review_content" placeholder="宝贝满足你的期待吗？说说你的使用心得，分享给想买的他们吧！"></textarea>
         </li>
-        <li class="li2">
-          <textarea v-model="formdata.review_content" placeholder="评论详情"></textarea>
+        <li class="li3">
+          <img src="./static/img/xiangji.png" alt="">
         </li>
-
+        <li class="li4">
+          <span>添加图片</span>
+        </li>
       </ul>
       <div class="di">
         <div class="fabu" @click="publicInfo">发布</div>
@@ -50,15 +52,14 @@
     },
     methods: {
       publicInfo(){
-
           this.$http({
              method:'get',
              url:'/customer/car/createview',
              params:this.formdata
           }).then(res=>{
-            console.log(res.data);
+            // console.log(res.data);
              if(res.data.code == 1){
-                this.$router.push({'name':'XhStore',query:{id:res.data.shop_id}})
+                this.$router.push({'name':'EvaluateSuccess',query:{id:res.data.shop_id}})
              }else if(res.data == 0){
 
              }
@@ -372,5 +373,27 @@
     box-sizing: border-box;
     resize: none;
     outline: none;
+  }
+  .pingjia .miaoshu .li3{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.24rem;
+    background: #fff;
+    box-shadow: 0 0.01rem 0.21rem rgba(223,223,223,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pingjia .miaoshu .li3 img{
+    width: 0.49rem;
+    height: 0.35rem;
+  }
+  .pingjia .miaoshu .li4 span{
+    font-size: 0.22rem;
+    color: #c9cbcc;
+    margin: 0.17rem;
+  }
+  .pingjia .miaoshu .li2 textarea {
+    font-size: 12px;
   }
 </style>

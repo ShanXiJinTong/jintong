@@ -120,19 +120,21 @@
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
-            <span class="cyx-title">折扣</span>
-          </div>
-          <div class="cyx-right">
-            <span class="cyx-name">{{order.subtotal_with_discount}}</span>
-          </div>
-        </li>
-        <li class="cyx-lis" >
-          <div class="cyx-left">
-            <img class="cyx-items" src="./static/img/items.png" alt="">
             <span class="cyx-title">实际支付</span>
           </div>
           <div class="cyx-right">
             <span class="cyx-name">{{order.grand_total}}</span>
+          </div>
+        </li>
+        <li class="cyx-lis" style="justify-content: space-between">
+          <div class="cyx-left">
+            <img class="cyx-items" src="./static/img/items.png" alt="">
+            <span class="cyx-title">商家电话</span>
+          </div>
+          <div class="cyx-right" >
+            <a href="tel:15711223344" style="width: 0.9rem;height: 0.9rem;display: flex;align-items: center;justify-content: center;margin-right: 0.2rem">
+              <img src="./static/img/phone.png" alt="" style="width: 60%;height: 60%;">
+            </a>
           </div>
         </li>
         <button v-if="order.order_status==0" @click="zf" style="margin-top:0.2rem;padding: 0.1rem 0.3rem;border-radius: 0.5rem;background:#41b2fc;box-shadow: 0 0.05rem 0.2rem 0 rgba(68,181,255,0.43);color: white">去支付</button>

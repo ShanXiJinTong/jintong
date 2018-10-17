@@ -18,14 +18,11 @@
 						</div>
 						<div class="LZJ-already">
 							<div class="LZJ-spot"></div>
-							<div class="LZJ-poi">成交</div>
-							<span>{{shop.chengjiaolv}}%</span>
-
-						</div>
-						<div class="LZJ-already">
-							<div class="LZJ-spot"></div>
 							<div class="LZJ-poi">好评</div>
 							<span>{{shop.haopinlv}}</span>
+						</div>
+						<div class="LZJ-already" style="margin-right: 0;width:0.8rem">
+
 						</div>
 					</div>
 					<div class="LZJ-service">

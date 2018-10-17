@@ -7,7 +7,7 @@
       <div class="wsq-zs"></div>
     </div>
     <div class="wsq-lineTwo">
-      <p>送您<span>{{$route.query.coin}}</span>金币</p>
+      <!--<p>送您<span>{{$route.query.coin}}</span>金币</p>-->
     </div>
     <section class="wsq-btn">
       <div class="wsq-left"> <router-link :to="{path:'/OrderDetail',query:{order_id:$route.query.orderid}}"> 查看订单 </router-link> </div>
