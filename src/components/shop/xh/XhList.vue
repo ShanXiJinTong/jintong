@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--nav开始-->
-        <nav>
+        <!--<nav>
             <div class="main" v-if="typedata">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
                 	<swiper-slide style="">
@@ -15,14 +15,14 @@
                     </swiper-slide>
                 </swiper>
             </div>
-        </nav>
+        </nav>-->
         <!--nav结束-->
         <!--cate开始-->
         <div class="cate">
             <div class="main">
                 <div class="cateBox" @click="handleorder('default')">
-                    <p>综合</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='default'"></i>
+                    <p>评分</p>
+                    <!--<i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='default'"></i>-->
                 </div>
                 <div class="cateBox" @click="handleorder(flag?'saledesc':'saleasc','nums')">
                     <p>销量</p>
@@ -38,7 +38,7 @@
         <!--bag开始-->
         <div class="bag-scroll" v-if="list.length">
                 <ul class="bag-item" v-for="item in list" v-if="list.length>0">
-                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" >
+                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" v-if="item.type==2">
                         <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
                             <!--<img :src="item.image" alt="">-->
                         </li>
@@ -52,9 +52,9 @@
                         <div class="sk-estimate_sale_price">
                             <ul class="sk-estimate sk-item">
                                 <li class="dot"></li>
-                                <li class="text" v-if="item.praise==-1">暂无评论</li>
-                                    <li class="text" v-else>好评</li>
-                                    <li class="number" v-if="item.praise>-1">{{item.praise}}<span>%</span></li>
+                                <li class="text" v-if="item.praise==-1">评分</li>
+                                <li class="text" v-else>评分</li>
+                                <li class="number" v-if="item.praise>-1"><span>{{item.praise}}</span></li>
                             </ul>
                             <ul class="sk-sale sk-item">
                                 <li class="dot"></li>
@@ -62,9 +62,7 @@
                                 <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
-
-                                <li v-if="item.type == 1">{{item.special_price }}元/件</li>
-                                <li v-if="item.type == 2">{{item.deposit}} 定金</li>
+                                <li>{{item.deposit}} 定金</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
