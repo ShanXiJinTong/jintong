@@ -21,12 +21,19 @@
         <li class="li2">
           <textarea v-model="formdata.review_content" placeholder="宝贝满足你的期待吗？说说你的使用心得，分享给想买的他们吧！"></textarea>
         </li>
-        <li class="li3">
-          <img src="./static/img/xiangji.png" alt="">
-        </li>
         <li class="li4">
           <span>添加图片</span>
         </li>
+        <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove">
+          <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+          <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
       </ul>
       <div class="di">
         <div class="fabu" @click="publicInfo">发布</div>
@@ -50,7 +57,9 @@
           name: '',
           review_content: '',
           selectStar: 5
-        }
+        },
+        dialogImageUrl: '',
+        dialogVisible: false
       }
     },
     methods: {
@@ -68,6 +77,13 @@
              }
           })
         console.log(this.formdata);
+      },
+      handleRemove(file, fileList) {
+          console.log(file, fileList);
+      },
+      handlePictureCardPreview(file) {
+          this.dialogImageUrl = file.url;
+          this.dialogVisible = true;
       }
     },
     mounted() {
@@ -98,12 +114,12 @@
 
   .pingjia .miaoshu {
     width: 100%;
-    height: 6.51rem;
+    height: auto;
     display: flex;
     flex-flow: column;
   }
 
-  .pingjia .miaoshu li {
+  .pingjia .miaoshu .li1,.li2{
     position: relative;
     display: flex;
     align-items: center;
@@ -185,65 +201,23 @@
     padding: 0 0.15rem;
     color: #303133;
   }
-  .pingjia .miaoshu .li3 {
-    width: 1.2rem;
-    height: 1.2rem;
-    margin-top: 0.24rem;
-    background: #fff;
-    box-shadow: 0 0.01rem 0.21rem rgba(223, 223, 223, 0.75);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .pingjia .miaoshu .li4{
+    margin: 0.2rem 0;
   }
-
-  .pingjia .miaoshu .li3 img {
-    width: 0.49rem;
-    height: 0.35rem;
-  }
-
   .pingjia .miaoshu .li4 span {
     font-size: 0.22rem;
     color: #c9cbcc;
-    margin: 0.17rem;
   }
-
-  .pingjia .miaoshu .li5 {
-    width: 100%;
-    height: 0.24rem;
-    margin-top: 0.24rem;
+  .el-upload--picture-card{
+    width: 100px;
+    height: 100px;
+    line-height: 102px;
   }
-
-  .pingjia .miaoshu .li5 span {
-    font-size: 0.22rem;
-    color: #c9cbcc;
-  }
-
-  .pingjia .miaoshu .li5 .zuo5 {
-    width: 0.8rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .pingjia .miaoshu .li5 .zuo5 img {
-    width: 0.24rem;
-    height: 0.24rem;
-  }
-
-  .pingjia .pingfen {
-    width: 100%;
-    height: 2.91rem;
-    display: flex;
-    flex-flow: column;
-  }
-
-  .pingjia .pingfen .dianpu {
-    width: 100%;
-    height: 0.86rem;
-    margin-top: 0.24rem;
-    display: flex;
-    align-items: center;
+  .pingjia .miaoshu ul li{
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    margin-bottom: 15px;
   }
 
   .pingjia .pingfen .dianpu p {
@@ -351,9 +325,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+
   }
 
   .di .fabu {
@@ -392,9 +364,9 @@
     height: 0.35rem;
   }
   .pingjia .miaoshu .li4 span{
-    font-size: 0.22rem;
+    font-size: 0.3rem;
     color: #c9cbcc;
-    margin: 0.17rem;
+    margin: 0.3rem;
   }
   .pingjia .miaoshu .li2 textarea {
     font-size: 12px;
