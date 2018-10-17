@@ -153,7 +153,6 @@
             mask2(){
               var el = event.target;
               this.isHot = el.innerText
-              console.log(this.isHot);
             }
         }
     }
