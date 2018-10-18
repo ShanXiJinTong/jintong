@@ -22,10 +22,6 @@ nav {
   background-color: #f8fcff;
   box-shadow: 0 0.2rem 0.43rem rgba(59, 172, 254, 0.1);
   margin: 0 auto;
-  position: fixed;
-  /*left: 0;*/
-  top: 0;
-  z-index: 111;
 }
 
 nav .main {
@@ -38,6 +34,13 @@ nav .main {
   padding-left:0.24rem;
   padding-right:0.24rem;
   box-sizing: border-box;
+}
+.listtop{
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top:0;
+  z-index: 1111;
 }
 .swiper-slide{
   display: flex;
@@ -52,7 +55,7 @@ nav .main p {
   color: #3BACFE;
   border-radius: 0.26rem;
   line-height: 0.52rem;
-  padding:0 0.2rem;
+  padding:0 0.35rem;
   overflow: hidden;
 }
 /*.swiper-container {*/
@@ -70,11 +73,7 @@ nav .main p.hot {
   height: 0.9rem;
   margin: 0 auto;
   line-height: 0.9rem;
-  position: fixed;
-  /*left: 0;*/
-  top: 0rem;
   background: #f8fcff;
-  z-index: 1111;
   box-shadow: 0 0.3rem 0.43rem 0 rgba(41,167,255,0.1);
 }
 
@@ -98,7 +97,7 @@ nav .main p.hot {
 
 .cate .main .cateBox p {
   font-size: 0.26rem;
-  color: #41b2fc;
+  color: #93e1fc;
   margin-right: 0.1rem;
 }
 

@@ -53,4 +53,10 @@
   *{
     box-sizing: border-box;
   }
+    .haoping .el-rate__icon{
+      font-size: 0.02rem;
+    }
+    .haoping .el-rate{
+      height:0.3rem;
+    }
 </style>

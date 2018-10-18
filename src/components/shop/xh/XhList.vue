@@ -1,44 +1,40 @@
 <template>
     <div>
         <!--nav开始-->
-        <!--<nav>
-            <div class="main" v-if="typedata">
-                <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
-                	<swiper-slide style="">
-                        <p :class="{hot:type===''}" @click="getList({name:{name_zh:''},'_id':{'$oid':$route.query.categoryId}})">
-                        	全部
-                            </p>
-                    </swiper-slide>
-                    <swiper-slide v-for="item,key in typedata" :key="key" style="">
-                        <p :class="{hot:type===item.name.name_zh}" @click="getList(item)">
-                            {{item.name.name_zh}}</p>
-                    </swiper-slide>
-                </swiper>
-            </div>
-        </nav>-->
-        <!--nav结束-->
-        <!--cate开始-->
-        <div class="cate">
-            <div class="main">
-                <div class="cateBox" @click="handleorder('default')">
-                    <p>评分</p>
-                    <!--<i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='default'"></i>-->
-                </div>
-                <div class="cateBox" @click="handleorder(flag?'saledesc':'saleasc','nums')">
-                    <p>销量</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
-                </div>
-                <div class="cateBox" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
-                    <p>价格</p>
-                    <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
-                </div>
-            </div>
-        </div>
+       <div class="listtop">
+           <nav v-if="!cid">
+               <div class="main">
+                   <p @click="tagHot()" :class="[isHot=='洗衣'?'hot':'']">洗衣</p>
+                   <p @click="tagHot()" :class="[isHot=='洗鞋'?'hot':'']">洗鞋</p>
+                   <p @click="tagHot()" :class="[isHot=='洗家纺'?'hot':'']">洗家纺</p>
+                   <p @click="tagHot()" :class="[isHot=='洗窗帘'?'hot':'']">洗窗帘</p>
+                   <p @click="tagHot()" :class="[isHot=='袋洗'?'hot':'']">袋洗</p>
+               </div>
+           </nav>
+           <!--nav结束-->
+           <!--cate开始-->
+           <div class="cate">
+               <div class="main">
+                   <div :class="['cateBox',{hot:active=='评分'}]" @click="handleorder('default')">
+                       <p>评分</p>
+                   </div>
+                   <div :class="['cateBox',{hot:active=='销量'}]" @click="handleorder(flag?'saledesc':'saleasc','nums')">
+                       <p>销量</p>
+                       <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
+                   </div>
+                   <div :class="['cateBox',{hot:active=='价格'}]" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
+                       <p>价格</p>
+                       <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
+                   </div>
+               </div>
+           </div>
+       </div>
+
         <!--nav结束-->
         <!--bag开始-->
         <div class="bag-scroll" v-if="list.length">
-                <ul class="bag-item" v-for="item in list" v-if="list.length>0">
-                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}" v-if="item.type==2">
+                <ul class="bag-item" v-for="item in list" v-if="list.length>0&&item.type==2">
+                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}">
                         <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
                             <!--<img :src="item.image" alt="">-->
                         </li>
@@ -62,7 +58,7 @@
                                 <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.deposit}} 定金</li>
+                                <li>{{item.deposit}}定金</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -87,7 +83,9 @@
         data() {
             return {
                 type: "",
+                active:"评分",
                 list: [],
+                isHot:'洗衣',
                 cid: this.$route.query.categoryId,
                 page: 0,
                 totalPage: null,
@@ -153,23 +151,36 @@
             	this.list = [];
                 this.orderBy=type;
                 this.getData();
+
+                var el=event.target;
+                this.active=el.innerText;
+                // console.log();
+            },
+            tagHot(){
+                var el = event.target;
+                this.isHot = el.innerText;
             }
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;
-            this.getData();
+            this.isHot = this.$route.query.cate
+            // this.getData();
         },
     }
 </script>
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("../css/Tten.css");
-
     .myScroll {
         width: 100%;
         height: 100%;
     }
     .xz{
     	transform: rotate(180deg);
+    }
+    .cate .main .hot p{
+        font-size: 0.28rem;
+        font-weight: bolder;
+        color:#41b2fc;
     }
 </style>
