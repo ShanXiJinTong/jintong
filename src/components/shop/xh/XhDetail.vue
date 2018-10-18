@@ -134,7 +134,8 @@
 		},
 		computed: {
 			imgs() {
-				if(this.shopDetail.img) {
+                console.log(this.shopDetail);
+                if(this.shopDetail.img) {
 					this.shopDetail.img.gallery.push(this.shopDetail.img.main);
 					return this.shopDetail.img.gallery;
 				} else {
