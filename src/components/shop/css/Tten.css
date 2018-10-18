@@ -23,7 +23,6 @@ nav {
   box-shadow: 0 0.2rem 0.43rem rgba(59, 172, 254, 0.1);
   margin: 0 auto;
   position: fixed;
-  /*left: 0;*/
   top: 0;
   z-index: 111;
 }
@@ -71,8 +70,7 @@ nav .main p.hot {
   margin: 0 auto;
   line-height: 0.9rem;
   position: fixed;
-  /*left: 0;*/
-  top: 0.97rem;
+  top: 0.98rem;
   background: #f8fcff;
   z-index: 1111;
   box-shadow: 0 0.3rem 0.43rem 0 rgba(41,167,255,0.1);
@@ -113,7 +111,7 @@ nav .main p.hot {
   overflow-y:hidden;
   position: absolute;
   left: 0;
-  top: 1.87rem;
+  top: 1rem;
 }
 
 .sk-bag-scroll {

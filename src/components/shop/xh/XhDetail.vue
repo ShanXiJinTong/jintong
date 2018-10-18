@@ -101,15 +101,15 @@
 				<a @click="handleClick" >
 					<div class="rr1">加入购物车</div>
 				</a>
-        <a @click="handleSubmit">
-          <div class="rr2">立即下单</div>
-        </a>
+				<a @click="handleSubmit">
+				  <div class="rr2">立即下单</div>
+				</a>
 			</div>
-      <div class="rr" v-if="shopDetail['goods_type']==2" style="justify-content: flex-end;">
-        <a @click="handleSubmit1">
-          <div class="rr2" style="width: 3.5rem;">立即下单</div>
-        </a>
-      </div>
+			<div class="rr" v-if="shopDetail['goods_type']==2" style="justify-content: flex-end;">
+				<a @click="handleSubmit1">
+					<div class="rr2" style="width: 3.5rem;">立即下单</div>
+				</a>
+			</div>
 		</div>
 	</div>
 </template>

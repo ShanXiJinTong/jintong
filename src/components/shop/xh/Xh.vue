@@ -12,25 +12,25 @@
 
         <!--Icon开始-->
         <ul class="xrIcon">
-            <router-link :to="{name:'XhList',query:{cate:'洗衣',categoryId:1}}" tag="li" class="xrIconbox">
+            <router-link :to="{name:'XhList',query:{cate:'洗衣'}}" tag="li" class="xrIconbox">
                 <div class="xrIcon1">
                     <img src="../img/Tnine/Tnine1.png" alt="">
                 </div>
                 <span>洗衣</span>
             </router-link>
-            <router-link :to="{name:'XhList',query:{cate:'洗鞋',categoryId:2}}" tag="li" class="xrIconbox">
+            <router-link :to="{name:'XhList',query:{cate:'洗鞋'}}" tag="li" class="xrIconbox">
                 <div class="xrIcon2">
                     <img src="../img/Tnine/Tnine2.png" alt="">
                 </div>
                 <span>洗鞋</span>
             </router-link>
-            <router-link :to="{name:'XhList',query:{cate:'洗家纺',categoryId:3}}" tag="li" class="xrIconbox">
+            <router-link :to="{name:'XhList',query:{cate:'洗家纺'}}" tag="li" class="xrIconbox">
                 <div class="xrIcon3">
                     <img src="../img/Tnine/Tnine3.png" alt="">
                 </div>
                 <span>洗家纺</span>
             </router-link>
-            <router-link :to="{name:'XhList',query:{cate:'洗窗帘',categoryId:4}}" tag="li" class="xrIconbox">
+            <router-link :to="{name:'XhList',query:{cate:'洗窗帘'}}" tag="li" class="xrIconbox">
                 <div class="xrIcon4">
                     <img src="../img/Tnine/Tnine4.png" alt="">
                 </div>
@@ -51,7 +51,7 @@
         <!--bag开始-->
         <div class="bag-scroll">
             <div class="sk-bag-scroll">
-                <ul class="bag-item">
+                <router-link :to="{name:'XhDetail'}" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -82,8 +82,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -114,8 +114,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -146,8 +146,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -178,8 +178,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -210,8 +210,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -242,8 +242,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -274,8 +274,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -306,8 +306,8 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
-                <ul class="bag-item">
+                </router-link>
+                <router-link to="" tag="ul" class="bag-item">
                     <li class="sk-bag-photo">
                         <img src="../img/Tnine/pb.png" alt="">
                     </li>
@@ -338,7 +338,7 @@
                             <span>包大师</span>
                         </div>
                     </li>
-                </ul>
+                </router-link>
             </div>
         </div>
         <!--bag结束-->

@@ -123,6 +123,8 @@ const WaitZz = r => require.ensure([], () => r(require('../components/order/Wait
 const OrderEvaluate = r => require.ensure([], () => r(require('../components/order/OrderEvaluate.vue')), "OrderEvaluate");
 // 订单详情
 const OrderDetail = r => require.ensure([], () => r(require('../components/order/OrderDetail.vue')), "OrderDetail");
+//订单评价成功
+const EvaluateSuccess = r => require.ensure([], () => r(require('../components/index/list/EvaluateSuccess.vue')), "EvaluateSuccess");
 // 申请退款
 const Refund = r => require.ensure([], () => r(require('../components/order/Refund.vue')), "Refund");
 // 退款确认页面
@@ -454,6 +456,12 @@ export default new Router({
       path: '/OrderDetail',
       name: 'OrderDetail',
       component: OrderDetail
+    },
+    {
+      path: '/EvaluateSuccess',
+      name: 'EvaluateSuccess',
+      component: EvaluateSuccess
+
     },
     {
       path: '/Refund',
