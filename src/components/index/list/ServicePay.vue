@@ -95,7 +95,7 @@
           }).then(res=>{
              if(res.data.code == 200){
                // 成功
-               this.$router.push({name:'ServicePaySuccess',query:{price:this.price,orderid:this.order_id,coin:res.data.coinNum}});
+               this.$router.push({name:'ShopPaySuccess',query:{price:this.price,orderid:this.order_id,coin:res.data.coinNum}});
              }else{
                this.$message.info('支付失败');
              }
