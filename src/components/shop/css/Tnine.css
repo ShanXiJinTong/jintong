@@ -104,7 +104,7 @@ html , body{
 .xrIconbox:nth-child(3) .xrIcon1 .bg{
     background: url('../img/Tnine/Tnine3.png') no-repeat center/cover;
 }
-.xrIcon2{
+.xrIconbox .xrIcon2{
     width: 100%;
     height: 1.13rem;
     border-radius: 50%;
@@ -114,7 +114,7 @@ html , body{
     justify-content: center;
     align-items: center;
 }
-.xrIcon3{
+.xrIconbox .xrIcon3{
     width: 100%;
     height: 1.13rem;
     border-radius: 50%;
@@ -124,7 +124,7 @@ html , body{
     justify-content: center;
     align-items: center;
 }
-.xrIcon4{
+.xrIconbox .xrIcon4{
     width: 100%;
     height: 1.13rem;
     border-radius: 50%;

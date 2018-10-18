@@ -16,7 +16,6 @@
                 <div class="tl" v-if="shopDetail['goods_type']==1">
                     <span>现价 {{shopDetail.special_price}}元／件</span>
                     <del>原价 {{shopDetail.price}}元／件</del>
-
                 </div>
                 <div class="tl" v-else>
                     <span>定金 {{shopDetail.deposit}}</span>
@@ -261,6 +260,8 @@
             <!--</div>-->
         </div>
     </div>
+
+
 </template>
 <script>
     import $ from "jquery";
