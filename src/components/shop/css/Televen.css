@@ -126,15 +126,17 @@ section .content .top .left span:nth-of-type(1){
  }
 .line{
     width: 100%;
-    height: 0.05rem;
+    height: 0.02rem;
     padding: 0 0.24rem;
     box-sizing: border-box;
 }
 .line .line1{
     width: 100%;
-    height: 0.05rem;
+    height: 0.02rem;
     background: #f0f5f7;
 }
+
+
 
 .lingjuan{
     width: 100%;
@@ -176,16 +178,14 @@ section .content .top .left span:nth-of-type(1){
 }
 .term{
     width: 100%;
-    height: 2rem;
-    margin-top: 0.28rem;
-    padding-bottom: 1.8rem;
-    line-height: 0.5rem;
+    height: 0.76rem;
 }
 .termm{
     width: 7.5rem;
-    height: 0.25rem;
+    height: 0.76rem;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .term .termm .term1{
     width: auto;
@@ -416,4 +416,229 @@ section .content .top .left span:nth-of-type(1){
     text-align: center;
     line-height: 0.6rem;
     margin: 0.2rem  auto ;
+}
+.usercomment{
+    overflow: hidden;
+    padding: 0.17rem 0.24rem 0;
+}
+.usercomment .userleft{
+    justify-content: space-between;
+}
+.usercomment .container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.searchAll{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchAllreturn{
+    width: 0.2rem;
+    height: 0.18rem;
+    display: flex;
+    align-items: center;
+}
+.searchAllreturn img{
+    width: 100%;
+    height: 100%;
+}
+.userleft .searchAll span{
+    font-size: 0.22rem;
+    padding-right: 0.1rem;
+}
+
+.searchAll i.iconfont{
+    width: 0.1rem;
+    font-size: 0.22rem;
+}
+.searchAll i.iconfont:nth-of-type(1){
+    color: #3bacfe;
+}
+.searchAll i.iconfont:nth-of-type(2){
+    color: #98d3fe;
+}
+.shopdetail{
+    padding:0 0.24rem;
+}
+.rect{
+    width: 0.12rem;
+    height: 0.06rem;
+    border-radius: 0.1rem;
+    background: #36d681;
+    margin: 0 0.12rem;
+}
+.rect.blue{
+    background: #36a8fe;
+}
+.userleft{
+    /*float: left;*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+.userleft span{
+    font-size: 0.32rem;
+    color: #3bacfe;
+    float: left;
+}
+.userleft .green{
+    font-size: 0.32rem;
+    color: #35db82;
+    float: left;
+}
+.userleft span:nth-of-type(2){
+    color: #4f5b64 ;
+    float: left;
+}
+.usercomment .userright{
+    float: right;
+
+}
+.usercomment .userright span{
+    font-size: 0.22rem;
+    color: #3bacfe;
+}
+
+.usercomment ul li{
+    display: flex;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f0f5f7;
+}
+.usercomment ul li .shopleft{
+    width: 0.78rem;
+    height: 0.78rem;
+    border-radius: 50%;
+    margin-right: 0.24rem;
+}
+.usercomment ul li .shopleft img{
+    width: 100%;
+    height: 100%;
+}
+.usercomment ul li .shopright{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.usercomment ul li .shopright .name{
+    display: flex;
+    justify-content: space-between;
+    height: 0.4rem;
+    align-items: center;
+}
+.usercomment ul li .shopright .name .xing{
+    /*width: 70%;*/
+    display: flex;
+    justify-content: space-between;
+    height: 0.4rem;
+    align-items: center;
+}
+.usercomment ul li .shopright .name .xing span{
+    font-size: 0.2rem;
+    color: #cfcfcf;
+    margin-right: 0.46rem;
+}
+.usercomment ul li .shopright .name .xing img{
+    height: 0.2rem;
+}
+.usercomment ul li .shopright .name .xing .haoping{
+    height: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+.usercomment ul li .shopright .name .xing .haoping .hao{
+    /*background: url("../img/haopinggreen.png");*/
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0.2rem;
+    width: 0.2rem;
+    margin: 0 0.05rem;
+}
+.usercomment ul li .shopright .name .xing .haoping .hao.active{
+    /*background: url("../img/haopinghui.png");*/
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0.2rem;
+    width: 0.2rem;
+    margin: 0 0.05rem;
+}
+.usercomment ul li .shopright .name span{
+    font-size: 0.22rem;
+    color: #9ed5ff;
+}
+.usercomment ul li .shopright .desc{
+    display: flex;
+    align-items: center;
+    height: 0.4rem;
+}
+.usercomment ul li .shopright .desc span{
+    width: 5rem;
+    font-size: 0.26rem;
+    color: rgba(0,0,0,0.6);
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.usercomment ul li .shopright .dingwei{
+    display: flex;
+    align-items: center;
+    height: 0.4rem;
+}
+.dingwei span{
+    color: rgba(0,0,0,0.3);
+    font-size: 0.22rem;
+}
+.usercomment ul li .shopright .picture{
+    display: flex;
+    align-items: center;
+    height: auto;
+    /*width: 100%;*/
+    padding: 0.2rem 0;
+}
+.usercomment ul li .shopright .picture img{
+    width: 1.8rem;
+    height: 100%;
+
+}
+.similarrecommendation{
+    padding: 0 0.24rem;
+}
+h2{
+    font-weight: normal;
+    font-size: 0.32rem;
+    /*padding: 0.4rem 0;*/
+    height: 0.8rem;
+    line-height: 0.8rem;
+}
+.similarrecommendation ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between ;
+}
+.similarrecommendation ul li{
+    display: flex;
+    flex-direction: column;
+    /*text-align: center;*/
+    width: 30%;
+    margin-bottom:0.4rem ;
+}
+.similarrecommendation ul li img{
+    width: 80%;
+    margin: 0 auto 0.24rem;
+}
+.similarrecommendation ul li span{
+    padding: 0.2rem 0;
+}
+.similarrecommendation ul li span:nth-of-type(1){
+    font-size: 0.26rem;
+    color: rgba(0,0,0,0.6);
+}
+.similarrecommendation ul li span:nth-of-type(2){
+    font-size: 0.28rem;
+    color: #fbb548;
 }
