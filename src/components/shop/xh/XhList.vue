@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--nav开始-->
-        <nav>
+        <!--<nav>
             <div class="main" v-if="typedata">
                 <swiper :options="swiperOption" ref="mySwiper" class="photo" style="width:100%;height: 100%;">
                 	<swiper-slide style="">
@@ -15,8 +15,18 @@
                     </swiper-slide>
                 </swiper>
             </div>
-        </nav>
+        </nav>-->
+      <nav>
+        <div class="main">
+          <p @click="tagHot()" :class="[isHot=='洗衣'?'hot':'']">洗衣</p>
+          <p @click="tagHot()" :class="[isHot=='洗鞋'?'hot':'']">洗鞋</p>
+          <p @click="tagHot()" :class="[isHot=='洗家纺'?'hot':'']">洗家纺</p>
+          <p @click="tagHot()" :class="[isHot=='洗窗帘'?'hot':'']">洗窗帘</p>
+          <p @click="tagHot()" :class="[isHot=='袋洗'?'hot':'']">袋洗</p>
+        </div>
+      </nav>
         <!--nav结束-->
+
         <!--cate开始-->
         <div class="cate">
             <div class="main">
@@ -90,6 +100,7 @@
             return {
                 type: "",
                 list: [],
+                isHot:'洗衣',
                 cid: this.$route.query.categoryId,
                 page: 0,
                 totalPage: null,
@@ -155,10 +166,15 @@
             	this.list = [];
                 this.orderBy=type;
                 this.getData();
+            },
+            tagHot(){
+                var el = event.target;
+                this.isHot = el.innerText;
             }
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;
+            this.isHot = this.$route.query.cate
             this.getData();
         },
     }

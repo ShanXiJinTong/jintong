@@ -235,6 +235,11 @@ export default new Router({
       component: Shop,
     },
     {
+      path: '/Xh',
+      name: 'Xh',
+      component: Xh,
+    },
+    {
       path: '/Bathroom',
       name: 'Bathroom',
       component: Bathroom,

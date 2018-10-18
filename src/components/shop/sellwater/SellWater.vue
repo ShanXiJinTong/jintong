@@ -1,6 +1,8 @@
 <template>
     <div>
 
+
+
         <!--搜索框-->
         <form class="wsq-searchBox">
             <img src="../img/sousuoicon.png" height="24" width="40"/>
@@ -9,8 +11,13 @@
         <!--搜索结束-->
         <!--banner开始-->
         <section class="wsq-banner">
+
+
             <div class="wsq-title" >
-                <router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>
+              <router-link :to="{name:'Xh'}" tag="div" class="wsq-cateaty">洗护</router-link>
+              <router-link :to="{name:'SellWater'}" tag="div" class="wsq-cateaty hot" style="margin: 0 0.25rem">售水</router-link>
+              <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty">卫浴</router-link>
+                <!--<router-link :to="{name:path[index],query:{cid:item.id}}" tag="div" class="wsq-cateaty" v-for="(item,index) in menu" :key="item.id">{{item.name}}</router-link>-->
             </div>
             <div class="wsq-img"><img src="../img/banner1.png" height="128" width="351"/></div>
         </section>
@@ -109,6 +116,46 @@
     }
 </script>
 <style scoped>
-    @import url("../css/Tnineteen.css");
 
+    @import url("../css/Tnineteen.css");
+    .wsq-banner{
+      width: 100%;
+      height: auto;
+      background-color: #fbfeff;
+      box-shadow:  0 0.2rem 0.43rem rgba(59,172,254,0.1);
+      padding: 0 0.24rem;
+      box-sizing: border-box;
+      margin-bottom: 0.4rem;
+    }
+    .wsq-banner .wsq-title{
+      width: 100%;
+      height: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.2rem;
+    }
+    .wsq-banner .wsq-title .wsq-cateaty{
+      /*width: 1.33rem;*/
+      height: 0.52rem;
+      border-radius: 0.26rem;
+      background: rgba(59,172,254,0.1);
+      text-align: center;
+      line-height: 0.52rem;
+      color: rgb(59,172,254);
+    }
+    .wsq-banner .wsq-title .wsq-cateaty.hot{
+      color: #ffffff;
+      background: rgb(59,172,254);
+    }
+    .wsq-banner .wsq-img{
+      width: 100%;
+      height: 2.55rem;
+      border-radius: 0.1rem;
+
+    }
+    .wsq-banner .wsq-img img{
+      width: 100%;
+      height: 100%;
+    }
 </style>
