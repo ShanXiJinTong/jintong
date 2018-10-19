@@ -42,6 +42,8 @@ const Shop = r => require.ensure([], () => r(require('../components/shop/Shop.vu
 const Xh = r => require.ensure([], () => r(require('../components/shop/xh/Xh.vue')), "Xh");
 // 售水
 const SellWater = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWater.vue')), "SellWater");
+//商城
+const ShopMall = r => require.ensure([], () => r(require('../components/shop/shopMall/shopMall.vue')), "ShopMall");
 // 卫浴
 const Bathroom = r => require.ensure([], () => r(require('../components/shop/bathroom/Bathroom.vue')), "Bathroom");
 // 卫浴列表
@@ -237,9 +239,15 @@ export default new Router({
       component: Shop,
     },
     {
+<<<<<<< HEAD
+      path: '/ShopMall',
+      name: 'ShopMall',
+      component: ShopMall,
+=======
       path: '/Xh',
       name: 'Xh',
       component: Xh,
+>>>>>>> ce8bc6056da5e88a57e4e7a179d12b3440e25a42
     },
     {
       path: '/Bathroom',
