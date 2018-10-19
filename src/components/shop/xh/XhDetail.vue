@@ -121,7 +121,6 @@
                                         :colors="colors"
                                         >
                                         </el-rate>
-
                                     </div>
                                 </div>
                                 <span>2018.03.02</span>
@@ -260,10 +259,60 @@
             <!--</div>-->
         </div>
     </div>
-
-
 </template>
 <script>
+<<<<<<< HEAD
+	import $ from "jquery";
+	import "jquery.cookie";
+	export default {
+		name: 'XhDetail',
+		data() {
+			return {
+				uid: '',
+				shopDetail: {},
+				swiperOption: {
+					pagination: {
+						el: '.swiper-pagination',
+					}
+				},
+				display: 0,
+				coupon: [],
+				couponName:""
+			}
+		},
+		computed: {
+			imgs() {
+                console.log(this.shopDetail);
+                if(this.shopDetail.img) {
+					this.shopDetail.img.gallery.push(this.shopDetail.img.main);
+					return this.shopDetail.img.gallery;
+				} else {
+					return [];
+				}
+			}
+		},
+		methods: {
+			getCoupon(item) {
+				this.$http.get('/catalog/product/getcoupon?coupon_id=' + item.coupon_id + "&customer_id=" + localStorage["fecshop-uuid"]).then(res => {
+					if(res.data == "ok") {
+						item.customer_id = true;
+						this.coupon = Object.assign({}, this.coupon);
+						this.$message({
+							type: "success",
+							message: "领取成功"
+						});
+					} else {
+						item.flag = false;
+						this.$message({
+							type: "error",
+							message: "领取失败"
+						});
+					}
+				})
+			},
+			getData() {
+				this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
+=======
     import $ from "jquery";
     import "jquery.cookie";
     export default {
@@ -315,6 +364,7 @@
             },
             getData() {
                 this.$http.get('/catalog/product/index?product_id=' + this.uid).then(res => {
+>>>>>>> 3eaa91d9dd71fe15a5e214886ba13d0e4af8691f
 
                     this.shopDetail = res.data.data.product;
 
