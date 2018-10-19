@@ -33,6 +33,18 @@
 							</div>
 						</div>
 					</router-link>
+					<div class="x-an" v-if="item.order_status==0">
+						<button class="x-anone x-antwo">取消订单</button>
+						<button class="x-anone" @click="pays">去支付</button>
+					</div>
+					<div class="x-an" v-else-if="item.order_status<3">
+						<button class="x-anone x-antwo" @click="refund">退货</button>
+						<button class="x-anone" @click="collect">确认收货</button>
+					</div>
+					<div class="x-an" v-else-if="item.order_status==4">
+						<button class="x-anone x-antwo" @click="refund">退货</button>
+						<button class="x-anone" @click="assess">去评价</button>
+					</div>
 				</div>
 				<div class="jzgd" @click="infinite" v-if="flag==0">
 					<button>
@@ -127,12 +139,24 @@
 					if(res.data.code === 200) {
 						res.data.data.forEach((forEach) => {
 							this.orderlist.push(forEach);
-						});
+                        });
 						if(res.data.data.length < 10) {
 							this.flag = 1;
 						}
 					}
 				})
+			},
+			assess(){
+				this.$router.push({name:'OrderEvaluate'});
+			},
+			pays(){
+			    this.$router.push({name:'WaitServicePay'});
+			},
+            collect(){
+                this.$router.push({name:'WaitServicePay'});
+            },
+			refund(){
+			    this.$router.push({name:'Refund'});
 			}
 		},
 		mounted: function() {
@@ -209,6 +233,7 @@
 		height: auto;
 		display: flex;
 		justify-content: flex-start;
+		margin-bottom: 0.1rem;
 	}
 
 	#x-c-left {
@@ -318,13 +343,13 @@
 		height: 0.7rem;
 		display: flex;
 		justify-content: flex-end;
-		margin-top: 0.01rem;
+		/*margin-top: 0.01rem;*/
 		margin-bottom: 0.6rem;
 	}
 
 	.x-anone {
 		width: auto;
-		height: 0.61rem;
+		height: 0.51rem;
 		padding: 0 0.62rem;
 		background: linear-gradient(to right, #27d29c, #33e171);
 		box-shadow: 0 0.04rem 0.2rem rgba(55, 223, 116, 0.75);
