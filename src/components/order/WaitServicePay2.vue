@@ -1,17 +1,22 @@
 <template>
   <div style='background: #fff;'>
     <div class="chouse">选择服务项目 <img src="./img/back.png" alt=""></div>
-    <div class="content">
-      <div>
-        <div class="youhui1">
-          <span class="oneleft">优惠劵</span>
-          <span class="oneright">无可用优惠劵</span>
-        </div>
-
+    <div class="list" style="box-sizing: border-box;position: relative;margin-bottom: 0.25rem">
+      <div class="tap">
+        <span class="onetou" style="width: 1.5rem">水龙头维修</span>
+        <span style="margin-right: 0.24rem">￥45.00</span>
       </div>
+      <div class="tap">
+        <span class="onetou" style="width: 1.5rem;">水龙头维修</span>
+        <span style="margin-right: 0.24rem">￥45.00</span>
+      </div>
+      <div class="line"></div>
     </div>
 
+
+
     <div v-if="this.goods.length">
+      <div class="chouse">选择商品<img src="./img/back.png" alt=""></div>
       <div class="list">
         <div class="tap" v-for="item in carinfo">
           <span class="onetou">{{item.name}}</span>
@@ -21,6 +26,19 @@
           <span class="onenum">{{item.numbers}}</span>
           <div class="onejia" @click="addCar(item.id)">+</div>
         </div>
+      </div>
+      <div class="upload">
+        <div class="upload-word">上传服务评分</div>
+        <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove">
+          <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+          <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
       </div>
       <div class="add">
         <div class="miaoshu">添加文字描述...</div>
@@ -43,6 +61,7 @@
         <span class="threeright">-30元</span>
         <img src="./img/back.png" alt="">
       </div>
+      <div class="di" style="width: 100%;height: 1.08rem"></div>
       <div class="footer" style="position: fixed;bottom: 0;">
         <div class="fourdian"></div>
         <span class="heji">合计 :</span>
@@ -75,7 +94,9 @@
         coupon1: {},
         goods: {},
         flag: true,
-        carinfo: null
+        carinfo: null,
+        dialogImageUrl: '',
+        dialogVisible: false
       }
     },
     methods: {
@@ -197,6 +218,13 @@
             price: ele.special_price
           }))
         });
+      },
+      handleRemove(file, fileList) {
+          console.log(file, fileList);
+      },
+      handlePictureCardPreview(file) {
+          this.dialogImageUrl = file.url;
+          this.dialogVisible = true;
       }
     },
     created: function () {
@@ -222,6 +250,40 @@
     }
   }
 </script>
-<style scoped>
+<style>
   @import url('./static/css/fileOrder.css');
+  .upload{
+    width: 100%;
+    height: auto;
+    padding:0.4rem 0.24rem;
+    box-sizing: border-box;
+  }
+  .upload .upload-word{
+    color: #e5e5e5;
+    font-size: 0.2rem;
+    margin-bottom: 0.3rem;
+    box-sizing: border-box;
+  }
+  .el-upload--picture-card{
+    width: 100px;
+    height: 100px;
+    line-height: 102px;
+  }
+  .el-upload-list--picture-card .el-upload-list__item{
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+  }
+  .line{
+    width: 6.25rem;
+    height: 0.01rem;
+    background: #e5e5e5;
+    position: absolute;
+    top: 0.85rem;
+    left: 0.5rem;
+  }
+  .upload img{
+    margin-left: 0;
+  }
 </style>
