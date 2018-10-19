@@ -150,7 +150,8 @@
 					if(res.status == 200) {
 						this.advList = res.data.banner;
 						this.recommend = res.data.recommend;
-						this.list = res.data.category;
+            console.log(this.recommend);
+            this.list = res.data.category;
 					}
 				})
 			}
