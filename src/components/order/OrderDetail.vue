@@ -87,7 +87,7 @@
           <div class="cyx-right">
           </div>
         </li>
-        <li style="border-bottom: 1px solid #e0e0e0">
+        <router-link  :to="{name:'XhDetail',query:{uid:productId}}" tag="li" style="border-bottom: 1px solid #e0e0e0">
            <table>
               <tr>
                  <th>产品图片</th>
@@ -107,7 +107,7 @@
                 <td><router-link v-if="order.order_status==4" :to="{name:'OrderEvaluate',query:{product_id:product.product_id}}" style="color: #41b2fc;">去评价</router-link></td>
               </tr>
            </table>
-        </li>
+        </router-link>
         <li class="cyx-lis" >
           <div class="cyx-left">
             <img class="cyx-items" src="./static/img/items.png" alt="">
@@ -152,7 +152,8 @@
       return {
         order_id: 0,
         order:{},
-        list:[]
+        list:[],
+        productId:''
       }
     },
     methods: {
@@ -173,9 +174,12 @@
           }
         }).then(res => {
            if(res.data.code == 200){
-                this.order = res.data.order;
-                this.list = res.data.list;
+              console.log(res.data);
+              this.order = res.data.order;
+              this.list = res.data.list;
            }
+          this.productId = res.data.list[0].product_id
+
         })
       },
       comment(){

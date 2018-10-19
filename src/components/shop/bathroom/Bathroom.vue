@@ -1,7 +1,13 @@
 <template>
 	<div>
 		<!--banner开始-->
+
 		<section class="wsq-banner">
+      <div class="wsq-title">
+        <router-link :to="{name:'Xh'}" tag="div" class="wsq-cateaty">洗护</router-link>
+        <router-link :to="{name:'SellWater'}" tag="div" class="wsq-cateaty" style="margin: 0 0.25rem">售水</router-link>
+        <router-link :to="{name:'Bathroom'}" tag="div" class="wsq-cateaty hot">卫浴</router-link>
+      </div>
 			<div class="wsq-img">
 				<swiper :options="swiperOption" ref="mySwiper" style="height: 100%;">
 					<swiper-slide v-for="(item,index) in advList" v-bind:key="index">
@@ -115,15 +121,13 @@
 			</section>
 
 			<!--热门推荐结束-->
-
-
 		</div>
-		<Tab></Tab>
+
 	</div>
 </template>
 
 <script>
-	import Tab from '../../common/tab';
+
 
 	export default {
 		name: 'Bathroom',
@@ -146,7 +150,8 @@
 					if(res.status == 200) {
 						this.advList = res.data.banner;
 						this.recommend = res.data.recommend;
-						this.list = res.data.category;
+            console.log(this.recommend);
+            this.list = res.data.category;
 					}
 				})
 			}
@@ -154,11 +159,40 @@
 		mounted: function() {
 			this.getData();
 		},
-		components: {
-			Tab
-		}
+
 	}
 </script>
 <style scoped>
 	@import url("../css/Tnineteen.css");
+  .wsq-banner .wsq-title{
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.2rem;
+  }
+  .wsq-banner .wsq-title .wsq-cateaty{
+    /*width: 1.33rem;*/
+    height: 0.52rem;
+    border-radius: 0.26rem;
+    background: rgba(59,172,254,0.1);
+    text-align: center;
+    line-height: 0.52rem;
+    color: rgb(59,172,254);
+  }
+  .wsq-banner .wsq-title .wsq-cateaty.hot{
+    color: #ffffff;
+    background: rgb(59,172,254);
+  }
+  .wsq-banner .wsq-img{
+    width: 100%;
+    height: 2.55rem;
+    border-radius: 0.1rem;
+
+  }
+  .wsq-banner .wsq-img img{
+    width: 100%;
+    height: 100%;
+  }
 </style>

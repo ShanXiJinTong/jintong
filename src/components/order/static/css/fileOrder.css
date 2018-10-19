@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  background: #FFFFFF !important;
+}
+
 a {
   text-decoration: none;
 }
@@ -46,16 +50,26 @@ header .title span {
 
 .chouse {
   font-size: 0.3rem;
-  margin-top: 0.38rem;
-  margin-left: 0.24rem;
+  padding: 0.19rem 0.24rem;
   color: #969899;
+  position: relative;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+
+.chouse img {
+  width: 0.2rem;
+  position: absolute;
+  top: 50%;
+  right: 0.24rem;
+  transform: translateY(-50%);
 }
 
 .content {
-  width: 7.03rem;
-  margin: 0 0.24rem;
-  height: 2.65rem;
-  margin-top: 0.26rem;
+  width: 100%;
+  padding: 0.26rem 0.24rem 0;
+  height: auto;
+  /*margin-top: 0.26rem;*/
   box-sizing: border-box;
   border-radius: 0.02rem;
   box-shadow: 0rem 0rem 0.8rem 0 rgba(41, 167, 255, 0.1);
@@ -167,7 +181,7 @@ header .title span {
   border-radius: 0.02rem;
 }
 
-.list .tap {
+.tap {
   width: 100%;
   height: 0.85rem;
   display: flex;
@@ -176,7 +190,7 @@ header .title span {
   align-items: center;
 }
 
-.list .tap .onetou {
+.tap .onetou {
   font-size: 0.22rem;
   margin-left: 0.5rem;
   letter-spacing: 0.02rem;
@@ -184,19 +198,18 @@ header .title span {
   width: 0.96rem;
 }
 
-.list .tap .onenumber {
+.tap .onenumber {
   font-size: 0.22rem;
   margin-left: 0.93rem;
   color: #4f5b64;
 }
 
-.list .tap .oneprice {
+ .tap .oneprice {
   font-size: 0.22rem;
   margin-left: 0.88rem;
   color: #4f5b64;
 }
-
-.list .tap .onejian {
+.tap .onejian {
   font-size: 0.8rem;
   width: 0.74rem;
   height: 0.44rem;
@@ -214,7 +227,7 @@ header .title span {
   margin: 0 0.1rem;
 }
 
-.list .tap .onejia {
+.tap .onejia {
   font-size: 0.5rem;
   width: 0.74rem;
   height: 0.44rem;
@@ -225,14 +238,12 @@ header .title span {
   line-height: 0.4rem;
   color: #4f5b64;
 }
-
-.list .twoxian {
+ .twoxian {
   width: 6.7rem;
   margin: 0 auto;
   border: 0.01rem solid #f8fcff;
 }
-
-.list .pipe {
+ .pipe {
   width: 100%;
   height: 0.85rem;
   display: flex;
@@ -241,7 +252,7 @@ header .title span {
   align-items: center;
 }
 
-.list .pipe .twotou {
+ .pipe .twotou {
   font-size: 0.22rem;
   margin-left: 0.5rem;
   letter-spacing: 0.02rem;
@@ -469,7 +480,6 @@ header .title span {
   height: 0.05rem;
   border-radius: 50%;
   background: #44b5ff;
-
 }
 
 .youhui .oneleft {
@@ -485,7 +495,33 @@ header .title span {
 }
 
 .youhui img {
-  width: 0.22rem;
+  width: 0.2rem;
+  height: 0.32rem;
+}
+
+
+.youhui1{
+  width: 7.03rem;
+  height: 0.86rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.youhui1 .oneleft {
+  font-size: 0.22rem;
+  color: #646666;
+}
+
+.youhui1 .oneright {
+  font-size: 0.22rem;
+  color: #646666;
+}
+
+.youhui1 img {
+  width: 0.2rem;
   height: 0.32rem;
 }
 
@@ -521,7 +557,7 @@ header .title span {
 }
 
 .gold img {
-  width: 0.22rem;
+  width: 0.2rem;
   height: 0.32rem;
 }
 
@@ -557,7 +593,7 @@ header .title span {
 }
 
 .dingjin img {
-  width: 0.22rem;
+  width: 0.2rem;
   height: 0.32rem;
 }
 

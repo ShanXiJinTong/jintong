@@ -4,7 +4,9 @@
       <img src="./static/img/sy.png" alt="">
       <h3>首页</h3>
     </router-link>
-    <router-link :to="{name:'ShopMall'}" tag="div" class="sk-tabItem">
+
+    <router-link :to="{name:'Xh'}" tag="div" class="sk-tabItem">
+
       <img src="./static/img/store.png" alt="">
       <h3>商城</h3>
     </router-link>
