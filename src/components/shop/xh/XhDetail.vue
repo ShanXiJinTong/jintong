@@ -121,7 +121,6 @@
                                         :colors="colors"
                                         >
                                         </el-rate>
-
                                     </div>
                                 </div>
                                 <span>2018.03.02</span>
@@ -260,8 +259,6 @@
             <!--</div>-->
         </div>
     </div>
-
-
 </template>
 <script>
     import $ from "jquery";

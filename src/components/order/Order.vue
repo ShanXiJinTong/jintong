@@ -23,7 +23,7 @@
 									<ul id="x-li">
 										<li class="x-blue x-jone"><b> {{item.firstname}}</b></li>
 										<li class="x-blue x-jtwo" v-if="item.order_status==0">待付款</li>
-										<li class="x-blue x-jtwo" v-else-if="item.order_status<3">待收货</li>
+										<li class="x-blue x-jtwo" v-else-if="item.order_status < 3">待收货</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==4">已完成</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==5">申请退货</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==6">退货</li>
