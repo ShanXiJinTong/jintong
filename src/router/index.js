@@ -42,6 +42,8 @@ const Shop = r => require.ensure([], () => r(require('../components/shop/Shop.vu
 const Xh = r => require.ensure([], () => r(require('../components/shop/xh/Xh.vue')), "Xh");
 // 售水
 const SellWater = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWater.vue')), "SellWater");
+//商城
+const ShopMall = r => require.ensure([], () => r(require('../components/shop/shopMall/shopMall.vue')), "ShopMall");
 // 卫浴
 const Bathroom = r => require.ensure([], () => r(require('../components/shop/bathroom/Bathroom.vue')), "Bathroom");
 // 卫浴列表
