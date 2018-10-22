@@ -254,7 +254,11 @@ export default new Router({
     {
       path: '/Xh',
       name: 'Xh',
+<<<<<<< HEAD
       component: Xh,
+=======
+      component: Xh
+>>>>>>> c2e962326628438e7fc6bc0347f2381a8086751f
     },
     {
       path: '/Bathroom',
