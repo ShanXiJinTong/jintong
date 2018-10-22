@@ -172,15 +172,15 @@
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("../css/Tten.css");
     .myScroll {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
     .xz{
-    	transform: rotate(180deg);
+      transform: rotate(180deg);
     }
     .cate .main .hot p{
-        font-size: 0.28rem;
-        font-weight: bolder;
-        color:#41b2fc;
+      font-size: 0.28rem;
+      font-weight: bolder;
+      color:#41b2fc;
     }
 </style>

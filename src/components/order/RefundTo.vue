@@ -22,7 +22,7 @@
                 <router-link :to="{name:'AmendApplication'}">
                 <button class="x-but  x-but1">修改</button>
                 </router-link>
-                <button class="x-but x-but2">卖家</button>
+                <button class="x-but x-but2">联系卖家</button>
             </div>
         </div>
         <!--等待处理结束-->
@@ -52,7 +52,7 @@
     <!--中部结束-->
     <!--底部开始-->
     <footer>
-        <div class="dialog-B">首页</div>
+        <router-link :to="{name:'Index'}" tag="div" class="dialog-B">首页</router-link>
     </footer>
     <!--底部结束-->
 </div>
