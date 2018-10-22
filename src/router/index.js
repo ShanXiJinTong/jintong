@@ -239,15 +239,9 @@ export default new Router({
       component: Shop,
     },
     {
-<<<<<<< HEAD
       path: '/ShopMall',
       name: 'ShopMall',
       component: ShopMall,
-=======
-      path: '/Xh',
-      name: 'Xh',
-      component: Xh,
->>>>>>> ce8bc6056da5e88a57e4e7a179d12b3440e25a42
     },
     {
       path: '/Bathroom',
