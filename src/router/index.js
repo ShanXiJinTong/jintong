@@ -34,6 +34,9 @@ const ServicePay = r => require.ensure([], () => r(require('../components/index/
 const ServicePay1 = r => require.ensure([], () => r(require('../components/index/list/ServicePay1.vue')), "ServicePay1");
 const ServicePay2 = r => require.ensure([], () => r(require('../components/index/list/ServicePay2.vue')), "ServicePay2");
 const ServicePay3 = r => require.ensure([], () => r(require('../components/index/list/ServicePay3.vue')), "ServicePay3");
+//支付尾款之选择服务项目、选择商品
+const FinalPaymentService = r => require.ensure([], () => r(require('../components/index/list/FinalPaymentService.vue')), "FinalPaymentService");
+const FinalPaymentShop = r => require.ensure([], () => r(require('../components/index/list/FinalPaymentShop.vue')), "FinalPaymentShop");
 // 支付成功
 const ServicePaySuccess = r => require.ensure([], () => r(require('../components/index/list/ServicePaySuccess.vue')), "ServicePaySuccess");
 // 商店
@@ -135,6 +138,9 @@ const RefundDetail = r => require.ensure([], () => r(require('../components/orde
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
 // 退款详情 提交成功
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), "RefundTo");
+//退款信息
+const RefundWait = r => require.ensure([], () => r(require('../components/order/RefundWait.vue')), "RefundWait");
+
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 //客服
@@ -227,6 +233,16 @@ export default new Router({
       component: ServicePay3
     },
     {
+        path: '/FinalPaymentShop',
+        name: 'FinalPaymentShop',
+        component: FinalPaymentShop
+    },
+    {
+        path: '/FinalPaymentService',
+        name: 'FinalPaymentService',
+        component: FinalPaymentService
+    },
+    {
       path: '/ServicePaySuccess',
       name: 'ServicePaySuccess',
       component: ServicePaySuccess
@@ -241,7 +257,11 @@ export default new Router({
     {
       path: '/Xh',
       name: 'Xh',
+<<<<<<< HEAD
+      component: Xh,
+=======
       component: Xh
+>>>>>>> c2e962326628438e7fc6bc0347f2381a8086751f
     },
     {
       path: '/Bathroom',
@@ -484,6 +504,11 @@ export default new Router({
       path: '/RefundTo',
       name: 'RefundTo',
       component: RefundTo
+    },
+    {
+      path:'/RefundWait',
+      name:'RefundWait',
+      component:RefundWait
     },
     {
       path: '/AmendApplication',

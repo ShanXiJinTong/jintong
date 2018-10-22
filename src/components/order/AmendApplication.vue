@@ -45,8 +45,8 @@
         </div>
         <h3>¥60.00</h3>
     </div>
-    <div class="shuo">
-        <h1>退款说明</h1>
+    <div class="shuo section_3">
+        <el-input type="textarea" placeholder="退款说明" class="section_3_input"></el-input>
     </div>
     <div class="ping">
         <div class="top">
@@ -293,17 +293,7 @@
         width: calc(100% - 0.48rem);
         height: 1.50rem;
         margin: 0 0.24rem;
-        background: rgb(241,250,255);
         border-radius: 0.3rem;
-    }
-    .shuo h1{
-
-        display: block;
-        font-size: 0.22rem;
-        margin-top: 0.24rem;
-        margin-left: 0.2rem;
-        color: rgb(185,201,210);
-        line-height: 0.22rem;
     }
     .ping{
         width: calc(100% - 0.48rem);

@@ -71,6 +71,12 @@
                 </router-link>
             </div>
             <div class="wai">
+                <router-link class="ne" :to="{name:'RefundWait'}">
+                    <div class="kuai"></div>
+                    <span>退货退款</span>
+                </router-link>
+            </div>
+            <div class="wai">
                 <router-link class="ne" :to="{name:'Help'}">
                     <div class="kuai"></div>
                     <span>帮助</span>
