@@ -56,7 +56,16 @@
             <span>（最多6张）</span>
         </div>
         <div class="bottom">
-            <img src="./img/photo.png" alt="">
+            <el-upload
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    list-type="picture-card"
+                    :on-preview="handlePictureCardPreview"
+                    :on-remove="handleRemove">
+                <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+                <img width="100%" :src="dialogImageUrl" alt="">
+            </el-dialog>
         </div>
     </div>
     <router-link :to="{name:'RefundTo'}">
@@ -158,7 +167,9 @@
                 isOk:false,
                 isOk1:false,
                 isHot:'退货退款',
-                isHot1:'买错了'
+                isHot1:'买错了',
+                dialogImageUrl: '',
+                dialogVisible: false
             }
         },
         methods:{
@@ -185,6 +196,13 @@
             maskhot1(){
               var el = event.target;
               this.isHot1 = el.innerText
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
             }
 
         }
@@ -297,7 +315,7 @@
     }
     .ping{
         width: calc(100% - 0.48rem);
-        height: 2.13rem;
+        height: auto;
         margin: 0 0.24rem;
     }
     .ping .top{
@@ -334,8 +352,6 @@
         float: left;
     }
     .ping .bottom{
-        width: 1.02rem;
-        height: 1.02rem;
         margin-top: 0.3rem;
         margin-left: 0.2rem;
     }
