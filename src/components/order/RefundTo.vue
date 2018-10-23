@@ -69,7 +69,7 @@
     /*中部内容开始*/
     .middle{
         position: absolute;
-        top: 0.88rem;
+        /*top: 0.88rem;*/
         bottom: 0.98rem;
         left: 0;
         width:calc(100% - 0.48rem);
