@@ -181,16 +181,6 @@
       width: 100%;
       height: 100%;
     }
-<<<<<<< HEAD
-    .xz{
-      transform: rotate(180deg);
-    }
-    .cate .main .hot p{
-      font-size: 0.28rem;
-      font-weight: bolder;
-      color:#41b2fc;
-=======
-
     .xz {
         transform: rotate(180deg);
     }
@@ -199,6 +189,5 @@
         font-size: 0.28rem;
         font-weight: bolder;
         color: #41b2fc;
->>>>>>> 3b1625fc390f7e96f4fe69c3d3a124ebbce947df
     }
 </style>
