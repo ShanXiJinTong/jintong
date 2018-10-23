@@ -263,17 +263,6 @@
     color: #969899;
     box-sizing: border-box;
   }
-  .el-upload--picture-card{
-    width: 100px;
-    height: 100px;
-    line-height: 102px;
-  }
-  .el-upload-list--picture-card .el-upload-list__item{
-    width: 100px;
-    height: 100px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-  }
   .line{
     width: 6.25rem;
     height: 0.01rem;

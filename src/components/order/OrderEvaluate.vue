@@ -208,18 +208,6 @@
     font-size: 0.22rem;
     color: #c9cbcc;
   }
-  .el-upload--picture-card{
-    width: 100px;
-    height: 100px;
-    line-height: 102px;
-  }
-  .pingjia .miaoshu ul li{
-    width: 100px;
-    height: 100px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-  }
-
   .pingjia .pingfen .dianpu p {
     font-size: 0.26rem;
     color: #41b2fc;
