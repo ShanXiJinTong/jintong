@@ -1,44 +1,47 @@
 <template>
     <div>
         <!--nav开始-->
-       <div class="listtop">
-           <nav v-if="!cid">
-               <div class="main">
-                   <p @click="tagHot()" :class="[isHot=='洗衣'?'hot':'']">洗衣</p>
-                   <p @click="tagHot()" :class="[isHot=='洗鞋'?'hot':'']">洗鞋</p>
-                   <p @click="tagHot()" :class="[isHot=='洗家纺'?'hot':'']">洗家纺</p>
-                   <p @click="tagHot()" :class="[isHot=='洗窗帘'?'hot':'']">洗窗帘</p>
-                   <p @click="tagHot()" :class="[isHot=='袋洗'?'hot':'']">袋洗</p>
-               </div>
-           </nav>
-           <!--nav结束-->
-           <!--cate开始-->
-           <div class="cate">
-               <div class="main">
-                   <div :class="['cateBox',{hot:active=='评分'}]" @click="handleorder('default')">
-                       <p>评分</p>
-                   </div>
-                   <div :class="['cateBox',{hot:active=='销量'}]" @click="handleorder(flag?'saledesc':'saleasc','nums')">
-                       <p>销量</p>
-                       <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
-                   </div>
-                   <div :class="['cateBox',{hot:active=='价格'}]" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
-                       <p>价格</p>
-                       <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
-                   </div>
-               </div>
-           </div>
-       </div>
-
+        <div class="listtop">
+            <nav>
+                <div class="main">
+                    <p @click="tagHot()" :class="[isHot=='洗衣'?'hot':'']">洗衣</p>
+                    <p @click="tagHot()" :class="[isHot=='洗鞋'?'hot':'']">洗鞋</p>
+                    <p @click="tagHot()" :class="[isHot=='洗家纺'?'hot':'']">洗家纺</p>
+                    <p @click="tagHot()" :class="[isHot=='洗窗帘'?'hot':'']">洗窗帘</p>
+                    <p @click="tagHot()" :class="[isHot=='袋洗'?'hot':'']">袋洗</p>
+                </div>
+            </nav>
+            <!--nav结束-->
+            <!--cate开始-->
+            <div class="cate">
+                <div class="main">
+                    <div :class="['cateBox',{hot:active=='评分'}]" @click="handleorder('default')">
+                        <p>评分</p>
+                    </div>
+                    <div :class="['cateBox',{hot:active=='销量'}]" @click="handleorder(flag?'saledesc':'saleasc','nums')">
+                        <p>销量</p>
+                        <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'"
+                           :class="{xz:orderBy=='saleasc'}"></i>
+                    </div>
+                    <div :class="['cateBox',{hot:active=='价格'}]"
+                         @click="handleorder(flag1?'pricedesc':'priceasc','price')">
+                        <p>价格</p>
+                        <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'"
+                           :class="{xz:orderBy=='priceasc'}"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--nav结束-->
         <!--bag开始-->
         <div class="bag-scroll" v-if="list.length">
-                <ul class="bag-item" v-for="item in list" v-if="list.length>0&&item.type==2">
-                    <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}">
-                        <li class="sk-bag-photo" :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
-                            <!--<img :src="item.image" alt="">-->
-                        </li>
-                        <li class="sk-bag-content">
+            <ul class="bag-item" v-for="item in list" v-if="list.length>0&&item.type==1">
+                <router-link :to="{name:'XhDetail',query:{uid:item['_id']['$oid'],sname:item.shop.shop_name}}">
+                    <li class="sk-bag-photo"
+                        :style="'background: url('+$store.state.imghost+'media/catalog/product/'+item.image.main.image+') no-repeat center /100% auto'">
+                        <!--<img :src="item.image" alt="">-->
+                    </li>
+                    <li class="sk-bag-content">
                         <div class="sk-service-type">
                             <h3>{{item.name.name_zh}}</h3>
                         </div>
@@ -58,7 +61,7 @@
                                 <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.deposit}}定金</li>
+                                <li>{{item.price}}元/件</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -66,13 +69,13 @@
                             <span style="line-height: 0.2rem">{{item.shop.shop_name}}</span>
                         </div>
                     </li>
-                    </router-link>
-                </ul>
-                <div class="jzgd" @click="infinite" v-if="!flag2">
-						<button>
-							加载更多
-						</button>
-					</div>
+                </router-link>
+            </ul>
+            <div class="jzgd" @click="infinite" v-if="!flag2">
+                <button>
+                    加载更多
+                </button>
+            </div>
         </div>
         <!--bag结束-->
     </div>
@@ -83,9 +86,9 @@
         data() {
             return {
                 type: "",
-                active:"评分",
+                active: "评分",
                 list: [],
-                isHot:'洗衣',
+                isHot: '洗衣',
                 cid: this.$route.query.categoryId,
                 page: 0,
                 totalPage: null,
@@ -94,69 +97,71 @@
                     pagination: {
                         el: '.swiper-pagination',
                     },
-                    freeMode:true,
-                    slidesPerView:3,
-                    cancelable:false
+                    freeMode: true,
+                    slidesPerView: 3,
+                    cancelable: false
                 },
-                orderBy:"default",
-                flag:true,
-                flag1:true,
-                flag2:false,
+                orderBy: "default",
+                flag: true,
+                flag1: true,
+                flag2: false,
             }
         },
         methods: {
             getData(type) {
-            	if(type=='page'){
+                if (type == 'page') {
 //          		this.page++;
-            	}else{
-            		this.page = 0;
-            		this.flag2 = false;
-            	}
+                } else {
+                    this.page = 0;
+                    this.flag2 = false;
+                }
                 let _this = this;
                 this.$http.get('/catalog/category/index', {
                     params: {
                         categoryid: _this.cid,
                         type: this.orderBy,
-                        page:this.page
+                        page: this.page
                     }
                 }).then(res => {
-            		this.page++;
-                	if(res.data.goods.length<10){
-                		this.flag2 = true;
-                	}
-                  res.data.goods.forEach(val=>{
-	                    this.list.push(val);
-                	});
-                  this.typedata = res.data.category;
+                    console.log(this.list)
+                    this.page++;
+                    if (res.data.goods.length < 10) {
+                        this.flag2 = true;
+                    }
+                    res.data.goods.forEach(val => {
+                        this.list.push(val);
+                    });
+                    this.typedata = res.data.category;
                 })
             },
             getList(item) {
-            	this.list = [];
+                this.list = [];
                 this.cid = item['_id']['$oid'];
                 this.type = item.name.name_zh;
                 this.getData();
+
             },
             infinite() {
-            	if(this.flag2){
-            		return;
-            	}
+                if (this.flag2) {
+                    return;
+                }
                 this.getData('page');
             },
-            handleorder(type,flag){
-            	if(flag == 'nums'){
-            		this.flag = !this.flag;
-            	}else if(flag == 'price'){
-            		this.flag1 = !this.flag1;
-            	}
-            	this.list = [];
-                this.orderBy=type;
+            handleorder(type, flag) {
+                if (flag == 'nums') {
+                    this.flag = !this.flag;
+                } else if (flag == 'price') {
+                    this.flag1 = !this.flag1;
+                }
+                this.list = [];
+                this.orderBy = type;
                 this.getData();
 
-                var el=event.target;
-                this.active=el.innerText;
+                var el = event.target;
+                this.active = el.innerText;
                 // console.log();
             },
-            tagHot(){
+            tagHot() {
                 var el = event.target;
                 this.isHot = el.innerText;
             }
@@ -171,16 +176,18 @@
 <style scoped>
     @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
     @import url("../css/Tten.css");
+
     .myScroll {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
-    .xz{
-    	transform: rotate(180deg);
+    .xz {
+        transform: rotate(180deg);
     }
-    .cate .main .hot p{
+
+    .cate .main .hot p {
         font-size: 0.28rem;
         font-weight: bolder;
-        color:#41b2fc;
+        color: #41b2fc;
     }
 </style>

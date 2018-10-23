@@ -1,22 +1,20 @@
 <template>
   <div style='background: #fff;'>
-    <div class="chouse">选择服务项目 <img src="./img/back.png" alt=""></div>
+    <router-link class="chouse" tag="div" :to="{name:'FinalPaymentService'}">选择服务项目 <img src="./img/back.png" alt=""></router-link>
     <div class="list" style="box-sizing: border-box;position: relative;margin-bottom: 0.25rem">
-      <div class="tap">
-        <span class="onetou" style="width: 1.5rem">水龙头维修</span>
+    <div class="tap">
+      <span class="onetou" style="width: 1.5rem">水龙头维修</span>
+      <div>
         <span style="margin-right: 0.24rem">￥45.00</span>
+        <i class="el-icon-delete"></i>
       </div>
-      <div class="tap">
-        <span class="onetou" style="width: 1.5rem;">水龙头维修</span>
-        <span style="margin-right: 0.24rem">￥45.00</span>
-      </div>
-      <div class="line"></div>
     </div>
-
+    <div class="line"></div>
+  </div>
 
 
     <div v-if="this.goods.length">
-      <div class="chouse">选择商品<img src="./img/back.png" alt=""></div>
+      <router-link class="chouse" tag="div" :to="{name:'FinalPaymentShop'}">选择商品<img src="./img/back.png" alt=""></router-link>
       <div class="list">
         <div class="tap" v-for="item in carinfo">
           <span class="onetou">{{item.name}}</span>
@@ -25,6 +23,7 @@
           <div class="onejian" @click="subCar(item.id)">-</div>
           <span class="onenum">{{item.numbers}}</span>
           <div class="onejia" @click="addCar(item.id)">+</div>
+          <i class="el-icon-delete"></i>
         </div>
       </div>
       <div class="upload">
@@ -255,25 +254,14 @@
   .upload{
     width: 100%;
     height: auto;
-    padding:0.4rem 0.24rem;
+    padding:0.2rem 0.24rem;
     box-sizing: border-box;
   }
   .upload .upload-word{
-    color: #e5e5e5;
-    font-size: 0.2rem;
-    margin-bottom: 0.3rem;
+    font-size: 0.3rem;
+    padding-bottom: 0.2rem;
+    color: #969899;
     box-sizing: border-box;
-  }
-  .el-upload--picture-card{
-    width: 100px;
-    height: 100px;
-    line-height: 102px;
-  }
-  .el-upload-list--picture-card .el-upload-list__item{
-    width: 100px;
-    height: 100px;
-    margin-right: 15px;
-    margin-bottom: 15px;
   }
   .line{
     width: 6.25rem;

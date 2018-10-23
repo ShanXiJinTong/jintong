@@ -55,7 +55,7 @@
         <p class="moNey">￥60.00</p>
     </div>
     <div class="section_3">
-        退款说明
+        <el-input type="textarea" placeholder="退款说明" class="section_3_input" />
     </div>
 
     <div class="sec_4">
@@ -64,7 +64,16 @@
             <p>上传<span>凭证</span></p>
             <span class="sex3">( 最多6张 )</span>
         </div>
-        <img src="./img/photo.png" alt="">
+        <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
     </div>
     <router-link :to="{name:'RefundTo'}">
     <div class="button_y">
@@ -138,7 +147,9 @@
         data() {
             return {
                 isOk:false,
-                isHot:'买错了'
+                isHot:'买错了',
+                dialogImageUrl: '',
+                dialogVisible: false
             }
         },
         methods:{
@@ -153,6 +164,13 @@
             mask2(){
               var el = event.target;
               this.isHot = el.innerText
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
             }
         }
     }
@@ -424,13 +442,15 @@
     .section_3{
         width: calc(100% - 0.48rem);
         height: 1.5rem;
-        background:rgba(231, 246, 255, 0.5);
         margin: auto;
         border-radius: 0.1rem;
         font-size: 0.28rem;
         color:#b9c9d2;
-        padding:0.2rem 0 0 0.2rem;
         box-sizing: border-box;
+    }
+    .section_3_input{
+      width: 100%;
+      outline: none;
     }
     .sec_4{
         width:100%;
@@ -441,6 +461,7 @@
     .sec_bto{
         width: auto;
         display: flex;
+        margin-bottom: 0.2rem;
     }
     .sec_bto p{
         font-size: 0.28rem;
