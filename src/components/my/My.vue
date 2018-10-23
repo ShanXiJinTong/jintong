@@ -59,6 +59,12 @@
                 </router-link>
             </div>
             <div class="wai">
+                <router-link class="ne" :to="{name:'XhEvaluate'}">
+                    <div class="kuai"></div>
+                    <span>我的订单</span>
+                </router-link>
+            </div>
+            <div class="wai">
                 <router-link class="ne" :to="{name:'Address'}">
                     <div class="kuai"></div>
                     <span>常用地址</span>
