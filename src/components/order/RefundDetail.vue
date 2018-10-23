@@ -55,7 +55,7 @@
         <p class="moNey">￥60.00</p>
     </div>
     <div class="section_3">
-        退款说明
+        <el-input type="textarea" placeholder="退款说明" class="section_3_input" />
     </div>
 
     <div class="sec_4">
@@ -442,13 +442,15 @@
     .section_3{
         width: calc(100% - 0.48rem);
         height: 1.5rem;
-        background:rgba(231, 246, 255, 0.5);
         margin: auto;
         border-radius: 0.1rem;
         font-size: 0.28rem;
         color:#b9c9d2;
-        padding:0.2rem 0 0 0.2rem;
         box-sizing: border-box;
+    }
+    .section_3_input{
+      width: 100%;
+      outline: none;
     }
     .sec_4{
         width:100%;

@@ -138,6 +138,9 @@ const RefundDetail = r => require.ensure([], () => r(require('../components/orde
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
 // 退款详情 提交成功
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), "RefundTo");
+//退款信息
+const RefundWait = r => require.ensure([], () => r(require('../components/order/RefundWait.vue')), "RefundWait");
+
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 //客服
@@ -497,6 +500,11 @@ export default new Router({
       path: '/RefundTo',
       name: 'RefundTo',
       component: RefundTo
+    },
+    {
+      path:'/RefundWait',
+      name:'RefundWait',
+      component:RefundWait
     },
     {
       path: '/AmendApplication',

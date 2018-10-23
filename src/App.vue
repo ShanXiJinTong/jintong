@@ -70,4 +70,9 @@
       margin-right: 15px;
       margin-bottom: 15px;
     }
+  .section_3 .section_3_input .el-textarea__inner{
+    outline: none;
+    height: 1.62rem;
+    background: rgba(231, 246, 255, 0.5);
+  }
 </style>

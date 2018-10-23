@@ -178,10 +178,9 @@
     @import url("../css/Tten.css");
 
     .myScroll {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
-
     .xz {
         transform: rotate(180deg);
     }
