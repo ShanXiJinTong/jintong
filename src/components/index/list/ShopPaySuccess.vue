@@ -21,6 +21,9 @@
          name: "ShopPaySuccess",
          data() {
              return {}
+         },
+         mounted:function () {
+             document.setTitle('支付');
          }
      }
  </script>

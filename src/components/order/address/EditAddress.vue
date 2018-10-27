@@ -48,6 +48,7 @@
     mounted:function(){
       console.log(this.$route.params);
       console.log(this.$route.query);
+      document.setTitle('修改地址');
     }
   }
 </script>

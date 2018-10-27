@@ -195,7 +195,9 @@
 			}
 		},
 
-		mounted() {}
+		mounted:function () {
+            document.setTitle('晋彤');
+        }
 	}
 </script>
 <style>

@@ -286,7 +286,10 @@
 					}
 				})
 			}
-		}
+		},
+		mounted:function () {
+            document.setTitle('订单');
+        }
 	}
 </script>
 <style scoped>

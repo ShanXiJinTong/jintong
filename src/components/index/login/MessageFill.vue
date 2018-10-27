@@ -37,6 +37,9 @@
         name: 'MessageFill',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('晋彤');
         }
     }
 </script>

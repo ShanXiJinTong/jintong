@@ -73,6 +73,7 @@
     },
     mounted() {
       this.getAddress();
+      document.setTitle('常用地址');
     }
 
   }

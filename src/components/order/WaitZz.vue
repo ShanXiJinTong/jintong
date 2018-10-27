@@ -52,6 +52,9 @@
         name: 'WaitZz',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('订单');
         }
     }
 </script>

@@ -60,8 +60,8 @@
             }
         },
         mounted: function () {
-
             this.getData();
+            document.setTitle('切换城市');
         },
         computed: {
             getLetter() {
@@ -83,7 +83,7 @@
                     arr[char.toUpperCase()]
                 }
                 return arr;
-            }
+            },
         }
     }
 </script>

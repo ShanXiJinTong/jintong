@@ -230,6 +230,9 @@
         name: 'SellWaterList',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('搜索');
         }
     }
 </script>

@@ -106,7 +106,10 @@
 		},
 		created() {
 			this.getData();
-		}
+		},
+		mounted:function () {
+            document.setTitle('我的特权会员');
+        }
 	}
 </script>
 <style scoped>

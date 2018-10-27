@@ -1,63 +1,78 @@
 <template>
     <div class="refundWait">
-      <div class="listtop">
-        <!--cate开始-->
-        <div class="cate">
-          <div class="main">
-            <div :class="['cateBox',{hot:active=='全部'}]" @click="handleorder('default')">
-              <p>评分</p>
+      <div class="topShadow"></div>
+      <div class="refundGoodsList">
+        <div class="refundGoods">
+          <div class="goodsTitle">
+            <div class="goodsShop"></div>
+            <div class="goodsShopName">大同金牌第一旗舰店</div>
+            <div class="goodsShopMore"></div>
+          </div>
+          <div class="goodsContent">
+            <div class="goodsImg">
+              <img src="./static/img/slt.png" alt="">
             </div>
-            <div :class="['cateBox',{hot:active=='退款'}]" @click="handleorder(flag?'saledesc':'saleasc','nums')">
-              <p>销量</p>
-              <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='saledesc'||orderBy=='saleasc'" :class="{xz:orderBy=='saleasc'}"></i>
+            <div class="goodsText">
+              <div class="goodsTextTop">
+                <span>潜水艇高端龙头</span>
+              </div>
+              <div class="goodsTextBottom">
+                <div class="goodsModel">
+                  <p></p>
+                  <span>ECC01-001Lw</span>
+                </div>
+                <div class="goodsNumber">
+                  <p></p>
+                  <span>×1</span>
+                </div>
+              </div>
             </div>
-            <div :class="['cateBox',{hot:active=='退货退款'}]" @click="handleorder(flag1?'pricedesc':'priceasc','price')">
-              <p>价格</p>
-              <i class="iconfont icon-xiangxiajiantou" v-if="orderBy=='pricedesc'||orderBy=='priceasc'" :class="{xz:orderBy=='priceasc'}"></i>
+          </div>
+          <div class="goodsState">
+            <div class="goodsStateLeft">
+              <span>仅退款</span>
+              <span>退款成功</span>
+            </div>
+            <div class="goodsStateRight">
+              <router-link :to="{name:'RefundTo'}" tag="div" class="showDetail">查看详情</router-link>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="bag-scroll">
-        <ul class="bag-item">
-          <router-link :to="{name:'RefundTo'}">
-            <li class="sk-bag-photo">
-            </li>
-            <li class="sk-bag-content">
-              <div class="sk-service-type">
-                <h3>商品类型</h3>
+        <div class="refundGoods">
+          <div class="goodsTitle">
+            <div class="goodsShop"></div>
+            <div class="goodsShopName">大同金牌第一旗舰店</div>
+            <div class="goodsShopMore"></div>
+          </div>
+          <div class="goodsContent">
+            <div class="goodsImg">
+              <img src="./static/img/slt.png" alt="">
+            </div>
+            <div class="goodsText">
+              <div class="goodsTextTop">
+                <span>潜水艇高端龙头</span>
               </div>
-              <div class="sk-service-desc">
-                <p>商品描述</p>
+              <div class="goodsTextBottom">
+                <div class="goodsModel">
+                  <p></p>
+                  <span>ECC01-001Lw</span>
+                </div>
+                <div class="goodsNumber">
+                  <p></p>
+                  <span>×1</span>
+                </div>
               </div>
-              <div class="sk-estimate_sale_price">
-                <ul class="sk-estimate sk-item">
-                  <li class="dot"></li>
-                  <!--<li class="text" v-if="item.praise==-1">评分</li>-->
-                  <li class="text">评分</li>
-                  <li class="number"><span>1.5</span></li>
-                </ul>
-                <ul class="sk-sale sk-item">
-                  <li class="dot"></li>
-                  <li class="text">月售</li>
-                  <li class="number">22</li>
-                </ul>
-                <ul class="sk-price">
-                  <li>20定金</li>
-                </ul>
-              </div>
-              <div class="sk-service-operator">
-                <img src="" alt="">
-                <span style="line-height: 0.2rem">名字</span>
-              </div>
-            </li>
-          </router-link>
-        </ul>
-        <div class="jzgd" @click="infinite" v-if="!flag2">
-          <button>
-            加载更多
-          </button>
+            </div>
+          </div>
+          <div class="goodsState">
+            <div class="goodsStateLeft">
+              <span>仅退款</span>
+              <span>退款成功</span>
+            </div>
+            <div class="goodsStateRight">
+              <router-link :to="{name:'RefundSuccess'}" tag="div" class="showDetail">查看详情</router-link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,106 +83,168 @@
         name: "RefundWait",
         data() {
           return {
-            type: "",
-            active:"评分",
-            list: [],
-            isHot:'洗衣',
-            cid: this.$route.query.categoryId,
-            page: 0,
-            totalPage: null,
-            typedata: null,
-            swiperOption: {
-              pagination: {
-                el: '.swiper-pagination',
-              },
-              freeMode:true,
-              slidesPerView:3,
-              cancelable:false
-            },
-            orderBy:"default",
-            flag:true,
-            flag1:true,
-            flag2:false,
-          }
-        },
-        methods: {
-          getData(type) {
-            if(type=='page'){
-  //          		this.page++;
-            }else{
-              this.page = 0;
-              this.flag2 = false;
-            }
-            let _this = this;
-            this.$http.get('/catalog/category/index', {
-              params: {
-                categoryid: _this.cid,
-                type: this.orderBy,
-                page:this.page
-              }
-            }).then(res => {
-              this.page++;
-              if(res.data.goods.length<10){
-                this.flag2 = true;
-              }
-              res.data.goods.forEach(val=>{
-                this.list.push(val);
-              });
-              this.typedata = res.data.category;
-            })
-          },
-          getList(item) {
-            this.list = [];
-            this.cid = item['_id']['$oid'];
-            this.type = item.name.name_zh;
-            this.getData();
-          },
-          infinite() {
-            if(this.flag2){
-              return;
-            }
-            this.getData('page');
-          },
-          handleorder(type,flag){
-            if(flag == 'nums'){
-              this.flag = !this.flag;
-            }else if(flag == 'price'){
-              this.flag1 = !this.flag1;
-            }
-            this.list = [];
-            this.orderBy=type;
-            this.getData();
 
-            var el=event.target;
-            this.active=el.innerText;
-            // console.log();
-          },
-          tagHot(){
-            var el = event.target;
-            this.isHot = el.innerText;
           }
         },
-        mounted: function () {
-          this.cid = this.$route.query.categoryId;
-          this.isHot = this.$route.query.cate
-          // this.getData();
-        },
+        mounted:function () {
+          document.setTitle('退款/售后');
+        }
     }
 </script>
 
 <style scoped>
-  @import url("http://at.alicdn.com/t/font_724075_gi0jvv33xtu.css");
-  @import url("../shop/css/Tten.css");
-  .myScroll {
+  .topShadow{
     width: 100%;
+    height: 0;
+    box-shadow: 0 0 0.05rem #eef8ff;
+  }
+  .refundGoodsList{
+    width: 100%;
+    height: auto;
+    padding: 0 0.24rem;
+    box-sizing: border-box;
+    background: #fbfeff;
+  }
+  .refundGoods{
+    width: 100%;
+    height: 4.29rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.02rem solid #eef1f2;
+  }
+  .goodsTitle{
+    width: 100%;
+    height: 1.18rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .goodsShop{
+    width: 0.42rem;
+    height: 100%;
+    background: url("./static/img/Tnine/man.jpg") no-repeat center / 100% auto;
+  }
+  .goodsShopName{
+    width: auto;
+    height: 100%;
+    color: #3bacfe;
+    font-size: 0.24rem;
+    line-height: 1.18rem;
+    margin-right: 0.28rem;
+  }
+  .goodsShopMore{
+    width: 0.58rem;
+    height: 100%;
+    background: url(./static/img/more.png) no-repeat left center / 0.2rem auto;
+  }
+  .goodsContent{
+    width: 100%;
+    height: 2.06rem;
+    display: flex;
+  }
+  .goodsImg{
+    width: 2.17rem;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0.27rem;
+  }
+  .goodsImg img{
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .goodsText{
+    width: calc(100% - 2.44rem);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .goodsTextTop{
+    width: 100%;
+    height: 1.15rem;
+  }
+  .goodsTextTop span{
+    font-size: 0.28rem;
+    color: #646666;
+    line-height: 1.8rem;
+  }
+  .goodsTextBottom{
+    width: 100%;
+    height: 0.91rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .goodsModel{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .goodsModel p{
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    box-shadow: 0 0.05rem 0.1rem rgb(215,239,255);
+    margin-right: 0.1rem;
+    background: #44b5ff;
+  }
+  .goodsModel span{
+    font-size: 0.18rem;
+    color: #36a8fe;
+  }
+  .goodsNumber{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .goodsNumber p{
+    width: 0.05rem;
+    height: 0.05rem;
+    border-radius: 50%;
+    box-shadow: 0 0.05rem 0.1rem rgb(212,246,230);
+    margin-right: 0.1rem;
+    background: #36d681;
+  }
+  .goodsNumber span{
+    font-size: 0.18rem;
+    color: #8a8c8d;
+  }
+  .goodsState{
+    width: 100%;
+    height: 1.03rem;
+    padding-left: 0.42rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+  }
+  .goodsStateLeft{
+    width: auto;
     height: 100%;
   }
-  .xz{
-    transform: rotate(180deg);
+  .goodsStateLeft span{
+    font-size: 0.24rem;
+    color: #fbb548;
+    margin-top: 0.16rem;
   }
-  .cate .main .hot p{
-    font-size: 0.28rem;
-    font-weight: bolder;
-    color:#41b2fc;
+  .goodsStateRight{
+    width: auto;
+    height: 100%;
   }
+  .showDetail{
+    width: 1.62rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    background: linear-gradient(to right bottom,#37e071,#32d698);
+    box-shadow: 0 0.04rem 0.2rem rgb(55,223,116);
+    font-size: 0.2rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.5rem;
+  }
+
 </style>

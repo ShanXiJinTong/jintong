@@ -189,6 +189,7 @@
     mounted() {
       this.order_id = this.$route.query.order_id;
       this.getData(this.order_id);
+      document.setTitle('订单详情');
     }
   }
 </script>

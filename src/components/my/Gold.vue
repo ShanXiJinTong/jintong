@@ -22,6 +22,9 @@
         name: 'Gold',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('金币');
         }
     }
 </script>

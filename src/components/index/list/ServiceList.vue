@@ -157,7 +157,9 @@
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;
-            this.isHot = this.$route.query.cate
+            this.isHot = this.$route.query.cate;
+            document.setTitle('晋彤');
+
             // this.getData();
         },
     }

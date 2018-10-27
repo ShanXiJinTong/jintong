@@ -207,6 +207,9 @@
                 this.dialogVisible = true;
             }
 
+        },
+        mounted:function () {
+            document.setTitle('申请退款退货');
         }
     }
 </script>
