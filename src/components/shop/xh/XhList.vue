@@ -124,7 +124,7 @@
                     }
                 }).then(res => {
             		this.page++;
-                	if(res.data.goods.length<10){
+             console.log(res.data.goods);   	if(res.data.goods.length<10){
                 		this.flag2 = true;
                 	}
                 	res.data.goods.forEach(val=>{
