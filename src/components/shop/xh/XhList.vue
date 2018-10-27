@@ -123,7 +123,6 @@
                         page: this.page
                     }
                 }).then(res => {
-                    console.log(this.list)
                     this.page++;
                     if (res.data.goods.length < 10) {
                         this.flag2 = true;
@@ -178,9 +177,30 @@
     @import url("../css/Tten.css");
 
     .myScroll {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
+<<<<<<< HEAD
+=======
+
+    <
+    <
+    <
+    <
+    <
+    <
+    <
+    HEAD
+
+    =
+    =
+    =
+    =
+    =
+    =
+    =
+    >>> >>> > cdb8d71ba003c5b5193b36bffaaca6d91b42c1f2
+>>>>>>> 159510c9fe4952589a23f3339f21ca62eee6e76a
     .xz {
         transform: rotate(180deg);
     }
