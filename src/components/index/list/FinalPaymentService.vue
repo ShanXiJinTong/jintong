@@ -48,7 +48,10 @@
 
 <script>
     export default {
-        name: "FinalPaymentService"
+        name: "FinalPaymentService",
+        mounted:function () {
+            document.setTitle('选择服务项目');
+        }
     }
 </script>
 

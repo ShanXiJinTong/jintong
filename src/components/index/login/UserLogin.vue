@@ -94,7 +94,7 @@
 							localStorage['fecshop-uuid'] = res.data.data.id;
 							document.cookie = "userName=" + res.data.data.firstname;
 							document.cookie = "userId=" + res.data.data.id;
-							this.$router.go(-1);
+							this.$router.push(this.$route.query.redirect||"/");
 							this.$message({
 								message: '登录成功',
 								type: 'success',
@@ -197,7 +197,10 @@
 					}
 				});
 			}
-		}
+		},
+		mounted:function () {
+            document.setTitle('晋彤');
+        }
 	}
 </script>
 <style>

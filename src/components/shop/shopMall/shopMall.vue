@@ -347,7 +347,10 @@
 
 <script>
     export default {
-        name: "shopMall"
+        name: "shopMall",
+        mounted:function () {
+            document.setTitle('晋彤');
+        }
     }
 </script>
 

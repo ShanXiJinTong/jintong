@@ -60,6 +60,8 @@
         methods: {
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
+                console.log(res.data);
+                	
                     for(var i in res.data ){
                         var arr = {
                             name:res.data[i].name,
@@ -73,6 +75,7 @@
         created() {
             this.$http.get('/general/base/banner').then((res) => {
                 this.advList = res.data;
+
             })
         },
         mounted: function () {
@@ -95,6 +98,7 @@
             jsapi.charset = 'utf-8';
             jsapi.src = url;
             document.head.appendChild(jsapi);
+            document.setTitle('晋彤');
         },
         components: {
             Tab

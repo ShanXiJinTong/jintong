@@ -59,6 +59,7 @@
         mounted:function(){
            this.uid = this.$route.query.uid;
            this.getData();
+            document.setTitle('商品服务详情');
 
         }
     }

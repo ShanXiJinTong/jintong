@@ -416,6 +416,7 @@
         mounted: function () {
             this.uid = this.$route.query.uid;
             this.getData();
+            document.setTitle('详情');
         }
     }
 </script>

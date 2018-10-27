@@ -1,5 +1,8 @@
 <template>
     <div class="weui-panel weui-panel_access">
+        <header >
+            <p v-html="html"></p>
+        </header>
         <div class="weui-panel__bd frilist">
             <a :href="'#/dialog?fid='+a.userId+'&p='+a.userName" class="weui-media-box weui-media-box_appmsg"
                @click="infri(a.userId,a.userName)" v-for="a in ar">
@@ -21,7 +24,7 @@
     import "jquery.cookie";
     import io from "socket";
 
-    import base64 from "../../assets/js/base64";
+    import base64 from "../base64.js";
 
     export default {
         components: {
@@ -29,80 +32,45 @@
         data() {
             return {
                 ar: [],
-                socket: ""
+                html: "聊天列表",
+                socket: io(this.$store.state.chatHost)
             }
         },
         methods: {
             infri(id, name) {
                 this.$store.state.friend = id;
                 this.$store.state.fremark = name;
-            },
-            getCookie(str) {
-
-                var arr = [];
-
-                arr = document.cookie.split("; ");
-
-                arr = arr.map(function (val) {
-
-                    val = val.split("=");
-                    return val;
-
-                });
-
-                var obj = {};
-                arr.forEach(function (val) {
-
-                    obj[val[0]] = val[1];
-
-                });
-
-                if(typeof str == "undefined"){
-                    return obj;
-                }else {
-                    return obj[str];
-                }
-
             }
         },
         mounted() {
             var _this = this;
-
-            var obj = {
-                userNum: this.$route.query["userNum"],
-                userId: this.$route.query["userId"],
-                userName: this.$route.query["userName"]
-            }
-            document.cookie = "user=" + escape(JSON.stringify(obj));
-            this.socket = io("http://localhost:1701");
-            var myobj = obj;
-            console.log(myobj);
+            var myobj = JSON.parse($.cookie("user"));
             this.$store.state.myId = myobj.userId;
 
             this.socket.on("connection", function (data) {
 
                 var base = new base64();
-                $.cookie(base.encode("socketId"), base.encode(data));
+                $.cookie(base.encode("socketId"),base.encode(data));
             });
 
-            this.socket.on("returnMes", function (data) {
+            this.socket.on("returnMes",function (data) {
                 var n = -1;
-                _this.ar.every(function (val, index) {
-                    if (val.userId == data.userId) {
-                        n = index;
+                _this.ar.every(function (val,index) {
+                    if(val.userId==data.userId){
+                        n=index;
                         val.lastInfo = data.text;
-                        val.num = val.num + 1;
+                        val.num = val.num+1;
                         return false;
                     }
                     return true;
                 });
-                if (n != -1) {
-                    var str = _this.ar.splice(n, 1);
+                if(n!=-1){
+                    var str = _this.ar.splice(n,1);
                     _this.ar.unshift(str[0]);
-                } else {
+                }else {
                     $.ajax({
                         type: "GET",
-                        url: "http://localhost:1701/getChat",
+                        url: this.$store.state.chatHost+"/getChat",
                         data: {
                             id: _this.$store.state.myId
                         },
@@ -116,17 +84,17 @@
                 }
 
                 $.ajax({
-                    url: "http://localhost:1701/setNum",
-                    data: {
-                        fid: data.userId,
-                        userId: myobj.userId
+                    url:this.$store.state.chatHost+"/setNum",
+                    data:{
+                        fid:data.userId,
+                        userId:JSON.parse($.cookie("user")).userId
                     }
                 });
             })
 
             $.ajax({
                 type: "GET",
-                url: "http://localhost:1701/getChat",
+                url: this.$store.state.chatHost+"/getChat",
                 data: {
                     id: _this.$store.state.myId
                 },
@@ -144,16 +112,36 @@
 </script>
 <style scoped>
 
-    .weui-media-box__desc {
+    .weui-media-box__desc{
 
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
         display: block;
-
+        margin-top: 0.3rem;
     }
-
-    .prompt {
+    .weui-media-box{
+        display: flex;
+        box-sizing: border-box;
+        padding: 0.2rem 0.3rem;
+        align-items: center;
+        border-bottom: 1px solid rgba(100,100,100,0.5);
+        font-size: 0.32rem;
+        color: #000;
+    }
+    .weui-media-box__hd{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .weui-media-box__title{
+        font-size: 0.34rem;
+        font-weight: bold;
+    }
+    .weui-media-box__hd img{
+        width: 100%;
+        height: 100%;
+    }
+    .prompt{
         position: absolute;
         border-radius: 50%;
         background: red;
@@ -165,6 +153,18 @@
         line-height: 1.3rem;
         font-size: 0.8rem;
         top: 0.5rem;
+    }
+    header {
+        line-height: 45px;
+        text-align: center;
+        width: 100%;
+        background: #30a3fe;
+        font-size: 19px;
+        height: 45px;
+        color: #fff;
+    }
+    .weui-media-box__bd{
+        margin-left: 0.5rem;
     }
 
 </style>

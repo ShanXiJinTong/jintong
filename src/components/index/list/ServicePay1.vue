@@ -107,6 +107,7 @@
       this.price = this.$route.query.price*1;
       this.order_id = this.$route.query.orderid;
       this.getyue();
+      document.setTitle('支付');
     }
   }
 </script>

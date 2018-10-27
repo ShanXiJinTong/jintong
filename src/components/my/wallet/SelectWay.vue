@@ -48,6 +48,9 @@
         		this.payment = base.decode(localStorage[base.encode("payment")]);
         		this.id = base.decode(localStorage[base.encode("mid")]);
         		this.orderid = this.$route.query.orderid;
+        },
+        mounted:function () {
+            document.setTitle('确认充值');
         }
     }
 </script>

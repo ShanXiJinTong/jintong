@@ -23,6 +23,9 @@
         name: 'Wallet',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('钱包');
         }
     }
 </script>

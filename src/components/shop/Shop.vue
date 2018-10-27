@@ -163,6 +163,7 @@
         mounted:function () {
              this.getData();
              this.getMenu();
+            document.setTitle('商品服务详情');
         },
         components:{
             Tab

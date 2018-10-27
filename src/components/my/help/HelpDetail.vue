@@ -25,6 +25,7 @@
         			this.datas = res.data.data
         		}
         	});
+            document.setTitle('帮助');
         }
     }
 </script>

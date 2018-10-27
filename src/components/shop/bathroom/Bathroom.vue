@@ -158,6 +158,7 @@
 		},
 		mounted: function() {
 			this.getData();
+            document.setTitle('晋彤');
 		},
 
 	}

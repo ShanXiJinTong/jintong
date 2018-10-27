@@ -39,7 +39,23 @@ Vue.use(VueLazyload, {
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
-/* eslint-disable no-new */
+
+router.beforeEach((to,from,next)=>{
+  if(to.matched.some(record => record.meta.requiresAuth)){
+    if(!localStorage['fecshop-uuid']){
+      next({
+        path:'/userLogin',
+        query:{redirect:to.fullPath}
+      })
+    }else{
+      next();
+    }
+
+  }else{
+    next();
+  }
+});
+
 new Vue({
   el: '#app',
   router,

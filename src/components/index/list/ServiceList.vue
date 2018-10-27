@@ -51,7 +51,7 @@
                                 <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
-                                <li>{{item.price}}元/件</li>
+                                <li>{{item.deposit}}定金</li>
                             </ul>
                         </div>
                         <div class="sk-service-operator">
@@ -129,7 +129,6 @@
                 this.cid = item['_id']['$oid'];
                 this.type = item.name.name_zh;
                 this.getData();
-
             },
             infinite() {
                 if (this.flag2) {
@@ -158,7 +157,9 @@
         },
         mounted: function () {
             this.cid = this.$route.query.categoryId;
-            this.isHot = this.$route.query.cate
+            this.isHot = this.$route.query.cate;
+            document.setTitle('晋彤');
+
             // this.getData();
         },
     }

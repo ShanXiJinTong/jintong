@@ -61,7 +61,10 @@
 					console.log(this.list1);
 				}
 			});
-		}
+		},
+		mounted:function () {
+            document.setTitle('升级攻略');
+        }
 	}
 </script>
 <style scoped>

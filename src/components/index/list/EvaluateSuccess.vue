@@ -18,7 +18,11 @@
         name: 'EvaluateSuccess',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('评论');
         }
+
     }
 </script>
 <style scoped>

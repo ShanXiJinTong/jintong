@@ -420,6 +420,9 @@
         name: 'XhEvaluate',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('评价');
         }
     }
 </script>

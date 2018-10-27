@@ -82,6 +82,7 @@
 				this.info = res.data.shop;
 				this.info.city = res.data.city.city_name;
 			});
+            document.setTitle('商家');
 		},
 		methods: {
 

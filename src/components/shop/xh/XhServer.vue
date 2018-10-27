@@ -45,6 +45,9 @@
         name: 'XhServer',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('商品详情');
         }
     }
 </script>

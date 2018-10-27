@@ -77,6 +77,7 @@
         mounted:function(){
            this.notice();
            this.getInfo();
+          document.setTitle('个人资料');
         }
     }
 </script>

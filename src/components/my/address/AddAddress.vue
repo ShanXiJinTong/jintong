@@ -136,6 +136,7 @@
         mounted(){
              this.check();
              this.form.customer_id=localStorage["fecshop-uuid"];
+            document.setTitle('添加地址');
         }
     }
 </script>

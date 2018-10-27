@@ -148,6 +148,7 @@
         },
         mounted() {
             this.getData();
+            document.setTitle('个人中心');
         },
         components: {
             Tab

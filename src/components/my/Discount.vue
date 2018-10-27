@@ -89,6 +89,7 @@
         },
         mounted(){
         	this.getData();
+            document.setTitle('优惠券');
         }
     }
 </script>

@@ -51,7 +51,10 @@
 
 <script>
     export default {
-        name: "FinalPaymentShop"
+        name: "FinalPaymentShop",
+        mounted:function () {
+            document.setTitle('选择商品');
+        }
     }
 </script>
 

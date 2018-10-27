@@ -161,6 +161,7 @@
 		},
 		mounted: function() {
 			this.getData();
+            document.setTitle('订单');
 		},
 		components: {
 			Tab

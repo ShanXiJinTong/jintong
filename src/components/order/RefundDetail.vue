@@ -172,6 +172,9 @@
                 this.dialogImageUrl = file.url;
                 this.dialogVisible = true;
             }
+        },
+        mounted:function () {
+            document.setTitle('申请退款');
         }
     }
 </script>
