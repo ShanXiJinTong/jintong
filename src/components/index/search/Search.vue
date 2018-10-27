@@ -110,9 +110,7 @@
                         'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
-                    console.log(res.data);
                     this.products = res.data;
-                    console.log(this.products)
                     if (res.data.length < 10) {
                         this.n = 2
                     }
@@ -145,7 +143,6 @@
                     }
                 }).then(res => {
                     this.products = this.products.concat(res.data)
-                    console.log(this.products)
                     if (res.data.length < 10) {
                         this.n = 2
                     }
