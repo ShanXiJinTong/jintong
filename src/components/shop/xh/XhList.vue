@@ -169,6 +169,7 @@
             this.cid = this.$route.query.categoryId;
             this.isHot = this.$route.query.cate
             // this.getData();
+            document.setTitle('晋彤');
         },
     }
 </script>
@@ -180,6 +181,8 @@
         width: 100%;
         height: 100%;
     }
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 
@@ -201,6 +204,7 @@
     =
     >>> >>> > cdb8d71ba003c5b5193b36bffaaca6d91b42c1f2
 >>>>>>> 159510c9fe4952589a23f3339f21ca62eee6e76a
+>>>>>>> 91925a17e69ffb98797efc635d83031e2970db79
     .xz {
         transform: rotate(180deg);
     }

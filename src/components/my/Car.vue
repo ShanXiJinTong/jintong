@@ -305,6 +305,7 @@
     },
     mounted: function () {
       this.getData();
+      document.setTitle('购物车');
     },
     components: {
       Scroll

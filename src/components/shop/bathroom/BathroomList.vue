@@ -128,6 +128,7 @@
         mounted: function () {
             this.cid=this.$route.query.id;
             this.getData();
+            document.setTitle('晋彤');
         },
     }
 </script>

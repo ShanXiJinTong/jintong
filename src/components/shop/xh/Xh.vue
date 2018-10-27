@@ -354,6 +354,9 @@
         },
         components: {
           Tab
+        },
+        mounted:function () {
+            document.setTitle('晋彤');
         }
     }
 </script>

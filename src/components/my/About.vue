@@ -48,6 +48,9 @@
             }
         },
         methods:{
+        },
+        mounted:function () {
+            document.setTitle('关于我们');
         }
     }
 </script>

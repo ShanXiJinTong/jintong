@@ -152,6 +152,7 @@
 								this.form.is_default = this.form.is_default==1?true:false;
 								this.address1 = this.form.city+this.form.street1;
              });
+            document.setTitle('添加地址');
         }
     }
 </script>

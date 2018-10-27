@@ -45,6 +45,9 @@
         name: 'Refund',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('申请退款');
         }
     }
 </script>

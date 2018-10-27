@@ -25,6 +25,7 @@
 							this.list = res.data;
         		}
         	});
+            document.setTitle('帮助');
         }
     }
 </script>

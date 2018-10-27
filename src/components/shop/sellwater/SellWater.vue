@@ -1,8 +1,5 @@
 <template>
     <div>
-
-
-
         <!--搜索框-->
         <form class="wsq-searchBox">
             <img src="../img/sousuoicon.png" height="24" width="40"/>
@@ -112,6 +109,7 @@
             this.cid = this.$route.query.categoryId;
             this.getData();
             this.getMenu();
+            document.setTitle('搜索');
         },
     }
 </script>

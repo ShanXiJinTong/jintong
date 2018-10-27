@@ -49,10 +49,10 @@
                                 <li class="number">{{item.volume?item.volume:0}}</li>
                             </ul>
                             <ul class="sk-price">
-                                <ul class="sk-price" v-if="item.data==1">
+                                <ul class="sk-price" v-if="item.type==1">
                                     <li>{{item.special_price }}元/件</li>
                                 </ul>
-                                <ul class="sk-price" v-if="item.data==2">
+                                <ul class="sk-price" v-if="item.type==2">
                                     <li>{{item.deposit}}定金</li>
                                 </ul>
                             </ul>
@@ -110,9 +110,7 @@
                         'fecshop-uuid': 'e15c77d4-921c-11e8-a965-00163e021360',
                     }
                 }).then(res => {
-                    console.log(res.data)
                     this.products = res.data;
-                    console.log(this.products)
                     if (res.data.length < 10) {
                         this.n = 2
                     }
@@ -145,7 +143,6 @@
                     }
                 }).then(res => {
                     this.products = this.products.concat(res.data)
-                    console.log(this.products)
                     if (res.data.length < 10) {
                         this.n = 2
                     }
@@ -156,7 +153,8 @@
         mounted() {
             if (localStorage.history) {
                 this.history = JSON.parse(localStorage.history);
-            }
+            };
+            document.setTitle('搜索');
         }
     }
 </script>
