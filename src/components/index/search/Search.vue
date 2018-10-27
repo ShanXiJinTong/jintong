@@ -156,7 +156,8 @@
         mounted() {
             if (localStorage.history) {
                 this.history = JSON.parse(localStorage.history);
-            }
+            };
+            document.setTitle('搜索');
         }
     }
 </script>

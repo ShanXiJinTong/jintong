@@ -340,6 +340,7 @@
         mounted: function () {
             this.getShopData();
             this.getGoods();
+            document.setTitle('店铺详情');
         },
     }
 </script>

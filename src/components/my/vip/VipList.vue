@@ -51,6 +51,9 @@
         name: 'VipList',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('完整特权');
         }
     }
 </script>

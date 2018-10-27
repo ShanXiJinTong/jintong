@@ -62,6 +62,9 @@
         name: 'RefundTo',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('退款详情');
         }
     }
 </script>

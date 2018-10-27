@@ -151,6 +151,7 @@
           this.cid = this.$route.query.categoryId;
           this.isHot = this.$route.query.cate
           // this.getData();
+          document.setTitle('退款/售后');
         },
     }
 </script>

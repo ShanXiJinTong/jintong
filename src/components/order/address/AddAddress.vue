@@ -43,6 +43,9 @@
         name: 'AddAddress',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('添加地址');
         }
     }
 </script>

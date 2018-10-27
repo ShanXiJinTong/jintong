@@ -95,6 +95,7 @@
             jsapi.charset = 'utf-8';
             jsapi.src = url;
             document.head.appendChild(jsapi);
+            document.setTitle('晋彤');
         },
         components: {
             Tab
