@@ -30,7 +30,7 @@
             </section>
             <ul class="class">
                 <li v-for="(item,index) in menu" :key="item.id">
-                    <router-link :to="{name:'XhList',query:{categoryId:item.id}}">
+                    <router-link :to="{name:'ServiceList',query:{categoryId:item.id}}">
                         <div class="img"></div>
                         <p>{{item.name}}</p>
                     </router-link>

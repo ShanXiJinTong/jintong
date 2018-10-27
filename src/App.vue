@@ -53,4 +53,26 @@
   *{
     box-sizing: border-box;
   }
+    .haoping .el-rate__icon{
+      font-size: 0.02rem;
+    }
+    .haoping .el-rate{
+      height:0.3rem;
+    }
+    .el-upload--picture-card{
+      width: 100px;
+      height: 100px;
+      line-height: 102px;
+    }
+    .el-upload-list--picture-card .el-upload-list__item{
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+  .section_3 .section_3_input .el-textarea__inner{
+    outline: none;
+    height: 1.62rem;
+    background: rgba(231, 246, 255, 0.5);
+  }
 </style>

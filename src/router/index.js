@@ -31,6 +31,12 @@ const ServiceDetail = r => require.ensure([], () => r(require('../components/ind
 const OrderAdress = r => require.ensure([], () => r(require('../components/index/list/OrderAdress.vue')), "OrderAdress");
 // 支付选择
 const ServicePay = r => require.ensure([], () => r(require('../components/index/list/ServicePay.vue')), "ServicePay");
+const ServicePay1 = r => require.ensure([], () => r(require('../components/index/list/ServicePay1.vue')), "ServicePay1");
+const ServicePay2 = r => require.ensure([], () => r(require('../components/index/list/ServicePay2.vue')), "ServicePay2");
+const ServicePay3 = r => require.ensure([], () => r(require('../components/index/list/ServicePay3.vue')), "ServicePay3");
+//支付尾款之选择服务项目、选择商品
+const FinalPaymentService = r => require.ensure([], () => r(require('../components/index/list/FinalPaymentService.vue')), "FinalPaymentService");
+const FinalPaymentShop = r => require.ensure([], () => r(require('../components/index/list/FinalPaymentShop.vue')), "FinalPaymentShop");
 // 支付成功
 const ServicePaySuccess = r => require.ensure([], () => r(require('../components/index/list/ServicePaySuccess.vue')), "ServicePaySuccess");
 // 商店
@@ -39,6 +45,8 @@ const Shop = r => require.ensure([], () => r(require('../components/shop/Shop.vu
 const Xh = r => require.ensure([], () => r(require('../components/shop/xh/Xh.vue')), "Xh");
 // 售水
 const SellWater = r => require.ensure([], () => r(require('../components/shop/sellwater/SellWater.vue')), "SellWater");
+//商城
+const ShopMall = r => require.ensure([], () => r(require('../components/shop/shopMall/shopMall.vue')), "ShopMall");
 // 卫浴
 const Bathroom = r => require.ensure([], () => r(require('../components/shop/bathroom/Bathroom.vue')), "Bathroom");
 // 卫浴列表
@@ -110,6 +118,8 @@ const WaitService = r => require.ensure([], () => r(require('../components/order
 // 填写订单
 const WaitServicePay = r => require.ensure([], () => r(require('../components/order/WaitServicePay.vue')), "WaitServicePay");
 const WaitServicePay1 = r => require.ensure([], () => r(require('../components/order/WaitServicePay1.vue')), "WaitServicePay1");
+const WaitServicePay2 = r => require.ensure([], () => r(require('../components/order/WaitServicePay2.vue')), "WaitServicePay2");
+const WaitServicePay3 = r => require.ensure([], () => r(require('../components/order/WaitServicePay3.vue')), "WaitServicePay3");
 // 订单地址
 const WaitAddress = r => require.ensure([], () => r(require('../components/order/address/Address')), "WaitAddress");
 // 待服务订单追踪
@@ -118,6 +128,8 @@ const WaitZz = r => require.ensure([], () => r(require('../components/order/Wait
 const OrderEvaluate = r => require.ensure([], () => r(require('../components/order/OrderEvaluate.vue')), "OrderEvaluate");
 // 订单详情
 const OrderDetail = r => require.ensure([], () => r(require('../components/order/OrderDetail.vue')), "OrderDetail");
+//订单评价成功
+const EvaluateSuccess = r => require.ensure([], () => r(require('../components/index/list/EvaluateSuccess.vue')), "EvaluateSuccess");
 // 申请退款
 const Refund = r => require.ensure([], () => r(require('../components/order/Refund.vue')), "Refund");
 // 退款确认页面
@@ -126,6 +138,9 @@ const RefundDetail = r => require.ensure([], () => r(require('../components/orde
 const RefundAnd = r => require.ensure([], () => r(require('../components/order/RefundAnd.vue')), "RefundAnd");
 // 退款详情 提交成功
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), "RefundTo");
+//退款信息
+const RefundWait = r => require.ensure([], () => r(require('../components/order/RefundWait.vue')), "RefundWait");
+
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 //客服
@@ -136,323 +151,375 @@ const Wechat = r => require.ensure([], () => r(require('../components/chat/wecha
 Vue.use(Router)
 
 export default new Router({
-    routes: [
-        {
-            path: '/',
-            name: 'Index',
-            component: Index
-        },
-        {
-            path: '/Search',
-            name: 'Search',
-            component: Search
-        },
-        {
-            path: '/Ruzhu',
-            name: 'Ruzhu',
-            component: Ruzhu
-        },
-        {
-            path: '/WxLogin',
-            name: 'WxLogin',
-            component: WxLogin
-        },
-        {
-            path: '/UserLogin',
-            name: 'UserLogin',
-            component: UserLogin
-        },
-        {
-            path: '/Sign',
-            name: 'Sign',
-            component: Sign
-        },
-        {
-            path: '/MessageFill',
-            name: 'MessageFill',
-            component: MessageFill
-        },
-        {
-            path: '/SelectLocation',
-            name: 'SelectLocation',
-            component: SelectLocation
-        },
-        {
-            path: '/SelectCity',
-            name: 'SelectCity',
-            component: SelectCity
-        },
-        {
-            path: '/ServiceOrder',
-            name: 'ServiceOrder',
-            component: ServiceOrder
-        },
-        {
-            path: '/ServiceList',
-            name: 'ServiceList',
-            component: ServiceList
-        },
-        {
-            path: '/ServiceDetail',
-            name: 'ServiceDetail',
-            component: ServiceDetail
-        },
-        {
-            path: '/ServicePay',
-            name: 'ServicePay',
-            component: ServicePay
-        },
-        {
-            path: '/ServicePaySuccess',
-            name: 'ServicePaySuccess',
-            component: ServicePaySuccess
-        },
+  routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+      component: Search
+    },
+    {
+      path: '/Ruzhu',
+      name: 'Ruzhu',
+      component: Ruzhu
+    },
+    {
+      path: '/WxLogin',
+      name: 'WxLogin',
+      component: WxLogin
+    },
+    {
+      path: '/UserLogin',
+      name: 'UserLogin',
+      component: UserLogin
+    },
+    {
+      path: '/Sign',
+      name: 'Sign',
+      component: Sign
+    },
+    {
+      path: '/MessageFill',
+      name: 'MessageFill',
+      component: MessageFill
+    },
+    {
+      path: '/SelectLocation',
+      name: 'SelectLocation',
+      component: SelectLocation
+    },
+    {
+      path: '/SelectCity',
+      name: 'SelectCity',
+      component: SelectCity
+    },
+    {
+      path: '/ServiceOrder',
+      name: 'ServiceOrder',
+      component: ServiceOrder
+    },
+    {
+      path: '/ServiceList',
+      name: 'ServiceList',
+      component: ServiceList
+    },
+    {
+      path: '/ServiceDetail',
+      name: 'ServiceDetail',
+      component: ServiceDetail
+    },
+    {
+      path: '/ServicePay',
+      name: 'ServicePay',
+      component: ServicePay
+    },
+    {
+      path: '/ServicePay1',
+      name: 'ServicePay1',
+      component: ServicePay1
+    },
+    {
+      path: '/ServicePay2',
+      name: 'ServicePay2',
+      component: ServicePay2
+    },
+    {
+      path: '/ServicePay3',
+      name: 'ServicePay3',
+      component: ServicePay3
+    },
+    {
+        path: '/FinalPaymentShop',
+        name: 'FinalPaymentShop',
+        component: FinalPaymentShop
+    },
+    {
+        path: '/FinalPaymentService',
+        name: 'FinalPaymentService',
+        component: FinalPaymentService
+    },
+    {
+      path: '/ServicePaySuccess',
+      name: 'ServicePaySuccess',
+      component: ServicePaySuccess
+    },
 
-        // 商店
-        {
-            path: '/Shop',
-            name: 'Shop',
-            component: Shop,
-        },
-        {
-            path: '/Bathroom',
-            name: 'Bathroom',
-            component: Bathroom,
-        },
-        {
-            path: '/BathroomList',
-            name: 'BathroomList',
-            component: BathroomList,
-        },
-        {
-            path: '/XhList',
-            name: 'XhList',
-            component: XhList,
-        },
-        {
-            path: '/XhDetail',
-            name: 'XhDetail',
-            component: XhDetail,
-        },
-        {
-            path: '/XhEvaluate',
-            name: 'XhEvaluate',
-            component: XhEvaluate,
-        },
-        {
-            path: '/XhStore',
-            name: 'XhStore',
-            component: XhStore,
-        },
-        {
-            path: '/XhOrder',
-            name: 'XhOrder',
-            component: XhOrder,
-        },
-        {
-            path: '/XhServer',
-            name: 'XhServer',
-            component: XhServer,
-        },
-        {
-            path: '/SellWater',
-            name: 'SellWater',
-            component: SellWater,
-        },
-        {
-            path: '/SellWaterList',
-            name: 'SellWaterList',
-            component: SellWaterList,
-        },
-        {
-            path: '/SellWaterDetail',
-            name: 'SellWaterDetail',
-            component: SellWaterDetail,
-        },
-        {
-            path: '/SellWaterOrder',
-            name: 'SellWaterOrder',
-            component: SellWaterOrder,
-        },
-        {
-            path: '/WaterStore',
-            name: 'WaterStore',
-            component: WaterStore,
-        },
-        {
-            path: '/WaterStoreIntro',
-            name: 'WaterStoreIntro',
-            component: WaterStoreIntro,
-        },
-        {
-            path: '/WaterStoreDetail',
-            name: 'WaterStoreDetail',
-            component: WaterStoreDetail,
-        },
-        {
-            path: '/My',
-            name: 'My',
-            component: My,
-        },
-        {
-            path: '/PersonalMessage',
-            name: 'PersonalMessage',
-            component: PersonalMessage
-        },
-        {
-            path: '/Car',
-            name: 'Car',
-            component: Car,
-        },
-        {
-            path: '/Discount',
-            name: 'Discount',
-            component: Discount,
-        },
-        {
-            path: '/Gold',
-            name: 'Gold',
-            component: Gold,
-        },
-        {
-            path: '/Wallet',
-            name: 'Wallet',
-            component: Wallet,
-        },
-        {
-            path: '/Kf',
-            name: 'Kf',
-            component: Kf
-        },
-        {
-            path: '/Recharge',
-            name: 'Recharge',
-            component: Recharge
-        },
-        {
-            path: '/SelectWay',
-            name: 'SelectWay',
-            component: SelectWay
-        },
-        {
-            path: '/Address',
-            name: 'Address',
-            component: Address
-        },
-        {
-            path: '/AddAddress',
-            name: 'AddAddress',
-            component: AddAddress
-        },
-        {
-            path: '/EditAddress',
-            name: 'EditAddress',
-            component: EditAddress
-        },
-        {
-            path: '/Help',
-            name: 'Help',
-            component: Help
-        },
-        {
-            path: '/HelpDetail',
-            name: 'HelpDetail',
-            component: HelpDetail
-        },
-        {
-            path: '/About',
-            name: 'About',
-            component: About
-        },
-        {
-            path: '/Vip',
-            name: 'Vip',
-            component: Vip
-        },
-        {
-            path: '/VipList',
-            name: 'VipList',
-            component: VipList
-        },
-        {
-            path: '/VipImprove',
-            name: 'VipImprove',
-            component: VipImprove
-        },
-        {
-            path: '/Order',
-            name: 'Order',
-            component: Order
-        },
-        {
-            path: '/WaitService',
-            name: 'WaitService',
-            component: WaitService
-        },
-        {
-            path: '/WaitServicePay',
-            name: 'WaitServicePay',
-            component: WaitServicePay
-        },
-        {
-            path: '/WaitAddress',
-            name: 'WaitAddress',
-            component: WaitAddress
-        },
-        {
-            path: '/WaitZz',
-            name: 'WaitZz',
-            component: WaitZz
-        },
-        {
-            path: '/OrderEvaluate',
-            name: 'OrderEvaluate',
-            component: OrderEvaluate
-        },
-        {
-            path: '/OrderDetail',
-            name: 'OrderDetail',
-            component: OrderDetail
-        },
-        {
-            path: '/Refund',
-            name: 'Refund',
-            component: Refund
-        },
-        {
-            path: '/RefundDetail',
-            name: 'RefundDetail',
-            component: RefundDetail
-        },
-        {
-            path: '/RefundAnd',
-            name: 'RefundAnd',
-            component: RefundAnd
-        },
-        {
-            path: '/RefundTo',
-            name: 'RefundTo',
-            component: RefundTo
-        },
-        {
-            path: '/AmendApplication',
-            name: 'AmendApplication',
-            component: AmendApplication
-        },
-        {
-            path:'/Dialog',
-            name:'Dialog',
-            component:Dialog
-        },
-        {
-            path:'/Wechat',
-            name:'Wechat',
-            component:Wechat
-        },
-        {
-            path:'/WaitServicePay1',
-            name:'WaitServicePay1',
-            component:WaitServicePay1
-        }
-    ]
+    // 商店
+    {
+      path: '/Shop',
+      name: 'Shop',
+      component: Shop,
+    },
+    {
+      path: '/Xh',
+      name: 'Xh',
+      component: Xh
+    },
+    {
+      path: '/Bathroom',
+      name: 'Bathroom',
+      component: Bathroom,
+    },
+    {
+      path: '/BathroomList',
+      name: 'BathroomList',
+      component: BathroomList,
+    },
+    {
+      path: '/XhList',
+      name: 'XhList',
+      component: XhList,
+    },
+    {
+      path: '/XhDetail',
+      name: 'XhDetail',
+      component: XhDetail,
+    },
+    {
+      path: '/XhEvaluate',
+      name: 'XhEvaluate',
+      component: XhEvaluate,
+    },
+    {
+      path: '/XhStore',
+      name: 'XhStore',
+      component: XhStore,
+    },
+    {
+      path: '/XhOrder',
+      name: 'XhOrder',
+      component: XhOrder,
+    },
+    {
+      path: '/XhServer',
+      name: 'XhServer',
+      component: XhServer,
+    },
+    {
+      path: '/SellWater',
+      name: 'SellWater',
+      component: SellWater,
+    },
+    {
+      path: '/SellWaterList',
+      name: 'SellWaterList',
+      component: SellWaterList,
+    },
+    {
+      path: '/SellWaterDetail',
+      name: 'SellWaterDetail',
+      component: SellWaterDetail,
+    },
+    {
+      path: '/SellWaterOrder',
+      name: 'SellWaterOrder',
+      component: SellWaterOrder,
+    },
+    {
+      path: '/WaterStore',
+      name: 'WaterStore',
+      component: WaterStore,
+    },
+    {
+      path: '/WaterStoreIntro',
+      name: 'WaterStoreIntro',
+      component: WaterStoreIntro,
+    },
+    {
+      path: '/WaterStoreDetail',
+      name: 'WaterStoreDetail',
+      component: WaterStoreDetail,
+    },
+    {
+      path: '/My',
+      name: 'My',
+      component: My,
+    },
+    {
+      path: '/PersonalMessage',
+      name: 'PersonalMessage',
+      component: PersonalMessage
+    },
+    {
+      path: '/Car',
+      name: 'Car',
+      component: Car,
+    },
+    {
+      path: '/Discount',
+      name: 'Discount',
+      component: Discount,
+    },
+    {
+      path: '/Gold',
+      name: 'Gold',
+      component: Gold,
+    },
+    {
+      path: '/Wallet',
+      name: 'Wallet',
+      component: Wallet,
+    },
+    {
+      path: '/Kf',
+      name: 'Kf',
+      component: Kf
+    },
+    {
+      path: '/Recharge',
+      name: 'Recharge',
+      component: Recharge
+    },
+    {
+      path: '/SelectWay',
+      name: 'SelectWay',
+      component: SelectWay
+    },
+    {
+      path: '/Address',
+      name: 'Address',
+      component: Address
+    },
+    {
+      path: '/AddAddress',
+      name: 'AddAddress',
+      component: AddAddress
+    },
+    {
+      path: '/EditAddress',
+      name: 'EditAddress',
+      component: EditAddress
+    },
+    {
+      path: '/Help',
+      name: 'Help',
+      component: Help
+    },
+    {
+      path: '/HelpDetail',
+      name: 'HelpDetail',
+      component: HelpDetail
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
+    },
+    {
+      path: '/Vip',
+      name: 'Vip',
+      component: Vip
+    },
+    {
+      path: '/VipList',
+      name: 'VipList',
+      component: VipList
+    },
+    {
+      path: '/VipImprove',
+      name: 'VipImprove',
+      component: VipImprove
+    },
+    {
+      path: '/Order',
+      name: 'Order',
+      component: Order
+    },
+    {
+      path: '/WaitService',
+      name: 'WaitService',
+      component: WaitService
+    },
+    {
+      path: '/WaitServicePay',
+      name: 'WaitServicePay',
+      component: WaitServicePay
+    },
+
+    {
+      path: '/WaitServicePay1',
+      name: 'WaitServicePay1',
+      component: WaitServicePay1
+    },
+    {
+      path: '/WaitServicePay2',
+      name: 'WaitServicePay2',
+      component: WaitServicePay2
+    },
+    {
+      path: '/WaitServicePay3',
+      name: 'WaitServicePay3',
+      component: WaitServicePay3
+    },
+    {
+      path: '/WaitAddress',
+      name: 'WaitAddress',
+      component: WaitAddress
+    },
+    {
+      path: '/WaitZz',
+      name: 'WaitZz',
+      component: WaitZz
+    },
+    {
+      path: '/OrderEvaluate',
+      name: 'OrderEvaluate',
+      component: OrderEvaluate
+    },
+    {
+      path: '/OrderDetail',
+      name: 'OrderDetail',
+      component: OrderDetail
+    },
+    {
+      path: '/EvaluateSuccess',
+      name: 'EvaluateSuccess',
+      component: EvaluateSuccess
+
+    },
+    {
+      path: '/Refund',
+      name: 'Refund',
+      component: Refund
+    },
+    {
+      path: '/RefundDetail',
+      name: 'RefundDetail',
+      component: RefundDetail
+    },
+    {
+      path: '/RefundAnd',
+      name: 'RefundAnd',
+      component: RefundAnd
+    },
+    {
+      path: '/RefundTo',
+      name: 'RefundTo',
+      component: RefundTo
+    },
+    {
+      path:'/RefundWait',
+      name:'RefundWait',
+      component:RefundWait
+    },
+    {
+      path: '/AmendApplication',
+      name: 'AmendApplication',
+      component: AmendApplication
+    },
+    {
+      path: '/Dialog',
+      name: 'Dialog',
+      component: Dialog
+    },
+    {
+      path: '/Wechat',
+      name: 'Wechat',
+      component: Wechat
+    }
+  ]
 })

@@ -23,7 +23,7 @@
 									<ul id="x-li">
 										<li class="x-blue x-jone"><b> {{item.firstname}}</b></li>
 										<li class="x-blue x-jtwo" v-if="item.order_status==0">待付款</li>
-										<li class="x-blue x-jtwo" v-else-if="item.order_status<3">待收货</li>
+										<li class="x-blue x-jtwo" v-else-if="item.order_status < 3">待收货</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==4">已完成</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==5">申请退货</li>
 										<li class="x-blue x-jtwo" v-else-if="item.order_status==6">退货</li>
@@ -33,6 +33,18 @@
 							</div>
 						</div>
 					</router-link>
+					<div class="x-an" v-if="item.order_status==0">
+						<button class="x-anone x-antwo">取消订单</button>
+						<button class="x-anone" @click="pays">去支付</button>
+					</div>
+					<div class="x-an" v-else-if="item.order_status<3">
+						<button class="x-anone x-antwo" @click="refund">退货</button>
+						<button class="x-anone" @click="collect">确认收货</button>
+					</div>
+					<div class="x-an" v-else-if="item.order_status==4">
+						<button class="x-anone x-antwo" @click="refund">退货</button>
+						<button class="x-anone" @click="assess">去评价</button>
+					</div>
 				</div>
 				<div class="jzgd" @click="infinite" v-if="flag==0">
 					<button>
@@ -43,7 +55,7 @@
 		<div v-else>
 			<img src='./img/order.png' style="width: 100%;" />
 		</div>
-			
+
 		<!--footer结束-->
 		<Tab></Tab>
 	</div>
@@ -65,7 +77,7 @@
 						status: 0
 					}, {
 						name: "待收货",
-						status: 2
+						status: 1
 					}, {
 						name: "已完成",
 						status: 4
@@ -127,12 +139,24 @@
 					if(res.data.code === 200) {
 						res.data.data.forEach((forEach) => {
 							this.orderlist.push(forEach);
-						});
+                        });
 						if(res.data.data.length < 10) {
 							this.flag = 1;
 						}
 					}
 				})
+			},
+			assess(){
+				this.$router.push({name:'OrderEvaluate'});
+			},
+			pays(){
+			    this.$router.push({name:'WaitServicePay'});
+			},
+            collect(){
+                this.$router.push({name:'WaitServicePay'});
+            },
+			refund(){
+			    this.$router.push({name:'Refund'});
 			}
 		},
 		mounted: function() {
@@ -145,7 +169,7 @@
 </script>
 <style scoped>
 	/*横向滚动开始*/
-	
+
 	#wrapper {
 		border-bottom: 0.01rem solid #a2deff;
 		width: 100%;
@@ -157,14 +181,14 @@
 		top: 0;
 		z-index: 999;
 	}
-	
+
 	#wrapper .x-ulone {
 		list-style: none;
 		height: 100%;
 		background: #f8fcff;
 		border-bottom: 0.01rem solid #a2deff;
 	}
-	
+
 	.x-fl {
 		display: block;
 		width: 25%;
@@ -176,7 +200,7 @@
 		line-height: 0.82rem;
 		position: relative;
 	}
-	
+
 	.x-fl.hot div {
 		width: 80%;
 		height: 0.04rem;
@@ -187,7 +211,7 @@
 		z-index: 999;
 	}
 	/*横向滚动结束*/
-	
+
 	.middle {
 		position: absolute;
 		top: 1rem;
@@ -197,20 +221,21 @@
 		margin: 0 0.24rem;
 	}
 	/*订单开始*/
-	
+
 	.middle .x-box {
 		width: 100%;
 		height: auto;
 		margin-bottom: 0.3rem;
 	}
-	
+
 	.middle .x-box .x-DR .x-commodity {
 		width: 100%;
 		height: auto;
 		display: flex;
 		justify-content: flex-start;
+		margin-bottom: 0.1rem;
 	}
-	
+
 	#x-c-left {
 		width: 1.74rem;
 		height: 1.74rem;
@@ -218,13 +243,13 @@
 		box-shadow: 0 0.03rem 0.21rem 0.01rem #dfdfdf;
 		border-radius: 0.1rem;
 	}
-	
+
 	.x-c-right {
 		width: calc(100% - 2.01rem);
 		height: 1.74rem;
 		position: relative;
 	}
-	
+
 	#x-name {
 		width: 100%;
 		margin-bottom: 0.24rem;
@@ -233,18 +258,18 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	
+
 	#x-name b {
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-	
+
 	#x-name span {
 		font-size: 0.3rem;
 		color: #43c93e;
 	}
-	
+
 	#x-li {
 		width: 100%;
 		height: 1.23rem;
@@ -252,7 +277,7 @@
 		left: 0;
 		bottom: 0;
 	}
-	
+
 	.x-jone {
 		width: 100%;
 		margin-bottom: 0.15rem;
@@ -260,7 +285,7 @@
 		color: #41b2fc;
 		text-align: left;
 	}
-	
+
 	.x-jtwo {
 		width: 100%;
 		margin-bottom: 0.24rem;
@@ -268,19 +293,19 @@
 		color: #c9cbcc;
 		text-align: left;
 	}
-	
+
 	.x-jtwo b {
 		color: #36a8fe;
 		font-weight: bold;
 	}
-	
+
 	.x-jthree {
 		width: 100%;
 		font-size: 0.22rem;
 		color: #646666;
 		text-align: left;
 	}
-	
+
 	.x-jfour {
 		font-size: 0.22rem;
 		color: #646666;
@@ -289,7 +314,7 @@
 		right: 0;
 		bottom: 0;
 	}
-	
+
 	.x-jfive {
 		width: 100%;
 		font-size: 0.3rem;
@@ -298,13 +323,13 @@
 		position: absolute;
 		bottom: -0.8rem;
 	}
-	
+
 	.x-blue:before {
 		content: "\02022";
 		color: #41b2fc;
 		margin-right: 0.1rem;
 	}
-	
+
 	.x-green:before {
 		content: "\02022";
 		color: #31d094;
@@ -312,19 +337,19 @@
 	}
 	/*订单结束*/
 	/*按键开始*/
-	
+
 	.x-an {
 		width: 100%;
 		height: 0.7rem;
 		display: flex;
 		justify-content: flex-end;
-		margin-top: 0.01rem;
+		/*margin-top: 0.01rem;*/
 		margin-bottom: 0.6rem;
 	}
-	
+
 	.x-anone {
 		width: auto;
-		height: 0.61rem;
+		height: 0.51rem;
 		padding: 0 0.62rem;
 		background: linear-gradient(to right, #27d29c, #33e171);
 		box-shadow: 0 0.04rem 0.2rem rgba(55, 223, 116, 0.75);
@@ -335,7 +360,7 @@
 		text-align: center;
 		outline: none;
 	}
-	
+
 	.x-antwo {
 		background: #e7f6ff;
 		box-shadow: none;

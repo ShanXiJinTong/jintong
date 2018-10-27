@@ -63,13 +63,13 @@
 		<div class="aa">
 			<div class="alfet">
 				<div class="yuanjiao11"></div>
-				<span>优惠卷</span>
+				<span>优惠券</span>
 			</div>
 			<a href="javascript:">
 				<div class="aright">
-					<span v-if="coupon.length==0">无可用优惠卷</span>
+					<span v-if="coupon.length==0">无可用优惠券</span>
 					<span v-else-if="coupon1.coupon_name" @click="couFlag=true;coinFlag = false">{{coupon1.coupon_name}}</span>
-					<span v-else-if="!coupon1.coupon_name" @click="couFlag=true;coinFlag = false">点击使用优惠卷</span>
+					<span v-else-if="!coupon1.coupon_name" @click="couFlag=true;coinFlag = false">点击使用优惠券</span>
 					<img src="./static/img/xiayibu.png" alt="">
 				</div>
 			</a>
@@ -143,7 +143,7 @@
 						<div class="get" @click="useCou(item)">使用</div>
 					</li>
 					<li class="tklist" style="height: 1rem;">
-						<div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;" @click="couFlag=false;coupon1={}">不使用优惠卷
+						<div style="margin: 0 auto;background: #C1C1C1;padding: 0.2rem 0.3rem;border-radius: 5px;color: #fff;" @click="couFlag=false;coupon1={}">不使用优惠券
 						</div>
 					</li>
 				</ul>
@@ -212,15 +212,17 @@
 					coin: this.coin,
 					order_remark: this.form.order_remark
 				};
-				this.$http({
+
+        this.$http({
 					headers: postheaders,
 					method: 'post',
 					url: 'customer/car/createorder',
 					data: _this.$qs.stringify(_this.formdata)
 				}).then(res => {
 					//生成订单成功
-					if(res.data.info === "生成订单成功") {
-						this.$router.push("/Order");
+          if(res.data.status ==1) {
+						this.$router.push({name:'ServicePay',query:{price:this.$route.query.price,orderid:res.data.order_id}});
+            /*location.href = 'http://appserver.sxjtyb.cn/weixin/example/index.php?orderid='+res.data.order_id;*/
 					}
 				})
 

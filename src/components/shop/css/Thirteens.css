@@ -289,7 +289,7 @@ header >p{
     overflow: scroll;
     margin-top:4.07rem;
     /*padding-bottom: 2rem;*/
-    
+
 }
 .sk-bag-scroll{
     width: 100%;
@@ -448,6 +448,9 @@ header >p{
 .com-item .sk-content .sk-user_time h5{
     color: #c9cbcc;
     font-weight: normal;
+    font-size: 0.18rem;
+    line-height: 0.24rem;
+
 }
 .com-item .sk-content .sk-user_time .star{
     color: #c9cbcc;
@@ -460,16 +463,18 @@ header >p{
 }
 .com-item .sk-content .sk-desc{
     width: 100%;
-    height: 0.4rem;
+    /*height: 0.4rem;*/
     margin-top: 0.23rem;
     font-size: 0.3rem;
 
 }
 .com-item .sk-content .sk-desc p{
     width: 5.5rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*white-space: nowrap;*/
+    font-size: 0.3rem;
+    line-height: 0.4rem;
 }
 .com-item .sk-content .sk-pos{
     margin-top: 0.18rem;
@@ -541,4 +546,8 @@ nav .main .navBox p{
 nav .main .navBox i{
     font-size: 0.26rem;;
     color: #41b2fc;
+}
+
+.el-icon-star-on {
+  color: #36a8fe!important;
 }

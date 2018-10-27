@@ -42,7 +42,7 @@
             <p>退款<span>原因</span></p>
         </div>
         <div class="sec_right" @click="mask1()">
-            <p>买错了</p>
+            <p>{{isHot}}</p>
             <i class="iconfont error">&#xe650;</i>
         </div>
     </div>
@@ -55,7 +55,7 @@
         <p class="moNey">￥60.00</p>
     </div>
     <div class="section_3">
-        退款说明
+        <el-input type="textarea" placeholder="退款说明" class="section_3_input" />
     </div>
 
     <div class="sec_4">
@@ -64,7 +64,16 @@
             <p>上传<span>凭证</span></p>
             <span class="sex3">( 最多6张 )</span>
         </div>
-        <img src="./img/photo.png" alt="">
+        <el-upload
+                action="https://jsonplaceholder.typicode.com/posts/"
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove">
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
     </div>
     <router-link :to="{name:'RefundTo'}">
     <div class="button_y">
@@ -85,47 +94,47 @@
         </div>
 
         <ul class="tkbox">
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">退运费</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot=='退运费'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">大小/尺寸与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot=='大小/尺寸与商品描述不符'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">颜色/款式/型号与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" class="right" :class="{hot:isHot=='颜色/款式/型号与商品描述不符'}">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">材质与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" class="right" :class="{hot:isHot=='材质与商品描述不符'}">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">做工粗造有瑕疵</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right hot">
+                <img src="./img/tuikuan.png" alt="" class="right" :class="{hot:isHot=='做工粗造有瑕疵'}">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="mask2()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">质量问题</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" class="right" :class="{hot:isHot=='质量问题'}">
             </li>
         </ul>
         <div class="tkbutton" @click="mask1()">完成</div>
@@ -137,7 +146,10 @@
         name: 'RefundDetail',
         data() {
             return {
-                isOk:false
+                isOk:false,
+                isHot:'买错了',
+                dialogImageUrl: '',
+                dialogVisible: false
             }
         },
         methods:{
@@ -148,8 +160,18 @@
                 else{
                     this.isOk=false;
                 }
+            },
+            mask2(){
+              var el = event.target;
+              this.isHot = el.innerText
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
             }
-
         }
     }
 </script>
@@ -379,6 +401,9 @@
     }
     .sec_right p{
         font-size: 0.28rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .error{
         font-size: 0.36rem;
@@ -417,13 +442,15 @@
     .section_3{
         width: calc(100% - 0.48rem);
         height: 1.5rem;
-        background:rgba(231, 246, 255, 0.5);
         margin: auto;
         border-radius: 0.1rem;
         font-size: 0.28rem;
         color:#b9c9d2;
-        padding:0.2rem 0 0 0.2rem;
         box-sizing: border-box;
+    }
+    .section_3_input{
+      width: 100%;
+      outline: none;
     }
     .sec_4{
         width:100%;
@@ -434,6 +461,7 @@
     .sec_bto{
         width: auto;
         display: flex;
+        margin-bottom: 0.2rem;
     }
     .sec_bto p{
         font-size: 0.28rem;
@@ -544,7 +572,7 @@
 
     }
     .tkbox .tklist .left .tktext{
-        width: auto;
+        width: 6.5rem;
         height: 100%;
         font-size: 0.24rem;
         line-height: 0.88rem;

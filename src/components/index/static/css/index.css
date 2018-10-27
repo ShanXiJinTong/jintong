@@ -76,7 +76,7 @@
 }
 
 input::-webkit-input-placeholder {
-  color: #c8d9e6;
+  color: #ACBDCA;
   line-height: 0.6rem;
   font-size: 0.24rem;
 }
@@ -102,23 +102,23 @@ input::-webkit-input-placeholder {
 }
 
 ul.class {
-  width: calc(100% - 0.8rem);
+  width: 6.7rem;
   height: auto;
   padding: 0 0.24rem 1.2rem;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-
+  overflow: hidden;
 }
 
 .class li {
   width: 1.92rem;
   height: 1.92rem;
   margin-top: 0.46rem;
+  margin-right:0.23rem;
+  float: left;
 }
-
+.class li:nth-child(3n){
+  margin-right:0;
+}
 .class li a {
   display: block;
   width: 100%;

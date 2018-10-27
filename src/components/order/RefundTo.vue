@@ -7,9 +7,9 @@
             <h1 id="x-h1">等待商家处理</h1>
             <div id="x-djs">
                 <img src="./img/x-d-red.png" alt="" class="x-rimg">
-                还剩 <span class="x-d-time"></span>
-                天   <span class="x-d-time"></span>
-                时   <span class="x-d-time"></span>
+                还剩 <span class="x-d-time">01</span>
+                天   <span class="x-d-time">20</span>
+                时   <span class="x-d-time">10</span>
                 分
                 <img src="./img/x-d-red.png" alt="" class="x-rimg">
             </div>
@@ -22,7 +22,7 @@
                 <router-link :to="{name:'AmendApplication'}">
                 <button class="x-but  x-but1">修改</button>
                 </router-link>
-                <button class="x-but x-but2">客服</button>
+                <button class="x-but x-but2">联系卖家</button>
             </div>
         </div>
         <!--等待处理结束-->
@@ -52,7 +52,7 @@
     <!--中部结束-->
     <!--底部开始-->
     <footer>
-        <div class="dialog-B">联系卖家</div>
+        <router-link :to="{name:'Index'}" tag="div" class="dialog-B">首页</router-link>
     </footer>
     <!--底部结束-->
 </div>
@@ -69,7 +69,7 @@
     /*中部内容开始*/
     .middle{
         position: absolute;
-        top: 0.88rem;
+        /*top: 0.88rem;*/
         bottom: 0.98rem;
         left: 0;
         width:calc(100% - 0.48rem);

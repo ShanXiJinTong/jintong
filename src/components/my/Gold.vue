@@ -12,7 +12,7 @@
     </div>
     <div class="cyx-blank"></div>
     <div class="cyx-desc">
-      <p class="cyx-xiaofei">消费1元=1金币</p>
+      <p class="cyx-xiaofei">消费10元送1金币</p>
       <p class="cyx-xiaofei">10金币可抵1元</p>
     </div>
   </section>

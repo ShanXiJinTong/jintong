@@ -22,7 +22,7 @@
         </div>
         <div class="you" @click="mask()">
             <i class="iconfont icon-yduiqianjin"></i>
-            <h3>退货退款</h3>
+            <h3>{{isHot}}</h3>
         </div>
     </div>
     <div class="box box2">
@@ -33,7 +33,7 @@
         </div>
         <div class="you" @click="mask1()">
             <i class="iconfont icon-yduiqianjin"></i>
-            <h3>买错了</h3>
+            <h3>{{isHot1}}</h3>
         </div>
     </div>
     <div class="tui">
@@ -45,8 +45,8 @@
         </div>
         <h3>¥60.00</h3>
     </div>
-    <div class="shuo">
-        <h1>退款说明</h1>
+    <div class="shuo section_3">
+        <el-input type="textarea" placeholder="退款说明" class="section_3_input"></el-input>
     </div>
     <div class="ping">
         <div class="top">
@@ -56,7 +56,16 @@
             <span>（最多6张）</span>
         </div>
         <div class="bottom">
-            <img src="./img/photo.png" alt="">
+            <el-upload
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    list-type="picture-card"
+                    :on-preview="handlePictureCardPreview"
+                    :on-remove="handleRemove">
+                <i class="el-icon-plus"></i>
+            </el-upload>
+            <el-dialog :visible.sync="dialogVisible">
+                <img width="100%" :src="dialogImageUrl" alt="">
+            </el-dialog>
         </div>
     </div>
     <router-link :to="{name:'RefundTo'}">
@@ -65,88 +74,88 @@
     <!--遮罩-->
     <div class="glpark" :class="{hot:isOk}"></div>
     <div class="glpark" :class="{hot:isOk1}"></div>
+
     <!---->
-    <div class="tuikuan" :class="{hot:isOk}">
+    <div class="tuikuan" :class="{hot:isOk1}">
         <div class="tktitle">
             <span class="tkcolor">退款</span>原因
-            <div class="tkclose" @click="mask()">
+            <div class="tkclose" @click="mask1()">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
 
         <ul class="tkbox">
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">退运费</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right hot">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='退运费'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">大小/尺寸与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='大小/尺寸与商品描述不符'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">颜色/款式/型号与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='颜色/款式/型号与商品描述不符'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">材质与商品描述不符</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='材质与商品描述不符'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">做工粗造有瑕疵</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='做工粗造有瑕疵'?'hot':'']">
             </li>
-            <li class="tklist ">
+            <li class="tklist" @click="maskhot1()">
                 <div class="left">
                     <div class="tkyuan"></div>
                     <span class="tktext">质量问题</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot1=='质量问题'?'hot':'']">
             </li>
         </ul>
-        <div class="tkbutton" @click="mask()">完成</div>
+        <div class="tkbutton" @click="mask1()">完成</div>
     </div>
 
     <!--goods-->
-    <div class="serve" :class="{hot:isOk1}" >
+    <div class="serve" :class="{hot:isOk}" >
         <div class="stitle">
             <span class="scolor">服务</span>类型
-            <div class="sclose" @click="mask1()">
+            <div class="sclose" @click="mask()">
                 <img src="./img/cuohao.png" alt="">
             </div>
         </div>
-
         <ul class="sbox">
-            <li class="slist ">
+            <li class="slist" @click="maskhot()">
                 <div class="left">
                     <div class="syuan"></div>
                     <span class="stext">仅退款</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right hot">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot=='仅退款'?'hot':'']">
             </li>
-            <li class="slist ">
+            <li class="slist" @click="maskhot()">
                 <div class="left">
                     <div class="syuan"></div>
                     <span class="stext">退货退款</span>
                 </div>
-                <img src="./img/tuikuan.png" alt="" class="right">
+                <img src="./img/tuikuan.png" alt="" :class="['right',isHot=='退货退款'?'hot':'']">
             </li>
         </ul>
-        <div class="sbutton" @click="mask1()">关闭</div>
+        <div class="sbutton" @click="mask()">关闭</div>
     </div>
 </div>
 </template>
@@ -156,7 +165,11 @@
         data() {
             return {
                 isOk:false,
-                isOk1:false
+                isOk1:false,
+                isHot:'退货退款',
+                isHot1:'买错了',
+                dialogImageUrl: '',
+                dialogVisible: false
             }
         },
         methods:{
@@ -175,7 +188,23 @@
                 else{
                     this.isOk1=false;
                 }
+            },
+            maskhot(){
+                var el = event.target;
+                this.isHot = el.innerText
+            },
+            maskhot1(){
+              var el = event.target;
+              this.isHot1 = el.innerText
+            },
+            handleRemove(file, fileList) {
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
             }
+
         }
 
     }
@@ -282,21 +311,11 @@
         width: calc(100% - 0.48rem);
         height: 1.50rem;
         margin: 0 0.24rem;
-        background: rgb(241,250,255);
         border-radius: 0.3rem;
-    }
-    .shuo h1{
-
-        display: block;
-        font-size: 0.22rem;
-        margin-top: 0.24rem;
-        margin-left: 0.2rem;
-        color: rgb(185,201,210);
-        line-height: 0.22rem;
     }
     .ping{
         width: calc(100% - 0.48rem);
-        height: 2.13rem;
+        height: auto;
         margin: 0 0.24rem;
     }
     .ping .top{
@@ -333,8 +352,6 @@
         float: left;
     }
     .ping .bottom{
-        width: 1.02rem;
-        height: 1.02rem;
         margin-top: 0.3rem;
         margin-left: 0.2rem;
     }
@@ -505,7 +522,7 @@
 
     }
     .tkbox .tklist .left .tktext{
-        width: auto;
+        width: 6.5rem;
         height: 100%;
         font-size: 0.24rem;
         line-height: 0.88rem;
@@ -589,7 +606,7 @@
 
     }
     .sbox .slist .left .stext{
-        width: auto;
+        width: 6.5rem;
         height: 100%;
         font-size: 0.24rem;
         line-height: 0.88rem;
