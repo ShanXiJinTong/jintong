@@ -140,7 +140,8 @@ const RefundAnd = r => require.ensure([], () => r(require('../components/order/R
 const RefundTo = r => require.ensure([], () => r(require('../components/order/RefundTo.vue')), "RefundTo");
 //退款信息
 const RefundWait = r => require.ensure([], () => r(require('../components/order/RefundWait.vue')), "RefundWait");
-
+//退款成功
+const RefundSuccess = r => require.ensure([], () => r(require('../components/order/RefundSuccess.vue')), "RefundSuccess");
 //修改申请
 const AmendApplication = r => require.ensure([], () => r(require('../components/order/AmendApplication.vue')), " AmendApplication");
 //客服
@@ -257,12 +258,7 @@ export default new Router({
     {
       path: '/Xh',
       name: 'Xh',
-<<<<<<< HEAD
-      component: Xh
-
-=======
       component: Xh,
->>>>>>> cdb8d71ba003c5b5193b36bffaaca6d91b42c1f2
     },
     {
       path: '/Bathroom',
@@ -510,6 +506,11 @@ export default new Router({
       path:'/RefundWait',
       name:'RefundWait',
       component:RefundWait
+    },
+    {
+      path:'/RefundSuccess',
+      name:'RefundSuccess',
+      component:RefundSuccess
     },
     {
       path: '/AmendApplication',

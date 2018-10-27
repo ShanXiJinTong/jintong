@@ -181,10 +181,6 @@
       width: 100%;
       height: 100%;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> cdb8d71ba003c5b5193b36bffaaca6d91b42c1f2
     .xz {
         transform: rotate(180deg);
     }
