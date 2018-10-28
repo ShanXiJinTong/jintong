@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div style="padding-bottom:1.08rem;">
     <div class="dizhi">
@@ -262,3 +263,4 @@
   @import url('./static/css/Teighteen.css');
   @import url("./static/css/Televen.css");
 </style>
+

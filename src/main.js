@@ -42,9 +42,9 @@ Vue.prototype.$qs = qs
 
 router.beforeEach((to,from,next)=>{
   if(to.matched.some(record => record.meta.requiresAuth)){
-    if(!sessionStorage.uid){
+    if(!localStorage['fecshop-uuid']){
       next({
-        path:'/login',
+        path:'/userLogin',
         query:{redirect:to.fullPath}
       })
     }else{
