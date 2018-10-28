@@ -188,7 +188,7 @@
   }
   .wsq-banner .wsq-img{
     width: 100%;
-    height: 2.55rem;
+    height: 2.07rem;
     border-radius: 0.1rem;
 
   }
