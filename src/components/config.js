@@ -5,7 +5,6 @@ export const getheaders =  {
   'access-token': access_token,
   'fecshop-uuid': fecshop_uuid
 };
-console.log(access_token);
 export const postheaders = {
   'access-token': 'uoWCe730sy3U2eYTiP0mjKgj55AFETwN',
   'fecshop-uuid': 'd1edcbdc-9243-11e8-9d18-00163e021360',

@@ -63,7 +63,6 @@
 				})
 			},
 			removeAdddress(address_id) {
-				console.log(address_id);
 				this.$http.get("/customer/addr/addrdel", {
 					params: {
 						id: address_id,

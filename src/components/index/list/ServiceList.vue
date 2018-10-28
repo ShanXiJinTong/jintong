@@ -113,7 +113,6 @@
                         page: this.page
                     }
                 }).then(res => {
-                    console.log(this.list)
                     this.page++;
                     if (res.data.goods.length < 10) {
                         this.flag2 = true;
@@ -148,7 +147,6 @@
 
                 var el = event.target;
                 this.active = el.innerText;
-                // console.log();
             },
             tagHot() {
                 var el = event.target;

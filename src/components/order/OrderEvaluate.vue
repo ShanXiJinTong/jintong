@@ -69,17 +69,14 @@
              url:'/customer/car/createview',
              params:this.formdata
           }).then(res=>{
-            // console.log(res.data);
              if(res.data.code == 1){
                 this.$router.push({'name':'EvaluateSuccess',query:{id:res.data.shop_id}})
              }else if(res.data == 0){
 
              }
           })
-        console.log(this.formdata);
       },
       handleRemove(file, fileList) {
-          console.log(file, fileList);
       },
       handlePictureCardPreview(file) {
           this.dialogImageUrl = file.url;

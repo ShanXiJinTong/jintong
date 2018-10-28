@@ -315,7 +315,6 @@
                         res.data.data.forEach(val => {
                             this.list.push(val);
                         })
-                        console.log(res.data.data.length);
                         if (res.data.data.length < 10) {
                             this.flag = false;
 
