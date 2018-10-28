@@ -30,7 +30,6 @@ import VueScroller from 'vue-scroller'
 import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueScroller)
-Vue.use(ElementUI)
 Vue.use(VueAwesomeSwiper)
 Vue.component(Vodal.name, Vodal);
 Vue.use(VueLazyload, {

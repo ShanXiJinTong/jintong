@@ -72,7 +72,7 @@
 </template>
 <script>
   import {getheaders, postheaders} from '../config'
-
+  import {Input,Icon,Dialog} from "element-ui"
   export default {
     name: 'WaitServicePay',
     data() {

@@ -50,6 +50,7 @@
 	</div>
 </template>
 <script>
+    import {Input,Icon,Form} from "element-ui"
 	export default {
 		name: 'Sign',
 		data() {
