@@ -1,7 +1,7 @@
 <template>
     <div id="dialog">
         <div class="header">
-            <a href="#/totaltab/wechat">{{p}}</a>
+            <span>{{p}}</span>
             <i class="iconfont icon-wo"></i>
         </div>
         <keep-alive>
@@ -38,7 +38,7 @@
         methods: {
             refresh (done) { //这是向下滑动的时候请求最新的数据
                 this.offset = this.offset+1;
-                var userId = JSON.parse($.cookie("userId"));
+                var userId = JSON.parse($.cookie("user")).userId;
                 var fid = this.$route.query.fid;
                 var oldHeight = this.$refs.box.offsetHeight;
                 $.ajax({
@@ -101,10 +101,12 @@
         mounted() {
             $.cookie("a","1");
             var _this = this;
-            var myobj = {
-                userId:$.cookie("userId"),
-                userName:$.cookie("userName")
-            };
+            var myobj = JSON.parse($.cookie("user"));
+            // console.log(userInfo);
+            // var myobj = {
+            //     userId:userInfo.userId,
+            //     userName:userInfo.userName
+            // };
             this.$store.state.myId = myobj.userId;
             this.p = this.$route.query.p;
             this.socket.on("connection", function (data) {
@@ -138,11 +140,10 @@
                     },0)
                 }
             });
-
-            var userId = myobj.userId;
             var fid = this.$route.query.fid;
+            var userId = myobj.userId;
             $.ajax({
-                url:"http://www.chengzhanghao.com:1701/getChatInfo/"+userId+"/"+fid+"/"+this.offset,
+                url:"http://www.chengzhanghao.com:1701/getChatInfo/"+myobj.userId+"/"+fid+"/"+this.offset,
                 dataType:"json",
                 success(data){
 
@@ -180,6 +181,7 @@
 
                 }
             });
+            document.setTitle('客服中心');
 
 
         }

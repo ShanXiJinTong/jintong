@@ -88,6 +88,7 @@
         			this.payment = this.list[0].actual_payment;
         		}
         	});
+            document.setTitle('钱包');
         }
     }
 </script>

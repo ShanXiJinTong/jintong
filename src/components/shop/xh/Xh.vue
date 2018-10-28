@@ -1,5 +1,6 @@
 <template>
     <div id="xh">
+      <title>商场</title>
         <!--banner开始-->
         <section class="wsq-banner">
             <div class="wsq-title">
@@ -354,6 +355,8 @@
         },
         components: {
           Tab
+        },
+        mounted:function () {
         }
     }
 </script>

@@ -96,6 +96,9 @@
         name: 'WaitService',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('待服务');
         }
     }
 </script>

@@ -1,5 +1,5 @@
 <template>
-<div id="RefundDetail">
+<div id="RefundDetail" >
     <!--列表开始-->
     <div class="sunShopbox" >
         <div class="sunBottom">
@@ -172,10 +172,16 @@
                 this.dialogImageUrl = file.url;
                 this.dialogVisible = true;
             }
+        },
+        mounted:function () {
+            document.setTitle('申请退款');
         }
     }
 </script>
 <style scoped>
+    #RefundDetail{
+      overflow: hidden;
+    }
     .sunContent1>.sunShopbox{
         width: 100%;
         height: 2.5rem;
@@ -604,4 +610,9 @@
         margin: 0.7rem  auto 0 auto;
     }
 
+</style>
+<style>
+  #app{
+    overflow: hidden;
+  }
 </style>

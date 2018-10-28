@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    <title>商家</title>
   </head>
   <style>
     *{
@@ -13,5 +12,19 @@
   <body style="background: #fbffff;">
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+        document.setTitle = function(t) {
+            document.title = t;
+            var i = document.createElement('iframe');
+            i.src = '//m.baidu.com/favicon.ico';
+            i.style.display = 'none';
+            i.onload = function() {
+                setTimeout(function(){
+                    i.remove();
+                }, 9)
+            }
+            document.body.appendChild(i);
+        }
+    </script>
   </body>
 </html>

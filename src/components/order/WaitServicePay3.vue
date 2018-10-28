@@ -101,9 +101,6 @@
       <div class="line">
         <div class="line1"></div>
       </div>
-      <div class="line">
-        <div class="line1"></div>
-      </div>
       <div class="bb">
         <div class="yuanjiao11"></div>
         <span>备注</span>
@@ -114,12 +111,6 @@
       <div class="line">
         <div class="line1"></div>
       </div>
-    </div>
-    <div class="line">
-      <div class="line1"></div>
-    </div>
-    <div class="line" style="padding-bottom: 1.08rem;">
-      <div class="line1"></div>
     </div>
     <div class="root">
       <div class="rleft">
@@ -295,6 +286,9 @@
         })
       }
 
+    },
+    mounted:function () {
+        document.setTitle('订单');
     }
   }
 </script>

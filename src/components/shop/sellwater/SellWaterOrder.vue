@@ -138,6 +138,9 @@
         name: 'SellWaterOrder',
         data() {
             return {}
+        },
+        mounted:function () {
+            document.setTitle('订单');
         }
     }
 </script>

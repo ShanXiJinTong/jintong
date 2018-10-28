@@ -205,6 +205,9 @@
                 this.dialogVisible = true;
             }
 
+        },
+        mounted:function () {
+            document.setTitle('修改申请');
         }
 
     }

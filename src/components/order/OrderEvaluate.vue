@@ -90,6 +90,7 @@
       this.product_id = this.$route.query.product_id;
       this.formdata.customer_id = localStorage['fecshop-uuid'];
       this.formdata.product_id = this.$route.query.product_id;
+      document.setTitle('发表评价');
     }
   }
 </script>

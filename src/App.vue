@@ -64,6 +64,18 @@
       height: 100px;
       line-height: 102px;
     }
+  .el-progress.el-progress--circle{
+    width: 80%;
+    height: 80%;
+  }
+  .el-progress-circle{
+    width: 100%!important;
+    height: 100%!important;
+  }
+  .el-upload-list--picture-card .el-upload-list__item-actions{
+    width: 100%;
+    height: 100%;
+  }
     .el-upload-list--picture-card .el-upload-list__item{
       width: 100px;
       height: 100px;

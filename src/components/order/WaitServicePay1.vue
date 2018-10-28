@@ -59,21 +59,12 @@
     <div class="line">
       <div class="line1"></div>
     </div>
-    <div class="line">
-      <div class="line1"></div>
-    </div>
-    <div class="line">
-      <div class="line1"></div>
-    </div>
     <div class="bb">
       <div class="yuanjiao11"></div>
       <span>备注</span>
       <div class="xuantian">
         <input type="text" placeholder="请输入备注(25字以内)" v-model="form.order_remark">
       </div>
-    </div>
-    <div class="line">
-      <div class="line1"></div>
     </div>
     <div class="line">
       <div class="line1"></div>
@@ -261,6 +252,9 @@
           }
         })
       }
+    },
+    mounted:function () {
+        document.setTitle('订单');
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div style="overflow: hidden;">
     <div v-if="carInfo.length">
-      <vodal :show="show" animation="rotate" @hide="show = false" :width="260" :height="150">
+      <vodal :show="show"  @hide="show = false" :width="260" :height="150">
         <div style="height: 100%;text-align: center;line-height: 100px;">{{mes}}</div>
         <div
           style="position: absolute;bottom: 0.3rem;right: 0.3rem;width: 1.3rem;line-height: 0.5rem;text-align: center;border-radius:0.3rem;background: #007AFF;color: #fff;"
@@ -305,6 +305,7 @@
     },
     mounted: function () {
       this.getData();
+      document.setTitle('购物车');
     },
     components: {
       Scroll
