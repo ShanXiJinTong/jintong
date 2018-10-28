@@ -47,7 +47,6 @@
 </template>
 
 <script>
-    import {Icon} from "element-ui"
     export default {
         name: "FinalPaymentService",
         mounted:function () {

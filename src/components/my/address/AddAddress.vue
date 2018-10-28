@@ -59,7 +59,6 @@
 </template>
 <script>
     import {postheaders} from "../../config";
-    import {Input,Icon,Dialog,Checkbox} from "element-ui"
     export default {
         name: 'AddAddress',
         data() {

@@ -42,7 +42,6 @@
     </div>
 </template>
 <script>
-    import {Icon} from "element-ui"
     import Tab from "../common/tab"
     export default {
         name: 'Index',
