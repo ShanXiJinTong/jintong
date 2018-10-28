@@ -166,7 +166,6 @@
               this.isHot = el.innerText
             },
             handleRemove(file, fileList) {
-                console.log(file, fileList);
             },
             handlePictureCardPreview(file) {
                 this.dialogImageUrl = file.url;

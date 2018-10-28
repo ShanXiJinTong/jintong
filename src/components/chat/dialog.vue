@@ -102,11 +102,6 @@
             $.cookie("a","1");
             var _this = this;
             var myobj = JSON.parse($.cookie("user"));
-            // console.log(userInfo);
-            // var myobj = {
-            //     userId:userInfo.userId,
-            //     userName:userInfo.userName
-            // };
             this.$store.state.myId = myobj.userId;
             this.p = this.$route.query.p;
             this.socket.on("connection", function (data) {
@@ -132,7 +127,6 @@
                 _this.$refs.text.innerHTML = "";
             });
             _this.socket.on("returnMess", function (data) {
-                console.log(data);
                 if(document.querySelector(".section")){
                     document.querySelector(".section").innerHTML += (`<div class="text" style="float:left;clear:both;height:2.5rem;"><img src='${data.user}' style="width:2.5rem;height:2.5rem;float:left;"/><span style="line-height:2rem;display:inline-block;max-width:10rem;border-radius:10px;background-color:#A0E759;">${data.message}</span></div>`);
                     setTimeout( ()=>{

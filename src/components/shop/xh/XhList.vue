@@ -158,7 +158,6 @@
 
                 var el = event.target;
                 this.active = el.innerText;
-                // console.log();
             },
             tagHot() {
                 var el = event.target;

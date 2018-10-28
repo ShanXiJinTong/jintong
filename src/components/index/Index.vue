@@ -60,8 +60,7 @@
         methods: {
             getMenu() {
                 this.$http.get('/general/base/menu').then(res => {
-                console.log(res.data);
-                	
+
                     for(var i in res.data ){
                         var arr = {
                             name:res.data[i].name,

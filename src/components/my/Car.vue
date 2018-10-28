@@ -152,7 +152,6 @@
             item_id: itemid,
           })
         }).then(res => {
-          console.log(res);
         })
       },
       addNumber(item) {

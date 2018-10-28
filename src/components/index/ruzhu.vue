@@ -42,12 +42,6 @@
         }
         copyele.select();
         let result = document.execCommand('copy');
-        if(result) {
-          console.log('copy success');
-        } else {
-          console.error('copy fail');
-        }
-
 				this.$message({
 					type: "success",
 					message: "链接已复制"

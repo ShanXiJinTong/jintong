@@ -316,7 +316,6 @@
                     if (this.coupon.length > 0) {
                         this.couponName = this.coupon[0].coupon_name;
                     }
-                    console.log(this.shopDetail);
                 })
 
             },

@@ -89,7 +89,6 @@
                 }).then(res=>{
                     res.data.data.products.forEach(elemlent=>{
                         this.list.push(...[elemlent.one,elemlent.two]);
-                        console.log(this.list);
                     })
                 })
             },
