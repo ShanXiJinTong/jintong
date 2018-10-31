@@ -76,7 +76,7 @@
                     alert('手机号未注册');
                 } else if (this.param == this.form.password && this.param) {
 
-                    this.$http.get("/customer/login/getuserinfo?tel=" + this.form.tel).then(res => {
+                    this.$http.get("/api/Customer/checktel?tel=" + this.form.tel).then(res => {
                         if (res.data.code == 200) {
                             localStorage['access-token']=123123123;
                             localStorage['fecshop-uuid']=res.data.data.id;
@@ -144,7 +144,7 @@
                 if (!this.form.tel) {
                     return;
                 }
-                this.$http.get("/customer/login/checktel?tel=" + this.form.tel).then(res => {
+                this.$http.get("/api/Customer/checktel?tel=" + this.form.tel).then(res => {
                     if (res.data.code != 200) {
                         this.flag=false;
                         this.param=false;

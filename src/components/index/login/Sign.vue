@@ -42,9 +42,7 @@
 						</div>
 						<span>注册即视为同意接受晋彤电商发送的商业性信息</span>
 					</li>
-
 				</ul>
-
 			</form>
 		</el-form>
 	</div>
@@ -66,7 +64,7 @@
 					this.flag = false;
 					return callback(new Error('格式有误'))
 				}
-				this.$http.get("/customer/login/checktel?tel=" + this.ruleForm2.tel).then(res => {
+				this.$http.get("/api/Customer/checktel?tel=" + this.ruleForm2.tel).then(res => {
 					if(res.data.code == 200) {
 						this.flag = false;
 						callback(new Error("该手机号已注册"));
@@ -127,11 +125,7 @@
 		methods: {
 			submit() {
 				if(this.param != this.code) {
-					this.$message({
-						message: '验证码输入有误',
-						type: 'error',
-						duration: 800
-					});
+					alert("验证码输入有误");
 					return;
 				}
 				this.flag1 = false;
